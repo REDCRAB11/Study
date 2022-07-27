@@ -1,5 +1,7 @@
 package data;
 
+import java.util.Calendar;
+
 public class Test18 {
 
 	public static void main(String[] args) {
@@ -26,7 +28,9 @@ public class Test18 {
 		
 		//준비 
 		int year = 2000;
-		int now= 2022;
+//		int now= 2022;
+		int now = Calendar.getInstance().get(Calendar.YEAR);
+	
 		
 		//계산 
 		int age = now - year +1;
