@@ -28,7 +28,7 @@ public class Test07 {
 		//출력 
 		System.out.println(H);
 		System.out.println(M);
-		System.out.println(time);
+	
 		
 	}
 
