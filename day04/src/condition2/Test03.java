@@ -4,7 +4,7 @@ public class Test03 {
 
 	public static void main(String[] args) {
 		
-		int month = 10;
+		int month = 10;//나중에 스캐너로 바꾸면 오 굿 ~ 
 		switch(month) {
 		case 1: 
 			System.out.println("31일");
@@ -114,10 +114,6 @@ public class Test03 {
 		break;
 		}
 		System.out.println(max+"일");
-		
-		
-		
-		
 		
 		
 		
