@@ -39,6 +39,7 @@ public class Test04 {
 			System.out.println("31일");
 			break;
 		}
+		a.close();
 		
 
 	}
