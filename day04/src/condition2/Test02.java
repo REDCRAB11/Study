@@ -5,7 +5,7 @@ public class Test02 {
 	public static void main(String[] args) {
 		//Test01을 switch ~ case 구문으로 변경 
 		
-		int direction = 2;
+		int direction = 8;
 		
 		switch(direction) {
 		case 2:
