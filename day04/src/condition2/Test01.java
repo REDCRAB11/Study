@@ -8,7 +8,7 @@ public class Test01 {
 		// - 동일한 실행속도가 필요한 상황이라면 (ex, 키도브 마우스 처리) 문제가 된다. 
 		
 		
-		int direction = 2;
+		int direction = 4;
 		
 		if(direction == 2) {
 			System.out.println("아래로 한 칸 이동");
