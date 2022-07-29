@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Test04_1 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		
 		//풀이 ~ 
@@ -26,6 +26,7 @@ public class Test04_1 {
 			
 		//	System.out.println("?분 ?초 남았습니다.");
 			System.out.println(i/60 + "분 남았습니다." + i%60 + "초 남았습니다.");
+			Thread.sleep(1000L); //진짜 타이머처럼 나온다..
 		}
 		
 		
