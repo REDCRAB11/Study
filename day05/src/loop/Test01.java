@@ -16,7 +16,7 @@ public class Test01 {
 		//for(int i=0; i<0; i+=1) (i=0; i<10; i++) 다 같은 값을 가진다. 
 		for(int i=0; i<10; i=i+1) {
 		System.out.println("Hello");
-		
+
 		}
 	
 	}
