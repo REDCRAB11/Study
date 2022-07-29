@@ -14,8 +14,8 @@ public class Test05 {
 		for(int i=2; i <=100; i +=2) {
 			System.out.println("짝수 = " + i);
 		}
-			
 		
+	
 		
 		//공부는 아래쪽을 공부하자 ! 
 		
