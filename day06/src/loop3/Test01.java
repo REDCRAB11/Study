@@ -19,7 +19,7 @@ public class Test01 {
 			n++;	
 		}
 		
-//		System.out.println(n);   while은 밖에서도 사용 가능하다. 
+//		System.out.println(n);   while은 밖에서도 사용 가능하다.  for과 똑같이 쓰기에는 별로임,,
 		
 	}
 
