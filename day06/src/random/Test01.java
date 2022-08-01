@@ -44,9 +44,6 @@ public class Test01 {
 		int number2 = r.nextInt(10/*개*/) + 1/*부터*/;
 		System.out.println("number2 = "+  number2);
 	
-	
-	
-	
 	}
 
 }
