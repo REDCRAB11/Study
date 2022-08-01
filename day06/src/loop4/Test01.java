@@ -21,7 +21,6 @@ public class Test01 {
 		while(score < 0 || score >100);
 //		while(잘못 입력하면); 
 		System.out.println("입력된 점수는 " + score + "점 입니다. ");
-		
 		sc.close();
 
 		
