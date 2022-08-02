@@ -14,7 +14,7 @@ public class Test09_1 {
 			
 			int enchant = r.nextInt(100) + 1;
 			count++;
-			
+		
 			if(enchant <= 25) {//성공
 				if(item < 15) {
 					item++;
