@@ -12,7 +12,6 @@ public class Test14_2 {
 		//준비
 		int[] data = new int[] {30, 50, 20, 10, 40};
 		
-		
 		//정렬
 		Arrays.sort(data);
 		
