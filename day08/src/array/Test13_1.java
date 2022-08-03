@@ -9,11 +9,10 @@ public class Test13_1 {
 
 	
 		
-		
 		//계산(정렬)
-		for(int i=3; i>=0; i--) {
+		for(int i=data.length-2; i>=0; i--) {
 			for(int k=0; k<=i; k++) {
-				System.out.println(data[k] + "," +data[k+1]);
+//				System.out.println(data[k] + "," +data[k+1]);
 				if(data[k] > data[k+1]) {
 					int backup = data[k];
 					data[k] = data[k+1];
@@ -22,6 +21,16 @@ public class Test13_1 {
 				}
 		}
 		
+//		for(int i=3; i>=0; i--) {
+//			for(int k=0; k<=i; k++) {
+//				System.out.println(data[k] + "," +data[k+1]);
+//				if(data[k] > data[k+1]) {
+//					int backup = data[k];
+//					data[k] = data[k+1];
+//					data[k+1] = backup;
+//					}
+//				}
+//		}
 //		
 //		for(int i=0; i<=3; i++) {
 //			System.out.println(data[i] + "," +data[i+1]);
