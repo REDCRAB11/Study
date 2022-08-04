@@ -10,7 +10,7 @@ public class Infor {
 	void set(String name, String list, int price, String event) {
 		this.name = name;
 		this.list = list;
-		this.price = price;
+		this.price = price; 
 		this.event = event;
 	}
 	

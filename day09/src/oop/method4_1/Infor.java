@@ -10,7 +10,7 @@ public class Infor {
 	void set(String name, String list, int price) {
 		
 //		method overlodaing: 같은 이름으로 메소드를 여러개 준비하는 것 
-		this.set(name, list, price, false);
+		this.set(name, list, price, false); 
 		
 //		this.name = name;
 //		this.list = list;
