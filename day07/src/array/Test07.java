@@ -46,16 +46,16 @@ public class Test07 {
 		//평균에 가장 가까운 학생 출력 
 		double[] gap = new double[data.length];
 		for(int i=0; i<data.length; i++) {
-			if(data[i] > avg) {
-				gap[i] = data[i]-avg;
+			if(data[i] > avg) {//data[i]가 의미하는 것 
+				gap[i] = data[i]-avg; // gap[i]가 의미하는 것 
 			}else {
-				gap[i] = avg - data[i];
+				gap[i] = avg - data[i]; // 
 			}
 		}
 		
 		index=0;
 		for(int i=0; i<data.length; i++) {
-			if(gap[index] > gap[i]) {
+			if(gap[index] > gap[i]) {// gap[index]가 의미하는 것 
 				index=i;
 			}
 		
