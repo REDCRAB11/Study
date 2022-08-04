@@ -25,12 +25,12 @@ public class Test07 {
 		// 가장 작은 학생의 위치와 신장 출력 
 		float maxi = data[0];
 		
-		for(int i =1; i<4; i++) {
+		for(int i =1; i<=4; i++) {
 			if(maxi > data[i]) {
 				maxi = data[i];
-				System.out.println("가장 작은 신장: " + maxi);
 			} 
 		}
+		System.out.println("가장 작은 신장: " + maxi);
 			
 			int index =0;
 		for(int i1=1; i1<4; i1++) {
@@ -53,6 +53,8 @@ public class Test07 {
 			}
 		}
 		
+		
+		//여기가 이해가 안되는 군요 ~ 
 		index=0;
 		for(int i=0; i<data.length; i++) {
 			if(gap[index] > gap[i]) {// gap[index]가 의미하는 것 
