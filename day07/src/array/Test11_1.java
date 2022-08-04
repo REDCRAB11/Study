@@ -3,49 +3,30 @@ package array;
 public class Test11_1 {
 
 	public static void main(String[] args) {
-		
-		// 배열 뒤집기 
-		
+		//배열 뒤집기
 		int[] data = new int[] {30, 10, 20, 50, 40};
 		
+		System.out.println("배열 크기 : " + data.length);
+		System.out.println("반복 횟수 : " + data.length / 2);
 		
 		//출력
-		for(int i=0; i<data.length; i++) {
+		for(int i=0; i < data.length; i++) {
 			System.out.println(data[i]);
 		}
 		
-		//뒤집기 코드 
-		for(int i=0; i < data.length/2; i++ ) {
-			int other = data.length-1 -i;
-//			System.out.println("i = " + i, " other= " + other);
+		//뒤집기 코드
+		for(int i=0; i < data.length / 2; i++) {
+			int other = data.length - 1 - i;
+			//System.out.println("i = " + i + " , other = " + other);
 			int backup = data[i];
 			data[i] = data[other];
 			data[other] = backup;
 		}
 		
-		
-		
-//		이건 일시적인 변환일뿐! 데이터가 바뀌면 값도 바뀌거나 에러뜬다. 
-//		int backup;
-//		backup = data[0];
-//		data[0] = data[4];
-//		data[4] = backup;
-//		
-//		backup = data[1];
-//		data[1] = data[3];
-//		data[3] = backup;
-
-		
-		System.out.println("배열 크기: " + data.length);
-		System.out.println("반복 횟수: " + data.length/2);
-		
-		
-		
+		System.out.println("----------");
 		//출력
-		
-		
-		
-
+		for(int i=0; i < data.length; i++) {
+			System.out.println(data[i]);
+		}
 	}
-
 }
