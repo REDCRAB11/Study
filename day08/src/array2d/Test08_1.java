@@ -22,7 +22,7 @@ public class Test08_1 {
 		
 		//[2] 평균
 		for(int i=0; i < data.length; i++) {
-			int average = data[i][3] / data[i].length;
+			int average = data[i][3] / 3;
 			data[i][4] = average;
 		}
 		

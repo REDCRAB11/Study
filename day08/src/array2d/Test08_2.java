@@ -24,7 +24,7 @@ public class Test08_2 {
 		
 		//[2] 평균
 		for(int i=0; i < data.length; i++) {
-			float average = data[i][3] / data[i].length;
+			float average = data[i][3] /3;
 			//소수점 1자리 처리
 			average = (int)(average * 10) / 10f;
 			data[i][4] = average;
