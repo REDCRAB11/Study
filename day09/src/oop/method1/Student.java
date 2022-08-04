@@ -15,6 +15,7 @@ public class Student {
 	
 	// 설정 메소드(코드 저장소)
 	//- 실행하려면 String과 int를 하나씰 전달해야하는 메소드 
+	// - 외부에서 전달된 값을 저장하는 변수를 "매개변수"라고 한다. (매개변수) 임 . 
 	void setting(String name, int score) {
 		this.name = name;
 		this.score = score;
