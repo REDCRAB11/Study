@@ -1,5 +1,7 @@
 package array2d;
 
+import java.util.Scanner;
+
 public class Test04 {
 
 	public static void main(String[] args) {
@@ -11,50 +13,34 @@ public class Test04 {
 //		1		4		7		10
 //		2		5		8		11
 //		3		6		9		12
-
-		int row = 3; 
-		int col = 4;
-		
-		int [][] a = new int[row][col];
+// 줄수>칸수 경우에는 실행이 안도니ㅏ?
 		
 		
-		int count = 1; 
-		for(int i=0; i<1; i++) {
-			for(int k=0; k<4; k++) {
-				a[i][k] = count;
-			   	count += 3;
-			
-			}
+		Scanner sc = new Scanner(System.in);
+		System.out.print("줄 수: ");
+		int row = sc.nextInt();
+		System.out.print("칸 수: ");
+		int col = sc.nextInt();
+		sc.close();
+		int[][] a = new int[row][col];
+		
+		
+		int n=1; 
+		for(int i =0; i<col; i++) {
+			for(int k=0; k<row; k++) {
+				a[k][i] = n;
+				n++;
+			}	
 		}
-		int count2=2;
-		for(int i=1; i<2; i++) {
-			for(int k=0; k<4; k++) {
-				a[i][k] = count2;
-			   	count2 += 3;
-			}
-		}
-		
-		int count3 =3;
-		for(int i=2; i<3; i++) {
-			for(int k=0; k<4; k++) {
-				a[i][k] = count3;
-			   	count3 += 3;
-			
-			}
-		}
-		
 		
 		for(int i=0; i<a.length; i++) {
 			for(int k=0; k<a[i].length; k++) {
 				System.out.print(a[i][k]);
 				System.out.print("\t");
-		
 			}
-			System.out.println();
-		}
+			System.out.println();	
+		}	
 		
 		
 	}
-
 }
-
