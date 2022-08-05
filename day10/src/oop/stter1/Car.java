@@ -51,5 +51,13 @@ public class Car {
 		System.out.println(this.speed);
 		System.out.println(this.passenger);
 		System.out.println(this.price);
+		
+	}
+	
+	Car(String name, int speed, int passenger, int price){
+		this.setName(name);
+		this.setSpeed(speed);
+		this.setPassenger(passenger);
+		this.setPrice(price);
 	}
 }
