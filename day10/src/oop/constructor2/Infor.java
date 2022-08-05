@@ -32,6 +32,13 @@ public class Infor {
 		this.level = level;
 	}
 
+	void levelUp() {
+		this.level++; 
+		// 그외 추가 작업.. ~~ 
+	}
+	
+	
+	
 	void vet() {
 		
 		System.out.println("아이디: " + this.id);

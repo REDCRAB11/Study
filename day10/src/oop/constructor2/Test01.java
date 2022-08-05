@@ -8,6 +8,11 @@ public class Test01 {
 		Infor b = new Infor("루이지", "마법사");
 		Infor c = new Infor("피오나", "마법사");
 		
+		//b의 레벨이 올랐다 
+//		b.level++;  비추천 ~~ 
+		b.levelUp(); // 추천 ~~! 
+		
+		
 		a.vet();
 		b.vet();
 		c.vet();
