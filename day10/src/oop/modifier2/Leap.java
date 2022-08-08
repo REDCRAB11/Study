@@ -7,7 +7,7 @@ public class Leap {
 	private int num;
 	private int kor, eng, mat;
 
-	void vet() {
+ public	void vet() {
 		
 		System.out.println(this.name);
 		System.out.println("학년: " + this.num);
