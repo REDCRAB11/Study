@@ -6,7 +6,7 @@ public class Robot { // 밑에가 풀이 ~ 위에가 내 풀이 ~
 		return a * a; 
 	}
 	
-	public static double getBmi(double b, double c) {//static은 내 안에서만 쓰는것 ! 밖에 요소는 쓰지 않음  // get을 이름 앞에 붙이지 않음 왜냐면 필드가 없으니깐 ~ 
+	public static double getBmi(double b, double c) {//static은 내 안에서만 쓰는것 ! 밖에 요소는 쓰지 않음  // get을 이름 앞에 붙이지 않음 왜냐면 필드가 없으니깐 ~  // static과 this.는 같이 쓸수 없다 .
 		return c /((b/100) * (b/100));
 	}
 	
