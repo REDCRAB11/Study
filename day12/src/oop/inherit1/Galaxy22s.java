@@ -2,7 +2,7 @@ package oop.inherit1;
 
 public class Galaxy22s {
 	//field - 정보 
-	private String color;
+	private String color; 
 	private String number;
 
 	
