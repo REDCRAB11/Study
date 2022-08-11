@@ -28,6 +28,8 @@ public class Test02 {
 		System.out.println(a instanceof String);
 		System.out.println(a instanceof Random);
 		
+		//Q. 내가 만든 클래스도 오브젝트의 자식인가?
+		Object s = new Student();
+		
 	}
-
 }
