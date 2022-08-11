@@ -10,9 +10,9 @@ public class Test02_2 {
 		Member admin = new Member("khacademy", "studnet");
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("아이디: ");
+		System.out.print("아이디: ");
 		String userId = sc.next() ;
-		System.out.println("비밀번호: ");
+		System.out.print("비밀번호: ");
 		String userPw = sc.next();
 		sc.close();
 		
