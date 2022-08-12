@@ -24,7 +24,7 @@ public class Test04_1 {
 		}
 		
 		boolean test = Pattern.matches(regex, date);
-		
+		 
 		System.out.println(test);
 	}
 
