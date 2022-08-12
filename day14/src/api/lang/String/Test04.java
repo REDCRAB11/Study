@@ -2,7 +2,7 @@ package api.lang.String;
 
 public class Test04 {
 	public static void main(String[] args) {
-		//기타 문자열 명령 
+		//기타 문자열 명령                     
 		String a = "안녕하세요";
 		
 		//1.한 글자씩 추출 명령
