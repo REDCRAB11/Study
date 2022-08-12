@@ -16,5 +16,10 @@ public class Test01 {
 		boolean test = Pattern.matches(regex3, phone);
 		System.out.println("test = " + test);
 		
+//		^[abc]$ :: a,b,c 중 하나 
+//		^[a-z]$ :: a ~ z 까지 중 하나 
+//		^[a-c]$ :: a 부터 c 사이의  글자 중 하나가 5번 반복 
+//		^[a-c]{3,5} :: a부터 c 사이의 글자가 3에서  5번 반복 
+		
 	}
 }
