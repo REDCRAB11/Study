@@ -38,7 +38,7 @@ public class Test04 {
 			}
 			//예외 처리를 하지 않은 것처럼 stack trace를 출력하고 싶을 수도 있다. 
 			// -> 개발이 끝나면 삭제 
-			e.printStackTrace(); //원상복귀 ! 
+//			e.printStackTrace(); //원상복귀 ! 
 		}
 	
 	}
