@@ -13,7 +13,7 @@ public class Student {
 	// - 예외가 발생할 것이라고 셩고하는 코드 , 예외 전가 
 	// - 예외 처리가 되어있지 않으면 호출이 불가한 메소드가 된다. 
 	
-	public String getName(String name) throws Exception {
+	public String getName(){
 		return name;
 	}
 	public void setName(String name) throws Exception {
@@ -52,7 +52,7 @@ public class Student {
 		}
 		this.mat = mat;
 	}
-	
+	public Student () {}
 	public Student(String name, int kor, int eng, int mat) throws Exception {
 		this.setName(name);
 		this.setKor(kor);
