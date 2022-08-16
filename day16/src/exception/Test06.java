@@ -8,7 +8,7 @@ public class Test06 {
 	public static void main(String[] args) {
 	
 		// try ! with 구문 (java 8+)
-		// - 자동 close를 수행하는 try구문 
+		// - 자동 close를 수행하는 try구문  
 		// - 기존의 try구문에 resource를 선언하는 구역이 하나 더 추가되었다.  
 		// - close()가 가능한 객체를 선언하면 자동으로 try 종료 시 close를 수행
 		// - AutoClosable의 자식 클래스만 선언 가능 
