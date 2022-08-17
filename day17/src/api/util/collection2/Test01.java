@@ -31,7 +31,6 @@ public class Test01 {
 		
 		System.out.println(c);
 		System.out.println(c.size());
-		
 		//(주의) .get()이라는 명령어가 없다. 
 		
 	}
