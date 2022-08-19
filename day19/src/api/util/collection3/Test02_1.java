@@ -21,7 +21,7 @@ public class Test02_1 {
 		sc.close();
 
 		boolean isLogin = login.containsKey(id) && pw.equals(login.get(id));
-		
+//		boolean isLogin = login.get(id) != null && login.get(id).equals(pw); 이것도 같은 말 ~ 근데 추천하지는 않음 
 		
 		if(isLogin) {
 			System.out.println("로그인 성공");
