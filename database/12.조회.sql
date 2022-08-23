@@ -1,5 +1,6 @@
 -- 조회(Select)
--- 모든 항
+-- 저장된 데이터를 가져오도록 지시하는 명령 
+-- SELECT 항목 FROM 테이블 [WHERE 조건문]
 
 create table product(
 no number primary key,
