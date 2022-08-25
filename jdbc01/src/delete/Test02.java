@@ -11,7 +11,7 @@ public class Test02 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("번호: ");
+		System.out.println("번호: "); 
 		int no = sc.nextInt();
 		sc.close();
 		

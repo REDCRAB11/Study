@@ -11,7 +11,7 @@ public class Test01 {
 		
 		// 데이터 준비 
 		String state = "잉글랜드";
-		
+		 
 		//DB 처리 
 		JdbcTemplate template = JdbcUtil.getTemplate();
 		
