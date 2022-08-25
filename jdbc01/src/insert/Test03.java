@@ -21,8 +21,8 @@ public class Test03 {
 		
 		// 변수 
 		int rank = 6; 
-		String state = "스페인";
-		double score = 1782.27;
+		String state = "잉글랜드";
+		double score = 1773.25;
 		
 		// 1.로그인을 도와주는 도구를 생성(Spring 제공)
 		// - 드라이버 클래스 정보, 접속정보, 계정정보, 비밀번호정보 설정 
