@@ -1,6 +1,5 @@
 package app;
 
-
 import java.util.Scanner;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -15,19 +14,18 @@ public class Test03 {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("번호입력: ");
 		int music_no = sc.nextInt();
-		int music_play = +1;
 		JdbcTemplate template = JdbcUtil.getTemplate();
 		
-		String sql = "update music set music_no=? where music_play=?";
-		Object[] param = {music_no,music_play};
+		String sql = "update music set music_play = music_play +1 where music_no =?";
+		Object[] param = {music_no};
 		
 		int result = template.update(sql,param);
 		System.out.println("result: " + result);
 		
 		if(result > 0) {
-			System.out.println("변경 완료");
+			System.out.println("재생 성공");
 		}else {
-			System.out.println("변경 불가");
+			System.out.println("존재하지 않는 음원 번호");
 		}
 	}
 }

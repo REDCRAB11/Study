@@ -1,5 +1,6 @@
 package app;
 
+import java.sql.Date;
 import java.util.Scanner;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -24,13 +25,16 @@ public class Test01 {
 		String release_time = sc.next();
 		sc.close();
 		
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setUsername("khacademy");
-		dataSource.setPassword("khacademy");
-		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
+		Date release_timeDate = Date.valueOf(release_time);
+		System.out.println(release_timeDate);
 		
-		JdbcTemplate template = new JdbcTemplate(dataSource);
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setUsername("khacademy");
+//		dataSource.setPassword("khacademy");
+//		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
+//		dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
+//		
+		JdbcTemplate template = new JdbcTemplate();
 		
 		String sql ="insert into music(music_no, music_title, music_artist, music_album, music_play, release_time) "
 						+ "values(?,?,?,?,?,?)";

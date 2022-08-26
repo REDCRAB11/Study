@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 import dto.MusicDto;
 import util.JdbcUtil;
 
-public class Test06 {
+public class Test06_1 {
 	public static void main(String[] args) {
 //		app.Test06 : 사용자에게 검색어를 입력받아 제목, 가수, 앨범에 대한 유사검색을 수행한 뒤 결과를 구하여 출력
 		Scanner sc = new Scanner(System.in);
@@ -19,15 +19,14 @@ public class Test06 {
 		
 		JdbcTemplate template = JdbcUtil.getTemplate();
 		
-//		String sql = "select * from music where music_title, music_artist, music_album like '%'||?||'%'";
-		String sql = "select * from music where instr(upper(music_title)), upper(?)) > 0"
-						+ "union"
-						+ "select * from music where instr(upper(music_artist)), upper(?)) > 0"
-						+ "union"
-						+ "select * from music where instr(upper(music_album)), upper(?)) > 0";
-		
+
+		String sql = "select * from music where instr(upper(music_title), upper(?)) > 0 "
+							+ "union "
+							+ "select * from music where instr(upper(music_artist), upper(?)) > 0 "
+							+ "union "
+							+ "select * from music where instr(upper(music_album), upper(?)) > 0";
 		Object[] param = {keyword, keyword, keyword};
-	
+			
 		RowMapper<MusicDto> mapper = (rs, idx) -> {
 			MusicDto dto = new MusicDto();
 			dto.setNo(rs.getInt("music_no"));

@@ -15,7 +15,7 @@ public class Test05 {
 		
 		JdbcTemplate template = JdbcUtil.getTemplate();
 		
-		String sql="select * from music order by music_play asc ";
+		String sql="select * from music order by music_play desc, music_no asc ";
 		
 		RowMapper<MusicDto> mapper = new RowMapper<MusicDto>() {
 
@@ -35,13 +35,14 @@ public class Test05 {
 		
 		List<MusicDto> list = template.query(sql, mapper);
 		for(MusicDto dto : list) {
-			System.out.print(dto.getNo()+ "\t");
-			System.out.print(dto.getTitle()+ "\t");
-			System.out.print(dto.getArtist()+ "\t");
-			System.out.print(dto.getAlbum()+ "\t");
-			System.out.print(dto.getPlay()+ "\t");
-			System.out.print(dto.getReleasetime() + "\t");
-			System.out.println();
+			System.out.println(dto);
+//			System.out.print(dto.getNo()+ "\t");
+//			System.out.print(dto.getTitle()+ "\t");
+//			System.out.print(dto.getArtist()+ "\t");
+//			System.out.print(dto.getAlbum()+ "\t");
+//			System.out.print(dto.getPlay()+ "\t");
+//			System.out.print(dto.getReleasetime() + "\t");
+//			System.out.println();
 		}
 	}
 }

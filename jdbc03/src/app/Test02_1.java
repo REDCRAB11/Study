@@ -8,9 +8,11 @@ import util.JdbcUtil;
 
 public class Test02_1 {
 	public static void main(String[] args) {
-		
+// 문제에 없다고 해도 필요하면 추가로 해야한다 ~ music_no<- 이거 ㅋㅋ 
+		// 정보변경 
 		Scanner sc = new Scanner(System.in);
-		
+		System.out.println("번호: ");
+		int music_no = sc.nextInt();
 		System.out.println("타이틀: ");
 		String music_title = sc.next();
 		System.out.println("가수: ");
@@ -21,8 +23,8 @@ public class Test02_1 {
 		
 		JdbcTemplate template = JdbcUtil.getTemplate();
 		
-		String sql = "update music set music_title=?, music_artist=?, music_album=?";
-		Object[] param = {music_title, music_artist, music_album};
+		String sql = "update music set music_title=?, music_artist=?, music_album=? where music_no=?";
+		Object[] param = {music_title, music_artist, music_album, music_no};
 		
 		int result = template.update(sql,param);
 		
