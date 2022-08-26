@@ -10,7 +10,7 @@ import util.JdbcUtil;
 
 public class Test07 {
 	public static void main(String[] args) {
-		// 검색
+		// 문자열 유사 검색
 		JdbcTemplate template = JdbcUtil.getTemplate();
 		
 		String sql = "select * from pocket_monster where instr(name,?) >0 ";
