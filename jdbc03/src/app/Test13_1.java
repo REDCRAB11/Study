@@ -10,12 +10,12 @@ import org.springframework.jdbc.core.RowMapper;
 
 import util.JdbcUtil;
 
-public class Test13 {
+public class Test13_1 {
 
 	public static void main(String[] args) {
 		JdbcTemplate template = JdbcUtil.getTemplate();
 		
-		String sql = "select * from book where instr(book_name, ?) > 0 or instr(book_writer, ?) > 0 or instr(book_publisher, ?) > 0 order by book_serial asc";
+		String sql = "select * from book where instr(upper(book_name, ?), upper(?)) > 0 or instr(upper(book_writer, ?), upper(?)) > 0 or instr(upper(book_publisher, ?), upper(?)) > 0 order by book_serial asc";
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("검색어 입력 : ");
