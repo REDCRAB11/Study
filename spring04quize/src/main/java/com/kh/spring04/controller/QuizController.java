@@ -56,7 +56,7 @@ public class QuizController {
 //		text += "?x? =";
 //		text += "<br>"; 
 		return buffer.toString();
-	}
+	}    
 	
 	
 	// 파라미터가 같은 이름으로 여러개 존재하는 경우 
