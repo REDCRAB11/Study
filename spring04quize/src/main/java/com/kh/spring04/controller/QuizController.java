@@ -85,7 +85,7 @@ public class QuizController {
 //	public String total(@RequestParam List<Integer> v) {
 //	System.out.println(v);
 //	return "합계 : " + v;
-//	}
+//	} 
 	
 }
 }
