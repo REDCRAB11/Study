@@ -18,7 +18,7 @@ public class QuizController {
 		int total = 0;
 		for(int i = begin; i <= end; i++) {
 			total += i;
-		}
+		} 
 		return "합계: ";
 		
 	}
