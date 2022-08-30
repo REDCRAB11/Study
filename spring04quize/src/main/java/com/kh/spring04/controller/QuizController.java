@@ -55,7 +55,7 @@ public class QuizController {
 //		반복되는데 스트링에는 + 기호를 쓸 수 없다. 
 //		text += "?x? =";
 //		text += "<br>"; 
-		return buffer.toString();
+		return buffer.toString(); 
 	}    
 	
 	
