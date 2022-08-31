@@ -10,7 +10,7 @@ public class GuestBookDto {
 	private String memo;
 	public GuestBookDto() {
 		super();
-	}
+	} 
 	public int getNo() {
 		return no;
 	}
