@@ -149,7 +149,7 @@ public class MusicController {
 	
 	@RequestMapping("/detail/{musicNo}")
 	@ResponseBody
-	public String detail2(@PathVariable int musicNo) {
+	public String detail(@PathVariable int musicNo) {
 		String sql = "select * from music where music_no = ?";
 		Object[] param = {musicNo};
 		MusicDto musicDto = jdbcTemplate.query(
