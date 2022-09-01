@@ -21,4 +21,19 @@ public class ViewController {
 	public String test03() {
 		return"tag/test03";
 	}
+	
+	@RequestMapping("/sns")
+	public String sns() {
+		return "tag/sns";
+	}
+	
+	@RequestMapping("/test05")
+	public String test05() {
+		return "tag/test05";
+	}
+	
+	@RequestMapping("/test06")
+	public String test06() {
+		return"tag/test06";
+	}
 }
