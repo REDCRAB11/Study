@@ -12,4 +12,10 @@ public class HomeController {
 //		return "/WEB-INF/views/hello.jsp";
 		return "hello";
 	}
+	
+	
+	@RequestMapping("/test")
+	public String test() {
+		return "test";
+	}
 }
