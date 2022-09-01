@@ -36,4 +36,14 @@ public class ViewController {
 	public String test06() {
 		return"tag/test06";
 	}
+	
+	@RequestMapping("/test07")
+	public String test07() {
+		return"tag/test07";
+	}
+	
+	@RequestMapping("/test08")
+	public String test08() {
+		return"tag/test08";
+	}
 }
