@@ -10,7 +10,7 @@
 
 <!-- placeholder는 도움말을 작성하는 속성
 		required는 필수 입력 항목을 작성하는 속성
-			- 이름과 값이 같은 속성은 이름만 적어도 효과를 인정 
+			- 이름과 값이 같은 속성은 이름만 적어도 효과를 인정  
 			- required, readonly, disabled, checked, selected....
  -->
 
