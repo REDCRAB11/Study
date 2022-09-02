@@ -42,6 +42,6 @@
 앨범명: <input name = "musicAlbum" type="text" required>	<br><br>
 발매일: <input name = "releaseTime"  type="date" required>	<br><br>
 <button>등록</button>
-</form>
+</form> 
 </body>
 </html>
