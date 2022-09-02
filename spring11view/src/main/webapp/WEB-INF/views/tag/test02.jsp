@@ -25,7 +25,7 @@
 		 <a href="/tag/test01">test01로 이동</a>
 		 
 		 <!-- 상대 경로(relative path) 방식 : 현재 파일의 위치에서부터 시작하는 경로 -->
-		 <a href="test01">test01로 이동</a>
+		 <a href="test01">test01로 이동</a> 
 		 
 </body>
 </html>
