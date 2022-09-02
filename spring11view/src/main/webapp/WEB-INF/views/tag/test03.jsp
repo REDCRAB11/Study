@@ -27,7 +27,7 @@
  	<img src="http://localhost:8888/image/a.jpg" width="200" height="">
   	<img src="http://localhost:8888/image/a.jpg" width="20%" >
   	<hr>
-  	<!--  절대 경로 -->
+  	<!--  절대 경로 --> 
   	<img src="/image/a.jpg" width="200">
  	
  	<!--  상대 경로 -->
