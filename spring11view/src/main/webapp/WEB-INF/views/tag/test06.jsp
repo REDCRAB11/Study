@@ -15,7 +15,7 @@
 		<input name = "name">
 		<input name = "type">
 		<button>등록</button>
-		</form>
+		</form> 
 		
 </body>
 </html>
