@@ -9,5 +9,6 @@
 <body>
 <h1>등록  완료!</h1>
 <h2><a href="/" > 메인페이지로 이동 </a></h2>
+<h2><a href = "list"> 목록으로 이동 </a></h2>
 </body>
 </html>
