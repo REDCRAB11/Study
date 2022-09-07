@@ -8,4 +8,5 @@ public interface PocketMonsterDao {
 
 	void insert(PocketMonsterDto pocketMonsterDto);
 	List<PocketMonsterDto> selectList();
+	PocketMonsterDto selectOne(int no);
 }

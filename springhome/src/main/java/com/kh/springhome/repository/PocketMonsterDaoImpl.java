@@ -5,7 +5,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -27,6 +29,23 @@ public class PocketMonsterDaoImpl implements PocketMonsterDao{
 		}
 	};
 
+	private ResultSetExtractor<PocketMonsterDto> extractor = new ResultSetExtractor<PocketMonsterDto>() {
+
+		@Override
+		public PocketMonsterDto extractData(ResultSet rs) throws SQLException, DataAccessException {
+			if(rs.next()) {
+				PocketMonsterDto dto = new PocketMonsterDto();
+				dto.setNo(rs.getInt("no"));
+				dto.setName(rs.getString("name"));
+				dto.setType(rs.getString("type"));
+				return dto;
+			}else {
+				return null;
+			}
+		}
+	};
+	
+	
 	@Override
 	public void insert(PocketMonsterDto pocketMonsterDto) {
 		String sql = "insert into pocket_monster(no, name, type) "
@@ -43,6 +62,13 @@ public class PocketMonsterDaoImpl implements PocketMonsterDao{
 	public List<PocketMonsterDto> selectList() {
 		String sql = "select * from pocket_monster order by no asc";
 		return jdbcTemplate.query(sql, mapper);
+	}
+	
+	@Override
+	public PocketMonsterDto selectOne(int no) {
+		String sql = "select * from pocket_monster where no =?";
+		Object[] param = {no};
+		return jdbcTemplate.query(sql, extractor, param);
 	}
 }
 
