@@ -8,5 +8,5 @@ public interface GuestBookDao {
 	void insert(GuestBookDto dto);
 	List<GuestBookDto> selectList();
 	List<GuestBookDto>selectList(String type, String keyword);
-	
+	GuestBookDto selectOne(int no);
 }

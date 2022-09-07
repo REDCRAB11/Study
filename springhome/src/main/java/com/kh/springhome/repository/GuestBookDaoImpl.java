@@ -5,7 +5,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -25,6 +27,22 @@ public class GuestBookDaoImpl implements GuestBookDao {
 			dto.setName(rs.getString("name"));
 			dto.setMemo(rs.getString("memo"));
 			return dto;
+		}
+	};
+	
+	private ResultSetExtractor<GuestBookDto> extractor  = new ResultSetExtractor<GuestBookDto>() {
+
+		@Override
+		public GuestBookDto extractData(ResultSet rs) throws SQLException, DataAccessException {
+			if(rs.next()) {
+				GuestBookDto dto = new GuestBookDto();
+				dto.setNo(rs.getInt("no"));
+				dto.setName(rs.getString("name"));
+				dto.setMemo(rs.getString("memo"));
+				return dto;
+			}else {
+				return null;
+			}
 		}
 	};
 	
@@ -48,6 +66,13 @@ public class GuestBookDaoImpl implements GuestBookDao {
 		sql = sql.replace("#1", type);
 		Object[] param = {keyword};
 		return jdbcTemplate.query(sql, mapper, param);
+	}
+	
+	@Override
+	public GuestBookDto selectOne(int no) {
+		String sql= "select * from guest_book where no =?";
+		Object[] param = {no};
+		return jdbcTemplate.query(sql, extractor, param);
 	}
 
 }

@@ -38,7 +38,10 @@
 				<c:forEach var="dto" items="${list}">
 				<tr>
 					<th>${dto.no}</th>
-					<td>${dto.name}</td>
+					<td>
+					<a href = "detail?no=${dto.no}">${dto.name}
+					<img src = "/image/22.png" width="20"  height="20">
+					</td>
 				</tr>
 				<tr height="80" valign="top">
 					<td colspan="2">${dto.memo}</td>		

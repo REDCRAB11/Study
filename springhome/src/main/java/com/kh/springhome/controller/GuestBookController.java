@@ -50,4 +50,12 @@ public String list(Model model, @RequestParam (required = false) String type, @R
 	return "guestbook/list";
 }
 
+//상세기능
+@GetMapping("/detail")
+public String detail(Model model, @RequestParam int no) {
+	GuestBookDto dto = dao.selectOne(no);
+	model.addAttribute("dto", dto);
+	return "guestbook/detail";
+}
+
 }
