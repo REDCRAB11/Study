@@ -96,6 +96,7 @@
 					<th>전화번호</th>
 					<th>이메일</th>
 					<th>등급</th>
+					<th>포인트</th>
 				</tr>
 			</thead>
 			<tbody align="center">
@@ -107,6 +108,9 @@
 					<td>${memberDto.memberTel}</td>
 					<td>${memberDto.memberEmail}</td>
 					<td>${memberDto.memberGrade}</td>
+					<td>
+					<a href = "detail?memberPoint=${dto.memberPoint}"></a>
+					${memberDto.memberPoint}</td>
 				</tr>
 				</c:forEach>
 			</tbody>

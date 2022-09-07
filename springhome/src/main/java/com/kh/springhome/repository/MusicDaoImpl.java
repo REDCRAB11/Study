@@ -5,7 +5,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -29,6 +31,25 @@ public class MusicDaoImpl  implements MusicDao{
 			dto.setMusicPlay(rs.getInt("music_play"));
 			dto.setReleaseTime(rs.getDate("release_time"));
 			return dto;
+		}
+	};
+	
+	private ResultSetExtractor<MusicDto> extractor = new ResultSetExtractor<MusicDto>() {
+
+		@Override
+		public MusicDto extractData(ResultSet rs) throws SQLException, DataAccessException {
+			if(rs.next()) {
+				MusicDto dto = new MusicDto();
+				dto.setMusicNo(rs.getInt("music_no"));
+				dto.setMusicTitle(rs.getString("music_title"));
+				dto.setMusicArtist(rs.getString("music_artist"));
+				dto.setMusicAlbum(rs.getString("music_album"));
+				dto.setMusicPlay(rs.getInt("music_play"));
+				dto.setReleaseTime(rs.getDate("release_time"));
+				return dto;
+			}else {
+				return null;
+			}
 		}
 	};
 
@@ -63,5 +84,11 @@ jdbcTemplate.update(sql, param);
 		return jdbcTemplate.query(sql, mapper, param);
 	}
 
+	@Override
+	public MusicDto selectOne(int musicNo) {
+		String sql = "select * from music where music_no = ?";
+		Object [] param = {musicNo};
+		return jdbcTemplate.query(sql, extractor,param);
+	}
 	
 }

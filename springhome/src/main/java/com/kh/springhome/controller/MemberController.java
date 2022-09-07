@@ -48,8 +48,14 @@ public class MemberController {
 		else {//목록
 			model.addAttribute("list", memberDao.selectList());
 		}
-		
 		return "member/list";
+	}
+	
+	@GetMapping("/detail")
+	public String detail(Model model, @RequestParam  int  point) {
+		MemberDto dto = memberDao.selectOne(point);
+		model.addAttribute("dto", dto);
+		return "member/detail";
 	}
 }
 

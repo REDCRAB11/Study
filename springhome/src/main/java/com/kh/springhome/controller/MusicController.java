@@ -49,5 +49,12 @@ public class MusicController {
 		return "music/list";
 	}
 	
+		// 상세기능
+	@GetMapping("/detail")
+	public String detail(Model model, @RequestParam int musicNo) {
+		MusicDto dto = dao.selectOne(musicNo);
+		model.addAttribute("dto", dto);
+		return "music/detail";
+	}
 	
 }
