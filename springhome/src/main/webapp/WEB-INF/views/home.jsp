@@ -9,11 +9,12 @@
 <body>
 
 <h1>어서오세요</h1>
-<h2><a href="pocketmonster/insert">포켓몬등록</a></h2>
+<h2><a href="pocketmon/insert">포켓몬등록</a></h2>
 <h2><a href="pocketmon/list">포켓몬 목록</a></h2>
 <h2><a href = "guest-book/list">방명록 목록</a></h2>
-<h3><a href="music/list"> 음원</a></h3>
-<h4><a href="boook/insert"> 도서 정보 </a></h4>
-<h5><a href="member/join">회원 정보</a> </h5>
+<h2><a href="music/list"> 음원</a></h2>
+<h2><a href="boook/insert"> 도서 정보 </a></h2>
+<h2><a href="member/join">회원 정보</a> </h2>
+<h2><a href="member/list">회원 목록</a> </h2>
 </body>
 </html>

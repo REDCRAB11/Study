@@ -9,15 +9,15 @@
 <body>
 	<h1>가입 정보 입력</h1>
 	<form action="join" method="post">
-		<input name="memberId" type="text" required> <br><br>
-		<input name="memberPw" type="password" required> <br><br>
-		<input name="memberNick" type="text" required> <br><br>
+		<input name="memberId" placeholder="Id" type="text" required> <br><br>
+		<input name="memberPw"  placeholder="Pw" type="password" required> <br><br>
+		<input name="memberNick"  placeholder="닉네임" type="text" required> <br><br>
 		<input name="memberBirth" type="date" required> <br><br>
-		<input name="memberTel" type="tel"> <br><br>
-		<input name="memberEmail" type="email"> <br><br>
-		<input name="memberPost" type="text" maxlength="6" size="6"> <br><br>
-		<input name="memberBaseAddress" type="text"> <br><br>
-		<input name="memberDetailAddress" type="text"> <br><br>
+		<input name="memberTel"  placeholder="전화번호" type="tel"> <br><br>
+		<input name="memberEmail"  placeholder="이메일"  type="email"> <br><br>
+		<input name="memberPost"  placeholder="우편번호"  type="text" maxlength="6" size="6"> <br><br>
+		<input name="memberBaseAddress"  placeholder="주소" type="text"> <br><br>
+		<input name="memberDetailAddress"  placeholder="상세주소"  type="text"> <br><br>
 		<button>가입하기</button>
 	</form>
 </body>
