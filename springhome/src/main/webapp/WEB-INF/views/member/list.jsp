@@ -117,7 +117,7 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="6" align="right">
+					<td colspan="7" align="right">
 						총 ${list.size()}개의 결과
 					</td>				
 				</tr>

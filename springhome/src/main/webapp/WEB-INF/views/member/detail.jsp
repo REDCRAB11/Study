@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,28 +30,36 @@
 						<td>${dto.memberTel}</td>
 					</tr>	
 						<tr>
-						<th width="25%">우편번호</th>
-						<td>${dto.memberPost}</td>
-					</tr>	
-						<tr>
-						<th width="25%">기본주소</th>
-						<td>${dto.memberBaseAddress}</td>
-					</tr>	
-						<tr>
-						<th width="25%">상세주소</th>
-						<td>${dto.memberDetailAddress}</td>
+						<th width="25%">주소</th>
+						<td>
+						<c:if test="${dto.memberPost != null }">
+						[${dto.memberPost}]
+						${dto.memberDetailAddress}
+						${dto.memberBaseAddress}
+						</c:if>
+						</td>
 					</tr>	
 						<tr>
 						<th width="25%">포인트</th>
-						<td>${dto.memberPoint}</td>
+						<td>
+						<fmt:formatNumber value="${dto.memberPoint}" pattern="#,##0"/> point
+					</td>
 					</tr>	
 						<tr>
 						<th width="25%">등급</th>
 						<td>${dto.memberGrade}</td>
 					</tr>	
 						<tr>
+						<th width="25%">가입일</th>
+						<td>
+						<fmt:formatDate value="${dto.memberJoin}" pattern="y년 M월 d일 E a h시 m분 s초 "/>
+						</td>
+					</tr>	
+						<tr>
 						<th width="25%">접속기록</th>
-						<td>${dto.memberLogin}</td>
+						<td>
+						<fmt:formatDate value="${dto.memberLogin}" pattern="y년 M월 d일 E a h시 m분 s초"/>
+						</td>
 					</tr>	
 				</tbody>
 			</table>
