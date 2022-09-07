@@ -103,14 +103,15 @@
 				<c:forEach var="memberDto" items="${list}">
 				<tr>
 					<td>${memberDto.memberId}</td>
-					<td>${memberDto.memberNick}</td>
+					<td>
+					<a href="detail?memberNick=${memberDto.memberNick}">
+					${memberDto.memberNick}
+					</a></td>
 					<td>${memberDto.memberBirth}</td>
 					<td>${memberDto.memberTel}</td>
 					<td>${memberDto.memberEmail}</td>
 					<td>${memberDto.memberGrade}</td>
-					<td>
-					<a href = "detail?memberPoint=${dto.memberPoint}"></a>
-					${memberDto.memberPoint}</td>
+					<td>${memberDto.memberPoint}</td>
 				</tr>
 				</c:forEach>
 			</tbody>
@@ -124,7 +125,7 @@
 		</table>
 		
 		<h2><a href="/">메인 페이지로 돌아가기</a></h2>
-		
+
 	</div>
 </body>
 </html>

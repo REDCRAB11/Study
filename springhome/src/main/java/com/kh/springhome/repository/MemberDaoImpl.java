@@ -117,9 +117,9 @@ public class MemberDaoImpl implements MemberDao{
 	}
 	
 	@Override
-	public MemberDto selectOne(int point) {
-			String sql  = "select * from member where point=?";
-			Object[] param = {point};
+	public MemberDto selectOne(String memberNick) {
+			String sql  = "select * from member where member_nick=?";
+			Object[] param = {memberNick};
 		return jdbcTemplate.query(sql, extractor,param);
 	}
 }

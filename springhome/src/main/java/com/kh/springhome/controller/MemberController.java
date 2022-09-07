@@ -52,8 +52,8 @@ public class MemberController {
 	}
 	
 	@GetMapping("/detail")
-	public String detail(Model model, @RequestParam  int  point) {
-		MemberDto dto = memberDao.selectOne(point);
+	public String detail(Model model, @RequestParam  String  memberNick) {
+		MemberDto dto = memberDao.selectOne(memberNick);
 		model.addAttribute("dto", dto);
 		return "member/detail";
 	}
