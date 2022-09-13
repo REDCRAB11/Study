@@ -14,6 +14,8 @@
 			세션 ID:  ${pageContext.session.getId()} <br>
 			신규 세션: ${pageContext.session.isNew()}
 			 --%>
+			loginId : ${sessionScope.loginId}<br>
+			로그인 : ${sessionScope.loginId != null}<br>
 		</div>
     </body>
 </html>
