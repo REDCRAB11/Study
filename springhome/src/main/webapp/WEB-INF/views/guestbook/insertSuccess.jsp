@@ -3,12 +3,11 @@
     pageEncoding="UTF-8"%>
 
 <jsp:include page="/WEB-INF/views/template/header.jsp">
-	<jsp:param value="방명록 오류" name="title"/>
+	<jsp:param value="방명록 작성 완료" name="title"/>
 </jsp:include>
 
-<div align="center">
-	<h1>존재하지 않는 번호입니다</h1>
-	<h2><a href="list">목록 보기</a></h2>
-</div>
+<h1>방명록 작성이 완료되었습니다</h1>
+<h2><a href="/">메인페이지로 이동</a></h2>
+<h2><a href="list">방명록 보러가기</a></h2>
 
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
