@@ -14,8 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.kh.springhome.entity.GuestBookDto;
 
 @Repository
-public class GuestBookDaoImpl implements GuestBookDao {
-
+public class GuestBookDaoImpl implements GuestBookDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
@@ -29,23 +28,7 @@ public class GuestBookDaoImpl implements GuestBookDao {
 			return dto;
 		}
 	};
-	
-	private ResultSetExtractor<GuestBookDto> extractor  = new ResultSetExtractor<GuestBookDto>() {
 
-		@Override
-		public GuestBookDto extractData(ResultSet rs) throws SQLException, DataAccessException {
-			if(rs.next()) {
-				GuestBookDto dto = new GuestBookDto();
-				dto.setNo(rs.getInt("no"));
-				dto.setName(rs.getString("name"));
-				dto.setMemo(rs.getString("memo"));
-				return dto;
-			}else {
-				return null;
-			}
-		}
-	};
-	
 	@Override
 	public void insert(GuestBookDto dto) {
 		String sql = "insert into guest_book(no, name, memo) "
@@ -57,35 +40,57 @@ public class GuestBookDaoImpl implements GuestBookDao {
 	@Override
 	public List<GuestBookDto> selectList() {
 		String sql = "select * from guest_book order by no desc";
-				return jdbcTemplate.query(sql, mapper);
+		return jdbcTemplate.query(sql, mapper);
 	}
-
+	
 	@Override
 	public List<GuestBookDto> selectList(String type, String keyword) {
-		String sql = "select * from guest_book where instr(#1,?)>0 order by #1 asc";
+		String sql = "select * from guest_book "
+						+ "where instr(#1, ?) > 0 "
+						+ "order by #1 asc";
 		sql = sql.replace("#1", type);
 		Object[] param = {keyword};
 		return jdbcTemplate.query(sql, mapper, param);
 	}
 	
+	private ResultSetExtractor<GuestBookDto> extractor = new ResultSetExtractor<GuestBookDto>() {
+		@Override
+		public GuestBookDto extractData(ResultSet rs) throws SQLException, DataAccessException {
+			if(rs.next()) {
+				GuestBookDto dto = new GuestBookDto();
+				dto.setNo(rs.getInt("no"));
+				dto.setName(rs.getString("name"));
+				dto.setMemo(rs.getString("memo"));
+				return dto;
+			}
+			else {
+				return null;
+			}
+		}
+	};
+
 	@Override
 	public GuestBookDto selectOne(int no) {
-		String sql= "select * from guest_book where no =?";
+		String sql = "select * from guest_book where no = ?";
 		Object[] param = {no};
 		return jdbcTemplate.query(sql, extractor, param);
 	}
-
+	
 	@Override
 	public boolean update(GuestBookDto dto) {
-		String sql = "update guest_book set name=?, memo=? where no=? ";
-		Object[] param = {dto.getName(), dto.getMemo(), dto.getNo()};
-		return jdbcTemplate.update(sql, param)>0;
+		String sql = "update guest_book "
+							+ "set name=?, memo=? "
+							+ "where no=?";
+		Object[] param = {
+				dto.getName(), dto.getMemo(), dto.getNo()
+		};
+		return jdbcTemplate.update(sql, param) > 0;
 	}
 
 	@Override
 	public boolean delete(int no) {
-		String sql = "delete guest_book where no=?";
-		Object[] param  = {no};
-		return jdbcTemplate.update(sql, param) >0;
+		String sql = "delete guest_book where no = ?";
+		Object[] param = {no};
+		return jdbcTemplate.update(sql, param) > 0;
 	}
 }

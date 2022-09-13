@@ -67,6 +67,9 @@
 			</tr>
 			</c:forEach>
 		</tbody>
+		
+		<%-- 관리지만 등록 버튼 출력 --%>
+		<c:if test="${mg == '관리자'}">
 		<tfoot align="right">
 			<tr>
 				<td colspan="6">
@@ -74,6 +77,7 @@
 				</td>
 			</tr>
 		</tfoot>
+		</c:if>
 	</table>
 	
 </div>

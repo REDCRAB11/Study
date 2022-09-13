@@ -135,6 +135,7 @@ public class MemberController {
 			//- session.getAttribute("이름");
 			//- session.removeAttribute("이름");
 			session.setAttribute("loginId", inputDto.getMemberId());
+			session.setAttribute("mg",findDto.getMemberGrade());
 			
 			return "redirect:/";
 		}
@@ -148,6 +149,8 @@ public class MemberController {
 		//1. 세션의 loginId라는 이름의 데이터를 삭제
 		//2. 메인 페이지로 강제 이동
 		session.removeAttribute("loginId");
+		session.removeAttribute("mg");
+//		session.invalidate(); 세션 파괴(비추천, 사용자 측정 시 문제)
 		return "redirect:/";
 	}
 		

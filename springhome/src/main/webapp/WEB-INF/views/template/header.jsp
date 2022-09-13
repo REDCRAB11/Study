@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="login" value="${loginId != null}"></c:set>
-
+<c:set var="admin"  value="${mg == '관리자'}"></c:set>
 <html>
 	<head>
 		<title>
@@ -27,7 +27,7 @@
 					<a href="/music/list">음원관리</a>
 					<a href="/member/logout">로그아웃</a>
 					<a href="/member/mypage">마이페이지</a>
-					<a href="/member/list">회원목록</a>
+					
 				</c:when>
 				<c:otherwise>
 					<a href="/">홈</a>
@@ -37,6 +37,11 @@
 				</c:otherwise>
 			</c:choose>
 		
+					<!--  관리자 기능( when안에 있어도 되고.. 빼도 되고 ) -->
+					<c:if test="${login && admin}">
+					<a href="/member/list">회원목록</a>
+					</c:if>
+					
 		</div>
 		
 		<hr>

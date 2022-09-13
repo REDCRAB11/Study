@@ -70,9 +70,20 @@
 		</tbody>
 	</table>
 	
+	<c:choose>
+		<c:when test="${mg == '관리자'}">
+	<!--  관리자용 메뉴  -->
 	<h2><a href="list">목록 보기</a></h2>
 	<h2><a href="change?memberId=${memberDto.memberId}">정보 변경</a></h2>
 	<h2><a href="exit?memberId=${memberDto.memberId}">회원 탈퇴</a></h2>
+		</c:when>
+			<c:otherwise>
+	<!--  회원용 메뉴 -->
+	<h2><a href="#">비밀번호 변경</a></h2>
+	<h2><a href="#">개인 정보 변경</a></h2>
+	<h2><a href="#">회원 탈퇴</a></h2>
+			</c:otherwise>
+	</c:choose>
+	
 </div>
-
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
