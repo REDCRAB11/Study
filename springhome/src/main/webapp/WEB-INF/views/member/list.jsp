@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-    
+    <jsp:include page="/WEB-INF/views/template/header.jsp">
+
+    </jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,11 +11,6 @@
 <title>회원 목록</title>
 </head>
 <body>
-
-<!-- 테이블  헤드나 풋은 없어도 되나 바디는 꼭 있어야한다! -->
-<!-- < 옵션 value =" 전송할 값" > 보여줄 값 </옵션> -->
-
-
 	<div align="center">
 		<!-- 제목 -->
 		<h1>회원 조회</h1>
@@ -96,22 +93,23 @@
 					<th>전화번호</th>
 					<th>이메일</th>
 					<th>등급</th>
-					<th>포인트</th>
+					<th>메뉴</th>
 				</tr>
 			</thead>
 			<tbody align="center">
 				<c:forEach var="memberDto" items="${list}">
 				<tr>
 					<td>${memberDto.memberId}</td>
-					<td>
-					<a href="detail?memberNick=${memberDto.memberNick}">
-					${memberDto.memberNick}
-					</a></td>
+					<td>${memberDto.memberNick}</td>
 					<td>${memberDto.memberBirth}</td>
 					<td>${memberDto.memberTel}</td>
 					<td>${memberDto.memberEmail}</td>
 					<td>${memberDto.memberGrade}</td>
-					<td>${memberDto.memberPoint}</td>
+					<td>
+						<a href="detail?memberId=${memberDto.memberId}">상세</a>
+						<a href="change?memberId=${memberDto.memberId}">수정</a>
+						<a href="exit?memberId=${memberDto.memberId}">탈퇴</a>
+					</td>
 				</tr>
 				</c:forEach>
 			</tbody>
@@ -125,7 +123,8 @@
 		</table>
 		
 		<h2><a href="/">메인 페이지로 돌아가기</a></h2>
-
+		
 	</div>
 </body>
 </html>
+<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>

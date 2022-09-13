@@ -9,4 +9,6 @@ public interface PocketMonsterDao {
 	void insert(PocketMonsterDto pocketMonsterDto);
 	List<PocketMonsterDto> selectList();
 	PocketMonsterDto selectOne(int no);
+	boolean update(PocketMonsterDto dto);
+	boolean delete(int no);
 }

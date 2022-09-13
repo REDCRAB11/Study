@@ -1,20 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 
-<h1>어서오세요</h1>
-<h2><a href="pocketmon/insert">포켓몬등록</a></h2>
-<h2><a href="pocketmon/list">포켓몬 목록</a></h2>
-<h2><a href = "guest-book/list">방명록 목록</a></h2>
-<h2><a href="music/list"> 음원</a></h2>
-<h2><a href="boook/insert"> 도서 정보 </a></h2>
-<h2><a href="member/join">회원 정보</a> </h2>
-<h2><a href="member/list">회원 목록</a> </h2>
-</body>
-</html>
+<%-- 템플릿 페이지인 header.jsp를 동적으로 불러와라 --%>
+<jsp:include page="/WEB-INF/views/template/header.jsp">
+	<jsp:param value="메인페이지" name="title"/>
+</jsp:include>
+
+<h1>어서오세요!</h1>
+
+<%-- 템플릿 페이지인 footer.jsp를 동적으로 불러와라 --%>
+<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>

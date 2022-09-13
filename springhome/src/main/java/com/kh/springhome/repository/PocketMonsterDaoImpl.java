@@ -70,5 +70,19 @@ public class PocketMonsterDaoImpl implements PocketMonsterDao{
 		Object[] param = {no};
 		return jdbcTemplate.query(sql, extractor, param);
 	}
+	
+	@Override
+	public boolean update(PocketMonsterDto dto) {
+		String sql= "update pocket_monster set name=?, type=? where no=?";
+		Object[] param = {dto.getName(), dto.getType(), dto.getNo()};
+		return jdbcTemplate.update(sql, param)>0 ;
+	}
+
+	@Override
+	public boolean delete(int no) {
+		String sql = "delete pocket_monster where no = ?";
+		Object[] param = {no};
+		return jdbcTemplate.update(sql, param) > 0;
+	}
 }
 

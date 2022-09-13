@@ -3,13 +3,10 @@
 <%-- JSTL 사용 선언 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!DOCTYPE html> 
-<html>
-<head>
-<meta charset="UTF-8">
-<title>방명록</title>
-</head>
-<body>
+<jsp:include page="/WEB-INF/views/template/header.jsp">
+	<jsp:param value="방명록" name="title"/>
+</jsp:include>
+
 	<div align="center">
 		
 		<h1>
@@ -42,7 +39,7 @@
 					<td>
 <!-- 						<a href="/guestbook/detail?no=번호"> -->
 						<a href="detail?no=${dto.no}">
-							<img src="/image/22.png" width="20" height="20">
+							<img src="/image/go.png" width="20" height="20">
 						</a>
 					</td>
 				</tr>
@@ -54,5 +51,5 @@
 		</table>
 		
 	</div>
-</body>
-</html>
+
+<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>

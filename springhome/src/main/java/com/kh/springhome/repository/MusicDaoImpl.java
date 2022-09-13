@@ -91,4 +91,17 @@ jdbcTemplate.update(sql, param);
 		return jdbcTemplate.query(sql, extractor,param);
 	}
 	
+	@Override
+	public boolean update(MusicDto dto) {
+		String sql = "update music set music_title=?, music_artist=?, music_album=?, music_play=?, release_time=? where music_no=?";
+		Object[] param = { dto.getMusicTitle(), dto.getMusicArtist(), dto.getMusicAlbum(), dto.getMusicPlay(), dto.getReleaseTime(), dto.getMusicNo()};
+		return jdbcTemplate.update(sql, param)>0;
+	}
+
+	@Override
+	public boolean delete(int musicNo) {
+		String sql = "delete music where music_no=?";
+		Object[] param = {musicNo};
+		return jdbcTemplate.update(sql, param) >0;
+	}
 }

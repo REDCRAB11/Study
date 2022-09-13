@@ -1,4 +1,3 @@
-
 package com.kh.springhome.repository;
 
 import java.util.List;
@@ -9,5 +8,7 @@ public interface MemberDao {
 	void insert(MemberDto memberDto);
 	List<MemberDto> selectList();
 	List<MemberDto> selectList(String type, String keyword);
-	MemberDto selectOne(String memberNick);
+	MemberDto selectOne(String memberId);
+	boolean update(MemberDto memberDto);
+	boolean delete(String memberId);
 }
