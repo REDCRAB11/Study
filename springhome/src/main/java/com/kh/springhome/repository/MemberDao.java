@@ -13,4 +13,6 @@ public interface MemberDao {
 	boolean delete(String memberId);
 	boolean update(String memberId, String memberPw); // 이거 내가 푼거 
 	boolean changePassword(String memberId, String memberPw);
+	boolean changeInformation(MemberDto changeDto);
+	boolean allDelete(String memberId);
 }

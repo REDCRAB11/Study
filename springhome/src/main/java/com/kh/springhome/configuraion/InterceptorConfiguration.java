@@ -41,8 +41,9 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 								"/member/**"//회원 전체 
 								)
 						.excludePathPatterns(// 위의 주소에서 제외할 주소 
-								"/member/join", //회원 가입
-								"/member/login"// 로그인 
+								"/member/join*", //회원 가입
+								"/member/login",// 로그인 
+								"/member/goodbye_result"
 								);
 		
 		registry.addInterceptor(adminInterceptor)
