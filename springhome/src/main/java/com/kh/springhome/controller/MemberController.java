@@ -170,5 +170,77 @@ public class MemberController {
 			return"member/detail";
 		}
 		
-}
+		
+		@GetMapping("/password")
+		public String password() {
+			return"member/password";
+		}
+		
+		// 밑에 포스트 두개 내가 푼거 
+		
+//		@PostMapping("/password")
+//		public String password(@ModelAttribute MemberDto checkDto, HttpSession session) {
+//			String memberId = (String) session.getAttribute("loginId");
+//			MemberDto memberDto = memberDao.selectOne(memberId);
+//			boolean result = checkDto.getMemberPw().equals(memberDto.getMemberPw());
+//			if(result) {
+//				memberDao.updateChange(memberId, checkDto.getMemberChangePw());
+//				return"redriect:/";
+//			}else {
+//				return "member/changeFail";
+//			}
+//		}
+		
+//		@PostMapping("/password")
+//		public String password(@ModelAttribute MemberDto checkDto, Model model) {
+//			MemberDto okDto = memberDao.selectOne(checkDto.getMemberPw());
+//			boolean result = memberDao.update(checkDto);
+//			if(result) {
+//				model.addAttribute("memberPw", okDto.getMemberPw());
+//				return"redriect:/";
+//			}else {
+//				return "member/passwordFail";
+//			}
+//		}
 
+		
+		
+		
+		// 비밀번호 변경 기능 
+		
+		@PostMapping("/password")
+		public String password(HttpSession session , 
+				@RequestParam String beforePw, // 기존 비밀번호 
+				@RequestParam String afterPw // 바꿀 비밀번호 
+				) {
+			String memberId = (String) session.getAttribute("loginId");
+//			boolean result = memberDao.changePassword(memberId, memberPw);
+//			if(result) {
+//				return"redirect:passwordFail";
+//			}else {
+//				return"redirect:password?error";
+//			}
+			
+			try {
+				//비밀번호 검사 
+				MemberDto memberDto = memberDao.selectOne(memberId);
+				boolean passwordMatch = beforePw.equals(memberDto.getMemberPw());
+				if(! passwordMatch) {
+					throw new Exception();
+				}
+				
+				// 비밀번호 변경
+				memberDao.changePassword(memberId, afterPw);
+				return"redirect:passwordFail";
+			}
+			catch(Exception e ){
+				return"redirect:password?error";
+			}
+		}
+//		
+		@GetMapping("/passwordFail")
+		public String passwordFail() {
+			return"member/passwordFail";
+		}
+		
+}

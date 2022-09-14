@@ -39,7 +39,7 @@
 				<td>
 <!-- 						<a href="/guestbook/detail?no=번호"> -->
 					<a href="detail?no=${dto.no}">
-						<img src="/image/b.png" width="20" height="20">
+						<img src="/image/go.png" width="20" height="20">
 					</a>
 				</td>
 			</tr>

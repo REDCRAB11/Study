@@ -155,6 +155,21 @@ public class MemberDaoImpl implements MemberDao{
 		return jdbcTemplate.update(sql, param) > 0;
 	}
 	
+	//이거 내가 푼거 
+	@Override
+	public boolean update(String memberId, String memberPw) {
+		String sql = "update member set member_pw = ? where member_id = ?";
+		Object[] param = {memberPw, memberId};
+		return jdbcTemplate.update(sql, param) > 0;
+	}
+
+	@Override
+	public boolean changePassword(String memberId, String memberPw) {
+		String sql = "update member set member_pw=? where member_id=?";
+		Object[] param = {memberPw, memberId};
+		return jdbcTemplate.update(sql, param)>0;
+	}
+	
 }
 
 

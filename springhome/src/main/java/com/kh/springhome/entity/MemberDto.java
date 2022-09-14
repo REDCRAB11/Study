@@ -9,6 +9,15 @@ public class MemberDto {
 	private int memberPoint;
 	private String memberGrade;
 	private Date memberBirth, memberJoin, memberLogin;
+	private String memberChangePw;
+	
+	
+	public String getMemberChangePw() {
+		return memberChangePw;
+	}
+	public void setMemberChangePw(String memberChangePw) {
+		this.memberChangePw = memberChangePw;
+	}
 	@Override
 	public String toString() {
 		return "MemberDto [memberId=" + memberId + ", memberNick=" + memberNick + ", memberTel=" + memberTel

@@ -27,7 +27,7 @@
 					<a href="/music/list">음원관리</a>
 					<a href="/member/logout">로그아웃</a>
 					<a href="/member/mypage">마이페이지</a>
-					
+					<a href="/member/password">비밀번호 변경</a>
 				</c:when>
 				<c:otherwise>
 					<a href="/">홈</a>
