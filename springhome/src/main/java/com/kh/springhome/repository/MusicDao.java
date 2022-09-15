@@ -17,4 +17,8 @@ public interface MusicDao {
 	
 	List<MusicDto> top10();
 	List<MusicDto> topN(int limit);
+	List<MusicDto> topNtoM(int begin, int end);
+	
+	List<MusicYearCountVO> releaseByYear();
+	List<MusicYearCountVO> releaseByYearWithRank();
 }

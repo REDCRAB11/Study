@@ -20,7 +20,7 @@
 			</tr>
 		</thead>
 		<tbody align="center">
-			<c:forEach var="dto" items="${list}" varStatus="status">
+			<c:forEach var="vo" items="${list}" varStatus="status">
 			<tr>
 				<td>${status.count}</td>
 				<td>${dto.musicTitle}</td>

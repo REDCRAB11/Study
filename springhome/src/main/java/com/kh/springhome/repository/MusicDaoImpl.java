@@ -15,6 +15,8 @@ import com.kh.springhome.entity.MusicDto;
 import com.kh.springhome.vo.MusicYearCountVO;
 import com.kh.springhome.vo.PocketMonsterCountVO;
 
+import io.micrometer.core.instrument.MultiGauge.Row;
+
 @Repository
 public class MusicDaoImpl  implements MusicDao{
 
@@ -107,17 +109,17 @@ jdbcTemplate.update(sql, param);
 		return jdbcTemplate.update(sql, param) >0;
 	}
 	
-	// 내가 푼거 밑에 오버라이드 두개 
-	private RowMapper<MusicYearCountVO> countMapper = new RowMapper<MusicYearCountVO>() {
-		@Override
-		public MusicYearCountVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-			MusicYearCountVO vo = new MusicYearCountVO();
-			vo.setPlay(rs.getString("play"));
-			vo.setCnt(rs.getString("cnt"));
-			return vo;
-		}
-	};
-
+//	// 내가 푼거 밑에 오버라이드 두개 
+//	private RowMapper<MusicYearCountVO> countMapper = new RowMapper<MusicYearCountVO>() {
+//		@Override
+//		public MusicYearCountVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+//			MusicYearCountVO vo = new MusicYearCountVO();
+//			vo.setPlay(rs.getString("play"));
+//			vo.setCnt(rs.getString("cnt"));
+//			return vo;
+//		}
+//	};
+//
 	@Override
 	public List<MusicYearCountVO> selectCountList() {
 		String sql = "select music_play,release_time from music where rownum <= 10 order by release_time desc";
@@ -136,7 +138,36 @@ jdbcTemplate.update(sql, param);
 		Object[] param = {limit};
 		return jdbcTemplate.query(sql, mapper, param);
 	}
-	
-	
-	
+
+	@Override
+	public List<MusicDto> topNtoM(int begin, int end) {
+		String sql="select * from ( select TMP.*, rownum rn from ( select * from music order by music_play desc) TMP ) where rn between ? and ?";
+		Object[] param = {begin, end};
+		return jdbcTemplate.query(sql, mapper, param);
+	}
+
+	private RowMapper<MusicYearCountVO> countMapper = new RowMapper<MusicYearCountVO>() {
+
+		@Override
+		public MusicYearCountVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+			MusicYearCountVO vo = new MusicYearCountVO();
+			vo.setRank(rs.getInt("rank"));
+			vo.setYear(rs.getInt("year"));
+			vo.setCnt(rs.getInt("cnt"));
+			return vo;
+		}
+	};
+
+	@Override //rank 있으면 오류남 ~ 
+	public List<MusicYearCountVO> releaseByYear() {
+		String sql = "select extract(year from release_time) year, count(*)cnt from music group by extract(year from release_time) order by year desc";
+		return jdbcTemplate.query(sql, countMapper);
+	}
+
+	@Override
+	public List<MusicYearCountVO> releaseByYearWithRank() {
+		String sql = "select TMP.*, rank() over(order by cnt desc) rank from(select extract(year from release_time) year, count(*) cnt from music group by extract(year from release_time) order by year desc) TMP ";
+		return jdbcTemplate.query(sql, countMapper);
+	}
 }
+	
