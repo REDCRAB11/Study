@@ -137,6 +137,11 @@ public class MemberController {
 			session.setAttribute("loginId", inputDto.getMemberId());
 			session.setAttribute("mg",findDto.getMemberGrade());
 			
+			
+			//로그인 시간을 갱신시키는 작업 
+			
+			memberDao.updateLoginTime(inputDto.getMemberId());
+			
 			return "redirect:/";
 		}
 		else {//b

@@ -12,6 +12,8 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.kh.springhome.entity.MusicDto;
+import com.kh.springhome.vo.MusicYearCountVO;
+import com.kh.springhome.vo.PocketMonsterCountVO;
 
 @Repository
 public class MusicDaoImpl  implements MusicDao{
@@ -104,4 +106,37 @@ jdbcTemplate.update(sql, param);
 		Object[] param = {musicNo};
 		return jdbcTemplate.update(sql, param) >0;
 	}
+	
+	// 내가 푼거 밑에 오버라이드 두개 
+	private RowMapper<MusicYearCountVO> countMapper = new RowMapper<MusicYearCountVO>() {
+		@Override
+		public MusicYearCountVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+			MusicYearCountVO vo = new MusicYearCountVO();
+			vo.setPlay(rs.getString("play"));
+			vo.setCnt(rs.getString("cnt"));
+			return vo;
+		}
+	};
+
+	@Override
+	public List<MusicYearCountVO> selectCountList() {
+		String sql = "select music_play,release_time from music where rownum <= 10 order by release_time desc";
+		return jdbcTemplate.query(sql, countMapper);
+	}// 여기까지 내가 품 
+
+	@Override
+	public List<MusicDto> top10() {
+			String sql="select * from ( select TMP.*, rownum rn from ( select * from music order by music_play desc) TMP ) where rn between 1and 10";
+		return jdbcTemplate.query(sql, mapper);
+	}
+
+	@Override
+	public List<MusicDto> topN(int limit) {
+		String sql="select * from ( select TMP.*, rownum rn from ( select * from music order by music_play desc) TMP ) where rn between 1and ?";
+		Object[] param = {limit};
+		return jdbcTemplate.query(sql, mapper, param);
+	}
+	
+	
+	
 }

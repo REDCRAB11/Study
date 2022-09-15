@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.kh.springhome.entity.PocketMonsterDto;
+import com.kh.springhome.vo.PocketMonsterCountVO;
 
 @Repository
 public class PocketMonsterDaoImpl implements PocketMonsterDao{
@@ -84,5 +85,25 @@ public class PocketMonsterDaoImpl implements PocketMonsterDao{
 		Object[] param = {no};
 		return jdbcTemplate.update(sql, param) > 0;
 	}
+	
+	// PocketMonsterCountVO RowMapper
+	
+	//PocketMonsterCountVO에 대한 RowMapper
+		private RowMapper<PocketMonsterCountVO> countMapper = new RowMapper<PocketMonsterCountVO>() {
+			@Override
+			public PocketMonsterCountVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+				PocketMonsterCountVO vo = new PocketMonsterCountVO();
+				vo.setType(rs.getString("type"));
+				vo.setCnt(rs.getInt("cnt"));
+				return vo;
+			}
+		};
+
+		@Override
+		public List<PocketMonsterCountVO> selectCountList() {
+			String sql = "select type, count(*) cnt from pocket_monster "
+								+ "group by type order by cnt desc";
+			return jdbcTemplate.query(sql, countMapper);
+		}
 }
 

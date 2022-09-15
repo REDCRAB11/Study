@@ -52,7 +52,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+		<!--  이거 추가한거임 따로  -->
+		 <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-jasper</artifactId>
+        <scope>provided</scope>
+    </dependency>
 			<!-- JSP를 사용하기 위한 의존성 -->
 		<dependency>
    			 <groupId>javax.servlet</groupId>

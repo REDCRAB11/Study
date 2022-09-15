@@ -15,4 +15,5 @@ public interface MemberDao {
 	boolean changePassword(String memberId, String memberPw);
 	boolean changeInformation(MemberDto changeDto);
 	boolean allDelete(String memberId);
+	boolean updateLoginTime(String memberId);
 }
