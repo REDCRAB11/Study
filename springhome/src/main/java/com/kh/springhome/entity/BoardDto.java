@@ -2,75 +2,28 @@ package com.kh.springhome.entity;
 
 import java.sql.Date;
 
-public class BoardDto {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-	private int boardNo, boardRead, boardLike;
-	private String boardWriter, boardTitle, boardContent, boardHead;
-	private Date boardWriteTime, boardUpdateTime;
-	public int getBoardNo() {
-		return boardNo;
-	}
-	public void setBoardNo(int boardNo) {
-		this.boardNo = boardNo;
-	}
-	public int getBoardRead() {
-		return boardRead;
-	}
-	public void setBoardRead(int boardRead) {
-		this.boardRead = boardRead;
-	}
-	public int getBoardLike() {
-		return boardLike;
-	}
-	public void setBoardLike(int boardLike) {
-		this.boardLike = boardLike;
-	}
-	public String getBoardWriter() {
-		return boardWriter;
-	}
-	public void setBoardWriter(String boardWriter) {
-		this.boardWriter = boardWriter;
-	}
-	public String getBoardTitle() {
-		return boardTitle;
-	}
-	public void setBoardTitle(String boardTitle) {
-		this.boardTitle = boardTitle;
-	}
-	public String getBoardContent() {
-		return boardContent;
-	}
-	public void setBoardContent(String boardContent) {
-		this.boardContent = boardContent;
-	}
-	public String getBoardHead() {
-		return boardHead;
-	}
-	public void setBoardHead(String boardHead) {
-		this.boardHead = boardHead;
-	}
-	public Date getBoardWriteTime() {
-		return boardWriteTime;
-	}
-	public void setBoardWriteTime(Date boardWriteTime) {
-		this.boardWriteTime = boardWriteTime;
-	}
-	public Date getBoardUpdateTime() {
-		return boardUpdateTime;
-	}
-	public void setBoardUpdateTime(Date boardUpdateTime) {
-		this.boardUpdateTime = boardUpdateTime;
-	}
-	@Override
-	public String toString() {
-		return "BoardDto [boardNo=" + boardNo + ", boardRead=" + boardRead + ", boardLike=" + boardLike
-				+ ", boardWriter=" + boardWriter + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
-				+ ", boardHead=" + boardHead + ", boardWriteTime=" + boardWriteTime + ", boardUpdateTime="
-				+ boardUpdateTime + "]";
-	}
-	public BoardDto() {
-		super();
-	} 
+@Data @NoArgsConstructor @AllArgsConstructor @Builder
+public class BoardDto {
+	private int boardNo;
+	private String boardHead, boardWriter, boardTitle, boardContent;
+	private Date boardWritetime, boardUpdatetime;
+	private int boardRead, boardLike;
+	//계층형 게시판 데이터
+	//(참고) boardParent는 null일 수 있지만 JDBC에서 0으로 변환
+	private int boardGroup, boardParent, boardDepth;
 	
-	
+	//DB에 INSERT 할 때 0 대신 null이 등록되도록 값을 변환해서 반환하는 메소드
+	public Integer getBoardParentInteger() {
+		if(boardParent == 0) 
+			return null;
+		else 
+			return boardParent;
+	}
 }
+
+

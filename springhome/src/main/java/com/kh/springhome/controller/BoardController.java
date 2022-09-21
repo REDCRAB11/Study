@@ -1,5 +1,10 @@
 package com.kh.springhome.controller;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kh.springhome.constant.SessionConstant;
 import com.kh.springhome.entity.BoardDto;
+import com.kh.springhome.entity.ReplyDto;
+import com.kh.springhome.error.TargetNotFoundException;
 import com.kh.springhome.repository.BoardDao;
+import com.kh.springhome.repository.ReplyDao;
+import com.kh.springhome.vo.BoardListSearchVO;
 
 @Controller
 @RequestMapping("/board")
@@ -20,75 +30,172 @@ public class BoardController {
 	@Autowired
 	private BoardDao boardDao;
 	
-	@GetMapping("/write")
-	public String write() {
-		return"board/write";
-	}
+	@Autowired
+	private ReplyDao replyDao;
 	
-	@PostMapping("/write")
-	public String insert(@ModelAttribute BoardDto dto) {
-		boardDao.write(dto);
-		return"redirect:write_full";
-	}
-	
-	@GetMapping("/write_full")
-	public String insertFull() {
-		return"board/writeFull";
-	}
-	
+//	참고 : ModelAttribute로 수신한 데이터는 자동으로 Model에 첨부된다
+//	- 옵션에 name을 작성하면 해당하는 이름으로 model에 첨부
 	@GetMapping("/list")
-	public String list(Model model, @RequestParam(required = false) String type, @RequestParam(required = false) String keyword) {
-		boolean isSearch = type != null && keyword != null; 
-		if(isSearch) {
-			model.addAttribute("list", boardDao.selectList(type, keyword));
-		}else {
-			model.addAttribute("list", boardDao.selectList());
-		}
-		return"board/list";
+	public String list(Model model,
+			@ModelAttribute(name="vo") BoardListSearchVO vo) {
+//		페이지 네비게이터를 위한 게시글 수를 구한다
+		int count = boardDao.count(vo);
+		vo.setCount(count);
+		
+		model.addAttribute("list", boardDao.selectList(vo));
+//		return "/WEB-INF/views/board/list.jsp";
+		return "board/list";
 	}
 	
 	@GetMapping("/detail")
-	public String detail(Model model, @RequestParam int boardNo) {
-		BoardDto boardDto = boardDao.selectOne(boardNo);
-		model.addAttribute("boardDto", boardDto);
-		return"board/detail";
+	public String detail(
+			@RequestParam int boardNo, Model model,
+			HttpSession session) {
+//		1. 조회수 증가시켜서 데이터를 불러온다
+//		boardDao.updateReadcount(boardNo);
+//		model.addAttribute("boardDto", boardDao.selectOne(boardNo));
+		
+//		2. 데이터를 읽도록 처리한다
+//		model.addAttribute("boardDto", boardDao.read(boardNo));
+		
+//		(+추가) 조회수 중복 방지 처리
+//		(1) 세션에 내가 읽은 게시글의 번호를 저장할 수 있는 저장소를 구현
+//		-> 후보 : int[], List<Integer>, Set<Integer>
+//		-> 현재 필요한 것은 게시글을 읽은적이 있는가(중복확인)
+//		-> 세션에 저장할 이름은 history로 지정
+//		(2) 현재 history가 있을지 없을지 모르므로 꺼내서 없으면 생성
+		
+		Set<Integer> history = (Set<Integer>) session.getAttribute("history");
+		if(history == null) {//history가 없다면 신규 생성
+			history = new HashSet<>();
+		}
+		
+//		(3) 현재 글 번호를 읽은적이 있는지 검사
+		if(history.add(boardNo)) {//추가된 경우 - 처음 읽는 번호면
+			model.addAttribute("boardDto", boardDao.read(boardNo));
+		}
+		else {//추가가 안된 경우 - 읽은 적이 있는 번호면
+			model.addAttribute("boardDto", boardDao.selectOne(boardNo));
+		}
+//		System.out.println("history = " + history);
+		
+//		(4) 갱신된 저장소를 세션에 다시 저장
+		session.setAttribute("history", history);
+		
+		return "board/detail";
 	}
 	
-//	@GetMapping("/detail")
-//	public String detail(Model model, @RequestParam(required = false) String boardWriter) {
-//		model.addAttribute("dto", boardDao.selectOne(boardWriter));
-//		return"board/detail";
-//	}
+	@GetMapping("/write")
+	public String write() {
+		return "board/write";
+	}
 	
-	@GetMapping("/delete") // 왜 삭제가 안되고 수정실패로 넘어갈까 
-	public String delete(@RequestParam(value="boardWriter", required=false) String boardWriter) {
-		boolean result = boardDao.delete(boardWriter);
-		if(result) {
-			return"redirect:list";
-		}else {
-			return"board/editFail";
+	@PostMapping("/write")
+	public String write(
+			@ModelAttribute BoardDto boardDto,
+			HttpSession session, RedirectAttributes attr) {
+//		session에 있는 회원 아이디를 작성자로 추가한 뒤 등록해야함
+//		String memberId = (String)session.getAttribute("loginId");
+		String memberId = (String)session.getAttribute(SessionConstant.ID);
+		boardDto.setBoardWriter(memberId);
+		
+//		등록될 글의 번호를 미리 생성
+		int boardNo = boardDao.sequence();
+		boardDto.setBoardNo(boardNo);
+
+//		등록 전에 "새글"인지 "답글"인지 파악해서 그에 맞는 계산을 수행
+		if(boardDto.getBoardParent() == 0) {//새글이라면
+			boardDto.setBoardGroup(boardNo);
+			boardDto.setBoardParent(0);
+			boardDto.setBoardDepth(0);
+		}
+		else {//답글이라면
+			BoardDto parentDto = boardDao.selectOne(
+													boardDto.getBoardParent());
+			boardDto.setBoardGroup(parentDto.getBoardGroup());
+			boardDto.setBoardDepth(parentDto.getBoardDepth() + 1);
+		}
+		
+//		문제점 : 등록은 되는데 몇 번인지 알 수 없다
+//		해결책 : 번호를 미리 생성하고 등록하도록 메소드 변경
+		boardDao.insert2(boardDto);
+		attr.addAttribute("boardNo", boardNo);
+		return "redirect:detail";
+	}
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam int boardNo) {
+		boolean result = boardDao.delete(boardNo);
+		if(result) {//성공
+			return "redirect:list";
+		}
+		else {//구문은 실행되었지만 바뀐 게 없는 경우(강제 예외 처리)
+			throw new TargetNotFoundException();
 		}
 	}
 	
 	@GetMapping("/edit")
-	public String edit(Model model, @RequestParam(required = false) String boardWriter) {
-		model.addAttribute("boardDto", boardDao.selectOne(boardWriter));
-		return"board/edit";
+	public String edit(@RequestParam int boardNo, Model model) {
+		BoardDto boardDto = boardDao.selectOne(boardNo);
+		if(boardDto == null) {//없는 경우 내가 만든 예외 발생
+			throw new TargetNotFoundException();
+		}
+
+		model.addAttribute("boardDto", boardDto);
+//		return "/WEB-INF/views/board/edit.jsp";
+		return "board/edit";
 	}
 	
 	@PostMapping("/edit")
-	public String edit(@ModelAttribute BoardDto dto, RedirectAttributes attr) {
-		boolean result = boardDao.update(dto);
-		if(result) {
-			attr.addAttribute("boardWriter", dto.getBoardWriter());
-			return"redirect:detail";
-		}else {
-			return"redirect:edit_fail";
+	public String edit(@ModelAttribute BoardDto boardDto,
+			RedirectAttributes attr) {
+		boolean result = boardDao.update(boardDto);
+		if(result) {//성공했다면 상세페이지로 이동
+//			return "redirect:detail?boardNo="+boardDto.getBoardNo();
+			attr.addAttribute("boardNo", boardDto.getBoardNo());
+			return "redirect:detail";
+		}
+		else {//실패했다면 오류 발생
+			throw new TargetNotFoundException();
 		}
 	}
 	
-	@GetMapping("/edit_fail")
-	public String editFail() {
-		return"board/editFail";
+	// 댓글 등록 
+	
+	@GetMapping("/reply/write")
+	public String replyWrite() {
+		return "reply/write";
 	}
+	
+	@PostMapping("/reply/write")
+	public String replyWrite(@ModelAttribute ReplyDto replyDto, HttpSession session) {
+		String useId = (String) session.getAttribute("userId");
+		replyDto.setReplyWriter(useId);
+		return"redirect:detail";
+	}
+	
+	@GetMapping("/reply/edit")
+	public String replyEdit(@RequestParam int replyNo, Model model) {
+		ReplyDto replyDto = replyDao.selectOne(replyNo); 
+		if(replyDto == null) {//없는 경우 내가 만든 예외 발생
+			throw new TargetNotFoundException();
+		}
+		model.addAttribute("replyDto", replyDto);
+		return "reply/edit";
+	}
+	
+	@PostMapping("/reply/edit")
+	public String replyEdit(@ModelAttribute ReplyDto replyDto,
+			RedirectAttributes attr) {
+		boolean result = replyDao.update(replyDto);
+		if(result) {//성공했다면 상세페이지로 이동
+//			return "redirect:detail?boardNo="+boardDto.getBoardNo();
+			attr.addAttribute("replyNo", replyDto.getReplyNo());
+			return "redirect:detail";
+		}
+		else {//실패했다면 오류 발생
+			throw new TargetNotFoundException();
+		}
+	}
+	
 }
