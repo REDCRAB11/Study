@@ -17,9 +17,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.springhome.constant.SessionConstant;
 import com.kh.springhome.entity.BoardDto;
+import com.kh.springhome.entity.MemberBoardLikeDto;
 import com.kh.springhome.entity.ReplyDto;
 import com.kh.springhome.error.TargetNotFoundException;
 import com.kh.springhome.repository.BoardDao;
+import com.kh.springhome.repository.MemberBoardLikeDao;
 import com.kh.springhome.repository.ReplyDao;
 import com.kh.springhome.vo.BoardListSearchVO;
 
@@ -32,6 +34,9 @@ public class BoardController {
 	
 	@Autowired
 	private ReplyDao replyDao;
+	
+	@Autowired
+	private MemberBoardLikeDao likeDao;
 	
 //	참고 : ModelAttribute로 수신한 데이터는 자동으로 Model에 첨부된다
 //	- 옵션에 name을 작성하면 해당하는 이름으로 model에 첨부
@@ -81,6 +86,18 @@ public class BoardController {
 		
 //		(4) 갱신된 저장소를 세션에 다시 저장
 		session.setAttribute("history", history);
+		
+//		(+추가) 댓글 목록을 조회하여 첨부
+		model.addAttribute("replyList", replyDao.selectList(boardNo));
+		
+//		(+추가) 좋아요 기록이 있는지 조회하여 첨부
+		String loginId = (String) session.getAttribute(SessionConstant.ID);
+		if(loginId != null) {
+			MemberBoardLikeDto likeDto = new MemberBoardLikeDto();
+			likeDto.setMemberId(loginId);
+			likeDto.setBoardNo(boardNo);
+			model.addAttribute("isLike", likeDao.check(likeDto));
+		}
 		
 		return "board/detail";
 	}
@@ -160,42 +177,91 @@ public class BoardController {
 		}
 	}
 	
-	// 댓글 등록 
-	
-	@GetMapping("/reply/write")
-	public String replyWrite() {
-		return "reply/write";
-	}
-	
 	@PostMapping("/reply/write")
-	public String replyWrite(@ModelAttribute ReplyDto replyDto, HttpSession session) {
-		String useId = (String) session.getAttribute("userId");
-		replyDto.setReplyWriter(useId);
-		return"redirect:detail";
+	public String replyWrite(
+			@ModelAttribute ReplyDto replyDto,
+			RedirectAttributes attr, HttpSession session) {
+		String memberId = (String)session.getAttribute(SessionConstant.ID);
+		replyDto.setReplyWriter(memberId);
+		replyDao.insert(replyDto);
+		
+		attr.addAttribute("boardNo", replyDto.getReplyOrigin());
+//		return "redirect:../detail";//상대
+		return "redirect:/board/detail";//절대
 	}
 	
-	@GetMapping("/reply/edit")
-	public String replyEdit(@RequestParam int replyNo, Model model) {
-		ReplyDto replyDto = replyDao.selectOne(replyNo); 
-		if(replyDto == null) {//없는 경우 내가 만든 예외 발생
-			throw new TargetNotFoundException();
-		}
-		model.addAttribute("replyDto", replyDto);
-		return "reply/edit";
+	@GetMapping("/reply/delete")
+	public String replyDelete(
+			@RequestParam int replyNo,
+			@RequestParam int replyOrigin,
+			RedirectAttributes attr) {
+		replyDao.delete(replyNo);
+		attr.addAttribute("boardNo", replyOrigin);
+		return "redirect:/board/detail";
 	}
 	
 	@PostMapping("/reply/edit")
-	public String replyEdit(@ModelAttribute ReplyDto replyDto,
+	public String replyEdit(
+			@ModelAttribute ReplyDto replyDto,
 			RedirectAttributes attr) {
-		boolean result = replyDao.update(replyDto);
-		if(result) {//성공했다면 상세페이지로 이동
-//			return "redirect:detail?boardNo="+boardDto.getBoardNo();
-			attr.addAttribute("replyNo", replyDto.getReplyNo());
-			return "redirect:detail";
-		}
-		else {//실패했다면 오류 발생
-			throw new TargetNotFoundException();
-		}
+		replyDao.update(replyDto);
+		attr.addAttribute("boardNo", replyDto.getReplyOrigin());
+		return "redirect:/board/detail";
 	}
 	
+	@GetMapping("/reply/blind")
+	public String replyBlind(
+			@RequestParam int replyNo,
+			@RequestParam int replyOrigin,
+			RedirectAttributes attr) {
+		ReplyDto replyDto = replyDao.selectOne(replyNo);
+		replyDao.updateBlind(replyNo, !replyDto.isReplyBlind());
+//		if(replyDto.isReplyBlind()) {
+//			replyDao.updateBlind(replyNo, false);
+//		}
+//		else {
+//			replyDao.updateBlind(replyNo, true);
+//		}
+		
+		attr.addAttribute("boardNo", replyOrigin);
+		return "redirect:/board/detail";
+	}
+	
+//	좋아요
+	@GetMapping("/like")
+	public String boardLike(
+				@RequestParam int boardNo,
+				HttpSession session, RedirectAttributes attr
+			) {
+		String memberId = (String)session.getAttribute(SessionConstant.ID);
+		MemberBoardLikeDto dto = new MemberBoardLikeDto();
+		dto.setMemberId(memberId);
+		dto.setBoardNo(boardNo);
+		
+		if(likeDao.check(dto)) {//좋아요를 한 상태면
+			likeDao.delete(dto);//지우세요
+		}
+		else {//좋아요를 한 적이 없는 상태면
+			likeDao.insert(dto);//추가하세요
+		}
+		
+		likeDao.refresh(boardNo);//조회수 갱신
+		
+		attr.addAttribute("boardNo", boardNo);
+		return "redirect:/board/detail";
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

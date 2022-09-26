@@ -93,4 +93,23 @@ public class GuestBookDaoImpl implements GuestBookDao{
 		Object[] param = {no};
 		return jdbcTemplate.update(sql, param) > 0;
 	}
+	
+	@Override
+	public List<GuestBookDto> selectListForMain() {
+		String sql = "select * from ("
+							+ "select rownum rn, TMP.* from ("
+								+ "select * from guest_book order by no desc"
+							+ ")TMP"
+						+ ") where rn between 1 and 10";
+		return jdbcTemplate.query(sql, mapper);
+	}
 }
+
+
+
+
+
+
+
+
+

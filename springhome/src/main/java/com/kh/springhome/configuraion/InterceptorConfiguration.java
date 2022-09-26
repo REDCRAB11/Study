@@ -9,6 +9,7 @@ import com.kh.springhome.interceptor.AdminInterceptor;
 import com.kh.springhome.interceptor.MemberBoardOwnerCheckInterceptor;
 import com.kh.springhome.interceptor.MemberBoardPermissionCheckInterceptor;
 import com.kh.springhome.interceptor.MemberInterceptor;
+import com.kh.springhome.interceptor.ReplyOwnerCheckInterceptor;
 import com.kh.springhome.interceptor.TestInterceptor;
 
 //스프링 설정파일
@@ -32,6 +33,9 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 	
 	@Autowired
 	private MemberBoardOwnerCheckInterceptor ownerCheckInterceptor;
+	
+	@Autowired
+	private ReplyOwnerCheckInterceptor replyOwnerCheckInterceptor;
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -67,7 +71,9 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 						"/member/list",//회원목록
 						"/member/detail",//회원상세
 						"/member/change*",//회원수정
-						"/member/exit"//회원삭제
+						"/member/exit",//회원삭제
+						"/admin/**", //관리자 기능
+						"/board/reply/blind"//블라인드 기능
 					)
 					.excludePathPatterns(//위의 주소에서 제외할 주소
 						"/music/list",//음원 목록
@@ -87,6 +93,18 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 								"/board/edit",
 								"/board/delete"
 								);
+		
+		// 소유자 또는 관리자만 수정/삭제를 할 수 있도록 검사하는 인터셉터 
+		registry.addInterceptor(replyOwnerCheckInterceptor)
+													.addPathPatterns("/board/edit"
+															+ "/board/delete"
+															);
+
+		// 소유자만 댓글 수정/삭제 가능하도록 검사하는 인터셉터
+		registry.addInterceptor(replyOwnerCheckInterceptor)
+													.addPathPatterns("/board/reply/edit"
+															+ "/board/reply/delete");
+		
 	}
 }
  

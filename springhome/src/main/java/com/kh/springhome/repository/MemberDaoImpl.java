@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,9 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.kh.springhome.entity.MemberDto;
-
-import ch.qos.logback.classic.Logger;
-import ch.qos.logback.core.net.LoginAuthenticator;
+import com.kh.springhome.vo.MemberListForMainVO;
 
 @Repository
 public class MemberDaoImpl implements MemberDao{
@@ -155,42 +152,85 @@ public class MemberDaoImpl implements MemberDao{
 		return jdbcTemplate.update(sql, param) > 0;
 	}
 	
-	//이거 내가 푼거 
-	@Override
-	public boolean update(String memberId, String memberPw) {
-		String sql = "update member set member_pw = ? where member_id = ?";
-		Object[] param = {memberPw, memberId};
-		return jdbcTemplate.update(sql, param) > 0;
-	}
-
 	@Override
 	public boolean changePassword(String memberId, String memberPw) {
-		String sql = "update member set member_pw=? where member_id=?";
+		String sql = "update member "
+							+ "set member_pw = ? "
+							+ "where member_id = ?";
 		Object[] param = {memberPw, memberId};
-		return jdbcTemplate.update(sql, param)>0;
-	}
-
-	@Override
-	public boolean changeInformation(MemberDto changeDto) {
-		String sql= "update member set member_nick=?,  member_birth=?, member_tel=?, member_email=?, member_post=?, member_base_address=?, member_detail_address=? where member_id=?";
-		Object [] param = {changeDto.getMemberNick(), changeDto.getMemberBirth(), changeDto.getMemberTel(), changeDto.getMemberEmail(), changeDto.getMemberPost(), changeDto.getMemberBaseAddress(), changeDto.getMemberDetailAddress(), changeDto.getMemberId()};
 		return jdbcTemplate.update(sql, param) > 0;
 	}
-
+	
 	@Override
-	public boolean allDelete(String memberId) {
-		String sql = "delete member where member_id=?";
-		Object [] param = {memberId};
+	public boolean changeInformation(MemberDto memberDto) {
+		String sql = "update member "
+						+ "set "
+							+ "member_nick = ?,"
+							+ "member_birth = ?,"
+							+ "member_tel = ?,"
+							+ "member_email = ?,"
+							+ "member_post = ?,"
+							+ "member_base_address = ?,"
+							+ "member_detail_address = ? "
+						+ "where member_id = ?";
+		Object[] param = {
+			memberDto.getMemberNick(), memberDto.getMemberBirth(),
+			memberDto.getMemberTel(), memberDto.getMemberEmail(),
+			memberDto.getMemberPost(), memberDto.getMemberBaseAddress(),
+			memberDto.getMemberDetailAddress(), memberDto.getMemberId()
+		};
 		return jdbcTemplate.update(sql, param) > 0;
 	}
-
+	
 	@Override
 	public boolean updateLoginTime(String memberId) {
-		String sql = "update member set member_login = sysdate where member_id=?";
-		Object [] param = {memberId};
-		return jdbcTemplate.update(sql, param)>0;
-	} 
+		String sql = "update member "
+						+ "set member_login=sysdate "
+						+ "where member_id=?";
+		Object[] param = {memberId};
+		return jdbcTemplate.update(sql, param) > 0;
+	}
 	
+	private RowMapper<MemberListForMainVO> mainMapper = new RowMapper<MemberListForMainVO>() {
+		@Override
+		public MemberListForMainVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+			return MemberListForMainVO.builder()
+									.memberId(rs.getString("member_id"))
+									.memberNick(rs.getString("member_nick"))
+									.memberGrade(rs.getString("member_grade"))
+									.cnt(rs.getInt("cnt"))
+									.rank(rs.getInt("rank"))
+								.build();
+		}
+	};
+	
+	@Override
+	public List<MemberListForMainVO> selectListForMain() {
+		String sql = "select * from ("
+							+ "select TMP.*, rank() over(order by cnt desc) rank from ("
+								+ "select distinct "
+								+ "M.member_id, "
+								+ "M.member_nick, "
+								+ "M.member_grade, "
+								+ "count(B.board_no) over(partition by M.member_id) cnt "
+								+ "from "
+								+ "member M inner join board B "
+								+ "on M.member_id = B.board_writer"
+							+ ")TMP"
+						+ ") where rank between 1 and 3";
+		return jdbcTemplate.query(sql, mainMapper);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
 
 

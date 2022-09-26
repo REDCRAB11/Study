@@ -1,4 +1,4 @@
-package com.kh.springhome.entity;
+package com.kh.springhome.vo;
 
 import java.sql.Date;
 
@@ -7,10 +7,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data @NoArgsConstructor @AllArgsConstructor @Builder
-public class ReplyDto {
+@Data @Builder @NoArgsConstructor @AllArgsConstructor
+public class ReplyListVO {
 	private int replyNo, replyOrigin;
 	private String replyWriter, replyContent;
 	private Date replyWritetime;
 	private boolean replyBlind;
+	private String memberNick, memberGrade;
 }

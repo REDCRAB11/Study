@@ -29,9 +29,8 @@ public class PocketMonsterDaoImpl implements PocketMonsterDao{
 			return dto;
 		}
 	};
-
+	
 	private ResultSetExtractor<PocketMonsterDto> extractor = new ResultSetExtractor<PocketMonsterDto>() {
-
 		@Override
 		public PocketMonsterDto extractData(ResultSet rs) throws SQLException, DataAccessException {
 			if(rs.next()) {
@@ -40,13 +39,13 @@ public class PocketMonsterDaoImpl implements PocketMonsterDao{
 				dto.setName(rs.getString("name"));
 				dto.setType(rs.getString("type"));
 				return dto;
-			}else {
+			}
+			else {
 				return null;
 			}
 		}
 	};
-	
-	
+
 	@Override
 	public void insert(PocketMonsterDto pocketMonsterDto) {
 		String sql = "insert into pocket_monster(no, name, type) "
@@ -67,16 +66,19 @@ public class PocketMonsterDaoImpl implements PocketMonsterDao{
 	
 	@Override
 	public PocketMonsterDto selectOne(int no) {
-		String sql = "select * from pocket_monster where no =?";
+		String sql = "select * from pocket_monster where no = ?";
 		Object[] param = {no};
 		return jdbcTemplate.query(sql, extractor, param);
 	}
 	
 	@Override
 	public boolean update(PocketMonsterDto dto) {
-		String sql= "update pocket_monster set name=?, type=? where no=?";
-		Object[] param = {dto.getName(), dto.getType(), dto.getNo()};
-		return jdbcTemplate.update(sql, param)>0 ;
+		String sql = "update pocket_monster "
+							+ "set name=?, type=? where no=?";
+		Object[] param = {
+				dto.getName(), dto.getType(), dto.getNo()
+		};
+		return jdbcTemplate.update(sql, param) > 0;
 	}
 
 	@Override
@@ -86,24 +88,39 @@ public class PocketMonsterDaoImpl implements PocketMonsterDao{
 		return jdbcTemplate.update(sql, param) > 0;
 	}
 	
-	// PocketMonsterCountVO RowMapper
-	
 	//PocketMonsterCountVO에 대한 RowMapper
-		private RowMapper<PocketMonsterCountVO> countMapper = new RowMapper<PocketMonsterCountVO>() {
-			@Override
-			public PocketMonsterCountVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-				PocketMonsterCountVO vo = new PocketMonsterCountVO();
-				vo.setType(rs.getString("type"));
-				vo.setCnt(rs.getInt("cnt"));
-				return vo;
-			}
-		};
-
+	private RowMapper<PocketMonsterCountVO> countMapper = new RowMapper<PocketMonsterCountVO>() {
 		@Override
-		public List<PocketMonsterCountVO> selectCountList() {
-			String sql = "select type, count(*) cnt from pocket_monster "
-								+ "group by type order by cnt desc";
-			return jdbcTemplate.query(sql, countMapper);
+		public PocketMonsterCountVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+			PocketMonsterCountVO vo = new PocketMonsterCountVO();
+			vo.setType(rs.getString("type"));
+			vo.setCnt(rs.getInt("cnt"));
+			return vo;
 		}
+	};
+
+	@Override
+	public List<PocketMonsterCountVO> selectCountList() {
+		String sql = "select type, count(*) cnt from pocket_monster "
+							+ "group by type order by cnt desc";
+		return jdbcTemplate.query(sql, countMapper);
+	}
+
+	@Override
+	public List<PocketMonsterDto> selectListForMain() {
+		String sql = "select * from ("
+							+ "select rownum rn, TMP.* from ("
+								+ "select * from pocket_monster order by no desc"
+							+ ")TMP"
+						+ ") where rn between 1 and 3";
+		return jdbcTemplate.query(sql, mapper);
+	}
 }
+
+
+
+
+
+
+
 

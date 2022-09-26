@@ -13,14 +13,9 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.springhome.entity.MusicDto;
 import com.kh.springhome.vo.MusicYearCountVO;
-import com.kh.springhome.vo.PocketMonsterCountVO;
-
-import io.micrometer.core.instrument.MultiGauge.Row;
 
 @Repository
-public class MusicDaoImpl  implements MusicDao{
-
-
+public class MusicDaoImpl implements MusicDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
@@ -38,8 +33,37 @@ public class MusicDaoImpl  implements MusicDao{
 		}
 	};
 	
+	@Override
+	public void insert(MusicDto musicDto) {
+		String sql = "insert into music("
+							+ "music_no, music_title, music_artist, "
+							+ "music_album, music_play, release_time"
+						+ ") values("
+							+ "music_seq.nextval, ?, ?, ?, 0, ?"
+						+ ")";
+		Object[] param = {
+			musicDto.getMusicTitle(), musicDto.getMusicArtist(),
+			musicDto.getMusicAlbum(), musicDto.getReleaseTime()
+		};
+		jdbcTemplate.update(sql, param);
+	}
+	
+	@Override
+	public List<MusicDto> selectList() {
+		String sql = "select * from music order by music_no asc";
+		return jdbcTemplate.query(sql, mapper);
+	}
+	
+	@Override
+	public List<MusicDto> selectList(String type, String keyword) {
+		String sql = "select * from music "
+								+ "where instr("+type+", ?) > 0 "
+								+ "order by "+type+" asc";
+		Object[] param = {keyword};
+		return jdbcTemplate.query(sql, mapper, param);
+	}
+	
 	private ResultSetExtractor<MusicDto> extractor = new ResultSetExtractor<MusicDto>() {
-
 		@Override
 		public MusicDto extractData(ResultSet rs) throws SQLException, DataAccessException {
 			if(rs.next()) {
@@ -51,103 +75,78 @@ public class MusicDaoImpl  implements MusicDao{
 				dto.setMusicPlay(rs.getInt("music_play"));
 				dto.setReleaseTime(rs.getDate("release_time"));
 				return dto;
-			}else {
+			}
+			else {
 				return null;
 			}
 		}
 	};
-
 	
-	@Override
-	public void insert(MusicDto dto) {
-		String sql = "insert into music("
-				+ "music_no, music_title, music_artist, "
-				+ "music_album, music_play, release_time) "
-			+ "values(music_seq.nextval, ?, ?, ?, 0 ,?)";
-		Object[] param = {
-				dto.getMusicTitle(), dto.getMusicArtist(),
-				dto.getMusicAlbum(), dto.getReleaseTime()
-		};
-jdbcTemplate.update(sql, param);
-	}
-
-	@Override
-	public List<MusicDto> selectList() {
-		String sql = " select * from music order by music_no asc";
-				return jdbcTemplate.query(sql, mapper);
-	}
-
-	@Override
-	public List<MusicDto> selectList(String type, String keyword) {
-		String sql = " select * from music where instr(#1, ?) > 0 order by  #1 asc";
-//		String sql = " select * from music where instr("+type+", ?) >0 order by "+type+" asc";
-//		Object [] param = {keyword};
-		
-		sql = sql.replace("#1", type);
-		Object [] param = {keyword};
-		return jdbcTemplate.query(sql, mapper, param);
-	}
-
 	@Override
 	public MusicDto selectOne(int musicNo) {
 		String sql = "select * from music where music_no = ?";
-		Object [] param = {musicNo};
-		return jdbcTemplate.query(sql, extractor,param);
+		Object[] param = {musicNo};
+		return jdbcTemplate.query(sql, extractor, param);
 	}
 	
 	@Override
-	public boolean update(MusicDto dto) {
-		String sql = "update music set music_title=?, music_artist=?, music_album=?, music_play=?, release_time=? where music_no=?";
-		Object[] param = { dto.getMusicTitle(), dto.getMusicArtist(), dto.getMusicAlbum(), dto.getMusicPlay(), dto.getReleaseTime(), dto.getMusicNo()};
-		return jdbcTemplate.update(sql, param)>0;
+	public boolean update(MusicDto musicDto) {
+		String sql = "update music "
+							+ "set "
+								+ "music_title = ?, "
+								+ "music_artist = ?, "
+								+ "music_album = ?,"
+								+ "release_time = ? "
+							+ "where "
+								+ "music_no = ?";
+		Object[] param = {
+			musicDto.getMusicTitle(), musicDto.getMusicArtist(),
+			musicDto.getMusicAlbum(), musicDto.getReleaseTime(),
+			musicDto.getMusicNo()
+		};
+		return jdbcTemplate.update(sql, param) > 0;
 	}
 
 	@Override
 	public boolean delete(int musicNo) {
-		String sql = "delete music where music_no=?";
+		String sql = "delete music where music_no = ?";
 		Object[] param = {musicNo};
-		return jdbcTemplate.update(sql, param) >0;
+		return jdbcTemplate.update(sql, param) > 0;
 	}
 	
-//	// 내가 푼거 밑에 오버라이드 두개 
-//	private RowMapper<MusicYearCountVO> countMapper = new RowMapper<MusicYearCountVO>() {
-//		@Override
-//		public MusicYearCountVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-//			MusicYearCountVO vo = new MusicYearCountVO();
-//			vo.setPlay(rs.getString("play"));
-//			vo.setCnt(rs.getString("cnt"));
-//			return vo;
-//		}
-//	};
-//
-	@Override
-	public List<MusicYearCountVO> selectCountList() {
-		String sql = "select music_play,release_time from music where rownum <= 10 order by release_time desc";
-		return jdbcTemplate.query(sql, countMapper);
-	}// 여기까지 내가 품 
-
 	@Override
 	public List<MusicDto> top10() {
-			String sql="select * from ( select TMP.*, rownum rn from ( select * from music order by music_play desc) TMP ) where rn between 1and 10";
+		String sql = "select * from ("
+							+ "select TMP.*, rownum rn from ("
+								+ "select * from music order by music_play desc, music_no asc"
+							+ ")TMP"
+						+ ") where rn between 1 and 10";
 		return jdbcTemplate.query(sql, mapper);
 	}
-
+	
 	@Override
 	public List<MusicDto> topN(int limit) {
-		String sql="select * from ( select TMP.*, rownum rn from ( select * from music order by music_play desc) TMP ) where rn between 1and ?";
+		String sql = "select * from ("
+							+ "select TMP.*, rownum rn from ("
+								+ "select * from music order by music_play desc, music_no asc"
+							+ ")TMP"
+						+ ") where rn between 1 and ?";
 		Object[] param = {limit};
 		return jdbcTemplate.query(sql, mapper, param);
 	}
-
+	
 	@Override
 	public List<MusicDto> topNtoM(int begin, int end) {
-		String sql="select * from ( select TMP.*, rownum rn from ( select * from music order by music_play desc) TMP ) where rn between ? and ?";
+		String sql = "select * from ("
+							+ "select TMP.*, rownum rn from ("
+								+ "select * from music order by music_play desc, music_no asc"
+							+ ")TMP"
+						+ ") where rn between ? and ?";
 		Object[] param = {begin, end};
 		return jdbcTemplate.query(sql, mapper, param);
 	}
-
+	
 	private RowMapper<MusicYearCountVO> countMapper = new RowMapper<MusicYearCountVO>() {
-
 		@Override
 		public MusicYearCountVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 			MusicYearCountVO vo = new MusicYearCountVO();
@@ -156,18 +155,46 @@ jdbcTemplate.update(sql, param);
 			vo.setCnt(rs.getInt("cnt"));
 			return vo;
 		}
-	};
-
-	@Override //rank 있으면 오류남 ~ 
+	}; 
+	
+	@Override
 	public List<MusicYearCountVO> releaseByYear() {
-		String sql = "select extract(year from release_time) year, count(*)cnt from music group by extract(year from release_time) order by year desc";
+		String sql = "select "
+							+ "extract(year from release_time) year, "
+							+ "count(*) cnt "
+						+ "from music "
+						+ "group by extract(year from release_time) "
+						+ "order by year desc";
+		return jdbcTemplate.query(sql, countMapper);
+	}
+	
+	@Override
+	public List<MusicYearCountVO> releaseByYearWithRank() {
+		String sql = "select TMP.*, rank() over(order by cnt desc) rank from ("
+							+ "select "
+								+ "extract(year from release_time) year, "
+								+ "count(*) cnt "
+							+ "from music "
+							+ "group by extract(year from release_time) "
+							+ "order by year desc "
+						+ ")TMP";
 		return jdbcTemplate.query(sql, countMapper);
 	}
 
 	@Override
-	public List<MusicYearCountVO> releaseByYearWithRank() {
-		String sql = "select TMP.*, rank() over(order by cnt desc) rank from(select extract(year from release_time) year, count(*) cnt from music group by extract(year from release_time) order by year desc) TMP ";
-		return jdbcTemplate.query(sql, countMapper);
+	public List<MusicDto> selectListForMain() {
+		String sql = "select * from ("
+							+ "select rownum rn, TMP.* from ("
+								+ "select * from music order by music_no desc"
+							+ ")TMP"
+						+ ") where rn between 1 and 5";
+		return jdbcTemplate.query(sql, mapper);
 	}
 }
-	
+
+
+
+
+
+
+

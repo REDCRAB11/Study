@@ -6,7 +6,6 @@ import com.kh.springhome.entity.PocketMonsterDto;
 import com.kh.springhome.vo.PocketMonsterCountVO;
 
 public interface PocketMonsterDao {
-
 	void insert(PocketMonsterDto pocketMonsterDto);
 	List<PocketMonsterDto> selectList();
 	PocketMonsterDto selectOne(int no);
@@ -14,4 +13,7 @@ public interface PocketMonsterDao {
 	boolean delete(int no);
 	
 	List<PocketMonsterCountVO> selectCountList();
+	List<PocketMonsterDto> selectListForMain();
 }
+
+

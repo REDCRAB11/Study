@@ -58,6 +58,16 @@
 					${boardDto.boardTitle}
 				</a>
 				
+				<!-- 댓글 개수 출력 -->
+				<c:if test="${boardDto.replyCount > 0}">
+					[${boardDto.replyCount}]
+				</c:if>
+				
+				<!-- 좋아요 개수 출력 -->
+				<c:if test="${boardDto.boardLike > 0}">
+					♥ ${boardDto.boardLike}
+				</c:if>
+				
 			</td>
 			<td>${boardDto.boardWriter}</td>
 			<td>
@@ -154,3 +164,7 @@
 </form>
 
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
+
+
+
+

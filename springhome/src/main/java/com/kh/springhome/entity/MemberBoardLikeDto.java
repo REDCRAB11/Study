@@ -8,9 +8,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
-public class MusicDto {
-	private int musicNo;
-	private String musicTitle, musicAlbum, musicArtist;
-	private int musicPlay;
-	private Date releaseTime;
+public class MemberBoardLikeDto {
+	private String memberId;
+	private int boardNo;
+	private Date likeTime;
 }
+
+
+
+
+
