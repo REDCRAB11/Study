@@ -1,8 +1,14 @@
 package com.kh.springhome.controller;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,10 +16,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.springhome.constant.SessionConstant;
 import com.kh.springhome.entity.MemberDto;
+import com.kh.springhome.error.TargetNotFoundException;
 import com.kh.springhome.repository.BoardDao;
 import com.kh.springhome.repository.MemberBoardLikeDao;
 import com.kh.springhome.repository.MemberDao;
@@ -37,9 +46,22 @@ public class MemberController {
 		return "member/join";
 	}
 	
+//	(+추가) 첨부파일을 받아서 저장 
 	@PostMapping("/join")
-	public String join(@ModelAttribute MemberDto memberDto) {
+	public String join(@ModelAttribute MemberDto memberDto,
+			@RequestParam MultipartFile memberProfile
+			) throws IllegalStateException, IOException {
+		
+		//데이터베이스 등록
 		memberDao.insert(memberDto);
+		
+		if(!memberProfile.isEmpty()) { // 첨부파일이 있다면 
+			// 프로필 저장
+			File directory = new File(System.getProperty("user.home")+"/member");
+			directory.mkdirs();
+			File target = new File(directory, memberDto.getMemberId());
+			memberProfile.transferTo(target);	
+		}
 		return "redirect:join_finish";
 	}
 	
@@ -301,12 +323,39 @@ public class MemberController {
 		return "member/goodbyeResult";
 	}
 	
+// (+추가) 특정 사용자의 프로필 이미지를 다운로드하는 매핑  
+// - 다운로드란 현재의 서버에서 사용자에게 파일을 전송하는 것 
+//	 - 전송을 하려면 화면을 무시해야하는 설정을 해야한다. (@ResponseBody)
+//	- 전송을 부탁하려면 ResponseEntitiy 형태가 반환되어야 한다. 
+	
+	@GetMapping("/download")
+	@ResponseBody
+	public ResponseEntity<ByteArrayResource> download(@RequestParam String memberId) throws IOException {
+		// [1] 파일 찾기 
+		File directory = new File(System.getProperty("user.home")+"/member");
+		File target = new File(directory, memberId);
+		
+		if(target.exists()) {// 파일 존재
+			
+			// [2] 해당 파일의 내용을 불러온다.(apache commons io 의존성 필요) 
+			byte[] data = FileUtils.readFileToByteArray(target);
+			ByteArrayResource resource = new ByteArrayResource(data);
+			
+			// [3] 사용자에게 보낼 응답 생성
+			// - header에는 보낼 파일의 정보를, body에는 보낼 파일의 내용을 첨부 
+			return ResponseEntity.ok().header("Content-Encofing", "UTF-8")
+					.header("Content-Length", String.valueOf(data.length))
+					.header("Content-Disposition", "attachment;filename=" + memberId)
+					.header("Content-Type", "application/octet-stream")
+					.body(resource);
+			
+		}else {// 파일 없음  둘 중 하나 쓰세요  ~ 
+			// 1) 우리가 정한 예외를 발생시키는 방법 구현은 이게 낫다 
+			throw new TargetNotFoundException("프로필 없음");
+			
+			// 2) 사용자에게 못찾았음(404)를 전송 
+//			return ResponseEntity.notFound().build();
+		}
+	}
+	
 }
-
-
-
-
-
-
-
-

@@ -1,8 +1,12 @@
 package com.kh.springhome.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.springhome.entity.PocketMonsterDto;
 import com.kh.springhome.repository.PocketMonsterDao;
@@ -33,9 +39,18 @@ public class PocketMonsterController {
 	}
 	
 	@PostMapping("/insert")
-	public String insert(@ModelAttribute PocketMonsterDto dto) {
+	public String insert(@ModelAttribute PocketMonsterDto dto,
+			@RequestParam MultipartFile pocketMonsterProfile
+			) throws IllegalStateException, IOException {
 //		DB insert
 		pocketMonsterDao.insert(dto);
+		
+		if(!pocketMonsterProfile.isEmpty()) {
+			File directory = new File(System.getProperty("user.home") + "/pocketmonster");
+			directory.mkdirs();
+			File target = new File(directory, dto.getName());
+			pocketMonsterProfile.transferTo(target);
+		}
 		
 //		insert_success 매핑으로 redirect(강제이동) 처리하세요
 		return "redirect:insert_success";
@@ -99,4 +114,14 @@ public class PocketMonsterController {
 			return "pocketmon/editFail";
 		}
 	}
+	
+	
+//	프로필 이미지 추가 
+	
+//	@GetMapping("/download")
+//	@ResponseBody
+//	public ResponseEntity<ByteArrayResource> download(@RequestParam int no){
+//		File dir = new File(System.getProperty("user.home")+"/pocketmon");
+//		File target = 	new File(dir, no);
+//	}
 }

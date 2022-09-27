@@ -22,6 +22,13 @@
 	<h1>${memberDto.memberId} 회원 정보</h1>
 	<table border="1" width="400">
 		<tbody>
+		
+		<!-- 프로필 이미지 출력 -->
+		<tr>
+			<th colspan="2">
+				<img src="download?memberId=${memberDto.memberId}" width="100" heigh="100">
+			</th>
+		</tr>	
 			<tr>
 				<th width="25%">아이디</th>
 				<td>${memberDto.memberId}</td>
