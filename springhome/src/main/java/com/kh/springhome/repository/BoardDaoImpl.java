@@ -285,6 +285,13 @@ public class BoardDaoImpl implements BoardDao {
 		BoardListSearchVO vo = new BoardListSearchVO();
 		return list(vo);
 	}
+
+	@Override
+	public void connectAttachment(int boardNo, int attachmentNo) {
+		String sql = "insert into board_attachment(board_no, attachment_no) values(?,?)";
+		Object[] param = {boardNo, attachmentNo};
+		jdbcTemplate.update(sql, param);
+	}
 }
 
 
