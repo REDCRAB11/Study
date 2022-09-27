@@ -24,7 +24,7 @@ import com.kh.spring13.repository.AttachmentDao;
 @Controller
 public class FileController {
 	
-	@GetMapping("/")
+	@GetMapping("/") 
 	public String root() {
 		return "root";
 	}
