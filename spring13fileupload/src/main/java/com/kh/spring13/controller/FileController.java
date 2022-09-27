@@ -47,9 +47,9 @@ public class FileController {
 		System.out.println("size = " + attachment.getSize());
 		
 		//사용자가 올린 파일을 저장
-		File directory = new File("D:/upload");//업로드할 폴더 선택
-//		File directory = new File(
-//						System.getProperty("user.home")+"/upload");
+//		File directory = new File("D:/upload");//업로드할 폴더 선택
+		File directory = new File(
+						System.getProperty("user.home")+"/upload");
 		directory.mkdirs();//폴더 생성 명령
 		File target = new File(directory, 
 							attachment.getOriginalFilename());//저장될 파일 생성
@@ -73,7 +73,8 @@ public class FileController {
 						.build());
 		
 		//파일 저장
-		File dir = new File("D:/upload");
+		File dir = new File(
+				System.getProperty("user.home")+"/upload");
 		dir.mkdirs();
 		File target = new File(dir, String.valueOf(attachmentNo));
 		attachment.transferTo(target);
@@ -96,7 +97,8 @@ public class FileController {
 		}
 		
 		//[2] 파일 불러오기
-		File dir = new File("D:/upload");
+		File dir = new File(
+				System.getProperty("user.home")+"/upload");
 		File target = new File(dir, String.valueOf(attachmentNo));
 		byte[] data = FileUtils.readFileToByteArray(target);
 		ByteArrayResource resource = new ByteArrayResource(data);
