@@ -7,11 +7,10 @@
     <title>로그인</title>
     <style>
         /*
-            콤마를 사용하면 여러 선택자를 동시에 설정할 수 있다
+            태그를 낱개가 아닌 종류로 나누어서 생각하고 디자인
         */
-        #id-input, 
-        #password-input,
-        #login-btn {
+        .user-input,
+        .btn{
             box-sizing: border-box;
             width:220px;
             margin: 10px 0px;
@@ -21,7 +20,7 @@
             font-size: 15px;
             display: block;
         }
-        #login-btn {
+        .btn {
             background-color: black;
             color:white;
         }
@@ -30,10 +29,11 @@
 <body>
     <div align="center">
         <form action="login" method="post">
-            <h1>Login</h1>
-            <input id="id-input" type="text" name="memberId" placeholder="ID">
-            <input id="password-input" type="password" name="memberPw" placeholder="Password">
-            <button id="login-btn" type="submit">로그인</button>
+            <h1 class="title">회원가입</h1>
+            <input class="user-input" type="text" name="memberId" placeholder="ID">
+            <input class="user-input" type="password" name="memberPw" placeholder="Password">
+            <input class="user-input" type="text" name="memberNick" placeholder="Nickname">
+            <button class="btn" type="submit">가입</button>
         </form>
     </div>
 </body>
