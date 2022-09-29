@@ -1,70 +1,169 @@
 @charset "UTF-8";
 
-/*  
-    전체 스타일 
+/*
+    전체 스타일
     - 폭 설정 기준을 테두리(border-box)로 지정
-    - 전체 글꼴 설정 
+    - 전체 글꼴 설정
 */
-
 * {
     box-sizing: border-box;
     font-family: sans-serif;
 }
 
-/* 
-            container는 작은 화면의 외부영역을 관리하는 도구 
-            - 폭 조절과 가운데 배치를 할 수 있어야 한다. 
-            - css에서는 계산식이 모든 브라우저에서 작동하지 않음 
-            - 미리 예상가능한 크기를 준비해두면 편하게 쓸 수 있다. 
-        */
-        .container-300{ width: 300px; margin: 0 auto;}
-        .container-350{width: 350px; margin: 0 auto;}
-        .container-400{width: 400px; margin: 0 auto;}
-        .container-450{width: 450px; margin: 0 auto;}
-        .container-500{width: 500px; margin: 0 auto;}
-        .container-550{width: 550px; margin: 0 auto;}
-        .container-600{width: 600px; margin: 0 auto;}
-        .container-650{width: 650px; margin: 0 auto;}
-        .container-700{width: 700px; margin: 0 auto;}
-        .container-750{width: 750px; margin: 0 auto;}
-        .container-800{width: 800px; margin: 0 auto;}
-        .container-850{width: 850px; margin: 0 auto;}
-        .container-900{width: 900px; margin: 0 auto;}
-        .container-950{width: 950px; margin: 0 auto;}
-        .container-1000{width: 1000px; margin: 0 auto;}
-        .container-1050{width: 1050px; margin: 0 auto;}
-        .container-1100{width: 1100px; margin: 0 auto;}
-        .container-1150{width: 1150px; margin: 0 auto;}
-        .container-1200{width: 1200px; margin: 0 auto;}
+/*
+    container는 작은 화면의 외부 영역을 관리하는 도구
+    - 폭 조절과 가운데 배치를 할 수 있어야 한다.
+    - css에서는 계산식이 모든 브라우저에서 작동하지 않는다
+    - 미리 예상 가능한 크기를 준비해두면 편하게 쓸 수 있지 않을까?
+*/
+.container-300 { width:300px; margin:0 auto; }
+.container-350 { width:350px; margin:0 auto; }
+.container-400 { width:400px; margin:0 auto; }
+.container-450 { width:450px; margin:0 auto; }
+.container-500 { width:500px; margin:0 auto; }
+.container-550 { width:550px; margin:0 auto; }
+.container-600 { width:600px; margin:0 auto; }
+.container-650 { width:650px; margin:0 auto; }
+.container-700 { width:700px; margin:0 auto; }
+.container-750 { width:750px; margin:0 auto; }
+.container-800 { width:800px; margin:0 auto; }
+.container-850 { width:850px; margin:0 auto; }
+.container-900 { width:900px; margin:0 auto; }
+.container-950 { width:950px; margin:0 auto; }
+.container-1000 { width:1000px; margin:0 auto; }
+.container-1050 { width:1050px; margin:0 auto; }
+.container-1100 { width:1100px; margin:0 auto; }
+.container-1150 { width:1150px; margin:0 auto; }
+.container-1200 { width:1200px; margin:0 auto; }
 
-        /* 
-            row는 container내부에 배치될 도구들이 위치할 자리에 해당한다. 
-            - 상하 margin만 부여하여 간격을 띄어준다.
-        */
-        .row{
-            margin: 10px 0px;
-        }
+/*
+    row는 container 내부에 배치될 도구들이 위치할 자리에 해당한다
+    - 상하 margin만 부여하여 간격을 띄워준다
+*/
+.row {
+    margin: 10px 0px;
+}
 
-        /* 
-            row 내부에 위치하는 도구들의 폭을 설정 
-            - 폭을 row에 맞게 100%로 설정하거나 아니면 자신의 폭을 그대로 사용 
-            - 아무 표시도 하지 않으면 폭을 있는 그대로 두고 ,, 클랫를 부여하면 100%로 변경하도록 부여 
-        */
-        .w-100{
-            width: 100%;
-        }
+/*
+    row 내부에 위치하는 도구들의 폭을 설정
+    - 폭을 row에 맞게 100%로 설정하거나 아니면 자신의 폭을 그대로 사용
+    - 아무 표시도 하지 않으면 폭을 있는 그대로 두고 클래스를 부여하면 100%로 변경
+*/
+.w-100 {
+    width:100%;
+}
 
-        /* 
-            어차피 정렬은 left, right, center 밖에 없다. 
-            - text-align으로 설정
-        */
+/*
+    어짜피 정렬은 left, center, right밖에 없다
+    - text-align 속성으로 설정
+*/
+.left {text-align: left;}
+.center {text-align: center;}
+.right {text-align: right;}
 
-        .left{
-            text-align: left;
-        }
-        .center{
-            text-align: center;
-        }
-        .right{
-            text-align: right;
-        }
+/*
+    margin은 간격을 벌리기 위해서 사용한다
+    어떨때는 12px, 어떨때는 17px과 같이 부여하면 일관성이 떨어진다
+    표준화된 margin 부여가 가능하도록 스타일을 설정
+    - mt(margin-top), mb(margin-bottom), ms(margin-start), me(margin-end)
+*/
+.mt-10 { margin-top: 10px;}
+.mt-20 { margin-top: 20px;}
+.mt-30 { margin-top: 30px;}
+.mt-40 { margin-top: 40px;}
+.mt-50 { margin-top: 50px;}
+
+.mb-10 { margin-bottom: 10px;}
+.mb-20 { margin-bottom: 20px;}
+.mb-30 { margin-bottom: 30px;}
+.mb-40 { margin-bottom: 40px;}
+.mb-50 { margin-bottom: 50px;}
+
+.ms-10 { margin-left: 10px;}
+.ms-20 { margin-left: 20px;}
+.ms-30 { margin-left: 30px;}
+.ms-40 { margin-left: 40px;}
+.ms-50 { margin-left: 50px;}
+
+.me-10 { margin-right: 10px;}
+.me-20 { margin-right: 20px;}
+.me-30 { margin-right: 30px;}
+.me-40 { margin-right: 40px;}
+.me-50 { margin-right: 50px;}
+
+/*
+    버튼은 3가지 역할이 있다고 보고 디자인한다
+    - 긍정버튼 : 현재의 작업을 완성시키는 버튼
+    - 중립버튼 : 현재의 작업과 상관없는 다른 작업과 연결된 버튼
+    - 부정버튼 : 현재의 작업이 위험함을 알리거나 부정적인 효과를 처리하는 버튼
+*/
+.btn {
+    border: none;
+    font-size: 20px;
+    padding: 0.75em;/*글자 크기의 0.75배*/
+    cursor: pointer;
+}
+.btn-positive {
+    background-color: #0984e3;
+    color: white;
+}
+.btn-positive:hover {
+    background-color: #0876cc;
+}
+.btn-neutral {
+    border: 1px solid gray;
+    background-color: white;
+    color: gray;
+}
+.btn-neutral:hover {
+    border: 1px solid black;
+    color: black;
+}
+.btn-negative {
+    background-color: #d63031;
+    color: white;
+}
+.btn-negative:hover {
+    background-color: #c42627;
+}
+
+/*
+    입력창은 버튼과 같이 등장하므로 비율이나 크기등이 같아야 한다
+*/
+.input {
+    font-size: 20px;
+    padding: 0.75em;
+    outline: none;
+    border:1px solid gray;
+}
+.input:focus {
+    border-color: black;
+}
+/* input이라는 클래스가 있으면서 input-underline 클래스가 있다면 */
+.input.input-underline {
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+/* 배경이미지가 들어가는 입력창 */
+.input.input-icon {
+    padding-left: 2.5em;
+    /* background-image: url("./image/search-icon.png"); */
+    background-size: 1em;
+    background-repeat: no-repeat;
+    background-position-x: 0.75em;
+    background-position-y: center;
+}
+
+/*
+    textarea는 기본적으로 폭 조절이 가능하여 디자인에 어려움이 많다
+    - 높이만 조절되게 하던가
+    - 아예 조절이 안되게 하던가
+    - resize 속성
+*/
+textarea.input {
+    resize: vertical;
+}
+textarea.input.fix-size {
+    resize: none;
+}
