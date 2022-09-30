@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Design</title>
+
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <style>
+        /* 
+            이미지 디자인 
+        */
+    
+    .image{
+        border: 5px solid transparent;
+    } 
+    .image.image-hover:hover,
+    .image.image-frame{
+        border-color: #BBE309;
+    }
+    .image.image-blur{
+        /* opacity는 불투명도이며 0부터 1까지 설정 가능하다. */
+        opacity: 0.4;
+    }
+    .image.image.image-blur:hover{
+        opacity: 1;
+    }
+    .image.image-shadow{
+        /* box-shadow 속성
+            - box-shadow: 우측 하단 번짐정도 확장정도         
+        */
+        /* box-shadow: 3px 5px 3px 0px black; */
+        box-shadow: 0px 0px 5px 0px;
+    }
+    .image.image-round{
+        border-radius: 60px;
+    }
+    .image.image-circle{
+        border-radius: 50%;
+    }
+    .image.image-leaf{
+        border-top-left-radius: 80%;
+        border-bottom-right-radius: 80%;
+    }
+    </style>  
+</head>
+<body>
+    <img class="image" src="./image/jisung.jpg" width="200" height="200">
+    <img class="image image-hover" src="./image/jisung.jpg" width="200" height="200">
+    <img class="image image-blur" src="./image/jisung.jpg" width="200" height="200">
+    <img class="image image-frame" src="./image/jisung.jpg" width="200" height="200">
+    <img class="image image-shadow" src="./image/jisung.jpg" width="200" height="200">
+    <img class="image image-round" src="./image/jisung.jpg" width="200" height="200">
+    <img class="image image-circle" src="./image/jisung.jpg" width="200" height="200">
+    <img class="image image-circle image-shadow image-blur" src="./image/jisung.jpg" width="200" height="200">
+    <img class="image image-leaf" src="./image/jisung.jpg" width="200" height="200">
+</body>
+</html>
