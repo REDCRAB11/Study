@@ -51,6 +51,21 @@
     - 폭을 row에 맞게 100%로 설정하거나 아니면 자신의 폭을 그대로 사용
     - 아무 표시도 하지 않으면 폭을 있는 그대로 두고 클래스를 부여하면 100%로 변경
 */
+.w-20{
+    width: 20%;
+}
+.w-30{
+    width: 30%;
+}
+.w-40{
+    width: 40%;
+}
+.w-50{
+    width: 50%;
+}
+.w-70{
+    width: 70%;
+}
 .w-100 {
     width:100%;
 }
@@ -108,6 +123,7 @@
     display: inline-block;
     text-align: center;
     text-decoration: none;
+    border-radius: 1em;
 }
 .btn-positive {
     background-color: #0984e3;
@@ -295,3 +311,73 @@ textarea.input.fix-size {
             border-top-left-radius: 80%;
             border-bottom-right-radius: 80%;
         }
+
+          /* 
+            Pagination 디자인 
+             - ul 혹은 ol을 개조해서 구조를 설계 
+        */
+    
+    ul.pagination{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        text-align: center; /* 전체 가운데 정렬 */
+    }
+    ul.pagination > li{
+        display: inline-block;
+        border: 1px solid transparent;
+        padding: 0.5em;
+        line-height: 1em; /* 글자 표시 높이 설정 */
+        min-width: 2em;
+        text-align: center;
+        cursor: pointer;
+    }
+    ul.pagination > li.on,
+    ul.pagination > li:hover{ /* 마우스를 가져다 대면 색상과 굵기 */
+        border-color: #BBE309;
+        color: #BBE309;
+        font-weight: bolder; /* 이거 있으면 커서 댈때 조금씩 움직임.. 삭제하쇼 */
+    }
+
+    /* 확장 스타일: 글자 크기를 다르게 하여 다양항 크기 옵션을 제공  */
+    ul.pagination.pagination-big{
+        font-size: 1.25em;
+    }
+    ul.pagination.pagination-small{
+        font-size: 0.75em;
+    }
+    ul.pagination > li > a{
+        display: block;
+        width: 100%;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .fullscreen{
+        position: fixed;
+        top:0;
+        bottom:0;
+        left: 0;
+        right: 0;
+
+        /* background-color: black;
+        opacity: 0.5;*/
+
+        background-color: rgba(0,0,0,0.5);
+     }
+
+     .screen-center{
+        /* 중앙에 배치하려면? */
+        top:50%;
+        left: 50%;
+
+         /*  방법1: margin을 이용하여 좌측 상단으로 이동(높이와 크기에 따라 바뀜)  
+        margin-left: -200px;
+        margin-top: -200px;
+        */
+
+         /* 방법 2: transform 속성을 이용하여 영역을 비율로 이동(크기 몰라도됨) 
+        가운데로 한방에 처리하는 방법  */
+        transform: translate(-50%, -50%);
+     }
