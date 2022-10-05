@@ -54,6 +54,12 @@
 .w-20{
     width: 20%;
 }
+.w-33{
+    width: 33%;
+}
+.w-25{
+    width: 25%;
+}
 .w-30{
     width: 30%;
 }
@@ -511,4 +517,40 @@ textarea.input.fix-size {
             top: 0;
             left: 0;
             right: 0;
+        }
+
+            /* 
+            float 설정
+                - float를 설정하면 현재 영역에서 left 혹은 right 방향에 붙는다.(ex.자석) 
+                - (문제점) float와 float가 아닌 요소들을 섞어서 배치할 때 문제가 발생 
+                    - float가 float 아닌 영역에 포함되지 않는다. 
+                - (해결책) float를 제거하는 속성인 clear를 float가 끝나는 시점에 사용한다. 
+                - 이후 부터는 float의 영향을 받지 않는다.     
+
+                -(정리)
+                    - float는 필요하고, 다른 요소랑 어울리기는 힘드니 별도의 영역을 준비 
+                    - 해당영역(float-container) 종료 시 자동으로 clear되도록 처리
+                    - 가상 선택자(virtual selector)가 필요하다 
+        */
+        .float-container{
+
+        }
+        .float-container::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .float-left{
+            float: left;
+        }
+        .float-right{
+            float: right;
+        }
+        .clear{
+            clear: both;
+            /* float: left와 right를 모두 초기화 */
+        }
+        
+        .inline-block{
+            display: inline-block;
         }
