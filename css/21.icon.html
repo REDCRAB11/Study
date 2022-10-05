@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이콘</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <link rel="stylesheet" type="text/css" href="layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+        /* 
+            아이콘 사용시 좋은점 
+            1. 이미지에 비해 압도적으로 적은 용량
+            2. 이미지보다 강력한 커스터마이징 
+         */
+
+    .custom-size{
+        font-size: 30px;
+    }
+    .color-primary{
+        color: blue;
+    }   
+    .color-secondary{
+        color: gray;
+    }  
+    .color-warning{
+        color: tomato;
+    }
+    .color-danger{
+        color: red;
+    }
+    .color-success{
+        color: aquamarine;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="container-600">
+        <div class="row mt-400">
+            <h1>아이콘예제</h1>
+        </div>
+
+        <div class="row">
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-poo"></i>
+            <i class="fa-solid fa-hippo"></i>
+            <i class="fa-solid fa-shrimp"></i>
+            <i class="fa-solid fa-pizza-slice"></i>
+        </div>
+
+        <div class="row">
+            <h1>크기 변경</h1>
+        </div>
+
+        <div class="row">
+            <i class="fa-solid fa-cat"></i>
+            <i class="fa-solid fa-cat fa-2x"></i>
+            <i class="fa-solid fa-cat fa-3x"></i>
+            <i class="fa-solid fa-cat fa-4x"></i>
+            <i class="fa-solid fa-cat fa-5x"></i>
+            <i class="fa-solid fa-cat fa-6x"></i>
+            <i class="fa-solid fa-cat fa-7x"></i>
+            <i class="fa-solid fa-cat fa-8x"></i>
+            <i class="fa-solid fa-cat fa-9x"></i>
+            <i class="fa-solid fa-cat fa-10x"></i>
+            <i class="fa-solid fa-cat fa-11x"></i>
+            <i class="fa-solid fa-cat custom-size"></i>
+        </div>
+
+        <div class="row">
+            <h1>색상 변경</h1>
+        </div>
+
+        <div class="row">
+            <i class="fa-solid fa-dog fa-2x color-primary"></i>
+            <i class="fa-solid fa-dog fa-2x color-secondary"></i>
+            <i class="fa-solid fa-dog fa-2x color-warning"></i>
+            <i class="fa-solid fa-dog fa-2x color-danger"></i>
+            <i class="fa-solid fa-dog fa-2x color-success"></i>
+        </div>
+
+        <div class="row">
+            <h1>애니메이션</h1>
+        </div>
+
+        <div class="row">
+            <i class="fa-solid fa-dog fa-2x color-primary fa-5x fa-spin"></i>
+            <button class="btn btn-positive">처리중<i class="fa-solid fa-rotate fa-spin"></i></button>
+            <button class="btn btn-negative"><i class="fa-regular fa-thumbs-up fa-shake">1,250</i></button>
+            <button class="btn btn-negative"><i class="fa-regular fa-thumbs-up fa-beat">1,250</i></button>
+        </div>
+
+    </div>
+</body>
+</html>

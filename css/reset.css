@@ -43,3 +43,13 @@ q:before, q:after {
 table {
 	border-spacing: 0;
 }
+html{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+/*
+    전체 스타일
+    - 폭 설정 기준을 테두리(border-box)로 지정
+*/
+* {
+    box-sizing: border-box;
+}

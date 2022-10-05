@@ -3,16 +3,6 @@
 /*  */
 
 /*
-    전체 스타일
-    - 폭 설정 기준을 테두리(border-box)로 지정
-    - 전체 글꼴 설정
-*/
-* {
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
-
-/*
     container는 작은 화면의 외부 영역을 관리하는 도구
     - 폭 조절과 가운데 배치를 할 수 있어야 한다.
     - css에서는 계산식이 모든 브라우저에서 작동하지 않는다

@@ -6,37 +6,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>forms</title>
     <style>
+
+        /* 
+            들어가기 앞서 백그라운드 컬뤄 투명? 화이트? 
+        */
         .short-text-box{
             border: solid;
             /* border-width: thin thin thin thin; */
             border-width: 2px 2px 2px 2px;
-            border-radius: 0.25em;
+            border-radius: 0.5em;
             width: 100%;
             height: 58px;
-            font-size: 20px;
+            font-size: 16px;
+        }
+        #text-box1{
+            border-color: #cfc9d5;
             color: #3d3d3d;
         }
-        #typing1{
-            border-color: #cfc9d5;
+        .short-hover:hover{
+            border-color: #6c7aef;
+            color: #cfc9d5;
         }
-        #typing2{
+   
+
+        .short-text-underlinebox{
+            border: none;
+            border-width: 2px 2px 2px 2px;
+            width: 100%;
+            height: 58px;
+            font-size: 16px;
+        }
+        #text-underlinebox1{
+            border-bottom: 2px solid #6c7aef;
+            outline: none;
+            color: #3d3d3d;
+        }
+        .short-text-underlinebox.underlinebox-hover:hover{
+            color: #cfc9d5;
+        }
+  
+
+        .long-text-box{
+            border: 2px solid;
+            border-width: 2px 2px 2px 2px;
+            border-radius: 0.5em;
+            width: 400px;
+            height: 123px;
+            text-align: left;
+            font-size: 16px;
+            /* 상자안ㅇ ㅔ글 위쪽 부터 쓰는 방법 좀..  */
+        }
+        #long-box1{
+            border-color: #ebebed;
+            color: #3d3d3d;
+        }
+        .long-hover:hover{
+            border-color: #cfc9d5;
+            color: #cfc9d5;
+        }
+
+        #long-box2{
             border-color: #6c7aef;
         }
-        #typing3{
-            border-color: #eb6f7f;
+    
+        #long-box4{
+            border-color: #ebebed;
+            color: #3d3d3d;
         }
-        #typing4{
-            border-color: #cfc9d5;
+        .dropdown{
+            border:2px solid #6c7aef;
+            border-radius: 0.5em;
+            width: 150px;
+            height: 60px;
         }
+        .dropdown.dropdown-hover:hover{
+            font-weight: bold;
+            color: #6c7aef;
+        }
+
     </style>
 </head>
 <body>
     <h1>short-text-box</h1>
-    <input class="short-text-box" type="text" placeholder="now..." id="typing1">
-    <input class="short-text-box" type="text" placeholder="now..." id="typing2">
-    <input class="short-text-box" type="text" placeholder="now..." id="typing3"> <!-- error -->
-    <input class="short-text-box" type="text" placeholder="now..." id="typing4">
+    <input class="short-text-box short-hover" type="text" placeholder="now..." id="text-box1">
 
+    <h1>underline-box</h1>
+    <input class="short-text-underlinebox uderline-hover" type="text" placeholder="now..." id="text-underlinebox1">
+
+    <h1>Long-text-box</h1>
+    <input class="long-text-box long-hover" type="text" placeholder="입력해주세요" id="long-box1">
     
+        <h1>Search Bar</h1>
+    
+    <!-- 모집중을 어떻게 합치냐 ~~   float 로 만들기 혹은 ... -->
+
+
+    <h1>Dropdown</h1>
+
+    <select class="dropdown dropdown-hover">
+        <option selected="selected" value="1">전체</option>
+        <option>모집중</option>
+        <option>모집중</option>
+        <option>모집중</option>
+    </select>
+
+
+ 
 </body>
 </html>
