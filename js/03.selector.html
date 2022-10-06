@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 자바 스크립트 코드 
+        
+        // 목표: 빨강 버튼을 누르면 h1의 글자가 빨간색으로 변경 
+       function red(){
+        // console.log("red 실행"); 실행하는지 안하는지 확인 
+        // 외부에 존재하는 태그를 "선택"하는 코드
+
+        var target = document.querySelector("h1");// h1태그를 불러오세요 
+        // console.log(target); 실행하는지 확인 
+
+        //  결과는 둘이 똑같다. 근데 ...! 
+        // target.style="color:red"; // target의 style 속성을 지정한다. 글자를 설정해주는 거라 스타일이 설정되어있으면 날라간다. 
+        target.style.color="red"; // target의 style의 color 속성을 지정한다. 
+       }
+        
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <button onclick="red();">빨강</button>
+    <h1>Hell javascript</h1>
+</body>
+</html>

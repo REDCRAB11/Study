@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 자바 스크립트 코드 
+
+        function changeSize(size){
+            var target = document.querySelector(".ji")
+            target.width=size;
+            target.height=size;
+        }
+       
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <button onclick="changeSize(100);">작게</button>
+    <button onclick="changeSize(200);">기본</button>
+    <button onclick="changeSize(300);">크게</button>
+    <img src="./image/jisung.JPG" width="200px" height="200px" class="ji">
+</body>
+</html>

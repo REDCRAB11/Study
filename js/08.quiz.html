@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <script type="text/javascript">
+        //자바스크립트 코드
+        function quiz1(){
+            //1. 입력된 글자수를 구해야 한다
+            //(주의) textarea도 입력값을 value로 조회
+            var tag = document.querySelector(".q1-input");
+            //console.log(tag);
+            var text = tag.value;
+
+            //2. 글자수에 따라 다른 표시를 구현해야 한다
+            var span = document.querySelector(".q1-input-length");
+            span.textContent = text.length;
+
+            if(text.length > 1000){
+                span.style.color = "red";
+            }
+            else {
+                span.style.color = "black";
+            }
+
+            //3. (추가) 1000글자 초과시 입력 불가 처리 = 1000글자 넘어가면 잘라내기
+            var size = text.length;
+
+            while(size > 1000){
+                tag.value = tag.value.substring(0, size-1);
+                size--;
+            }
+
+            span.textContent = size;
+        }
+    </script>
+
+</head>
+<body>
+
+    <!-- HTML 화면 -->
+    <div class="container-600">
+        <div class="row center">
+            <h1>자기소개서</h1>
+        </div>
+
+        <div class="row mt-40">
+            <h2>(Q) 우리 회사에 지원한 이유가 뭔가요?</h2>
+        </div>
+        <div class="row">
+            <textarea class="input w-100 fix-size q1-input" rows="10" 
+                        oninput="quiz1();"></textarea>
+        </div>
+        <div class="row right">
+            <span class="q1-input-length">0</span> / 1000
+        </div>
+    </div>
+
+</body>
+</html>

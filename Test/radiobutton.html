@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="radio"]{
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+        input[type="radio"]:active + label:before{
+            -webkit-transition-duration: 0;
+            transition-duration: 0;
+            -webkit-filter: brightness(0,2);
+            filter: brightness(0,2);
+        }
+    </style>
+</head>
+<body>
+    <input id="radio-btn" name="radio" type="radio" class="radio" checked="checked">
+    <label for="radio-btn"></label>
+</body>
+</html>
