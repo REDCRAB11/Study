@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <script type="text/javascript">
+        // 자바 스크립트 코드 
+        function idCheck(){
+            var input = document.querySelector("input[name=id]");
+            var id= input.value;
+            var span = document.querySelector(".id-result");
+            if(!id){
+                span.textContent="";
+            }
+            else{
+                var regex=/^[a-z][a-z0-9]{7,19}$/;
+                if(regex.test(id)){
+                    span.textContent="통과"
+                    span.style.color="yellowgreen";
+                }else{
+                    span.textContent="영문 소문자 + 숫자 8~20자리 입력해줘~"
+                    span.style.color="tomato";
+                }
+            }
+        }
+        function pwCheck(){
+            var input = document.querySelector("input[name=pw]");
+            var id= input.value;
+            var span = document.querySelector(".pw-result");
+            if(!pw){
+                span.textContent="";
+            }
+            else{
+                var regex=/^[A-Z][a-z0-9][!@#$]{7,15}$/;
+                if(regex.test(pw)){
+                    span.textContent="통과"
+                    span.style.color="#42855B";
+                }else{
+                    span.textContent="아이디는 영문 대소문자 숫자 특수문자(!@#$)포함한 8~16자 이내로 입력해줘~ "
+                    span.style.color="tomato";
+                }
+            }
+        }
+        function repwCheck(){
+            var input = document.querySelector("input[name=repw]");
+            var id= input.value;
+            var span = document.querySelector(".repw-result");
+            if(!repw){
+                span.textContent="";
+            }
+            else{
+                var regex=/^[A-Z][a-z0-9][!@#$]{7,15}$/;
+                if(regex.test(repw)){
+                    span.textContent="통과"
+                    span.style.color="#42855B";
+                }else{
+                    span.textContent="비밀번호 영문 대소문자 숫자 특수문자(!@#$)포함한 8~16자 이내로 입력해줘~ "
+                    span.style.color="tomato";
+                }
+            }
+        }
+    </script>
+    <style>
+        div{
+            border: none;
+            text-align: center;
+            color: #645CAA;
+        }
+        input{
+            border-radius: 5px;
+            border-color: #BFACE0;
+            font-size: 16px;
+            width: 200px;
+            height: 30px;
+        }
+        .btn{
+            border: 1px solid transparent;
+            border-radius: 5px;
+            background-color: #BFACE0;
+            color: #645CAA;
+            font-size: 16px;
+            width: 100px;
+            height: 30px;
+            margin: 10px 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-600 mt-40">
+        <h1>회원 가입</h1>
+    </div>
+    <div class="row">
+        <legend>아이디</legend>
+        <input class="id" type="text" name="id" onblur="idCheck();">
+    </div>
+    <div class="row">
+        <legend>비밀번호</legend>
+        <input class="pw" type="password" name="pw" onblur="pwCheck();">
+    </div>
+    <div class="row">
+        <legend>비밀번호 확인</legend>
+        <input class="repw" type="password" name="rePw" onblur="repwCheck();">
+    </div>
+    <div class="row">
+        <button class="btn" type="submit" style="float:right;">가입</button> 
+    </div>
+    <div class="row">
+        <span class="id-result"></span>
+    </div>
+    <div class="row">
+        <span class="pw-result"></span>
+    </div>
+    <div class="row">
+        <span class="repw-result"></span>
+    </div>
+  
+</body>
+</html>
