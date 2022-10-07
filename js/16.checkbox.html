@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크박스</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <script type="text/javascript">
+        // 체크박스 이용시 주의사항 
+        // - 체크박스도 입력 태그이므로 click이 아니라 input을 사용(과거에는 change를 사용)
+        function check1(){
+            var checkbox = document.querySelector("input[name=test]");
+            console.log(checkbox.checked);
+        }
+        function checkAll(){
+            // documetn.querySelector()는 태그를 최초 1개만 불러온다.
+            // document.querySelectorAll()은 태그를 모두 불러온다. 
+            var checkboxes  = document.querySelectorAll("input[name=fruit]");
+            // checkboxes[0].checked = true;
+            // checkboxes[1].checked = true;
+            // checkboxes[2].checked = true;
+            // checkboxes[3].checked = true;
+            // checkboxes[4].checked = true;
+            for(var i=0; i<checkboxes.length; i++){
+                checkboxes[i].checked = true;
+            }
+        }
+
+        function uncheckAll(){
+            var checkboxes  = document.querySelectorAll("input[name=fruit]");
+            for(var i=0; i<checkboxes.length; i++){
+                checkboxes[i].checked = false;
+            }
+        }
+
+        function reverseAll(){
+            var checkboxes = document.querySelectorAll("input[name=fruit]");
+            for(var i=0; i<checkboxes.length; i++){
+                checkboxes[i].checked = !checkboxes[i].checked;
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-400">
+        <div class="row center">
+            <h1>체크박스</h1>
+        </div>
+
+        <div class="row">
+            <input type="checkbox" name="test" value="1234" oninput="check1();">
+        </div>
+
+        <div class="row">
+            <label>
+            <input type="checkbox" name="fruit" value="apple">
+            사과
+            </label>
+            <label>
+            <input type="checkbox" name="fruit" value="banana">
+            바나나
+            </label>
+            <label>
+            <input type="checkbox" name="fruit" value="greenapple">
+            청사과
+            </label>
+            <label>
+            <input type="checkbox" name="fruit" value="rasberry">
+            라즈베리
+            </label>
+            <label>
+            <input type="checkbox" name="fruit" value="blackberry">
+            블랙베리
+            </label>
+
+            <div class="row">
+                <button onclick="checkAll();">전체선택</button>
+            </div>
+            
+            <div class="row">
+                <button onclick="uncheckAll();">선택해제</button>
+            </div>
+
+            <div class="row">
+                <button onclick="reverseAll();">선택반전</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -99,7 +99,15 @@
         // form 검사 함수 만드는 이유는 아이디를 치지 않아도 넘어가기 때문에 넘어가지 않게 하기 위해 ! 
         // 위에 펑션 함수에 리턴 넣은 이유는 여기 폼 검사에서 다시 치기 귀찮아소..ㅋ 
         function formCheck(){
+            // (1) 실행하다가 잘못된 내용이 있으면 더 이상 실행하지 않음
             return checkId() && checkPassword() && checkPasswordRe();
+
+            //(2) 전부다 실행해서 표시한 뒤 검사
+            // var result1 = checkId;
+            // var result2 = checkPassword;
+            // var result3 = checkPasswordRe;
+            
+            // return result1 && result2 && result33;
         }
     </script>
 
