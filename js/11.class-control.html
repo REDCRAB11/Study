@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <style>
+        .red{
+            color: red;
+        }
+        .green{
+            color: green;
+        }
+        .blue{
+            color: blue;
+        }
+    </style>
+    <script type="text/javascript">
+        // 자바 스크립트 클래스 제어 
+        // - className 속성은 전체 클래스를 설정할 수 있다. 
+        // - classList 속성은 여러 클래스를 목록 형태로 제어할 수 있다. (cf:ArrayList)
+        function red(){
+            var h1 = document.querySelector("h1");
+            // h1.style.color="red"; 이렇게 하지 않고 여튼 ..!
+            // h1.className="red"; // 전체 클래스 설정(기존 클래스가 제거됨) dummy클래스가 -> red 로 바뀜..!!
+
+            // 가변인수( 제한 없이 여러개 쓸 수 있음)
+            h1.classList.remove("red", "green", "blue");// 그래서 색상 3개를 제거하자. -->2
+            h1.classList.add("red"); // 클래스에 dummy red 이렇게 붙는다 -ㅅ-  근데 그린 누르면  dummy red green 이렇게 뒤로 쭉 붙어벌임..! -->1
+        }
+        function green(){
+            var h1 = document.querySelector("h1");
+            // h1.className="green";
+            h1.classList.add("green");
+        }
+        function blue(){
+            var h1 = document.querySelector("h1");
+            // h1.className="blue";
+            h1.classList.add("blue");
+        }
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <button onclick="red();">red</button>
+    <button onclick="green();">green</button>
+    <button onclick="blue();">blue</button>
+
+    <hr>
+
+    <h1 class="dummy">Go To Hell JAVA</h1>
+</body>
+</html>

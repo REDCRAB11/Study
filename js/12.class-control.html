@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스에 따른 태그 표시</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <style>
+        .two, .three {
+            display: none;
+        }
+        .one.test1{
+            color: aquamarine;
+        }
+        .one.test1 ~ .two{
+            display: block;
+        }
+        .one.test2{
+            color: yellowgreen;
+        }
+        .one.test2 ~ .three{
+            display: block;
+        }
+    </style>
+    <script type="text/javascript">
+        // 자바 스크립트 코드 
+    </script>
+</head>
+<body>
+    <!-- 목표: 
+        - one에 tes1 클래스가 부여되면 two를 표시 
+        - one에 test2 클래스가 부여되면 three를 표시 
+     -->
+    <h1 class="one test2">입력창</h1>
+    <h1 class="two">성공메세지</h1>
+    <h1 class="three">실패메세지</h1>
+</body>
+</html>

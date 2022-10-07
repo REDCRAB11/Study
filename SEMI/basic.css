@@ -1,0 +1,166 @@
+@charset "UTF-8";
+
+.container-300 { width:300px; margin:0 auto; }
+.container-350 { width:350px; margin:0 auto; }
+.container-400 { width:400px; margin:0 auto; }
+.container-450 { width:450px; margin:0 auto; }
+.container-500 { width:500px; margin:0 auto; }
+.container-550 { width:550px; margin:0 auto; }
+.container-600 { width:600px; margin:0 auto; }
+.container-650 { width:650px; margin:0 auto; }
+.container-700 { width:700px; margin:0 auto; }
+.container-750 { width:750px; margin:0 auto; }
+.container-800 { width:800px; margin:0 auto; }
+.container-850 { width:850px; margin:0 auto; }
+.container-900 { width:900px; margin:0 auto; }
+.container-950 { width:950px; margin:0 auto; }
+.container-1000 { width:1000px; margin:0 auto; }
+.container-1050 { width:1050px; margin:0 auto; }
+.container-1100 { width:1100px; margin:0 auto; }
+.container-1150 { width:1150px; margin:0 auto; }
+.container-1200 { width:1200px; margin:0 auto; }
+
+.row {
+    margin: 10px 0px;
+}
+
+/*
+    row 내부에 위치하는 도구들의 폭을 설정
+    - 폭을 row에 맞게 100%로 설정하거나 아니면 자신의 폭을 그대로 사용
+    - 아무 표시도 하지 않으면 폭을 있는 그대로 두고 클래스를 부여하면 100%로 변경
+*/
+.w-20{
+    width: 20%;
+}
+.w-33{
+    width: 33%;
+}
+.w-25{
+    width: 25%;
+}
+.w-30{
+    width: 30%;
+}
+.w-40{
+    width: 40%;
+}
+.w-50{
+    width: 50%;
+}
+.w-70{
+    width: 70%;
+}
+.w-100 {
+    width:100%;
+}
+
+
+.left {text-align: left;}
+.center {text-align: center;}
+.right {text-align: right;}
+
+
+.mt-10 { margin-top: 10px;}
+.mt-20 { margin-top: 20px;}
+.mt-30 { margin-top: 30px;}
+.mt-40 { margin-top: 40px;}
+.mt-50 { margin-top: 50px;}
+
+.mb-10 { margin-bottom: 10px;}
+.mb-20 { margin-bottom: 20px;}
+.mb-30 { margin-bottom: 30px;}
+.mb-40 { margin-bottom: 40px;}
+.mb-50 { margin-bottom: 50px;}
+
+.ms-10 { margin-left: 10px;}
+.ms-20 { margin-left: 20px;}
+.ms-30 { margin-left: 30px;}
+.ms-40 { margin-left: 40px;}
+.ms-50 { margin-left: 50px;}
+
+.me-10 { margin-right: 10px;}
+.me-20 { margin-right: 20px;}
+.me-30 { margin-right: 30px;}
+.me-40 { margin-right: 40px;}
+.me-50 { margin-right: 50px;}
+
+
+.short-text-box{
+    border: solid;
+    /* border-width: thin thin thin thin; */
+    border-width: 2px 2px 2px 2px;
+    border-radius: 0.5em;
+    width: 100%;
+    height: 58px;
+    font-size: 16px;
+    border-color: #cfc9d5;
+    color: #3d3d3d;
+}
+.short-hover:hover{
+    border-color: #6c7aef;
+    color: #cfc9d5;
+}
+
+
+
+/*  */
+
+
+
+.largebtn{
+    border: none;
+    font-size: 20px;
+    padding: 0.75em;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.5em;
+    width: 270px;
+    height: 60px;
+}
+
+
+#largebutton1{
+    background-color: #6c7aef;
+    color: white;
+}
+#largebutton2{
+    background-color: e5e6f9;
+    color: #6c7aef;
+}
+#largebutton3{
+    border:solid;
+    border-color: #6c7aef;
+    border-width: 2px 2px 2px 2px;
+    background-color: white;
+    color: #6c7aef;
+}
+#largebutton4{
+    border: none;
+    border-color: transparent;
+    background-color: white;
+    color: #6c7aef;
+}
+
+#largebutton1-1{
+    background-color: #ebebed;
+    color: #cfc9d5;
+}
+#largebutton2-1{
+    background-color: #ebebed;
+    color: #cfc9d5;
+}
+#largebutton3-1{
+    border:solid;
+    border-color: #ebebed;
+    border-width: 2px 2px 2px 2px;
+    background-color: white;
+    color: #ebebed;
+}
+#largebutton4-1{
+    border: none;
+    border-color: transparent;
+    background-color: white;
+    color: #ebebed;
+}
