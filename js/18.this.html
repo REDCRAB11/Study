@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this의 사용</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <script type="text/javascript">
+        // 자바 스크립트 코드 
+
+        // this는 함수를 실행한 주체(주인공)을 의미한다. 
+        function changeColor(tag){
+            // console.log(tag);
+
+            var h1 = document.querySelector("h1");
+            h1.style.color=tag.textContent;
+        }
+    </script>
+</head>
+<body>
+    <!-- iniline-script에서 this라고 하면 자신(주인공)을 의미한다.  -->
+    <button onclick="changeColor(this);">red</button>
+    <button onclick="changeColor(this);">blue</button>
+    <button onclick="changeColor(this);">green</button>
+    <hr>
+    <h1>Hello World</h1>
+</body>
+</html>
