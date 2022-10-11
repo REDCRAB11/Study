@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
     <style>
+    div{
+        border: 1px dotted gray;
+    }
     html{
 	font-family: 'Noto Sans KR', sans-serif;
     }
@@ -25,7 +28,9 @@
     .fail-message{
         color: #eb6f7f
     }
-
+    .input{
+        cursor: pointer;
+    }
     .input.success {
         border-color: #6c7aef;
     }
@@ -35,7 +40,15 @@
     .input.fail ~ .fail-message{
         display: block;
     }
- 
+   
+    .email-box{
+        width: 65%;
+    }
+    .email-drop-box{
+        width: 30%;
+        height: 64px;
+    }
+
     </style>
     <script type="text/javascript">
         function checkId(){
@@ -93,6 +106,22 @@
                 repeat.classList.add("fail");
             }
         }
+
+        // 이메일은 ?
+
+        // function checkEmail(){
+        //     var input = document.querySelector("input[name=memberEmail]");
+        //     var memberEmail = input.value;
+        //     var regex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        //     var judge = regex.test(memberEmail);
+        //     input.classList.remove("success", "fail");
+        //     if(judge){
+        //         input.classList.add("success");
+        //     }else{
+        //         input.classList.add("fail");
+        //     }
+            
+        // }
         
     </script>
 </head>
@@ -107,20 +136,19 @@
 
             <div class="row">
                 <label>아이디</label>
-                <input type="text" name="memberId" class="input short-text-box" id="text-box1" onblur="checkId();">
-                <!-- <span class="success-message">사용가능한 아이디입니다.</span> -->
+                <input type="text" name="memberId" class="input short-text-box" id="text-box1" onblur="checkId();" placeholder="4~15자의 영문/숫자">
                 <span class="fail-message">4~15자 이내 영문 소문자, 숫자를 입력해주세요.</span>
             </div>
 
             <div class="row">
                 <label>닉네임</label>
-                <input type="text" name="memberNick" class="input short-text-box" onblur="checkNick();">
+                <input type="text" name="memberNick" class="input short-text-box" onblur="checkNick();" placeholder="4~10자의 한글/영문/숫자">
                 <span class="fail-message">4~10자 한글/영문/숫자로 입력해주세요.</span>
             </div>
 
             <div class="row">
                 <label>비밀번호</label>
-                <input type="password" name="memberPw" class="input short-text-box" onblur="checkPw();">
+                <input type="password" name="memberPw" class="input short-text-box" onblur="checkPw();" placeholder="8~16자의 영문/숫자">
                 <span class="fail-message">8~16자 이내 영문? 숫자 입력해주세요.</span>
             </div>
 
@@ -130,20 +158,31 @@
                 <span class="fail-message">비밀번호를 다시 입력해주세요.</span>
             </div>
 
+            <!--  select 좀 늘려야하는데 어캐 늘려 ? .. -->
             <div class="row">
                 <label>본인 확인 이메일
                     <h5>아이디/비밀번호 찾기에 사용됩니다.</h5>
                 </label>
-                <input type="email" name="memberEamil" class="short-text-box" onblur="checkEamil();">
-                <span></span>
-                <span></span>
+                <input type="email" name="memberEmail" class="short-text-box email-box" onblur="checkEmail();" placeholder="이메일">
+                <span class="fail-message">유효하지 않은 이메일 주소 입니다.</span>
+                <select class="dropdown dropdown-check email-drop-box">
+                    <option selected="selected" value="1">직접 입력</option>
+                    <option value="naver.com">@naver.com</option>
+                    <option value="google.com">@google.com</option>
+                    <option value="hanmail.net">@hanmail.net</option>
+                    <option value="nate.com">@nate.com</option>
+                    <option value="kakao.com">@kakao.com</option>
+                </select>
             </div>
 
-            <div class="row">
+            <!-- 마지막은 로그인 페이지로 연결 ~  -->
+            <div class="row center">
                 <h5>위 내용의 개인정보를 제공함에 동의합니다.</h5>
-                <button type="submit" class="largebtn" id="largebutton1">회원가입</button>
+                <button type="submit" class="largebtn w-100" id="largebutton1">회원가입</button>
             </div>
-            <h5>이미 4weeks 계정이 있으신가요? <a href="#">로그인</a> </h5>
+            <div class="row center">
+                <h5>이미 4weeks 계정이 있으신가요? <a href="#">로그인</a></h5>
+            </div>
         </form>
     </div>
 </body>

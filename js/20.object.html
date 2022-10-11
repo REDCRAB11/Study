@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <script type="text/javascript">
+        // 자바스크립트 내장 객체 
+        // - 자바 스크립트에서 기본적으로 제공하는 도구들
+        // - 브라우저를 제어하기 위한 각종 객체들이 존재 
+        // - window: 자바스크립트의 루트 객체. 브라우저 창(window)을 제어
+        // (중요) window는 생략이 가능하다. 
+        // - location: 주소창을 제어
+        // - history: 이력을 제어 
+
+        function window1(){ // 선택지가 하나라 반환값 필요 없으 ~ 
+            // console.log(window);
+            window.alert("hello");
+        }
+        function window2(){ // 두가지의 선택지가 나오는.. 확인/취소  그래서 반환값 필요 ~ 
+            var choice = window.confirm("질문");
+            console.log("choick=" + choice);
+        }
+        function window3(){// 새탭으로 열림 ~ 
+            // window.open("https://www.naver.com"); // 새탭
+            // window.open("https://www.google.com", "custom"); // 새탭+타켓(새탭이 계속 나오지 않고 열린 탭안에서 계속 여러번 열림) 커스텀말고 다른 이름으로 써도 ㄱㅊ 
+            // window.open("https:www.naver.com","","width=400,height=400"); // 새창 가운데 비워놓은것은 타켓을 주지 않은 것
+            window.open("https:www.naver.com","h1","width=400,height=400"); // 새창
+        }
+        function location1(){//페이지 이동 ~ 
+            // console.log(window.location);
+            // console.log(location); 둘이 똑같이 나옴 
+            location.href = "https:www.google.com"; //현재 주소창이 바뀜 이동!하는 것..
+        }
+        function location2(){
+            location.reload(); //새로고침 
+        }
+        function history1(){
+            // console.log(window.history);
+            // console.log(history); 둘다 똑같이 나옴 
+            history.back(); //뒤가 있어야 백이 작동한다. 그러니깐.. 네이버 갔다가 다시 오면 뒤로 갈 건덕지가 생기니깐.. 
+        }
+        function history2(){
+            // 뒤로 가고 싶으면 음수, 앞으로 가고 싶으면 양수
+            history.go(-1); 
+        }
+
+         // 이걸 잘 알아 두쇼 1~3번만 나머지(4~5번)는 다른 브라우저에서 사용할 수 없는게 많다 ~ 
+        function document1(){
+            // console.log(window.document);
+             var target = document.querySelector(".test");
+             target.style.color = "red";
+        }
+        function document2(){
+            var targetList = document.querySelectorAll(".test");
+            for(var i=0; i<targetList.length; i++){
+                targetList[i].style.color="blue";
+            }
+        }
+        function document3(){
+            var target = document.getElementById("tmp-2");
+            console.log(target);
+            target.style.color = "green";
+        }
+
+        function document4(){
+            var targetList = document.getElementsByClassName("test");
+            for(var i=0; i<targetList.length; i++){
+                targetList[i].style.color = "yellow";
+            }
+        }
+        function document5(){
+            var targetList = document.getElementsByTagName("h2");
+            for(var i=0; i<targetList.length; i++){
+                targetList[i].style.color = "yellowgreen";
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-600">
+        <div class="row">
+            <h1>Window 객체</h1>
+        </div>
+
+        <div class="row">
+            <button onclick="window1();">alert()</button>
+            <button onclick="window2();">confirm()</button> 
+            <button onclick="window3();">open()</button> 
+        </div>
+
+        <div class="row">
+            <h1>Location 객체</h1>
+        </div>
+
+        <div class="row">
+            <button onclick="location1();">href</button>
+            <button onclick="location2();">reload</button>
+        </div>
+
+        <div class="row">
+            <h1>History 객체</h1>
+        </div>
+
+        <div class="row">
+            <button onclick="history1();">back()</button>
+            <button onclick="history2();">go()</button>
+        </div>
+
+        <div class="row">
+            <h1>Document 객체</h1>
+        </div>
+
+        <div class="row">
+            <button onclick="document1();">querySelector()</button>
+            <button onclick="document2();">querySelectorAll()</button>
+            <button onclick="document3();">getClementById()</button>
+            <button onclick="document4();">getElementsByClassName()</button>
+            <button onclick="document5();">getElementsByTagName()</button>
+        </div>
+
+        <div class="row">
+            <h2 id="tmp-1" class="test test-1">Hell javascript</h2>
+            <h2 id="tmp-2" class="test test-2">Hell javascript</h2>
+            <h2 id="tmp-3" class="test test-3">Hell javascript</h2>
+            <h2 id="tmp-4" class="test test-4">Hell javascript</h2>
+            <h2 id="tmp-5" class="test test-5">Hell javascript</h2>
+        </div>
+    </div>
+</body>
+</html>

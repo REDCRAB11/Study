@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <style>
+        .btn.btn-positive[disabled],
+        .btn.btn-positive[disabled]:hover{
+            background-color: #74b9ff;
+            cursor: not-allowed;
+        }
+    </style>
+    <script type="text/javascript">
+        //전체 선택 처리 
+        function checkAll(){
+            var checkedItem = document.querySelector(".ck-all")
+            var checkboxList = document.querySelectorAll(".ck");
+            for(var i=0; i <checkboxList.length; i++){
+                checkboxList[i].checked = checkedItem.checked;
+            }
+            checkAgree();
+        }
+
+
+        //필수 동의 항목에 대한 체크 여부 검사 및 버튼 활성화 처리 
+        function checkAgree(){
+            var agreeBoxList = document.querySelectorAll(".ck-required"); //all 쟤는 배열이다. ! 
+            var count = 0;
+            for(var i=0; i < agreeBoxList; i++){
+                if(agreeBoxList[i].checked){
+                    count++;
+                }
+            }
+            var button = document.querySelector(".btn-positive");
+            if(count == agreeBoxList.length){// 전체 체크가 되어있는 경우
+                button.disalbed = false;
+            }else{ //  전체 체크가 되어있지 않은 경우 
+                button.disalbed = true;
+            }
+
+            // button.disalbed = count != agreeBoxList.length;  // if~else 위에 여섯줄이랑 똑같음 
+        }
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-500">
+        <div class="row center">
+            <h1>이용 약관</h1>
+        </div>
+
+        <div class="row mt-30">
+            <label>
+            <input type="checkbox" class="ck ck-all" oninput="checkAll();">
+            <sapn>전체선택</sapn>
+            </label>
+        </div>
+
+        <div class="row mt-30">
+            <h2> 제목 </h2>
+        </div>
+        <div class="row">
+            <textarea class="input w-100 fix-size" rows="6" readonly>어쩌고 저쩌고</textarea>
+        </div>
+        <div class="row">
+            <label>
+                <input oninput="checkAgree();" class="ck ck-required" type="checkbox" name="agree" value="type1">
+                <span>동의합니다.</span>
+                <span>*</span>
+            </label>
+        </div>
+
+        <div class="row mt-30">
+            <h2> 제목 </h2>
+        </div>
+        <div class="row">
+            <textarea class="input w-100 fix-size" rows="6" readonly>어쩌고 저쩌고</textarea>
+        </div>
+        <div class="row">
+            <label>
+                <input oninput="checkAgree();" class="ck ck-required" type="checkbox" name="agree" value="type2">
+                <span>동의합니다.</span>
+                <span>*</span>
+            </label>
+        </div>
+
+        <div class="row mt-30">
+            <h2> 제목 </h2>
+        </div>
+        <div class="row">
+            <textarea class="input w-100 fix-size" rows="6" readonly>어쩌고 저쩌고</textarea>
+        </div>
+        <div class="row">
+            <label>
+                <input class="ck" type="checkbox" name="agree" value="type3">
+                <span>동의합니다.</span>
+            </label>
+        </div>
+
+        <div class="row mt-50 mb-50">
+            <button type="submit" class="btn btn-positive w-100" disabled>확인</button>
+        </div>
+
+    </div>
+</body>
+</html>
