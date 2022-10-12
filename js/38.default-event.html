@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 기본 이벤트 제어 </title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            //jquery 기본 이벤트 제어 
+            // - jquery는 다음 두 가지 방식으로 기본 이벤트 차단이 가능하다. 
+            // (1) 이벤트 객체를 사용한 e.preventDefault()
+            // (2) return false를 사용한 차단 
+            $(".confirm-link").click(function(e){
+                // return false;
+                // e.preventDefault();
+               var choice = confirm("구글로 갈꺼냐...?"); //confirm 앞에 window 생략되어있다. 
+               if(choice){
+                return true;
+               }else{
+                return false; //차단
+               }
+            });
+
+            $(".confirm-form").submit(function(e){
+                // 밑에 두개 차단 
+                // return false;
+                // e.preventDefault();
+
+                var choice = confirm("검색 할꺼냐...?");
+               if(!choice){
+                return false;
+               }
+            });
+        });
+
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-400">
+        <div class="row">
+            <h1> 이벤트 제어 </h1>
+        </div>
+
+        <div class="row">
+            <a href = "https://www.google.com" class="confirm-link">구글로 가아아아아아아</a>
+        </div>
+
+        <div class="row">
+            <form class="confirm-form" action="https://search.naver.com/search.naver" method="get">
+                <input type="text" name="query">
+                <button type="submit">검색</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
