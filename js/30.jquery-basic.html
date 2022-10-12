@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        // jquery는 무언가를 "선택"하면서 시작한다. 
+        // -> $(대상).명령1().명령2().명령3().....
+
+        // window.addEventListener("load",function(){});
+        // $(window).on("load",function(){}); 이렇게 쓰지 않음! <- javascript 시작점 
+
+        // $(document).on("ready",function(){}); //jQuery 시작점 그치만 최종형태는 아님..
+
+        // $(document).ready(function(){}); //위에랑 같다. 
+
+        // $().ready(function(){}); // 괄호를 비워도 알아서 다큐먼트르 인식함 . 
+
+        //최종 형태 
+        $(function(){
+            $("h1").click(function(){
+                $(this).css("color","red");
+            });
+        }); 
+
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <h1>hell jQuery</h1>
+    <h1>hell jQuery</h1>
+    <h1>hell jQuery</h1>
+    <h1>hell jQuery</h1>
+</body>
+</html>
