@@ -13,20 +13,20 @@
         window.addEventListener("load", function(){
             var item = document.querySelector(".check-all");
             var items = document.querySelectorAll(".check-item");
-            // console.log(items.checked);
-            // if(items.checked == 0){
-            //     return;
-            // }
             for(var i=0; i<items.length; i++){
-                items[i].addEventListener("click", function(e){
-                    var check = this.confirm("정말로 구매하시겠습니까?");
-                    if(check == false){
-                        e.preventDefault();
-                    }
-                });
+                items.checked = item.checked;
             }
-
+            
         });
+        
+        // for(var i=0; i<items.length; i++){
+        //     items[i].addEventListener("click", function(e){
+        //         var check = this.confirm("정말로 구매하시겠습니까?");
+        //         if(check == false){
+        //             e.preventDefault();
+        //         }
+        //     });
+        // }
     </script>
 </head>
 <body>

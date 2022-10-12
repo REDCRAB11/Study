@@ -18,11 +18,16 @@
             padding: 5px; /* 이거 글씨 전체가 왼쪽에서 조금씩 떨어지는 거 */
 
             border-right: none;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
         }
         /*  t선택시 색상과 굵기 선택이 되어야하는데 무엇으로 해야하나    */
         .dropdown.dropdown-check:checked{
             font-weight: bold;
-            color: #6c7aef;
+            color: transparent;
+        }
+        .dropdown.dropdown-check:hover{
+            color: transparent;
         }
         .search-bar{
             display: flex;
@@ -39,6 +44,8 @@
             font-size: 16px;
 
             border-left: none;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
         }
 
         /*  둘이 높이가 안맞음 ... ㅠㅠ  */

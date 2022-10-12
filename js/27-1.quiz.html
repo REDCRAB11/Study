@@ -11,23 +11,21 @@
     <script type="text/javascript">
         // 자바 스크립트 코드 
         var item = document.querySelector(".check-all");
-        var items = document.querySelectorAll(".check-item");
-
-        window.addEventListener("load", function(e){
-           for(var i=0; i<items.length; i++){
+        
+        items.addEventListener("load", function(){
+            var items = document.querySelectorAll(".check-item");
+            for(var i=0; i<items.length; i++){
                 items[i].checked = item.checked;
             }
+        });
 
+        window.addEventListener("load", function(){
+          items.addEventListener("click", function(){
             for(var i=0; i<items.length; i++){
-                items[i].addEventListener("load", function(e){
-                    if(this.checked == false){
-                        item.checked = fasle;
-                    }
-                    if(document.querySelectorAll(".checkbox:checked").length == items.length){
-                        item.checked = true;
-                    }
-                });
+                var check = document.querySelectorAll(".check-item:checked");
+                item.checked == items.checked == check.checked;
             }
+          });
            
 
         });
@@ -55,4 +53,3 @@
     </div>
 
 </body>
-</html>

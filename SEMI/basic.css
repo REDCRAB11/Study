@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* 컨테이너 사이즈 (container-size) */
 .container-300 { width:300px; margin:0 auto; }
 .container-350 { width:350px; margin:0 auto; }
 .container-400 { width:400px; margin:0 auto; }
