@@ -7,55 +7,49 @@
 	<jsp:param value="자유 게시판" name="title"/>
 </jsp:include>
 
-<h1>게시글 수정</h1>
-
 <form action="edit" method="post">
 <!-- input[type=hidden]은 form 안에 위치해야 한다 -->
 <input type="hidden" name="boardNo" value="${boardDto.boardNo}">
 
-<table border="1" width="500">
-	<tbody>
-		<tr>
-			<th>말머리</th>
-			<td>
-				<select name="boardHead">
-					<option value="">선택</option>
-					<option <c:if test="${boardDto.boardHead == '정보'}">selected</c:if>>정보</option>
-					<option <c:if test="${boardDto.boardHead == '유머'}">selected</c:if>>유머</option>
-					
-					<c:if test="${mg == '관리자'}">
-					<option <c:if test="${boardDto.boardHead == '공지'}">selected</c:if>>공지</option>
-					</c:if>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<th>제목</th>
-			<td>
-				<input type="text" name="boardTitle" required value="${boardDto.boardTitle}">
-			</td>
-		</tr>
-		<tr>
-			<th>내용</th>
-			<td>
-				<!-- 
-					textarea는 value 속성이 없고 시작태그와 종료태그 사이에 작성
-					(주의) pre 태그와 동일하므로 엔터나 띄어쓰기 조심
-				-->
-				<textarea name="boardContent" rows="10" cols="50" 
-						required>${boardDto.boardContent}</textarea>
-			</td>
-		</tr>
-	</tbody>
-	<tfoot>
-		<tr>
-			<td align="right" colspan="2">
-				<a href="list">목록으로</a>
-				<button type="submit">수정하기</button>
-			</td>
-		</tr>
-	</tfoot>
-</table>
+<div class="container-800 mt-40">
+	<div class="row center">
+		<h1>게시글 수정</h1>
+	</div>
+	
+	<div class="row left">
+		<label>말머리</label>
+		<select class="input w-100" name="boardHead">
+			<option value="">선택</option>
+			<option <c:if test="${boardDto.boardHead == '정보'}">selected</c:if>>정보</option>
+			<option <c:if test="${boardDto.boardHead == '유머'}">selected</c:if>>유머</option>
+			
+			<c:if test="${mg == '관리자'}">
+			<option <c:if test="${boardDto.boardHead == '공지'}">selected</c:if>>공지</option>
+			</c:if>
+		</select>
+	</div>
+	
+	<div class="row left">
+		<label>제목</label>
+		<input class="input w-100" type="text" name="boardTitle" required value="${boardDto.boardTitle}" autocomplete="off">
+	</div>
+	
+	<div class="row left">
+		<label>내용</label>
+		<!-- 
+			textarea는 value 속성이 없고 시작태그와 종료태그 사이에 작성
+			(주의) pre 태그와 동일하므로 엔터나 띄어쓰기 조심
+		-->
+		<textarea class="input w-100" name="boardContent" rows="10" 
+				required>${boardDto.boardContent}</textarea>
+	</div>
+	
+	<div class="row right">
+		<a class="btn btn-neutral" href="list">목록으로</a>
+		<button class="btn btn-positive" type="submit">수정하기</button>
+	</div>
+</div>
+
 </form>
 
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>

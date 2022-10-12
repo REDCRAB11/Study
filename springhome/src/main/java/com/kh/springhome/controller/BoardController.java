@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.springhome.constant.SessionConstant;
+import com.kh.springhome.entity.AttachmentDto;
 import com.kh.springhome.entity.BoardDto;
 import com.kh.springhome.entity.MemberBoardLikeDto;
 import com.kh.springhome.entity.ReplyDto;
@@ -149,8 +150,37 @@ public class BoardController {
 	
 	@GetMapping("/delete")
 	public String delete(@RequestParam int boardNo) {
+		// 삭제가 이루어지기 전에 삭제될 게시글의 첨부파일 정보를 조회 
+		List<AttachmentDto> attachmentList = attachmentDao.selectBoardAttachmentList(boardNo);
+		
+		// 삭제: 자동으로 board_attachment의 데이터가 연쇄 삭제됨  
 		boolean result = boardDao.delete(boardNo);
-		if(result) {//성공
+		
+		if(result) {//Service가 해야하는 작업 
+			for(AttachmentDto attachmentDto : attachmentList) {
+			// 첨부파일(attachment, board_attachment)테이블 삭제
+			attachmentDao.delete(attachmentDto.getAttachmentNo());
+			
+			// 실제파일 삭제 
+			String filename = String.valueOf(attachmentDto.getAttachmentNo());
+			File target = new File(directory, filename);
+			target.delete();
+			}
+		}
+		
+			// 컨트롤러가 해야하는 작업 
+		if(result) {//성공 
+			for(AttachmentDto attachmentDto : attachmentList) {
+			// 첨부파일(attachment, board_attachment)테이블 삭제
+			attachmentDao.delete(attachmentDto.getAttachmentNo());
+			
+			// 실제파일 삭제 
+			String filename = String.valueOf(attachmentDto.getAttachmentNo());
+			File target = new File(directory, filename);
+			target.delete();
+			
+			}
+			
 			return "redirect:list";
 		}
 		else {//구문은 실행되었지만 바뀐 게 없는 경우(강제 예외 처리)
@@ -256,6 +286,14 @@ public class BoardController {
 		
 		attr.addAttribute("boardNo", boardNo);
 		return "redirect:/board/detail";
+	}
+	
+	@GetMapping("/delete_admin")
+	public String deleteAdmin(@RequestParam List<Integer> boardNo) {
+		for(int no:boardNo) {
+			boardDao.delete(no);
+		}
+		return "redirect:list";
 	}
 }
 
