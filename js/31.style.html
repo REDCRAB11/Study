@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".btn-small").click(function(){
+                $(".display").css("width","100px").css("height","100px");
+                // $(".display").css("height","100px"); // 이렇게 width 따로 height 따로 써도 되고 명령을 이어서 써도 ㅇㅋ 
+            });
+
+            $(".btn-basic").click(function(){
+                $(".display").css("width","200px").css("height","200px");
+            });
+
+            $(".btn-big").click(function(){
+                $(".display").css("width","300px").css("height","300px");
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <button class="btn-small">작게</button>
+    <button class="btn-basic">보통</button>
+    <button class="btn-big">크게</button>
+    <hr>
+    <img class="display" src="./image/jisung.JPG" style="width:200px; height:200px;">
+</body>
+</html>
