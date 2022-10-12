@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <script type="text/javascript">
+        
+        //window.onload의 문제점: 단 하나의 함수만 설정할 수 있다.(덮어쓰기)
+        // window.onload = function(){
+        //     console.log("load1");
+        // };
+        // window.onload = function(){
+        //     console.log("load2");
+        // };
+
+        //해결책:addEventListener 사용 
+        window.addEventListener("load", function(){
+            // console.log("load1");
+            document.querySelector("button").addEventListener("click",function(){
+                var h1 = document.querySelector("h1");
+            });
+        });
+        window.addEventListener("load", function(){
+            // console.log("load2");
+            document.querySelector("button").addEventListener("click",function(){
+                alert("클릭")
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <button>클릭</button>
+    <h1>Hell javascript</h1>
+</body>
+</html>

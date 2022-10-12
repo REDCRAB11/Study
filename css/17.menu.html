@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <style>
+        /* 드롭다운(drop down)메뉴 만들기
+            - HTML 구조는 ul로 구현한다. 
+
+            (1) 1차 메뉴와 2차 메뉴, 모든 메뉴에 대한 선택자가 다르다 
+                - 1차 메뉴: .dropdown-menu > li 
+                - 2차 메뉴: .dropdown-menu > li > ul > li
+                - 3차 메뉴: .dropdown-menu >  li > ul > li > ul > li
+                - 모든 메뉴: .dropdown-menu li
+                - 2차 이상 메뉴: .dropdown-menu ul > li 
+
+            (2) 모든 메뉴 태ㅐ그의 여백과 표시방식을 변경 
+
+            (3) 1차 메뉴의 표시방식(display)을 inline-block으로 변경 
+
+            (4) 
+                - 1차 메뉴가 기준점이 될 수 있도록 position을 설정 
+                - 2차 메뉴 이상의 위치 결정 방식(position)을 absolute로 변경 
+
+            (5) 1차 메뉴를 제외한 나머지 메뉴를 숨김 
+            (6) li 태그에 마우스가 올라가면(hover) 바로 아래에 있는 ul을 표시 
+            (7) 메뉴 항목에(ul)에 여백 설정 및 폭 맞춤 
+            (8) 메규에 마우스가 올라가면 강조 효과를 부여 
+
+        */
+
+        /* (2) */
+    .dropdown-menu, .dropdown-menu ul{
+        margin: 0;
+        padding: 0;
+        list-style: none; /* 점이나 머.. 이런거 사라지는거 */
+    }    
+
+        /* (3) */
+    .dropdown-menu > li{
+        display: inline-block;
+        width: 100px;
+    }   
+
+        /* (4) */
+    .dropdown-menu > li {
+        position: relative;
+    }
+    .dropdown-menu ul{
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+    }  
+    
+        /* (5) */
+    .dropdown-menu ul{
+        display: none;
+    }    
+
+        /* (6) */
+    .dropdown-menu li:hover > ul {
+        display: block;
+    }    
+
+        /* (7) */
+    .dropdown-menu{
+        font-size: 20px;
+    }    
+    .dropdown-menu li{
+        padding: 0.5em;
+    }
+    .dropdown-menu a {
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+    }
+    .dropdown-menu ul{
+        width: 100%;
+        background-color: black;
+    }
+
+        /* (8) */
+    .dropdown-menu li:hover{
+        background-color: gray;
+        color: white;
+    }    
+    .dropdown-menu li:hover > a {
+        color: white;
+    }
+    
+    .dropdown-menu{
+        background-color: black;
+    }    
+    </style>
+    </head>
+    <body>
+        <ul class="dropdown-menu">
+            <li><a href="#">메뉴1</a>
+                <ul>
+                    <li><a href="#">항목1</a></li>
+                    <li><a href="#">항목2</a></li>
+                    <li><a href="#">항목3</a></li>
+                    <li><a href="#">항목4</a></li>
+                </ul>
+            </li>
+            <li><a href="#">메뉴2</a>
+                <ul>
+                    <li><a href="#">항목1</a></li>
+                    <li><a href="#">항목2</a></li>
+                    <li><a href="#">항목3</a></li>
+                    <li><a href="#">항목4</a></li>
+                </ul></li>
+            <li><a href="#">메뉴3</a>
+                <ul>
+                    <li><a href="#">항목1</a></li>
+                    <li><a href="#">항목2</a></li>
+                    <li><a href="#">항목3</a></li>
+                    <li><a href="#">항목4</a></li>
+                </ul></li>
+            <li><a href="#">메뉴4</a>
+                <ul>
+                    <li><a href="#">항목1</a></li>
+                    <li><a href="#">항목2</a></li>
+                    <li><a href="#">항목3</a></li>
+                    <li><a href="#">항목4</a></li>
+                </ul></li>
+        </ul>
+    </body>
+    </html>
+

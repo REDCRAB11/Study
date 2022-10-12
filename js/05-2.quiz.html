@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 자바 스크립트 코드 
+        var size=16;
+
+        function decrease(){
+            if(size==10){
+            return;
+        }
+            size--;
+            if(size==10){
+            // - 버튼 잠금 
+            var minusBtn = document.querySelector(".minus-btn")
+            minysBtn.disabled = true;
+            }else{
+                // -, + 버튼 해제 
+            var minusBtn = document.querySelector(".minus-btn")
+            minysBtn.disabled = false;
+            var plusBtn = document.querySelector(".plus-btn")
+                plusBtn.disabled = false;
+            }
+            
+            var homeViewer = document.querySelector(".home")
+            homeViewer.style.fontSize = size+"px";
+
+            var sizeViewer = document.querySelector(".size-viewer")
+            sizeViewer.textContent = size;
+        }
+        function increase(){
+            if(size == 50){
+                return;
+            }
+            size++;
+
+            if(size == 50){
+                // 버큰 잠금 
+                var plusBtn = document.querySelector(".plus-btn")
+                plusBtn.disabled = "disabled";
+            }else{// -, + 버튼 해제 
+                var minusBtn = document.querySelector(".minus-btn")
+                minysBtn.disabled = false;
+
+                var plusBtn = document.querySelector(".plus-btn")
+                plusBtn.disabled = false;
+            }
+
+            var homeViewer = document.querySelector(".home")
+            homeViewer.style.fontSize = size+"px";
+
+            var sizeViewer = document.querySelector(".size-viewer")
+            sizeViewer.textContent = size;
+        }
+
+        
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <button class="minus-btn" onclick="decrease();">-</button>
+    <span class="size-viewer">16</span>
+    <button class="plus-btn" onclick="increase();">+</button>
+    <hr>
+    <p class="home">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris maximus quis turpis venenatis volutpat. Ut tempus dapibus tempor. Cras vitae viverra nulla. Cras eu tristique dui, ac maximus arcu. Integer quis risus quam. Nam sit amet nunc tincidunt, dignissim purus sed, tempus nisl. Ut iaculis massa quis diam luctus, quis scelerisque neque lobortis. Suspendisse potenti. Aliquam mattis quam nec blandit sagittis. Sed eu elit at ipsum vestibulum dictum nec at risus. In ut ipsum quis lacus facilisis suscipit ut sit amet velit. Ut justo leo, dapibus finibus sapien auctor, laoreet semper ligula. Curabitur congue elit felis, ac finibus purus auctor id.
+        Suspendisse molestie ullamcorper laoreet. Fusce ut purus diam. Aenean sit amet elementum risus. Phasellus eget justo sit amet turpis congue egestas ut ac est. Nullam in egestas risus, id dignissim libero. Phasellus faucibus arcu a sollicitudin lacinia. Donec volutpat odio in erat ullamcorper mattis. Integer efficitur massa a purus commodo tempor.
+        Suspendisse consequat feugiat odio fermentum laoreet. Sed et tempor eros, ac lacinia lorem. Pellentesque pharetra pulvinar rutrum. Mauris rhoncus et diam quis fermentum. Nam vitae lorem vel sapien sagittis interdum. Proin sed sollicitudin magna. Nam malesuada ante id risus commodo pretium. Suspendisse ac tellus nulla. Vestibulum erat odio, iaculis dictum vehicula at, ultrices at turpis. Proin vitae massa sed ligula sollicitudin congue et nec est. In et felis fermentum, egestas lacus eu, vestibulum magna. Sed rhoncus hendrerit massa, id vestibulum quam dapibus ac. Nunc dignissim neque est, nec venenatis augue vulputate quis. Suspendisse sodales arcu massa, eu vulputate augue ornare et. Nam consectetur sed massa a tristique.
+        Donec et aliquet risus. Nunc id mattis nisi. Cras in volutpat risus. Pellentesque ornare neque tempor metus faucibus viverra. Suspendisse eu sapien ut massa tempor feugiat tempus vitae magna. Suspendisse eget justo massa. Sed auctor semper nulla at lobortis. In at ante in justo imperdiet semper. Quisque augue urna, blandit a eros a, ullamcorper pharetra ante. In id urna at mauris tincidunt aliquam. Maecenas gravida egestas diam in elementum. Sed quam velit, rutrum volutpat odio et, dapibus vulputate erat. Mauris finibus sem ut facilisis fringilla. Sed scelerisque elit ut orci lobortis congue. Duis eu velit placerat, elementum dui vitae, condimentum erat. Maecenas ultrices pellentesque consectetur.
+        Vestibulum tristique semper odio, et sodales arcu fermentum a. Vivamus et auctor ipsum, non eleifend massa. Nulla imperdiet tellus a pharetra placerat. Sed condimentum enim nec pretium laoreet. Nulla facilisi. Nullam purus tortor, viverra vel sem in, cursus laoreet nunc. Cras nec tellus eu erat maximus volutpat sed sed odio. Aliquam accumsan varius velit ut ornare. Nunc est leo, ullamcorper sit amet rutrum sit amet, lobortis sed nibh. Duis blandit aliquet imperdiet. Vestibulum eleifend suscipit metus, sed hendrerit nunc euismod in. Ut laoreet id magna eget viverra. Nullam at odio dignissim, ultricies risus et, hendrerit diam.</p>
+</body>
+</html>

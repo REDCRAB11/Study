@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <style>
+        div{
+            border: 1px dotted gray;
+        }
+        /* 
+            float 설정
+                - float를 설정하면 현재 영역에서 left 혹은 right 방향에 붙는다.(ex.자석) 
+                - (문제점) float와 float가 아닌 요소들을 섞어서 배치할 때 문제가 발생 
+                    - float가 float 아닌 영역에 포함되지 않는다. 
+                - (해결책) float를 제거하는 속성인 clear를 float가 끝나는 시점에 사용한다. 
+                - 이후 부터는 float의 영향을 받지 않는다.     
+
+                -(정리)
+                    - float는 필요하고, 다른 요소랑 어울리기는 힘드니 별도의 영역을 준비 
+                    - 해당영역(float-container) 종료 시 자동으로 clear되도록 처리
+                    - 가상 선택자(virtual selector)가 필요하다 
+        */
+        .float-container{
+
+        }
+        .float-container::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .float-left{
+            float: left;
+        }
+        .float-right{
+            float: right;
+        }
+        .clear{
+            clear: both;
+            /* float: left와 right를 모두 초기화 */
+        }
+        .w-33{
+            width: 33%;
+        }
+        .w-25{
+            width: 25%;
+        }
+        .inline-block{
+            display: inline-block;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container-600">
+
+            <div class="row mt-40">
+                <h1>Float 배우기</h1>
+            </div>
+
+            <div class="row">
+                <div class="float-left"><h1>왼쪽1</h1></div>
+                <div class="float-left"><h1>왼쪽2</h1></div>
+                <div class="float-right"><h1>오른쪽1</h1></div>
+                <div class="float-right"><h1>오른쪽2</h1></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="row mt-40">
+                <h1>Float 배우기</h1>
+            </div>
+
+            <div class="row">
+                <div class="float-left"><h1>왼쪽1</h1></div>
+                <div class="float-left"><h1>왼쪽2</h1></div>
+                <div class="float-right"><h1>오른쪽1</h1></div>
+                <div class="float-right"><h1>오른쪽2</h1></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="row">
+                <h1>2단 레이아웃</h1>
+            </div>
+
+            <div class="row">
+                <div class="float-left w-50">1단</div>
+                <div class="float-left w-50">2단</div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="row">
+                <h1>inline-block 배치</h1>
+            </div>
+        
+            <div class="row">
+                <div class="inline-block w-50">1단</div>
+                <div class="inline-block w-50">2단</div>
+            </div>
+
+            <div class="row mt-40">
+                <h1>최종(float-container)</h1>
+            </div>
+
+            <div class="row float-container">
+                <div class="float-left w-33">1단</div>
+                <div class="float-left w-33">2단</div>
+                <div class="float-left w-33">3단</div>
+            </div>
+
+        </div>
+    </body>
+    </html>

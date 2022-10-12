@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="layout.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        main,header,aside,footer,nav,div{
+            border: 1px dotted dodgerblue;
+        }
+        main{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        header{
+            padding: 20px;
+        }
+        nav{
+
+        }
+        aside{
+            padding: 20px;
+            float: left;
+            width: 25%;
+            min-height: 400px;
+        }
+        section{
+            padding: 20px;
+            float: left;
+            width: 75%;
+            min-height: 400px;
+        }
+        footer{
+            padding: 20px;
+        }
+    </style>
+    </head>
+    <body>
+        <!-- main은 영역의 시작과 끝을 의미-->
+        <main>
+
+            <!-- 상단 헤더-->
+            <header>헤더 </header>
+
+            <!-- 메뉴-->
+            <nav>메뉴</nav>
+
+            <!-- 사이드바 + 컨텐츠-->
+            <div class="float-container">
+                <aside>사이드바</aside>
+
+                <section>컨텐츠</section>
+
+            </div>
+
+            <!-- 하단 푸터 -->
+            <footer>푸터</footer>
+
+        </main>
+    </body>
+    </html>

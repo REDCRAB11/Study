@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <script src="./confirm-link.js"></script>
+    <script type="text/javascript">
+        // 자바 스크립트 코드 
+        // window.addEventListener("load", function(){
+        //     document.querySelector("button").addEventListener("click",function(){
+        //         document.querySelector("h1").style.color = "red";
+        //     });
+        // });
+    </script>
+    <!-- jQuery를 사용하기 위해서는 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(window).on("load",function(){
+            $("button").on("click",function(){
+                $("h1").css("color","red");
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <button>클릭</button>
+    <button>클릭</button>
+    <button>클릭</button>
+    <h1>hell jQuery</h1>
+    <h1>hell jQuery</h1>
+    <h1>hell jQuery</h1>
+</body>
+</html>

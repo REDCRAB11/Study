@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크박스 문제</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <script type="text/javascript">
+        //자바스크립트 코드
+
+        function checkAll(){
+            var checkbox = document.querySelector(".check-all");
+
+            var checkboxItems = document.querySelectorAll(".check-item");
+            for(var i=0; i < checkboxItems.length; i++){
+                checkboxItems[i].checked = checkbox.checked;
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <!-- HTML 화면 -->
+    <div class="container-400">
+        <div class="row center">
+            <h1>상품 구매</h1>
+        </div>
+
+        <div class="row">
+            <label><input type="checkbox" class="check-all" oninput="checkAll();">전체선택</label>
+        </div>
+        <hr>
+
+        <div class="row">
+            <label><input type="checkbox" class="check-item" name="item" value="컴퓨터">컴퓨터</label><br>
+            <label><input type="checkbox" class="check-item" name="item" value="모니터">모니터</label><br>
+            <label><input type="checkbox" class="check-item" name="item" value="키보드">키보드</label><br>
+            <label><input type="checkbox" class="check-item" name="item" value="마우스">마우스</label><br>
+            <label><input type="checkbox" class="check-item" name="item" value="스피커">스피커</label><br>
+        </div>
+    </div>
+    
+</body>
+</html>

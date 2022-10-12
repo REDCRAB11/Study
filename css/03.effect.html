@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 속성솨 효과</title>
+</head>
+<style>
+    input[name=keyword]{
+
+    }
+    /* 
+        color : 글자색 
+        background-* : 배경 속성 
+        font-* : 글자 속성
+        margin : 바깥쪽 여백(전체/상하-좌우/12-3-6-9)
+        padding : 안쪽 여백(전체/상하-좌우/12-3-6-9)
+
+        box-sizing: 크기 설정 기준 
+        width : 폭 
+        height : 높이(미설정시 자동 계산) 
+    */
+    
+    .user-input{
+        color:#374709;
+        background-color: #F2F2EF;
+        font-family: cursive;
+        font-size: 20px;
+
+        /* padding: 10px 20px; 
+            이거는 상하 
+        */
+        /* padding: 10px 20px 30px 40px;
+            이거는 시계 방향 
+        */
+        padding: 10px 20px 30px 40px;
+        margin: 10px 0px;
+        
+        box-sizing: border-box;
+        width: 500px;
+
+    }
+
+</style>
+<body>
+    
+    <input name="keyword" class="user-input">
+</body>
+</html>

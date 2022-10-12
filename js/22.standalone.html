@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <script type="text/javascript">
+        // 탈부착이 가능한 독립형 자바스크립트 코드 
+        
+        // window.onload에 연결된 함수는 화면의 로딩이 끝난 후 실행(지연실행&예약실행 = 콜백함수)
+        window.onload = function(){
+        var button = document.querySelector("button");
+        // console.log(button);
+
+        //버튼을 클릭하면 h1의 글자를 빨강으로 설정 
+        // 태그 .addEventListener("이벤트종류",함수);
+        button.addEventListener("click",function(){
+            var h1 = document.querySelector("h1");
+            h1.style.color="red";
+        });
+        };
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <button>클릭</button>
+    <h1>hell javascript</h1>
+</body>
+</html>

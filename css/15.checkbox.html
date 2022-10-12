@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox의 디자인 활용</title>
+
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <style>
+        /*  + 는 자신의 바로 뒤에 있는 태그를 선택하는 연계 선택자이다.
+            ~ 는 자신의 뒤에 있는 모든 태그를 선택하는 연계 선택자이다.
+            (중요) 반드시 같은 영역에 있어야 한다. (앞은 불가능)
+        */
+        .ck1{
+            display: none;
+        }
+        .ck1 + span{
+            color: blue;
+        }
+        .ck1:checked + span{
+            color: red;
+        }
+    </style>
+    </head>
+    <body>
+        <!--
+            sapn은 inline div이다.
+        -->
+        <div class="container-600">
+            <div class="row center">
+                <h1>체크박스를 이용한 디자인</h1>
+            </div>
+
+            <div class="row">
+                <label for="ck-test">라벨</label>
+                <input type="checkbox" class="ck1" id="ck-test">
+                <span>체크하면 빨간색이 됩니다.</span>
+            </div>
+        </div>
+    </body>
+    </html>

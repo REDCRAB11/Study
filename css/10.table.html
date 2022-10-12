@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table design</title>
+<link rel="stylesheet" type="text/css" href="commons.css">
+<style>
+    div{
+        /* border: 1px dotted bisque; */
+    }
+
+    /* 
+        테이블 디자인
+         - 테이블은 기본디자인이 너무 많아서 디자인하기 까다로운 태그 중 하나 
+    */
+    .table{
+        border-collapse: collapse; /*테두리 병합*/
+        width: 100%;
+        font-size: 16px;
+    }
+    /* 
+        방법 1. .table안에 있는 모든 th와 모든 td를 선택(후손 선택자)
+         - 편하기는 한데 내부에 있는 모든 요소를 선택함으로 테이블이 중첩되는 경우 문제가 발생 
+    */
+    .table th, 
+    .table td{
+        /* border: 1px solid black; */
+    }
+
+    /* 
+        방법 2. .table 부터 시작하는 모든 경로를 제시하여 th와 td를 선택(자식 선택자)
+    */
+    .table > thead > tr > th,
+    .table > thead > tr > td,
+    .table > tbody > tr > th,
+    .table > tbody > tr > td,
+    .table > tfoot > tr > th,
+    .table > tfoot > tr > td
+    {
+        padding: 0.5em;
+    }
+    /* 
+        확장스타일: 테두리가 있는 테이블 
+    */
+.table.table-border{
+    border: 1px solid gray;
+}
+    .table.table-border > thead > tr > th,
+    .table.table-border > thead > tr > td,
+    .table.table-border > tbody > tr > th,
+    .table.table-border > tbody > tr > td,
+    .table.table-border > tfoot > tr > th,
+    .table.table-border > tfoot > tr > td
+    {
+        border: 1px solid gray;
+        padding: 0.5em;
+    }
+
+/* 
+    확장스타일: 줄무늬가 있는 테이블 
+*/
+.table.table-hover > thead > tr:hover,
+.table.table-hover > tbody > tr:hover,
+.table.table-hover > tfoot > tr:hover{
+    background-color:  #c5c9a8;
+}
+
+/* 
+    확장스타일: 마우스에 반응하는 테이블 
+*/
+.table.table-stripe > thead > tr,
+.table.table-stripe > tbody > tr:nth-child(2n){
+    background-color:  #bfbe9f;
+}
+
+
+/* 
+    확장스타일: 옆트임 있는 테이블 
+*/
+.table.table-slit{
+    border: 3px solid gray;
+    border-left: none;
+    border-right: none;
+}
+
+.table.table-slit > thead{
+    border-bottom: 2px solid gray;
+}
+
+.table.table-slit{
+    border-top: 2px solid gray;
+}
+
+
+</style>
+</head>
+<body>
+    <div class="container-700 mt-40">
+        <div class="row center">
+            <h1>기본 테이블</h1>
+        </div> 
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>속성</th>
+                </tr>
+                </thead>
+                <tbody class="center">
+                    <tr>
+                        <td>1</td>
+                        <td>꼬부기</td>
+                        <td>물</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>파이리</td>
+                        <td>불</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>피카츄</td>
+                        <td>전기</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>피죤투</td>
+                        <td>비행</td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>어니부기</td>
+                        <td>물</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>       
+
+
+
+<div class="container-700 mt-40">
+        <div class="row center">
+            <h1>테두리가 있는 테이블</h1>
+        </div> 
+        <div class="row">
+        <table class="table table-border">
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>속성</th>
+            </tr>
+            </thead>
+            <tbody class="center">
+                <tr>
+                    <td>1</td>
+                    <td>꼬부기</td>
+                    <td>물</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>파이리</td>
+                    <td>불</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>피카츄</td>
+                    <td>전기</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>피죤투</td>
+                    <td>비행</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>어니부기</td>
+                    <td>물</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>       
+
+
+
+
+    <div class="container-700 mt-40">
+        <div class="row center">
+            <h1>줄무늬가 있는 테이블</h1>
+        </div> 
+        <div class="row">
+        <table class="table table-stripe">
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>속성</th>
+            </tr>
+            </thead>
+            <tbody class="center">
+                <tr>
+                    <td>1</td>
+                    <td>꼬부기</td>
+                    <td>물</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>파이리</td>
+                    <td>불</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>피카츄</td>
+                    <td>전기</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>피죤투</td>
+                    <td>비행</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>어니부기</td>
+                    <td>물</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> 
+
+
+    <div class="container-700 mt-40">
+        <div class="row center">
+            <h1>마우스 반응 있는 테이블</h1>
+        </div> 
+        <div class="row">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>속성</th>
+            </tr>
+            </thead>
+            <tbody class="center">
+                <tr>
+                    <td>1</td>
+                    <td>꼬부기</td>
+                    <td>물</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>파이리</td>
+                    <td>불</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>피카츄</td>
+                    <td>전기</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>피죤투</td>
+                    <td>비행</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>어니부기</td>
+                    <td>물</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> 
+
+
+    <div class="container-700 mt-40">
+        <div class="row center">
+            <h1>옆트임 있는 테이블</h1>
+        </div> 
+        <div class="row">
+        <table class="table table-slit">
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>속성</th>
+            </tr>
+            </thead>
+            <tbody class="center">
+                <tr>
+                    <td>1</td>
+                    <td>꼬부기</td>
+                    <td>물</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>파이리</td>
+                    <td>불</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>피카츄</td>
+                    <td>전기</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>피죤투</td>
+                    <td>비행</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>어니부기</td>
+                    <td>물</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> 
+
+
+    </div>
+</body>
+</html>

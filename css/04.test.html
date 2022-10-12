@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <style>
+        /*
+            콤마를 사용하면 여러 선택자를 동시에 설정할 수 있다
+        */
+        #id-input, 
+        #password-input,
+        #login-btn {
+            box-sizing: border-box;
+            width:220px;
+            margin: 10px 0px;
+            padding:10px;
+            border:2px solid black;
+            font-family: sans-serif;
+            font-size: 15px;
+            display: block;
+        }
+        #login-btn {
+            background-color: black;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div align="center">
+        <form action="login" method="post">
+            <h1>Login</h1>
+            <input id="id-input" type="text" name="memberId" placeholder="ID">
+            <input id="password-input" type="password" name="memberPw" placeholder="Password">
+            <button id="login-btn" type="submit">로그인</button>
+        </form>
+    </div>
+</body>
+</html>

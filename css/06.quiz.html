@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <style>
+ .container-350{width: 350px; margin: 0 auto;}
+
+ .row{
+            margin: 10px 0px;
+        }
+
+.w-100{
+            width: 100%;
+        } 
+.w-80{
+            width: 80%;
+        } 
+.w-60{
+            width: 60%;
+        } 
+
+ .left{
+            text-align: left;
+        }
+        .center{
+            text-align: center;
+        }
+        .right{
+            text-align: right;
+        }
+
+        #user-input{
+            background-color: #f9f9f9;
+            border: 1px solid #dfdfdf;
+            border: none;
+            padding: 20px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        #bnt{
+            border: 1px solid #aaaaaa;
+            background-color: #acd5e8;
+            border: 1px solid #eaeaea;
+            border-radius: 4px;
+        }
+        #font{
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-350">
+        <div class = "row center">
+            <h1>Instagram</h1>
+        </div>
+
+        <div class="row center">
+            <input id="user-input" class="w-60" type="text" name="id" placeholder="전화번호, 사용자 이름 또는 이메일">
+        </div>
+        <div class="row center">
+            <input id="user-input" class="w-60" type="password" name="pw" placeholder="비밀번호">
+        </div>
+        <div class="row center">
+            <button id="bnt" class="w-60" type="submit">로그인</button>
+        </div>
+        <div class="row center">
+            <h3 id="font">비밀번호를 잊으셨나요?</h3>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본 이벤트 방지</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <script type="text/javascript">
+        // a와 form 태그처럼 목적이 분명한 태그들은 기본이벤트가 존재 
+        // - onclick 같은 이벤트 발생시 return값의 여부에 따라 실행/차단이 결정 
+        // - return false: 차단
+        // - return true: 허용 
+        function checkout(){
+            // return false; 차단 
+            // return true; 허용 
+
+            var choice = confirm("정말 이동할꺼야..?");
+            console.log("choice" + choice);
+            return choice;
+        }
+
+        function fromCheck(){
+            // 전송을 하고 싶은데 유효하지 않은 입력이 있으면 차단 
+            var keyword = document.querySelector("input[name=keyword]");
+            if(!keyword.value){//keyword 미입력 
+                alert("키워드를 작성해주세요") // 완전 호랑이 말보루 피던 시절 ......ㅋ 
+                keyword.focus(); // 입력창 선택 
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-400">
+        <div class="row center">
+            <h1>기본 이벤트 방지</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <a href="https://www.google.com" onclick="return checkout();">구글로 이동</a>
+    </div>
+
+    <div class="row center">
+        <h1>form 이벤트 방지</h1>
+    </div>
+    
+    <div class="row">
+        <form action="https://naver.com" method="get" onsubmit="return fromCheck();">
+            <input type="text" name="keyword">
+            <button type="submit">전송</button>
+        </form>
+    </div>
+
+</body>
+</html>

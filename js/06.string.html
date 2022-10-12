@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열에 대한 처리 방식</title>
+    <script type="text/javascript">
+        // 자바 스크립트 코드 
+
+        // 자바스크립트 문자열 
+        // - 외따옴표, 쌍따옴표를 구분하지 않는다. 
+        // - 처리 명령 등은 자바와 유사하다.(글자수, 포함, 시작, 종료, 정규표현식, 특정위치 .. )
+        // - 배열로 관리된다. 
+
+        var a = "hello javascript";
+        console.log("a = " + a);
+
+        console.log(a[0], a[1], a[2]);
+        console.log("글자수" + a.length);
+        console.log("java 포함" + a.indexOf("java") >=0);
+
+        var phone="010-1234-5678";
+        //(주의) 자바스크립트에서는 정규표현식을 슬래시(/) 사이에 작성한다. 
+        var regex=/^010-[0-9]{4}-[0-9]{4}$/;
+
+        console.log(regex.test(phone));
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <script type="text/javascript">
+        // 자바스크립트의 배열, 객체의 구조 
+        // - 자바스크립트의 배열은 크기가 고정이 아니다. 
+        // int[] a = new int[3];
+        var a = new Array(3);
+
+        // int[] b = new int[][10,20,30];
+        var b = [10, 20, 30];
+
+        // List<Integer> c = new ArrayList<>();
+        var c = [];    
+        // c[1]="hello";
+        c.push("hello");//List의 add()와 동일한 명령 
+        console.log(c);
+        console.log(c.length);
+
+        //객체 
+        // - 자바에서는 객체를 만들려면 class가 있어야한다. 
+        // - 자바스크립트(ES5)에서는 클래스가 없고 "생성자 함수"라는 것이 있다. 
+        // - "성상자 함수"가 없어도 객체를 만들 수 있다. 
+        // - 자바스크립트는 없는 속성을 만들 수 있다. 
+
+        var student = {
+            name:"꼬부기",
+            score:34,
+            getScore:function(){
+                return this.score; // this는 자기자신(주인공)
+            }
+        };
+        student.grade = 'C';
+        console.log(student);
+        console.log(student.getScore());
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+</body>
+</html>

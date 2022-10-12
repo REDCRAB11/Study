@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this의 사용</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <script type="text/javascript">
+        function checkAll(){
+            var checkbox = document.querySelector(".check-all");
+            var checkboxs =document.querySelectorAll(".chk")
+            for(var i=0; i< checkboxs.length; i++){
+                checkboxs[i].checked = checkbox.checked;
+            }
+        }
+    //    function btnCheck(){
+    //         var checkes = document.getElementsByName("agree");
+    //         // var site = document.querySelectorAll("#site");
+    //         // var privacy = document.querySelectorAll("#privacy");
+    //         // var judge = site.length == privacy.length;
+    //         // var chks = document.querySelectorAll(".check-all");
+    //         for(count=i=0; i<checkes.length; i++) count += checkes[i].checked;
+    //         if(count == 0) {
+    //             alert("모든 약관에 동의해 주세요.")
+    //         }
+           
+    //     }
+
+        function btnCheck(){
+            var chkes = document.querySelectorAll(".chk");
+            for(var i=0; i<chkes.length; i++){
+            }
+        }
+
+        function agr(){
+            var agrees = document.querySelectorAll(".chk");
+            var count = 0;
+            for(var i =0; i<agrees.length; i++){
+                if(agrees[i].checked){
+                    count = 2;
+                }
+            }
+            var judge = agrees.length == count;
+
+            var checkboxs = document.querySelectorAll(".check-all");
+            for(var i = 0; i <checkboxs.length; i++){
+                checkboxs[i].checked = judge;
+            }if(count == 0){
+                alert("모든 약관에 동의해 주세요.")
+            }
+        }
+        
+      
+        
+
+    </script>
+    <style>
+        .input{
+            margin: 5px;
+            height: 50px;
+            border: 2px solid black;
+            background-color: transparent;
+            font-size: 16px;
+            line-height: 10px;
+
+        }
+        .btn-check{
+            margin: 0 4px;
+            height: 50px;
+            text-align: center;
+            border: 2px solid blue;
+            background-color: transparent;
+            font-size: 16px;
+            color: blue;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container-400">
+            <div class="row center">
+                <h1>이용 약관</h1>
+            </div>
+            <form name="nextCheck" action="">
+            <div class="row">
+                <lable><input type="checkbox" class="check-all" oninput="checkAll();">전체 동의</lable>
+            </div>
+            <div class="row">
+                <lable>사이트 이용약관<span style="color: red;">(필수)</span></lable>
+                <input class="input w-100"  placeholder="어쩌고 저쩌고">
+                <label>
+                <input type="checkbox" name="agree" class="chk" oninput="agr">
+                동의합니다<span style="color: red;">*</span>
+                </label>
+            </div>
+
+            <div class="row">
+                <lable> 개인정보 수집 및 이용 동의<span style="color: red;">(필수)</span></lable>
+                <input class="input w-100" placeholder="어쩌고 저쩌고">
+                <label>
+                <input type="checkbox" name="agree" class="chk" oninput="agr"> 
+                동의합니다<span style="color: red;">*</span>
+                </label>
+            </div>
+
+            <div class="row">
+                <lable>프로모션 정보 수신 동의<span style="color: lightgray;">(필수)</span></lable>
+                <input class="input w-100"  placeholder="어쩌고 저쩌고" >
+                <label>
+                <input type="checkbox" name="agree" class="chk" oninput="agr">
+                동의합니다
+                </label>
+            </div>
+            
+            <div class="row">
+                <button type="submit" class="btn-check w-100" onclick="btnCheck();">확인</button>
+            </div>
+        </form>
+        </div>
+    </body>
+    </html>

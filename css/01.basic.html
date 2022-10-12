@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 적용 방법 배우기</title>
+</head>
+<body>
+    <!--
+        스타일을 적용시키는 방법
+        1. 인라인 스타일 - 태그에 직접 style속성을 작성
+        - 가독성은 떨어지지만 우선순위가 가장 높아 간단한 수정에 사용
+        2. 스타일 태그 - style 태그를 생성하여 외부에서 디자인
+        - 가독성이 좋지만 선택자(selector)를 알아야 함
+        3. 스타일 파일 - css 확장자를 가진 파일에 디자인 코드 작성
+        - 가장 손이 많이 가지만 디자인 모듈을 만들 때 사용
+    -->
+    <h1 style="color:red; background-color: yellow;">Hello Design</h1>
+
+    <style>
+        h2 {
+            color:blue;
+        }
+    </style>
+    <h2>Hello Design</h2>
+    <h2>Hello Design</h2>
+    <h2>Hello Design</h2>
+
+    <link rel="stylesheet" type="text/css" href="01.basic.css">
+    <h3>Hello Design</h3>
+    <h3>Hello Design</h3>
+    <h3>Hello Design</h3>
+</body>
+</html>

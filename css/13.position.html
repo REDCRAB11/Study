@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS position 속성</title>
+
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <style>
+        div{
+            border: 1px dotted gray;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 3px solid black;
+        }
+        .static{
+            position: static;
+        }
+        .relative{
+            position: relative;
+            top: 50px;
+            left: 50px;
+        }
+        .absolute{
+            position: absolute;
+            top:0;
+            left: 0;
+            border-color: aqua;
+        }
+        .fixed{
+            position: fixed;
+            top:0;
+            right:0;
+            border-color: yellow;
+        }
+        /* 
+            position은 위치를 결정하기 위하여 필요한 속성 
+            - static: 연관 배치. 앞 요소에 의해 현재 태그의 위치가 결정되며 변경 불가
+            - relative: 연관 배치, 앞 요소에 의해 현재 태그의 위치가 결정되며 변경 가능  
+            - absolute: 고정 배치, 
+                a. 특정 기준영역(없으면 body)를 기준으로 위치를 설정하며 스크롤 영향 받음
+                b. 특정 영역이라 함은 자신을 감싸는 가장 가까운 relative,absolute, fixed 영역 
+            - fixed: 고정배치, 
+                a. 브라우저 화면(screen)을 기준으로 위치를 설정하므로 스크롤 영향 없음     
+
+            위치 조정에 따라 필요한 속성 
+            - top : 기준 지점으로부터의 상단 위치 (위에서 얼마큼 떨어지게 할 것인가)
+            - bottom : 기준 지점으로부터 하단 위치 (아래에서 얼만큼 떨어지게 할 것인가)
+            - left : 기준 지점으로부터 좌측 위치 (좌측에서 얼만큼 떨어지게 할 것인가)
+            - right : 기준 지점으로부터 우측 위치 (우측에서 얼만큼 떨어지게 할 것인가)
+            - z-index : 해당 태그를 배치할 z축 위치(몇 층에 배치할 것인지) 
+        */
+
+    </style>
+    </head>
+        <body>
+            <div class="container-700">
+                <div class="row">
+                    <h1>position: static </h1>
+
+                    <div class="row">
+                        <div class="box static"></div>
+                        <div class="box static"></div>
+                        <div class="box static"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h1>position: relative</h1>
+
+                    <div class="row">
+                        <div class="box relative"></div>
+                        <div class="box relative"></div>
+                        <div class="box relative"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h1>position:absolute</h1>
+
+                    <div class="row relative">
+                        <div class="box absolute"></div>
+                        <div class="box absolute"></div>
+                        <div class="box absolute"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h1>position:fixed</h1>
+
+                    <div class="row">
+                        <div class="box fixed"></div>
+                        <div class="box fixed"></div>
+                        <div class="box fixed"></div>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>

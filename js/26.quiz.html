@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <script src="./confirm-link.js"></script>
+    <script type="text/javascript">
+           window.addEventListener("load", function(){
+            //목표 : textarea에서 입력(input)이 발생하면 span에 글자수를 출력
+
+            var textarea = document.querySelector(".q1-input");
+            textarea.addEventListener("input", function(){
+                //this 는 현재 이벤트의 주인공을 말한다 (== textarea)
+                //var text = textarea.value;
+                var text = this.value;
+                console.log(text.length);
+
+                //var span = document.querySelector(".q1-input-length");
+                var span = this.nextElementSibling;
+                span.textContent = text.length;
+
+                if(text.length > 1000){
+                    span.classList.add("danger");
+                }
+                else {
+                    span.classList.remove("danger");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+       <!-- HTML 화면 -->
+       <div class="container-600">
+        <div class="row center">
+            <h1>자기소개서</h1>
+        </div>
+
+        <div class="row mt-40">
+            <h2>(Q) 우리 회사에 지원한 이유가 뭔가요?</h2>
+        </div>
+        <div class="row right">
+            <textarea class="input w-100 fix-size q1-input" rows="10"></textarea>
+            <span class="q1-input-length">0</span> / 1000
+        </div>
+    </div>
+</body>
+</html>

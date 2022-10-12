@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 자바 스크립트 코드 
+
+        function small(){
+            var target = document.querySelector(".ji");
+            target.height=100;
+            target.width=100;
+            // target.style.height="100px";
+        }
+        function basic(){
+            var target = document.querySelector(".ji");
+            target.height=200;
+            target.width=200;
+        }
+        function big(){
+            var target = document.querySelector(".ji");
+            target.height=300;
+            target.width=300;
+        }
+        
+       
+    </script>
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <button onclick="small();">작게</button>
+    <button onclick="basic();">기본</button>
+    <button onclick="big();">크게</button>
+    <hr>
+    <img src="./image/jisung.JPG" width="200px" height="200px" class="ji">
+</body>
+</html>

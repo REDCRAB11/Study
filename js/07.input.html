@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력창 제어</title>
+
+    <script type="text/javascript">
+        //자바스크립트 코드
+        function checkText(){
+            //console.log("checkText 함수 실행");
+
+            //가장 중요한 것은 입력값을 어떻게 가져오는가? 이다
+            //- 입력값은 value 속성으로 제어한다.
+            //- input, select, textarea 모두 동일
+
+            var target = document.querySelector(".test-input");
+            //console.log(target);
+            var text = target.value;
+
+            console.log("글자수 = " + text.length);
+
+            var regex = /^[a-z][a-z0-9]{7,19}$/;
+            console.log("아이디? " + regex.test(text));
+
+            //계산 결과에 따라 화면 출력
+            //- 비어있는 영역(ex : div, span, ...)에 글자를 추가할 수 있어야 한다
+            //(1) textContent 속성 - 모든 값을 글자로 인식
+            //(2) innerHTML 속성 - HTML 태그는 해석하고 나머지를 글자로 인식
+            var one = document.querySelector(".one");
+            one.textContent = "<h1>"+text.length+"</h1>";
+
+            var two = document.querySelector(".two");
+            two.innerHTML = "<h1>"+text.length+"</h1>";
+
+        }
+    </script>
+
+</head>
+<body>
+
+    <!-- HTML 화면 -->
+    <input type="text" class="test-input" oninput="checkText();">
+
+    <div class="one">0</div>
+    <div class="two">0</div>
+    
+</body>
+</html>

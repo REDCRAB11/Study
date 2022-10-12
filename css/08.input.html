@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력창 디자인</title>
+
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <style>
+        /*
+            입력창은 버튼과 같이 등장하므로 비율이나 크기등이 같아야 한다
+        */
+        .input {
+            font-size: 20px;
+            padding: 0.75em;
+            outline: none;
+            border:1px solid gray;
+            border-radius: 1em;
+        }
+        .input:focus {
+            border-color: black;
+        }
+        /* input이라는 클래스가 있으면서 input-underline 클래스가 있다면 */
+        .input.input-underline {
+            border-color: transparent;
+            border-bottom-color:gray;
+        }
+
+        /* 배경이미지가 들어가는 입력창 */
+        .input.input-icon {
+            padding-left: 2.5em;
+            /* background-image: url("./image/search-icon.png"); */
+            background-size: 1em;
+            background-repeat: no-repeat;
+            background-position-x: 0.75em;
+            background-position-y: center;
+        }
+
+        /*
+            textarea는 기본적으로 폭 조절이 가능하여 디자인에 어려움이 많다
+            - 높이만 조절되게 하던가
+            - 아예 조절이 안되게 하던가
+            - resize 속성
+        */
+        textarea.input {
+            resize: vertical;
+        }
+        textarea.input.fix-size {
+            resize: none;
+        }
+
+        .search-input {
+            background-image: url("./image/search-icon.png");
+        }
+    </style>
+</head>
+<body>
+    <div class="container-400">
+        <div class="row center">
+            <h1>입력창 샘플</h1>
+        </div>
+        <div class="row">
+            기본 입력창
+        </div>
+        <div class="row">
+            <input class="input w-100">
+        </div>
+
+        <div class="row">
+            밑줄만 있는 입력창
+        </div>
+        <div class="row">
+            <input class="input input-underline w-100">
+        </div>
+
+        <div class="row">
+            이미지가 들어가는 입력창
+        </div>
+        <div class="row">
+            <input class="input input-icon w-100 search-input">
+        </div>
+ 
+        <div class="row">
+            select
+        </div>
+        <div class="row">
+            <select class="input w-100">
+                <option>사과</option>
+                <option>포도</option>
+                <option>바나나</option>
+            </select>
+        </div>
+
+        <div class="row">
+            textarea
+        </div>
+        <div class="row">
+            <textarea class="input w-100 fix-size" rows="10"></textarea>
+        </div>
+    </div>
+</body>
+</html>
