@@ -8,8 +8,13 @@
 
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <style>
+        .danger {
+            color:red;
+        }
+    </style>
 
-    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <!-- jquery를 사용하기 위하여 라이브러리 js 파일을 불러온다-->
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script type="text/javascript">
         $(function(){
@@ -17,26 +22,28 @@
             //$(".q1-input").input(function(){});//안됨
             $(".q1-input").on("input", function(){
                 //this == 입력이 발생한 textarea
-                //var text = $(".q1-input").val();//비추천
-                //var text = this.value;//Javascript 스타일
                 var text = $(this).val();//jQuery 스타일
 
-                //$(".q1-input-length").text(text.length);//모든 span(비추천)
                 $(this).next().text(text.length);//바로 뒤 태그 선택 .next() (<---> .prev())
 
                 if(text.length > 1000){
-                    $(this).next().css("color", "red");
+                    //style 제어 대신 클래스 제어
+                    //$(this).next().css("color", "red");
+                    $(this).next().addClass("danger");
                 }
                 else {
-                    $(this).next().css("color", "black");
+                    //style 제어 대신 클래스 제어
+                    //$(this).next().css("color", "black");
+                    $(this).next().removeClass("danger"); 
                 }
             });
         });
     </script>
 
+    
 </head>
 <body>
-
+ 
     <!-- HTML 화면 -->
     <div class="container-600">
         <div class="row center">
