@@ -105,8 +105,7 @@
 
 
 
-/*  */
-
+/* 버튼 모음  */
 
 
 .largebtn{
@@ -118,7 +117,9 @@
     text-align: center;
     text-decoration: none;
     border-radius: 0.5em;
-    width: 270x;
+
+    /* 높이와 너비는 상황에 따라 맞게 비율 설정 */
+    width: 270x;   
     height: 60px;
 }
 
@@ -168,7 +169,7 @@
 }
 
 
-/*  */
+/* select */
 
 .dropdown{
     border:2px solid #6c7aef;
@@ -217,7 +218,7 @@ height: 50px;
 }
 #nav ul li{
 float: left;
-width: 50%; /*li항목에 따라 등분으로 나눈 것 2개라 50으로 나눔*/
+width: 50%; /*li항목에 따라 등분으로 나눈 것 2개라 50으로 나눔 항목에 따라 비율 나누면 됩니다~ */
 height: 100%;
 line-height: 50px;
 text-align: center;

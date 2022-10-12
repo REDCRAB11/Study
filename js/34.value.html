@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 목표 : = 버튼을 누르면 입력값을 불러와서 계산한 뒤 우측 입력창에 설정 
+            $(".result").click(function(){
+                // document.querySelector(".a").value
+                var a = $(".a").val();
+                var b = $(".b").val();
+                // console.log("a =" + a);
+                // console.log("b =" + b);
+
+                //(+주의) value는 String이다. 숫자로 바꾸려면 변환명령 필요 
+                // - 변환 명령: .parseInt() .parseFloat()
+                // var c = a+b; --> 문자열 + 문자열 
+                var c = parseInt(a) + parseInt(b); // --> 숫자 + 숫자 
+                // document.querySelector(".c").value = c;
+                $(".c").val(c)
+
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div style="padding:20px">
+        <input type="number" class="a">
+        +
+        <input type="number" class="b">
+        <button class="result">=</button>
+        <input type="number" class="c">
+    </div>
+
+
+</body>
+</html>
