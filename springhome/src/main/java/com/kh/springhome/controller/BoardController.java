@@ -30,6 +30,7 @@ import com.kh.springhome.repository.AttachmentDao;
 import com.kh.springhome.repository.BoardDao;
 import com.kh.springhome.repository.MemberBoardLikeDao;
 import com.kh.springhome.repository.ReplyDao;
+import com.kh.springhome.service.BoardService;
 import com.kh.springhome.vo.BoardListSearchVO;
 
 @Controller
@@ -49,6 +50,10 @@ public class BoardController {
 	private AttachmentDao attachmentDao;
 	
 	private final File directory = new File(System.getProperty("user.home")+"/upload");
+	
+	@Autowired
+	private BoardService boardService;
+
 	@PostConstruct//최초 실행시 딱 한 번만 실행되는 메소드
 	public void prepare() {
 		directory.mkdirs();
@@ -116,7 +121,8 @@ public class BoardController {
 		}
 		
 //		(+추가) 게시글에 대한 첨부파일을 조회하여 첨부
-		model.addAttribute("attachmentList", attachmentDao.selectBoardAttachmentList(boardNo));
+		model.addAttribute("attachmentList", 
+				attachmentDao.selectBoardAttachmentList(boardNo));
 		
 		return "board/detail";
 	}
@@ -136,56 +142,7 @@ public class BoardController {
 		String memberId = (String)session.getAttribute(SessionConstant.ID);
 		boardDto.setBoardWriter(memberId);
 		
-//		등록될 글의 번호를 미리 생성
-		int boardNo = boardDao.sequence();
-		boardDto.setBoardNo(boardNo);
-
-//		등록 전에 "새글"인지 "답글"인지 파악해서 그에 맞는 계산을 수행
-		if(boardDto.getBoardParent() == 0) {//새글이라면
-			boardDto.setBoardGroup(boardNo);
-			boardDto.setBoardParent(0);
-			boardDto.setBoardDepth(0);
-		}
-		else {//답글이라면 
-			BoardDto parentDto = boardDao.selectOne(
-													boardDto.getBoardParent());
-			boardDto.setBoardGroup(parentDto.getBoardGroup());
-			boardDto.setBoardDepth(parentDto.getBoardDepth() + 1);
-		}
-		
-//		문제점 : 등록은 되는데 몇 번인지 알 수 없다
-//		해결책 : 번호를 미리 생성하고 등록하도록 메소드 변경
-		boardDao.insert2(boardDto);
-		
-//		(+추가) 게시글이 등록된 다음 파일이 있다면 해당 파일을 등록 및 연결 
-//		 -  첨부 파일이 없어도 리스트에는 1개의 객체가 들어있다.
-//		System.out.println("첨부파일 수 " + attachment.size()); // 이거로는 첨부파일이 비어있는지 1개 있는지 모른다. 
-		for(MultipartFile file : attachment) { // 이것을 사용해야 첨부파일이 비어있는지 아닌지 여부를 알 수 있다. 
-			System.out.println("file= " + file.isEmpty());
-			if(!file.isEmpty()) {
-				System.out.println("첨부파일 발견");
-
-
-
-				
-				//DB 등록
-				int attachmentNo = attachmentDao.sequence();
-				attachmentDao.insert(AttachmentDto.builder()
-							.attachmentNo(attachmentNo)
-							.attachmentName(file.getOriginalFilename())
-							.attachmentType(file.getContentType())
-							.attachmentSize(file.getSize())
-						.build());
-				
-				//파일 저장
-				File target = new File(directory, String.valueOf(attachmentNo));
-				System.out.println(target.getAbsolutePath());
-				file.transferTo(target);
-				
-				//+ 연결 테이블에 연결 정보를 저장(게시글번호, 첨부파일번호)
-				boardDao.connectAttachment(boardNo, attachmentNo);
-			}
-		}
+		int boardNo = boardService.write(boardDto, attachment);
 		
 		attr.addAttribute("boardNo", boardNo);
 		return "redirect:detail";
@@ -193,8 +150,37 @@ public class BoardController {
 	
 	@GetMapping("/delete")
 	public String delete(@RequestParam int boardNo) {
+		// 삭제가 이루어지기 전에 삭제될 게시글의 첨부파일 정보를 조회 
+		List<AttachmentDto> attachmentList = attachmentDao.selectBoardAttachmentList(boardNo);
+		
+		// 삭제: 자동으로 board_attachment의 데이터가 연쇄 삭제됨  
 		boolean result = boardDao.delete(boardNo);
-		if(result) {//성공
+		
+		if(result) {//Service가 해야하는 작업 
+			for(AttachmentDto attachmentDto : attachmentList) {
+			// 첨부파일(attachment, board_attachment)테이블 삭제
+			attachmentDao.delete(attachmentDto.getAttachmentNo());
+			
+			// 실제파일 삭제 
+			String filename = String.valueOf(attachmentDto.getAttachmentNo());
+			File target = new File(directory, filename);
+			target.delete();
+			}
+		}
+		
+			// 컨트롤러가 해야하는 작업 
+		if(result) {//성공 
+			for(AttachmentDto attachmentDto : attachmentList) {
+			// 첨부파일(attachment, board_attachment)테이블 삭제
+			attachmentDao.delete(attachmentDto.getAttachmentNo());
+			
+			// 실제파일 삭제 
+			String filename = String.valueOf(attachmentDto.getAttachmentNo());
+			File target = new File(directory, filename);
+			target.delete();
+			
+			}
+			
 			return "redirect:list";
 		}
 		else {//구문은 실행되었지만 바뀐 게 없는 경우(강제 예외 처리)
@@ -301,5 +287,27 @@ public class BoardController {
 		attr.addAttribute("boardNo", boardNo);
 		return "redirect:/board/detail";
 	}
+	
+	@GetMapping("/delete_admin")
+	public String deleteAdmin(@RequestParam List<Integer> boardNo) {
+		for(int no:boardNo) {
+			boardDao.delete(no);
+		}
+		return "redirect:list";
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

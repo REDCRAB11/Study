@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <jsp:include page="/WEB-INF/views/template/header.jsp">
-<jsp:param value="비밀번호 변경 실패" name="title"/>
+	<jsp:param value="오류 발생" name="title"/>
 </jsp:include>
-<body>
-	<h1>존재하지 않는 번호 입니다. </h1>
-	<h2><a href = "list" > 목록으로 이동 </a></h2>
-</body>
+
+<h1>일시적인 오류가 발생했습니다</h1>
+
+<img src="https://placeimg.com/700/400/tech">
+
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
