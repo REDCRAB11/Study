@@ -7,6 +7,7 @@
 .container-450 { width:450px; margin:0 auto; }
 .container-500 { width:500px; margin:0 auto; }
 .container-550 { width:550px; margin:0 auto; }
+.container-590 { width:590px; margin:0 auto; }
 .container-600 { width:600px; margin:0 auto; }
 .container-650 { width:650px; margin:0 auto; }
 .container-700 { width:700px; margin:0 auto; }
@@ -180,4 +181,54 @@
 .dropdown.dropdown-check:checked{
     font-weight: bold;
     color: #6c7aef;
+}
+
+
+
+/*  TAB 부분 수정할거 몇개 있음  */
+
+p{
+    font-size: 20px;
+    color: #6c7aef;
+}
+.p-hover:hover{
+    font-weight: bold;
+}
+.text-underline{
+    text-decoration-line: underline;
+    text-underline-position: under;
+}
+ul{
+font-size: 20px;
+margin: 0;
+padding: 0;
+}
+a{
+text-decoration: none;
+color: #AAAAAA;
+}
+li{
+list-style: none;
+}
+#nav{
+width: 600px; /* 컨테이너에 따라 달라서 사용할 때 따로 빼서 재작성하고 사용해야함. */
+height: 50px;
+/* outline: 1px dotted red; */
+}
+#nav ul li{
+float: left;
+width: 50%; /*li항목에 따라 등분으로 나눈 것 2개라 50으로 나눔*/
+height: 100%;
+line-height: 50px;
+text-align: center;
+background:transparent;
+}
+#nav ul li a{
+display: block;
+}
+#nav ul li a:hover{
+background: transparent;
+color: #6c7aef;
+font-weight: bold;
+border-bottom: 4px solid #6c7aef;
 }
