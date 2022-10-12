@@ -51,6 +51,7 @@
     }
 
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript">
         function checkId(){
             var input = document.querySelector("input[name=memberId]");
@@ -116,15 +117,16 @@
         function checkEmail(){
             var input = document.querySelector("input[name=memberEmail]");
             var memberEmail = input.value;
-            var regex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-            var judge = regex.test(memberEmail);
-            let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
-            let testEmails = ["notanemail.com", "workingexample@stackabuse.com", "example@yale.edu.com"];
-            testEmails.forEach((address) => {
-                console.log(regex.test(address))
-            });
 
+            var regex1 = /^[a-z0-9]$/
+
+            var regex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+            var judge = regex.test(memberEmail);
+          
             input.classList.remove("success", "fail");
+
+            // 직접 입력 검사 
             if(judge){
                 input.classList.add("success");
             }else{
