@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attr() vs prop()</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // .attr() : 대상 태그에 적힌 속성을 글자 그대로 읽는다. (커스텀 속성도 읽을 수 있다.)
+            // .prop() : 대상 태그의 구조조적인 속성을 읽는다. (커스텀 속성은 읽을 수 없다.)
+
+            //img 태그의 width를 읽어와서 출력 
+            console.log($("img").attr("width")); 
+            console.log($("img").prop("width"));
+
+            //checkbox의 checked 속성을 읽어와서 출력 
+            console.log($("input[type=checkbox]").attr("checked"));
+            console.log($("input[type=checkbox]").prop("checked"));
+
+            // 커스텀 속성 읽어와서 출력 
+            console.log($("img").attr("message"));
+            console.log($("img").prop("message"));
+        });
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-500">
+        <div class="row">
+            <h1>속성 제어</h1>
+        </div>
+
+        <div class="row">
+            <img src="./image/jisung.JPG" width="200" message="hello">
+        </div>
+
+        <div class="row">
+            <input type="checkbox" checked="checked">
+        </div>
+
+    </div>
+</body>
+</html>
