@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){ 
+            // 전체 동의 
+            $(".check-all").on("input",function(){
+                var check = $(this).prop("checked");
+                $(".chk").prop("checked",check);
+                $(".chk-r").change();
+                // check 안에 $()~; 넣어서 한줄로 만들어도 됨 
+            });
+
+            // 필수 항목 동의 
+            $(".chk-r").change(function(){
+
+                //반복문 사용시 
+                var count=0;
+                $(".chk-r").each(function(){
+                    if($(this).prop("checekd")){
+                        count++;
+                    }
+                });
+
+                var judge = $(".chk-r").length == count;
+                if(judge){ //필수요소 모두 체크 -> 버튼 비활성화 해체
+                    $(".btn-next").prop("disabled", false);
+                }else{// 필수요소 모두 체크되지 않은 경우 -> 버튼 비활성화 설정
+                    $(".btn-next").prop("disabled", true);
+                }
+            });
+        });
+    </script>
+        <style>
+        .btn.btn-positive[disabled],
+        .btn.btn-positive[disabled]:hover{
+            background-color: #74b9ff;
+            cursor: not-allowed;
+        }
+        .fullscreen{
+            background-color: white;
+        }
+            .input{
+                margin: 5px;
+                height: 50px;
+                border: 2px solid black;
+                background-color: transparent;
+                font-size: 16px;
+                line-height: 10px;
+    
+            }
+            .btn-check{
+                margin: 0 4px;
+                height: 50px;
+                text-align: center;
+                border: 2px solid blue;
+                background-color: transparent;
+                font-size: 16px;
+                color: blue;
+            }
+        </style>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-400">
+        <div class="row center">
+            <h1>이용 약관</h1>
+        </div>
+        <form name="nextCheck" action="">
+        <div class="row">
+            <lable><input type="checkbox" class="check-all">전체 동의</lable>
+        </div>
+        <div class="row">
+            <lable>사이트 이용약관<span style="color: red;">(필수)</span></lable>
+            <input class="input w-100"  placeholder="어쩌고 저쩌고">
+            <label>
+            <input type="checkbox" name="agree" class="chk chk-r">
+            동의합니다<span style="color: red;">*</span>
+            </label>
+        </div>
+
+        <div class="row">
+            <lable> 개인정보 수집 및 이용 동의<span style="color: red;">(필수)</span></lable>
+            <input class="input w-100" placeholder="어쩌고 저쩌고">
+            <label>
+            <input type="checkbox" name="agree" class="chk chk-r"> 
+            동의합니다<span style="color: red;">*</span>
+            </label>
+        </div>
+
+        <div class="row">
+            <lable>프로모션 정보 수신 동의<span style="color: lightgray;">(필수)</span></lable>
+            <input class="input w-100"  placeholder="어쩌고 저쩌고" >
+            <label>
+            <input type="checkbox" name="agree" class="chk">
+            동의합니다
+            </label>
+        </div>
+        
+        <div class="row">
+            <button type="submit" class="btn btn-positive btn-next w-100" disabled>확인</button>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
