@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <style>
+        .accordion,
+        .accordion ul {
+            list-style: none;
+            font-size: 20px;
+            line-height: 1.2;
+            padding: 0.5em;
+            border: 1px solid gray;
+        }
+        .accordion ul > li {
+            margin-left: 0.5em;
+        }
+        .accordion a {
+            text-decoration: none;
+            color: black;
+        }
+        .accordion a:hover {
+            color: blue;
+        }
+        .accordion ul {
+            margin:0.5em 0;
+        }
+    </style>
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        // .accordion 안에 있는 a태그 클릭하면 뒤에 있는 ul을 토글 
+        $(".accordion a").click(function(){
+            // this == 클릭한 a태그 
+            $(this).next().toggle();
+        });
+        });
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-600">
+        <div class="row center">
+            <h1>목차</h1>
+        </div>
+
+        <div class="row">
+            <ul class="accordion">
+                <li >
+                    <a href="#">Spring</a>
+                    <ul>
+                        <li><a href="#">Controller</a></li>
+                        <li><a href="#">Service</a></li>
+                        <li><a href="#">Component</a></li>
+                        <li><a href="#">Repository</a></li>
+                        <li><a href="#">DTO</a></li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="#">Javascript</a>
+                    <ul>
+                        <li><a href="#">Event 처리</a></li>
+                        <li><a href="#">정규표현식 검사</a></li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="#">jQuery</a>
+                    <ul>
+                        <li><a href="#">선택자</a></li>
+                        <li><a href="#">CSS 제어</a></li>
+                        <li><a href="#">클래스 제어</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -8,25 +8,24 @@
 
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/commons.css">
-
+    <style>
+        .hidden{
+            /*  !important가 붙은 속성은 우선순위를 최상위로 높인다. */
+            display: none !important;
+        }
+    </style>
     <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript">
         $(function(){
             $(".hide").click(function(){
-                $("h2").css("display","none");
-                // document.querySelector("h2").style.display="none"; JS 스타일 
+                $("h2").fadeOut();
             });
             $(".show").click(function(){
-                 // document.querySelector("h2").style.display="block"; JS 스타일 
-                $("h2").css("display","block");
+                $("h2").fadeIn();
             });
             $(".toggle").click(function(){
-                if($("h2").css("display") != "none"){
-                    $("h2").css("display", "none");
-                }else{
-                    $("h2").css("display", "block");
-                }
+                $("h2").fadeToggle("hidden");
             });
         });
     </script>
