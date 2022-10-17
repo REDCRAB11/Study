@@ -28,7 +28,8 @@
 	    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
 	
 	    <!-- <link rel="stylesheet" type="text/css" href="/css/test.css"> -->
-	    
+	  
+	  	<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>  
 	    <script src="/js/checkbox.js"></script>
 	</head>
 	<body>
@@ -100,4 +101,3 @@
 	
 	        <!-- 사이드바 + 컨텐츠 -->
             <section class="w-100">
-		

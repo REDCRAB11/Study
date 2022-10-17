@@ -16,7 +16,7 @@ import com.kh.springhome.repository.MemberDao;
 
 // CrossOrigin 어노테이션을 붙이면 외부의 접근이 허용 된다.
 // orgins를 붙여 외부 접근을 다 허용하지 않게 한다. 
-@CrossOrigin(origins = {"http:/127.0.0.1:5500"}) // 허용 설정
+@CrossOrigin(origins = {"http://127.0.0.1:5500"}) // 허용 설정
 @RestController //= @Controller+@ResponseBody
 @RequestMapping("/rest/member")
 public class MemberRestController {
