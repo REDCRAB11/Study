@@ -102,7 +102,33 @@
     border-color: #6c7aef;
     color: #cfc9d5;
 }
+.long-text-box{
+    border: 2px solid;
+    border-width: 2px 2px 2px 2px;
+    border-radius: 0.5em;
+    width: 400px;
+    height: 123px;
+    text-align: left;
+    font-size: 16px;
+    /* 상자안ㅇ ㅔ글 위쪽 부터 쓰는 방법 좀..  */
+}
+#long-box1{
+    border-color: #ebebed;
+    color: #3d3d3d;
+}
+.long-hover:hover{
+    border-color: #cfc9d5;
+    color: #cfc9d5;
+}
 
+#long-box2{
+    border-color: #6c7aef;
+}
+
+#long-box4{
+    border-color: #ebebed;
+    color: #3d3d3d;
+}
 
 
 /* 버튼 모음  */

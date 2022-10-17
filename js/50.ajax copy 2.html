@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비동기 통신</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <style>
+        .input.NNNNN ~ .NNNNN-message ,
+        .input.NNNNY ~ .NNNNY-message ,
+        .input.fail ~ .fail-message {
+            display: block;
+        }
+        .input ~ .NNNNN-message {
+            color: red;
+            display: none;
+        }
+        .input ~ .NNNNY-message {
+            color: green;
+            display: none;
+        }
+        .input ~ .fail-message {
+            color: red;
+            display: none;
+        }
+    </style>
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js 파일을 불러온다-->
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //목표 : .ajax-btn을 누르면 50.dummy.txt를 불러와 출력
+            $(".ajax-btn").click(function(){
+
+                $.ajax({
+                    url:"50.dummy.txt",//대상의 주소
+                    method:"get",//요청 방식
+                    success:function(resp){//성공 시 실행할 코드(resp == 불러온 내용)
+                        $(".ajax-viewer").text(resp);
+                    }
+                });
+
+            });
+
+            //AJAX 이용시 주의사항
+            //- 기존처럼 즉시 검사가 불가능하므로 상태를 저장할 객체 필요
+            var inputStatus = {
+                memberIdValid:false,
+                memberNickValid:false,
+            };
+
+            //목표 : input[name=memberId] 에 blur이벤트 발생 시 아이디 중복 검사
+            // - 직접 할 수 없으므로 서버에 요청을 보낸다
+            $("input[name=memberId]").blur(function(){
+
+                var memberId = $(this).val();
+                if(!memberId) return;
+
+                $.ajax({
+                    url:"http://localhost:8888/rest/member/id?memberId="+memberId,
+                    method:"get",
+                    success:function(resp){
+                        //$("input[name=memberId]").next("span").text(resp);
+                        if(resp == "NNNNY"){
+                            $("input[name=memberId]").next("span").text("사용할 수 있는 아이디입니다");
+                            inputStatus.memberIdValid = true;
+                        }
+                        else if(resp == "NNNNN"){
+                            $("input[name=memberId]").next("span").text("이미 사용중인 아이디입니다");
+                            inputStatus.memberIdValid = false;
+                        }
+                    }
+                });
+
+            });
+
+            //닉네임 입력창을 만들고 blur 상황에서 중복 검사를 실시하도록 구현
+            //- 닉네임은 한글+숫자 2~10글자 이내로 작성해야 함
+            //- 형식에 맞지 않을 경우 "닉네임은 한글과 숫자 2~10글자로 작성하세요" 출력
+            //- 형식에 맞을 경우 ajax 통신을 사용하여 서버로 확인 요청을 전송
+            //- 서버에서 처리를 위하여 MemberRestController에 /nick 주소 처리 매핑 생성
+            //- 닉네임이 존재할 경우 NNNNN , 존재하지 않을 경우 NNNNY를 반환
+            //- 반환된 결과에 따라 메세지 출력
+            $("input[name=memberNick]").blur(function(){
+
+                //작성된 닉네임을 불러온다.
+                var memberNick = $(this).val();
+
+                //형식 검사를 실시한다.
+                var regex = /^[가-힣0-9]{2,10}$/;
+                var judge = regex.test(memberNick);
+
+                //형식 검사 결과에 따라 다른 처리를 수행한다
+                // - 성공 : ajax 통신으로 닉네임 중복검사 실시
+                // - 실패 : 실패 메세지 처리
+                $(this).removeClass("fail NNNNN NNNNY");
+                if(judge){
+
+                    var that = this;//this를 보관
+
+                    $.ajax({
+                        //url:"http://localhost:8888/rest/member/nick?memberNick="+memberNick,
+                        //method:"get",
+
+                        url:"http://localhost:8888/rest/member/nick",
+                        method:"post",
+                        data:{//POST일 경우만 생성 가능한 파라미터 객체
+                            //왼쪽이 파라미터 이름, 오른쪽이 전달될 값의 변수명
+                            memberNick:memberNick
+                        },
+                        success:function(resp){
+                            //(+주의) 이곳에서의 this는 입력창이 아니다
+                            if(resp == "NNNNN"){
+                                $(that).addClass("NNNNN");
+                                inputStatus.memberNickValid = false;
+                            }
+                            else if(resp == "NNNNY"){
+                                $(that).addClass("NNNNY");
+                                inputStatus.memberNickValid = true;
+                            }
+                        },
+                        error:function(){}//통신 오류 발생 시
+                    });
+
+                }
+                else {
+                    $(this).addClass("fail");
+                    inputStatus.memberNickValid = false;
+                }
+
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+    <!-- HTML 화면 -->
+    <div class="container-500">
+        <div class="row center">
+            <h1>비동기 통신</h1>
+        </div>
+
+        <div class="row">
+            일반 a태그는 페이지가 전환되는 특징을 가진다(주소가 바뀐다)
+        </div>
+
+        <div class="row">
+            <a href="50.dummy.txt">dummy.txt 보기</a>
+        </div>
+
+        <div class="row">
+            ajax 통신은 주소를 유지한 채 다른 대상과 통신이 가능하다
+        </div>
+
+        <div class="row">
+            <button class="ajax-btn">dummy.txt 보기</button>
+        </div>
+
+        <div class="row ajax-viewer">
+            
+        </div>
+
+        <div class="row">
+            <label>아이디</label>
+            <input type="text" name="memberId" class="input w-100">
+            <span></span>
+        </div>
+
+        <div class="row">
+            <label>닉네임</label>
+            <input type="text" name="memberNick" class="input w-100">
+            <span class="NNNNN-message">이미 사용중인 아이디입니다</span>
+            <span class="NNNNY-message">사용 가능한 아이디입니다!</span>
+            <span class="fail-message">한글과 숫자 2~10글자로 작성해주세요</span>
+        </div>
+    </div>
+    
+</body>
+</html>

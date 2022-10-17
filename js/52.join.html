@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 + 주소 </title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="daum-post-api.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".btn-find-address").click(findAddress);
+        });
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-600">
+        <div class="row center">
+            <h1>회원 가입</h1>
+        </div>
+
+        <div class="row">
+            <label>우편번호</label>
+            <br>
+            <input type="text" class="input w-50" name="memberPost" placeholder="우편번호" size="6" maxlength="6">
+            <button class="btn btn-neutral btn-find-address">검색</button>
+        </div>
+
+        <div class="row">
+            <input type="text" class="input w-50" name="memberBaseAddress" placeholder="기본주소">
+        </div>
+
+        <div class="row">
+            <input type="text" class="input w-50" name="memberDetailAddress" placeholder="상세주소">
+        </div>
+    </div>
+</body>
+</html>

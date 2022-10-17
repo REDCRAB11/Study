@@ -39,19 +39,22 @@
         .largebtn{
             width: 100%;
         }
-        
+        .input ~ span{
+            color:red;
+        }
       
 
     </style>
      <script type="text/javascript">
         $("input[name=memberEmail]").blur(function(){
             var memberE = $(this).val();
+            var link="아이디찾기 ~ 아이디 찾은 부분 페이지로 넘기면됨 "
             $.ajax({
                 url:"" ,//localhost 새로운 컨트롤러 주소에 아이디 찾기 부분  + memberE
                 method:"get",
                 success:function(resp){
                     if(resp == true){
-                        // 아이디 찾기 -> 페이지로 넘어감 
+                        location.href=link;
                     }else if(resp == false){
                         $("input[name=memberEmail]").next("span").text("입력된 회원 정보가 존재하지 않습니다. 비회원일 경우 회원가입 후 이용해주세요.")// 이거 나오는 텍스트 글자 빨간생이어야함 
                     }
@@ -74,6 +77,8 @@
 
 <!-- 이메일 부분 화면창에 딱 맞지가 않아서 맞춰야 함  
      이메일 입력 식도 넣어야 한다. 
+
+     !@@@ 중요 모든 아이디 입력 회우너가입에 focus() ; 해주쇼 
 -->
 
             <div class="row center">
@@ -90,6 +95,7 @@
                         <option value="nate.com">@nate.com</option>
                         <option value="kakao.com">@kakao.com</option>
                     </select>
+                    <span></span>
             </div>
 
             <div class="row center">

@@ -9,6 +9,26 @@
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/commons.css">
 
+    <style>
+        .input.NNNNN ~ .NNNNN-message ,
+        .input.NNNNY ~ .NNNNY-message ,
+        .input.fail ~ .fail-message {
+            display: block;
+        }
+        .input ~ .NNNNN-message {
+            color: red;
+            display: none;
+        }
+        .input ~ .NNNNY-message {
+            color: green;
+            display: none;
+        }
+        .input ~ .fail-message {
+            color: red;
+            display: none;
+        }
+    </style>
+
     <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript">
@@ -28,11 +48,20 @@
                 });
             });
 
+
+
+            // ajax 이용시 주의사항 
+            // - 기존 처럼 즉시 검사가 불가능하므로 상태를 저장할 객체 필요 
+
+           var inputStatus = {
+                memberIdValid:false,
+                memberNickValid:false,
+            };
+
             // 회원가입할 때 아이디 중복 검사 ~ 
             // 목표: Input[name=memberId]에 blur이벤트가 발생시 아이디 중복 검사 
             // - 직접 하는게 불가능하기 때문에 서버에 요청을 보낸다. 
             // - [] 배열 {} 객체 할 떄 사용.. 
-
             $("input[name=memberId]").blur(function(){
 
             var memberId = $(this).val();
@@ -47,12 +76,60 @@
                     // $("input[name=memberId]").next("span").text(resp);
                     if(resp == "NNNNY"){
                         $("input[name=memberId]").next("span").text("사용 가능한 아이디 입니다.");
+                        inputStatus.memberidValid = true;
                     }else if(resp == "NNNNN"){
                         $("input[name=memberId]").next("span").text("이미 사용중인 아이디 입니다.");
+                        inputStatus.memberidValid = false;
                     }
                 }
             });
+            });
 
+            // 닉네임 찾기 
+
+            $("input[name=memberNick]").blur(function(){
+                // 작성된 닉네임을 불러온다. 
+                var memberNick = $(this).val();
+
+                // 형식 검사 
+                var regex=/[가-힣0-9]{2,10}$/;
+                var judge = regex.test(memberNick);
+
+                // 형식 검사 결과에 따라 다른 처리를 수행한다. 
+                // - 성공: ajax통신으로 닉네임 중복검사 실시 
+                // - 실패: 실패 메세지 처리 
+                $(this).removeClass("fail NNNNN NNNNY");
+                if(judge){
+
+                    var that = this; // this를 보관 
+
+                    $.ajax({
+                        //url:"http://localhost:8888/rest/member/nick?memberNick="+memberNick,
+                        //method:"get",
+
+                        // get이 아니라 post로 구현하면 
+                        url:"http://localhost:8888/rest/member/nick",
+                        method:"post",
+                        data:{ // POST일 경우만 가능 
+                            // 왼쪽은 파라미터 이름(url 물음표 뒤에 이름) , 오른쪽은 전달될 값의 변수명(var 만들어둔 이름) 
+                            memberNick:memberNick
+                        },
+                        success:function(resp){
+                            // (주의) 이곳에서의 this는 입력창이 아니다. 
+                            if(resp == "NNNNN"){
+                                $(that).addClass("NNNNN");
+                                inputStatus.memberNickValid = false;
+                            }else if(resp == "NNNNY"){
+                                $(that).addClass("NNNNY");
+                                inputStatus.memberNickValid = true;
+                            }
+                        },
+                        error:function(){}// 통신 오류 발생 시 
+                    });
+                }else{
+                    $(this).addClass("fail");
+                    inputStatus.memberNickValid = false;
+                }
 
             });
         });
@@ -93,6 +170,14 @@
             <label>ID</label>
             <input type="text" name="memberId" class="input w-100">
             <span></span>
+        </div>
+
+        <div class="row">
+            <label>닉네임</label>
+            <input type="text" name="memberNick" class="input w-100">
+            <span class="NNNNN-message">이미 사용중인 아이디입니다</span>
+            <span class="NNNNY-message">사용 가능한 아이디입니다!</span>
+            <span class="fail-message">한글과 숫자 2~10글자로 작성해주세요</span>
         </div>
     </div>
 </body>

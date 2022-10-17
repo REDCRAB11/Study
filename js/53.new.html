@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEW</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        // new는 객체 생성 명령(동적 할당 연산자)
+        // - 자바스크립트는 new가 없어도 객체 생성이 가능 
+
+        var s1 = {name:"피카츄", score:99};
+        var s2 = {name:"피카츄엉덩이", price:2900};
+        console.log(s1);
+        console.log(s2);
+
+        // 생성자 함수 
+        // - 클래스의 생성자와 같은 역할을 하는 함수 
+        // - new와 함께 불러서 객체를 생성한다. 
+        function Student(name, score){
+            this.name = name;
+            this.score = score;
+        }
+
+        var s3 = new Student("피카츄", 70);
+        var s4 = new Student("라이츄", 76);
+        console.log(s3);
+        console.log(s4);
+        
+        
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+</body>
+</html>
