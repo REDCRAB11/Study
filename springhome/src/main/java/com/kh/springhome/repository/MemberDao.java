@@ -20,4 +20,6 @@ public interface MemberDao {
 	boolean delete(String memberId);
 
 	List<MemberListForMainVO> selectListForMain();
+	
+	MemberDto findByNickname(String memberNick);
 }
