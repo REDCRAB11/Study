@@ -220,6 +220,13 @@ public class MemberDaoImpl implements MemberDao{
 						+ ") where rank between 1 and 3";
 		return jdbcTemplate.query(sql, mainMapper);
 	}
+	
+	@Override
+	public MemberDto findByNickname(String memberNick) {
+		String sql = "select * from member where member_nick = ?";
+		Object[] param = {memberNick};
+		return jdbcTemplate.query(sql, extractor,param);
+	}
 }
 
 
