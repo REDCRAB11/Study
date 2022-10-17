@@ -37,11 +37,19 @@
 
             var memberId = $(this).val();
 
+            // 미입력시 
+            if(!memberId)return;
+
             $.ajax({
                 url:"http://localhost:8888/rest/member/id?memberId="+memberId,
                 method:"get",
                 success:function(resp){
-                    $("input[name=memberId]").next("span").text(resp);
+                    // $("input[name=memberId]").next("span").text(resp);
+                    if(resp == "NNNNY"){
+                        $("input[name=memberId]").next("span").text("사용 가능한 아이디 입니다.");
+                    }else if(resp == "NNNNN"){
+                        $("input[name=memberId]").next("span").text("이미 사용중인 아이디 입니다.");
+                    }
                 }
             });
 
