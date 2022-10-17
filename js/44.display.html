@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jqeury 표시 제어</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".hide").click(function(){
+                $("h2").css("display","none");
+                // document.querySelector("h2").style.display="none"; JS 스타일 
+            });
+            $(".show").click(function(){
+                 // document.querySelector("h2").style.display="block"; JS 스타일 
+                $("h2").css("display","block");
+            });
+            $(".toggle").click(function(){
+                if($("h2").css("display") != "none"){
+                    $("h2").css("display", "none");
+                }else{
+                    $("h2").css("display", "block");
+                }
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-500">
+        <div class="row">
+            <h1>display 제어</h1>
+        </div>
+        
+            <div class="row">
+                <button class="hide">숨기기</button>
+                <button class="show">보여주기</button>
+                <button class="toggle">토글</button>
+            </div>
+
+            <div class="row">
+                <h2>hell jqeury</h2>
+            </div>
+    </div>
+</body>
+</html>

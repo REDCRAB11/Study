@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+
+        // ajax는 blur이벤트를 사용헌다 ~ input사용하면 터진다 
+        // 회원가입할 때 아이디 찾기 부분할때 사용하세요 ~ 
+
+        $(function(){
+            // 목표: ajax-btn을 누르면 50.dummy.txt를 불러와 출력 
+            $(".ajax-btn").click(function(){
+                $.ajax({
+                    url:"50.dummy.txt", //대상의 주소
+                    method:"get", // 요청 방식   
+                    success:function(resp){ //성공했을 때 실행할 코드 (resp ==  불러온 내용)
+                        $(".ajax-viewer").text(resp);
+                    }
+                });
+            });
+        });
+
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-500">
+        <div class="row">
+            <h1>비동기 통신</h1>
+        </div>
+            <br>
+        <div class="row">
+            일반 a태그는 페이지가 전환되는 특징을 가진다. (주소가 바뀐다)
+        </div>
+
+        <div class="row">
+            ajax 통신은 주소를 유지한 채 다른 대상과 통신이 가능하다. 
+        </div>
+        <br>
+
+        <div class="row">
+            <a href="50.dummy.txt">dummy.txt 보기</a>
+        </div>
+
+        <div class="row">
+            <button class="ajax-btn">dummy.txt 보기</button>
+        </div>
+
+        <div class="row ajax-viewer">
+            
+        </div>
+    </div>
+</body>
+</html>

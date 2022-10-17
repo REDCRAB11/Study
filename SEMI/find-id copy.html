@@ -44,7 +44,20 @@
 
     </style>
      <script type="text/javascript">
-
+        $("input[name=memberEmail]").blur(function(){
+            var memberE = $(this).val();
+            $.ajax({
+                url:"" ,//localhost 새로운 컨트롤러 주소에 아이디 찾기 부분  + memberE
+                method:"get",
+                success:function(resp){
+                    if(resp == true){
+                        // 아이디 찾기 -> 페이지로 넘어감 
+                    }else if(resp == false){
+                        $("input[name=memberEmail]").next("span").text("입력된 회원 정보가 존재하지 않습니다. 비회원일 경우 회원가입 후 이용해주세요.")// 이거 나오는 텍스트 글자 빨간생이어야함 
+                    }
+                }
+            });
+        });
      </script>
      </head>
      <body>
@@ -68,7 +81,7 @@
             </div>
 
             <div class="row center">
-                    <input type="email" name="memberEmail" class="short-text-box email-box" onblur="checkEmail();" placeholder="&nbsp; &nbsp; 이메일">
+                    <input type="email" name="memberEmail" class="short-text-box email-box" placeholder="&nbsp; &nbsp; 이메일">
                     <select class="dropdown dropdown-check email-drop-box">
                         <option selected="selected" value="1">직접 입력</option>
                         <option value="naver.com">@naver.com</option>

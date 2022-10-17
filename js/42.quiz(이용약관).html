@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <style>
+        .btn.btn-positive[disabled],
+        .btn.btn-positive[disabled]:hover {
+            background-color: #74b9ff;
+            cursor: not-allowed;
+        }
+    </style>
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js 파일을 불러온다-->
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //전체선택 이벤트
+            $(".ck-all").on("input", function(){
+                $(".ck").prop("checked", $(this).prop("checked"));
+                
+                $(".ck-required").change();
+            });
+
+            //필수선택 이벤트
+            $(".ck-required").change(function(){
+                var count = 0;
+                $(".ck-required").each(function(){
+                    if($(this).prop("checked")){
+                        count++;
+                    }
+                });
+                var judge = $(".ck-required").length == count;
+                if(judge){//필수요소 모두 체크 -> 버튼 비활성화 해제
+                    $(".btn-next").prop("disabled", false);
+                }
+                else {//필수요소 모두 체크되지 않은 경우 -> 버튼 비활성화 설정
+                    $(".btn-next").prop("disabled", true);
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+    <!-- HTML 화면 -->
+    <div class="container-500">
+        <div class="row center">
+            <h1>이용약관</h1>            
+        </div>        
+
+        <div class="row mt-30">
+            <label>
+                <input type="checkbox" class="ck ck-all">
+                <span>전체 선택</span>
+            </label>
+        </div>
+
+        <div class="row mt-30">
+            <h2>제목 자리</h2>
+        </div>
+        <div class="row">
+            <textarea class="input w-100 fix-size" rows="6" readonly>어쩌구저쩌구</textarea>
+        </div>
+        <div class="row float-container">
+
+            <label class="float-left w-50">
+                <input class="ck ck-required" type="checkbox" name="agree" value="type1">
+                <span>동의합니다</span>
+                <span class="red">*</span>
+            </label>
+
+            <div class="float-left w-50 right">
+                <a href="#">전문 보기</a>
+            </div>
+
+        </div>
+
+        <div class="row mt-30">
+            <h2>제목 자리</h2>
+        </div>
+        <div class="row">
+            <textarea class="input w-100 fix-size" rows="6" readonly>어쩌구저쩌구</textarea>
+        </div>
+        <div class="row float-container">
+
+            <label class="float-left w-50">
+                <input class="ck ck-required" type="checkbox" name="agree" value="type2">
+                <span>동의합니다</span>
+                <span class="red">*</span>
+            </label>
+
+            <div class="float-left w-50 right">
+                <a href="#">전문 보기</a>
+            </div>
+
+        </div>
+
+        <div class="row mt-30">
+            <h2>제목 자리</h2>
+        </div>
+        <div class="row">
+            <textarea class="input w-100 fix-size textarea3" rows="6" readonly>어쩌구저쩌구</textarea>
+        </div>
+        <div class="row float-container">
+
+            <label class="float-left w-50">
+                <input class="ck" type="checkbox" name="agree" value="type3">
+                <span>동의합니다</span>
+            </label>
+
+            <div class="float-left w-50 right">
+                <a href="#">전문 보기</a>
+            </div>
+
+        </div>
+
+        <div class="row mt-50 mb-50 right">
+            <button class="btn btn-positive btn-next" disabled>다음 단계로 이동</button>
+        </div>
+    </div>
+    
+</body>
+</html>

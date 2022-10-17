@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute 활용 </title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //(+)주의 :: 임의로 속성을 생성해야 하는 경우 앞에 data- 접두사를 추가 권장사항임 !! 
+            $("select[name=item]").on("input", function(){
+                var name = $(this).val(); //이름은 불러올 수 잇다..
+                var age = $(this).find("option:selected").data("age");
+                // var age = $(this).find("option:selected").attr("data-age"); //문자열로 들어온다. 써있는 그대로 들어와서 ~.~
+
+
+                // var age = $(this).find("option:selected").prop("data-age"); //prop로 하면 불가 !
+
+                $(".name").text(name);
+                $(".age").text(age);
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-500">
+        <div class="row">
+            <h1>attr() 활용</h1>
+            <hr>
+        </div>
+
+        <div class="row">
+            <select name = "item" class="input w-40">
+                <option value="">----- dream -----</option>
+                <option value="지성" data-age="21">JISUNG 21(AGE)</option>
+                <option value="재민" data-age="23">JAEMIN 23(AGE)</option>
+                <option value="런쥔" data-age="23">RUNJUN 23(AGE)</option>
+            </select>
+        </div>
+
+        <div class="row">
+            MEMBER: <span class="name"></span> 
+            AGE:<sapn class="age"></sapn> 
+        </div>
+
+    </div>
+</body>
+</html>

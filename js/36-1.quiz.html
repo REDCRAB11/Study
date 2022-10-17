@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>금액 계산 문제풀이</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+  <!-- jquery를 사용하기 위하여 라이브러리 js 파일을 불러온다-->
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script type="text/javascript">
+      $(function(){
+          $("select[name=fruit]").on("input", function(){
+              calculate();
+          });
+          $("input[name=qty]").on("input", function(){
+              calculate();
+          });
+
+          function calculate(){//중첩함수
+              var price = $("select[name=fruit]").val();
+              var qty = $("input[name=qty]").val();
+
+              if(!$.isNumeric(price)) return;//jQuery 스타일
+              if(!$.isNumeric(qty)) return;
+
+              var result = parseInt(price) * parseInt(qty);
+              $(".total").text(result);
+          }
+
+      });
+  </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-400">
+        <label>상품</label>
+        <hr>
+        <div class="row center">
+            <select name="fruit" class="input w-100">
+                <option value="">---- 과일 선택 ----</option>
+                <option value="500">바나나(500원)</option>
+                <option value="700">딸기(700원)</option>
+                <option value="900">포도(900원)</option>
+            </select>
+            <div class="row center">
+                <input name="qty" class="total input w-100" type="number" placeholder="수량">
+            </div>
+            <hr>
+            <div class="row left">
+                금액:<span class="total"> </span>원
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //(+주의) input 이벤트는 나중에 나와서 약식 명령이 없음
+            //$(".q1-input").input(function(){});//안됨
+            $(".q1-input").on("input", function(){
+                //this == 입력이 발생한 textarea
+                //var text = $(".q1-input").val();//비추천
+                //var text = this.value;//Javascript 스타일
+                var text = $(this).val();//jQuery 스타일
+
+                //$(".q1-input-length").text(text.length);//모든 span(비추천)
+                $(this).next().text(text.length);//바로 뒤 태그 선택 .next() (<---> .prev())
+
+                if(text.length > 1000){
+                    $(this).next().css("color", "red");
+                }
+                else {
+                    $(this).next().css("color", "black");
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+    <!-- HTML 화면 -->
+    <div class="container-600">
+        <div class="row center">
+            <h1>자기소개서</h1>
+        </div>
+
+        <div class="row mt-40">
+            <h2>(Q) 우리 회사에 지원한 이유가 뭔가요?</h2>
+        </div>
+        <div class="row right">
+            <textarea class="input w-100 fix-size q1-input" rows="10"></textarea>
+            <span class="q1-input-length">0</span> / 1000
+        </div>
+
+        <div class="row mt-40">
+            <h2>(Q) 우리 회사에 지원한 이유가 뭔가요?</h2>
+        </div>
+        <div class="row right">
+            <textarea class="input w-100 fix-size q1-input" rows="10"></textarea>
+            <span class="q1-input-length">0</span> / 1000
+        </div>
+
+        <div class="row mt-40">
+            <h2>(Q) 우리 회사에 지원한 이유가 뭔가요?</h2>
+        </div>
+        <div class="row right">
+            <textarea class="input w-100 fix-size q1-input" rows="10"></textarea>
+            <span class="q1-input-length">0</span> / 1000
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery checkbox 제어</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 전체선택 버튼 이벤트
+            $(".btn1").click(function(){
+                $("input[name=fruit]").prop("checked",true); // 추천 (체크박스에서는)
+                // $("input[name=fruit]").attr("checked","checked"); 비추천 
+            });
+
+            // 선택해제 버튼 이벤트 
+            $(".btn2").click(function(){
+                $("input[name=fruit]").prop("checked",false);
+            });
+            
+            // 선택반전 버튼 이벤트 
+            // - 전체가 동일하게 처리되는 것이 아니라 각각 따져봐야 한다면 반복이 등장.
+            // - jquery 반복문을 사용
+            $(".btn3").click(function(){
+                // this == 버튼(.btn3)
+
+                //$(대상).each(함수) - 해당 함수를 요소 개수에 맞게 순차적으로 실행 
+                $("input[name=fruit]").each(function(){
+                    // this == 현재 차례의 체크박스 
+                    console.log(this);
+                    // this.checked = !this.checked; //JS 스타일 ~ 
+                    $(this).prop("checked", !$(this).prop("checked")); // jquery 스타일 ~
+
+                });
+            });
+
+            // 전체선택 체크박스 이벤트 
+            // checkbox는 on으로 하는데 click을 쓰면 안된다! 오류가 나중에 나는 경우 찾을 수 없어.. !!!! 상황에 따라 다르고..하기에 ... 
+            // 체크박스는 무난하게 인풋으로 가자 ! 클릭은 쓰지마시오. ! 차이가 크지는 않지만 중요한 순간에 오류가 나면 잡을 수 없어 ! 
+            // jquery시 input click 은 그냥 단순하게 값을 읽어오는것은 차이가 없다. 
+           //  
+            $(".check-all").on("input",function(){
+                // this == 전체 선택 체크박스 
+                var check = $(this).prop("checked");
+                $("input[name=fruit]").prop("checked",check);
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-400">
+        <div class="row center">
+            <h1>체크박스</h1>
+        </div>
+
+        <div class="row">
+            <lable>
+                <input type="checkbox" class="check-all">전체선택
+            </lable>
+        </div>
+
+        <div class="row">
+            <label>
+            <input type="checkbox" name="fruit" value="apple">
+            사과
+            </label>
+            <label>
+            <input type="checkbox" name="fruit" value="banana">
+            바나나
+            </label>
+            <label>
+            <input type="checkbox" name="fruit" value="greenapple">
+            청사과
+            </label>
+            <label>
+            <input type="checkbox" name="fruit" value="rasberry">
+            라즈베리
+            </label>
+            <label>
+            <input type="checkbox" name="fruit" value="blackberry">
+            블랙베리
+            </label>
+
+            <div class="row">
+                <button class="btn1 input w-100">전체선택</button>
+                <button class="btn2 input w-100">선택해제</button>
+                <button class="btn3 input w-100">선택반전</button>
+            </div>
+            
+    </div>
+</body>
+</html>

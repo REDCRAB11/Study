@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
+        div, ul, li, a{
+            border: 1px dotted gray;
+        }
         /*  마지막은 홈페이지와 같이 연동 시키는 DB구현만.. */
         /*  번호를 눌러야 번호가 나오고 네모안에는 번호가 안나옴 !!!  */
         ul.page{
@@ -31,18 +33,20 @@
             width: 24px;
             height: 24px;
         }
+        /* ul.page > li.on, 이거는 현재 내페이지 표시인데.. 보류입니다... */ 
         /* 번호에 커서대면 나타내는 표시  */
-        ul.page > li:hover,
-        ul.page > li > a:hover{
+        ul.page > li:hover{
             border-color: #6c7aef; /*커서 대면 상자표시*/
             background-color: #6c7aef;
+            cursor: pointer;
+            
+        }
+        ul.page > li > a:hover{
             color: white;
             font-weight: bold;
-            cursor: pointer;
         }
-       
         ul.page > li > a {
-            display:block;
+            display: block;
             width: 100%;
             color: #6c7aef;
             text-decoration: none;
