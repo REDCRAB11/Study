@@ -14,7 +14,7 @@
     <script type="text/javascript">
 
         // ajax는 blur이벤트를 사용헌다 ~ input사용하면 터진다 
-        // 회원가입할 때 아이디 찾기 부분할때 사용하세요 ~ 
+        
 
         $(function(){
             // 목표: ajax-btn을 누르면 50.dummy.txt를 불러와 출력 
@@ -27,6 +27,26 @@
                     }
                 });
             });
+
+            // 회원가입할 때 아이디 중복 검사 ~ 
+            // 목표: Input[name=memberId]에 blur이벤트가 발생시 아이디 중복 검사 
+            // - 직접 하는게 불가능하기 때문에 서버에 요청을 보낸다. 
+            // - [] 배열 {} 객체 할 떄 사용.. 
+
+            $("input[name=memberId]").blur(function(){
+
+            var memberId = $(this).val();
+
+            $.ajax({
+                url:"http://localhost:8888/rest/member/id?memberId="+memberId,
+                method:"get",
+                success:function(resp){
+                    $("input[name=memberId]").next("span").text(resp);
+                }
+            });
+
+
+            });
         });
 
     </script>
@@ -34,6 +54,7 @@
 </head>
 <body>
     <!-- HTML 화면 -->
+
     <div class="container-500">
         <div class="row">
             <h1>비동기 통신</h1>
@@ -57,7 +78,13 @@
         </div>
 
         <div class="row ajax-viewer">
-            
+         
+        </div>
+
+        <div class="row">
+            <label>ID</label>
+            <input type="text" name="memberId" class="input w-100">
+            <span></span>
         </div>
     </div>
 </body>
