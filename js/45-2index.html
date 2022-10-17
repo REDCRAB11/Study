@@ -35,11 +35,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript">
       $(function(){
-        // .accordion 안에 있는 a태그 클릭하면 뒤에 있는 ul을 토글 
-        // $(".accordion a").click(function(){ css를 이용한 선택
-        $(".accordion").find("a").click(function(){ //jquery를 이용한 선택 
-            // this == 클릭한 a태그 
-            $(this).next().toggle();
+        // .accordion 안에 있는 li태그 클릭하면 안에 있는 ul을 토글 
+        $(".accordion").find("li").click(function(){ //jquery를 이용한 선택 
+            // this == 클릭한 li태그 
+            $(this).children("ul").toggle();
         });
         });
     </script>

@@ -35,11 +35,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript">
       $(function(){
-        // .accordion 안에 있는 a태그 클릭하면 뒤에 있는 ul을 토글 
-        // $(".accordion a").click(function(){ css를 이용한 선택
-        $(".accordion").find("a").click(function(){ //jquery를 이용한 선택 
-            // this == 클릭한 a태그 
-            $(this).next().toggle();
+        // .accordion 안에 있는 li태그 클릭하면 안에 있는 ul을 토글 
+        $(".accordion").find("li").click(function(e){ //jquery를 이용한 선택 
+            // 주의 ! 이처럼 여러 영역을 겹쳐서 무언가를 구현하려 할 때 
+            // 이벤트 확산을 방지해야할 필요가 있다. 
+            
+            e.stopPropagation();//이벤트 확산 방지 
+
+            $(this).children("ul").toggle();
         });
         });
     </script>
@@ -54,24 +57,33 @@
 
         <div class="row">
             <ul class="accordion">
-                <li >
+                <li>
                     <a href="#">Spring</a>
                     <ul>
-                        <li><a href="#">Controller</a></li>
+                        <li>
+                            <a href="#">Controller</a>
+                            <ul>
+                                <li><a href="#">RequestMapping</a></li>
+                                <li><a href="#">RequestParam</a></li>
+                                <li><a href="#">ModelAttribute</a></li>
+                                <li><a href="#">Model</a></li>
+                                <li><a href="#">RedirectAttributes</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#">Service</a></li>
                         <li><a href="#">Component</a></li>
                         <li><a href="#">Repository</a></li>
                         <li><a href="#">DTO</a></li>
                     </ul>
                 </li>
-                <li >
+                <li>
                     <a href="#">Javascript</a>
                     <ul>
                         <li><a href="#">Event 처리</a></li>
                         <li><a href="#">정규표현식 검사</a></li>
                     </ul>
                 </li>
-                <li >
+                <li>
                     <a href="#">jQuery</a>
                     <ul>
                         <li><a href="#">선택자</a></li>
