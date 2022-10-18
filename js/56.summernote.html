@@ -10,13 +10,51 @@
     <link rel="stylesheet" type="text/css" href="./css/commons.css">
 
     <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script type="text/javascript">
+    <script src="https://code.jquery.com/jquery-3.6.0..js"></script>
 
+
+    <!-- summermote 라이브러리-->
+    <link rel="stylesheet" type="text/css" href="./summernote/summernote-lite.css">
+    <script src="./summernote/summernote-lite.js"></script>
+    <script src="./summernote//lang/summernote-ko-KR.min.js"></script> 
+
+    <script type="text/javascript">
+        $(function(){
+            $("[name=content]").summernote({
+                height:300,//높이
+                minHeight:300,//최소높이
+                placeholder:"내용을 작성하세요",//도움말
+                lang:ko-KR,
+            });
+
+            $(".btn-remove").click(function(){
+                $("[name=content]").summernote("destroy");
+            });
+        });
     </script>
     
 </head>
 <body>
+
     <!-- HTML 화면 -->
+    <div class="container-800">
+        <div class="row center">
+            <h1>Rich text editor</h1>
+        </div>
+
+        <form>
+
+        <div class="row">
+            <textarea name="content">최초에 작성된 텍스트</textarea>
+        </div>
+
+        <div class="row">
+            <button type="button" class="btn-remove">제거</button>
+            <button type="submit">전송</button>
+        </div>
+
+        </form>
+    </div>
+    
 </body>
 </html>
