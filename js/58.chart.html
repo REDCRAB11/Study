@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart js</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+    <!-- char js-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+
+            //시나리오 
+            // 1. 미리 준비한 서버의 RestController로 비동기 요청 전송
+            // 2. 요청이 성공하면 전달받은 데이터로 차트에 사용할 수 있게 변형한다. 
+            // 3. 차트 생성 
+
+            $.ajax({
+                url:"http://localhost:8888/rest/pocketmon/count",
+                method:"get",
+                dataType:"json",// 서버에서 돌아오라고 믿고 있는 타입
+                success:function(resp){
+                    // console.log(resp);
+
+                    //비어있는 배열 2개를 만들고 resp의 데이터를 분산 저장 
+
+                    var labels = [];
+                    var values = [];
+                    for(var i=0; i<resp.length; i++){
+                        labels.push(resp[i].type);
+                        values.push(resp[i].cnt);
+                    }
+                    console.log(labels);
+                    console.log(values);
+
+                    //labels values로 차트를 생성 
+
+                const ctx = document.getElementById('myChart');
+                const myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        // labels dataset은 서버에서 ajax로 가져와야 한다. !! 
+                        labels: labels,
+                        datasets: [{
+                            label: '몬스터 마리수',
+                            data: values,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                }
+            });
+
+            
+        });
+
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-500">
+        <div class="row center">
+            <h1>차트 예제</h1>
+        </div>
+
+        <div class="row">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+</body>
+</html>
