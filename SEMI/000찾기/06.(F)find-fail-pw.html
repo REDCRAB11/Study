@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIND-TIME-PW</title>
+    <title>FAIL-FIND-TIME-PW</title>
 
     <link rel="stylesheet" type="text/css" href="basic.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,10 +13,13 @@
 
     <style>
         /* 
+            인증 번호가 일치하지 않는 경우 
            남은 시간 00:00 카운트 해야함 
            인증번호 8 자리가 맞아야 함 
+           인증번호가 일치하지 않는다는 경고문이 떠야한다. .. 
+
         */
-         p{
+        p{
             color:#3f3f3f;
             font-size: 12px;
             /* 컨테이너에 따라 달라질 수 있으니 알아서 수동 조절하쇼 */
@@ -24,11 +27,6 @@
             margin: 20px 0px 20px 0px;
             line-height: 2%;
         }
-       
-        div{
-            border: 1px dotted sienna;
-        }
-
         .short-text-box{
             padding: 0 0 0 5px;
         }
@@ -39,6 +37,9 @@
         .email-drop-box{
             width: 195px;
             height: 62px;
+        }
+        .btn-find-pw{
+            margin-top: 50px;
         }
     </style>
      <script type="text/javascript">
@@ -81,12 +82,17 @@
             </div>
 
             <div class="row">
-                <input type="text" name="findmemberPw" class="input short-text-box" id="text-box1" placeholder="인증번호 8자리">
+                <input type="text" name="memberId" class="input short-text-box" id="text-box1" placeholder="인증번호 8자리">
             </div>
 
             <div class="row">
-                <button type="submit" class="largebtn" id="largebutton1">비밀번호 찾기</button>
+                <button type="submit" class="largebtn btn-find-pw" id="largebutton1">비밀번호 찾기</button>
              </div>
+
+             <div class="row">
+                <button class="largebtn" type="submit" id="largebutton3">인증번호 재전송</button>
+             </div>
+
         </div>
      </body>
      </html>
