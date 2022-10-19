@@ -12,6 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
     <style>
+        /* 
+            고객님으 ㅣ정보오ㅏ 일치하는 어쩌구 위아래 사이 간격이 너무 큼 근데 안맞춰짐 ;
+            라디오 버튼이 젤 작은 건데 너무 커보임 ;
+        */
         /* font-size:12px */
         div{
             border: 1px dotted transparent;
@@ -26,6 +30,9 @@
             margin-left: 200px; 
             margin-top: 30px;
         }
+        .find-success-id-p1{
+            margin: 40px 0px 0px 200px;
+        }
         input, label, span {
             font-size:14px;
             color: #3f3f3f;
@@ -38,6 +45,7 @@
         /* vertical-align은 줄 맞추기 */
         .label-find-id{
             vertical-align: -11px;
+            margin: 0px 10px; /* 찾은 아이디와 라디오 버튼 사이 간격 */
         }
         span{
             vertical-align: -13px;
@@ -78,7 +86,7 @@
                 </div>
             </div>
 
-            <p>고객님의 정보와 일치하는 아이디 목록 입니다.</p>
+            <p class="find-success-id-p1">고객님의 정보와 일치하는 아이디 목록 입니다.</p>
 
             <div class="row box">
                 <div class="checks small">

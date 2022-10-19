@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+
+/* 
+    - margin: 상 하 좌 우
+*/
+
+
+
+
 /* 컨테이너 사이즈 (container-size) */
 .container-300 { width:300px; margin:0 auto; }
 .container-350 { width:350px; margin:0 auto; }
