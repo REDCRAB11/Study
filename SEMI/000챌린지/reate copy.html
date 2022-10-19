@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE</title>
+
+    <link rel="stylesheet" type="text/css" href="basic.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+
+     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/lightpick@1.6.2/css/lightpick.css">
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightpick@1.6.2/lightpick.js"></script>
+
+    <style>
+        /* 
+            라디오 버튼과 라벨 사이 간격 
+        */
+        div{
+            border: 1px dotted transparent;
+            display: block;
+        }
+        input::placeholder,
+        textarea::placeholder{
+            font-size: 14px;
+            color: #AAAAAA;
+        }
+        
+        textarea{
+            width: 600px;
+            height: 200px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: solid 2px #DDDDDD;
+			border-radius: 0.5em;
+			font-size: 16px;
+			resize: none;
+        }
+        label{
+            margin: 0 10px 10px;
+            padding: 0 0 5px;
+        }
+        span{
+            font-size: 16px;
+            color:#6c7aef;
+            border: 2px solid transparent;
+            background-color: #e5e6e9;
+            border-radius: 0.25em;
+        }
+        .p1{
+            font-size: 20px;
+            color: #3f3f3f;
+            font-weight: bold;
+            margin-top: 46px;
+        }
+        .p2{
+            font-size: 12px;
+            color: #3f3f3f;
+        }
+        .lab{ /* 라디오 버튼 사이 간격 */
+            margin: 10px 0 10px 0;
+            padding: 0 0 5px 0;
+        }
+        .rad{
+            vertical-align: -11px;
+
+        }
+        .short-text-underlinebox{
+            width: 600px;
+        }
+        .calendar{ /* 챌린지 예상 종료일 */
+            width: 600px;
+        }
+        /* 챌린지 예상 종료일 수정 삭제 x  */
+        .blind{
+            position:absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+        h2{
+            font-size: inherit;
+            line-height: inherit;
+            padding: 0;
+
+            display: block;
+            margin-block-start: 0.73em;
+            margin-block-end: 0.73em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+        }
+        .sp-1{
+            display: block;
+            padding: 15px 0;
+            margin-top: 11px;
+            background-color: yellowgreen;
+            border: 1px solid yellow;
+            border-radius: 1em;
+            font-size: 14px;
+            color: #FFF;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+        }
+        i{
+            font-size:normal;
+        }
+        .c-end{
+            display: inline-block;
+            width: 60px;
+            height: 12px;
+            background-position: -139px -300px;
+            background-repeat: no-repeat;
+            vertical-align: top;
+            margin: 2px 5px 0 0;
+        }
+    </style>
+     <script type="text/javascript">
+         $(function(){
+        var picker1 = new Lightpick({
+            //field는 datepicker은 적용 대상을 설정하는 공간 
+            field:document.querySelector(".single-date-picker"),
+
+            //format은 선택한 날짜의 적용 형식을 변경 
+            format:"YYYY-MM-DD",
+            
+            // (+옵션) 미래/과거를 선택하지 못하도록 설정 
+            maxDate:moment(), //미래 선택 못함 
+            // minDate:moment(), // 과거 선택 못함  괄호안에 특정 날짜 넣어줘도 됨~ 
+
+            // (+옵션) 표시되는 달의 개수를 지정 
+            numberOfMonths:2, //2개의 달씩 보여줘라 
+        });
+
+        var Picker2 = new Lightpick({
+            field:document.querySelector("[name=begin]"),
+            secondField:document.querySelector("[name=end"),
+        });
+    });
+
+     </script>
+     </head>
+     <body>
+        <div class="container-1200">
+
+            <div class="row">
+                <p class="p1">원하는 챌린지를 직접 개설해보세요.</p>
+                <p class="p2">내가 개설한 챌린지에 자동으로 참가하게 됩니다.</p>
+            </div>
+
+            <div class="row">
+            <div class="checks small">
+
+                <p class="p1"> 1. 어떤 주제와 관련이 있나요?</p>
+
+                <!-- 아마도 라디오 클릭시 운동만 선택되어지는 이유는.. name이 다 같아서 나중에 DB나오면 다ㅣㅅ 바꾸세요 -->
+                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
+                <label class="lab" for="ex_rd2" >운동</label><br/>
+                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
+                <label class="lab" for="ex_rd2">식습관</label><br/>
+                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
+                <label class="lab" for="ex_rd2">생활</label><br/>
+                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
+                <label class="lab" for="ex_rd2">정서</label><br/>
+                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
+                <label class="lab" for="ex_rd2">취미</label><br/>
+                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
+                <label class="lab" for="ex_rd2">학습</label><br/>
+                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
+                <label class="lab" for="ex_rd2">환경</label><br/>
+                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
+                <label class="lab" for="ex_rd2">그 외</label><br/>
+            </div>
+            </div>
+
+            <div class="row">
+                <p class="p1">2. 챌린지 제목을 입력해주세요.</p>
+                <p class="p2"> 타인에게 불쾌감을 주는 단어를 사용할 경우 계정이 영구정지 될 수 있습니다.</p>
+                <input class="short-text-underlinebox uderline-hover" type="text" placeholder="예) 아침 6시에 일어나기 " id="text-underlinebox1">
+            </div>
+
+            <div class="row">
+                <p class="p1">3. 인증 방법을 입력해 주세요.</p>
+                <textarea placeholder="예) 매일 깃 커밋하기0 오늘 날짜와 커밋 내역이 보이도록 깃 허브 히스토리를 캡쳐해서 인증샷으로 첨부하기"></textarea>
+            </div>
+
+            <div class="row">
+                <p class="p1">4. 챌린지 시작일을 선택해주세요.</p>
+                <p class="p2">개설일로부터 5일 이내에 시작해야 해요.</p>
+                <div class="row">
+                    <h2 class="blind"> 챌린지 예상 종료일</h2>
+                    <span class="sp-1 calendar">
+                    <i class="c-end">
+                        <span class="blind">캘린더</span>
+                    </i>
+                    챌린지 예상 종료일 YYYY-MM-DD(A)
+                </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <p class="p1">5. 모집 방식을 확인해주세요.</p>
+                <p class="p2">[모집 방식] 선착순 자동 마감</p>
+                <p class="p2">[참가 인원] 최대 10명까지 참가할 수 있어요. 챌린지 시작 전에 10명이 다 모이면 자동으로 모집이 마갑됩니다. </p>
+                <input type="checkbox"> <label>확인했어요!</label>
+            </div>
+
+            <div class="row">
+                <p class="p1">6. 챌린지 대표 이미지를 등록하세요.(선택)</p>
+                <p class="p2">노출 위치에 따라 섬네일이 축소/확대되어 적용합니다. 등록하지 않는 경우, 랜점으로 기본 이미지가 적용됩니다.</p>
+                <input>
+
+                </input>
+                <button>사진변경</button>
+                <button>삭제</button>
+            </div>
+
+            <div class="row">
+                <p class="p1">7. 챌린지를 소개해주세요.(선택)</p>
+                <p class="p2">다른 사람들이 챌린지 참가를 결정할 때 참고할 수 있어요.</p>
+                <textarea placeholder="예)어려워서 하기 싫은 알고리즘 문제풀이 매일매일 같이 인증해요~!"></textarea>
+            </div>
+            <div class="row center"> <!--센터? 아니면 노센터?-->
+                <button>취소</button>
+                <button>개설하고 참가하기</button>
+            </div>
+        </div>
+     </body>
+     </html>

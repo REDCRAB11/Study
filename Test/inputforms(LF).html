@@ -10,6 +10,9 @@
 
         /* 
             들어가기 앞서 백그라운드 컬뤄 투명? 화이트? 
+
+            hover: 마우스 올렸을 때 
+            active: 마우스 클릭 했을 때 
         */
         .short-text-box{
             border: solid;
@@ -24,7 +27,7 @@
             border-color: #cfc9d5;
             color: #3d3d3d;
         }
-        .short-hover:hover{
+        .short-hover:active{
             border-color: #6c7aef;
             color: #cfc9d5;
         }
@@ -38,12 +41,12 @@
             font-size: 16px;
         }
         #text-underlinebox1{
-            border-bottom: 2px solid #6c7aef;
+            border-bottom: 2px solid #cfc9d5;
             outline: none;
             color: #3d3d3d;
         }
-        .short-text-underlinebox.underlinebox-hover:hover{
-            color: #cfc9d5;
+        .underlinebox-hover:hover{
+            border-bottom: 2px solid #6c7aef;
         }
   
 
@@ -61,7 +64,7 @@
             border-color: #ebebed;
             color: #3d3d3d;
         }
-        .long-hover:hover{
+        .long-hover:active{
             border-color: #cfc9d5;
             color: #cfc9d5;
         }
