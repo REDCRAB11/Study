@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIN</title>
+
+    <link rel="stylesheet" type="text/css" href="basic.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <style>
+        div{
+            border: 1px dotted goldenrod;
+        }
+        .li-1{
+            list-style: none;
+            max-height: 1000000px;
+            text-align: -webkit-math-parent;
+        }
+        .email-box{
+            width: 400px;
+        }
+        .email-drop-box{
+            width: 176px;
+            height: 64px;
+        }
+        select{
+            margin: 0 0 0 0;
+            padding: 0 0 0 5px; /* 글자 띄우기 */
+            vertical-align: bottom;
+            font-weight: 400;
+            writing-mode: horizontal-tb!important;
+            text-rendering: auto;
+            letter-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            align-items: center;
+            white-space: pre;
+            cursor: default;
+        }
+    </style>
+     <script type="text/javascript">
+
+     </script>
+     </head>
+     <body>
+        <div class="container-590">
+        <div class="row">
+            <label>본인 확인 이메일 </label>
+            <li class="li-1">
+            <input type="email" name="memberEmail" class="short-text-box email-box" onblur="checkEmail();" placeholder="이메일">
+            <select class="dropdown dropdown-check email-drop-box">
+                <option selected="selected" value="1">직접 입력</option>
+                <option value="naver.com">@naver.com</option>
+                <option value="google.com">@google.com</option>
+                <option value="hanmail.net">@hanmail.net</option>
+                <option value="nate.com">@nate.com</option>
+                <option value="kakao.com">@kakao.com</option>
+            </select>
+        </li>
+        </div>
+    </div>
+     </body>
+     </html>
