@@ -30,7 +30,8 @@
 .container-1150 { width:1150px; margin:0 auto; }
 .container-1200 { width:1200px; margin:0 auto; }
 
-.row {
+/* 간격 사이사이 수동 조절  */
+.row { 
     margin: 10px 0px;
 }
 
