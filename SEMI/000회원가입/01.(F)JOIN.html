@@ -14,15 +14,26 @@
     <style>
 
 /* 
-        맨마지막 계정 있을 때 로그인 버튼 호버 누르면 굵은 글씨 그리고 로그인 사이 글 간격 띄어야 하고 .. 
-        또.. 로그인 밑줄 들어가야함 
-        이메일 셀렉트 창을 만들어야 함 ~ 
-        사이간 간격 좀 더 넓히고 싶음 . 
+		디자인 수정해야할 것 : 
+		- 맨 마지막 계정이 있으신가요? 로그인 버튼 누르면 굵은 글씨체
+		- 맨 마지막 문장과 글자 사이 간격 띄우기
+		- 로그인에 밑줄 들어가야함 (맨 마지막 부)
+		- p와 input 사이 간격을 조금 더 넓히고 글자 크기 조금 더 키우기 
+		- 각 input간 사이 간격 넓히기 
+		- 나머지 디자인 수정하지 말 것 
+
+        email-drop-box에서 높이가 내가 보는 것과 실제로 홈페이지에 나온게 달라서 윈도우에서 확인 해야
+		0
+		연동?? 수정해야할 것: 
+		- 각 name 만들어 논 것과 수정할 것 
+		- 이메일 셀렉창 선택시 @가 포함된 상태로 인식이 되어야함    
+		- 회원가입 누르면 회원가입 축하페이지로  이동 시키기 
+		- 맨 밑 로그인 누르면 로그인페이지로 이동 
+        - 이메일 정규식... 근데 넘 어려움 ㅠㅠㅠㅠ... 사용자가 치는 이메일 정규식 셀렉 외에 메일도 있어야 함 ! 
+        - ajax 아이디랑 닉네임 이미 등록된 아이디와 닉네임 
 */
 
-    html{
-        font-family: 'Noto Sans KR', sans-serif;
-    }
+    
     div{
         border: 1px dotted transparent;
     }
@@ -75,12 +86,12 @@
         text-align: -webkit-math-parent;
       }
       .email-box{
-          width: 400px;
+         width: 400px;
          padding: 0 0 0 5px;
      }
      .email-drop-box{
-          width: 235px;
-         height: 62px;
+         width: 235px;
+         height: 59px;
       }
       select{
          margin: 0 0 0 0;
@@ -101,13 +112,15 @@
 
 
     .success-message,
-    .fail-message{
+    .fail-message,
+    .overlap-message{
         display: none;
     }
     /* .success-message{
         color: #6c7aef
     } */
-    .fail-message{
+    .fail-message,
+    .overlap-message{
         color: #eb6f7f
     }
 
@@ -117,7 +130,8 @@
     .input.success ~ .success-message{
         display: block;
     }
-    .input.fail ~ .fail-message{
+    .input.fail ~ .fail-message,
+    .overlap-message{
         display: block;
     }
  
@@ -125,10 +139,10 @@
    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
    <script type="text/javascript">
         function checkId(){
-            var input = document.querySelector("input[name=memberId]");
-            var memberId = input.value;
-            var regex = /^[a-z][a-z0-9]{3,14}$/;
-            var judge = regex.test(memberId);
+            var input = document.querySelector("input[name=userId]");
+            var userId = input.value;
+            var regex = /^[a-z0-9]{6,20}$/;
+            var judge = regex.test(userId);
 
             input.classList.remove("success", "fail");
             if(judge){
@@ -139,10 +153,10 @@
         }
 
         function checkNick(){
-            var input = document.querySelector("input[name=memberNick]");
-            var memberNick = input.value;
-            var regex = /^[가-힣a-zA-Z0-9]{3,9}$/;
-            var judge = regex.test(memberNick);
+            var input = document.querySelector("input[name=userNick]");
+            var userNick = input.value;
+            var regex = /^[가-힣a-z0-9]{4,10}$/;
+            var judge = regex.test(userNick);
 
             input.classList.remove("success", "fail");
             if(judge){
@@ -153,10 +167,10 @@
         }
 
         function checkPw(){
-            var input = document.querySelector("input[name=memberPw]");
-            var memberPw = input.value;
-            var regex = /^[a-z0-9]{7,15}$/;
-            var judge = regex.test(memberPw);
+            var input = document.querySelector("input[name=userPw");
+            var userPw = input.value;
+            var regex = /^[a-zA-Z0-9!@#$]{8,16}$/;
+            var judge = regex.test(userPw);
 
             input.classList.remove("success", "fail");
             if(judge){
@@ -166,9 +180,14 @@
             }
         }
 
+        function checkEmail(){
+            var input = document.querySelector("input[name=userEmail]");
+            var userEmail
+        }
+
         
         function checkPasswordRe(){
-            var origin = document.querySelector("input[name=memberPw]");
+            var origin = document.querySelector("input[name=userPw]");
             var repeat = document.querySelector("#password-check");
 
             var judge = origin.value == repeat.value;
@@ -180,6 +199,35 @@
             }
         }
         
+        var inputState = {
+            userIdValid:false,
+            userNickValid:false,
+
+        }
+        $(function(){
+
+
+            $("input[name=userId]").blur(function(){
+                var userId = $(this).val();
+                if(!userId) return;
+
+                $.ajax({
+                    url:"http://localhost:8888/rest/join/id?userId="+userId,
+                    method:"get",
+                    success:function(result){
+                        if(result == "NNNNY"){
+                            $("input[name=userId]").next(span).text("사용 가능한 아이디 입니다.");
+                            inputState.userIdValid = true;
+
+                        }else if(result == "NNNNN"){
+                            $("input=[name=userId]").next(span).text("이미 사용중인 아이디 입니다.");
+                            inputState.userIdValid = false;
+                        }
+                    }
+
+                })
+            });
+        });
     </script>
 </head>
 <body>
@@ -192,36 +240,37 @@
         <form action="" method="post" autocomplete="off">
 
             <div class="row">
-                <label class="lables">아이디</label>
-                <input type="text" name="memberId" class="input short-text-box stbox" id="text-box1" onblur="checkId();">
-                <!-- <span class="success-message">사용가능한 아이디입니다.</span> -->
-                <span class="fail-message">4~15자 이내 영문 소문자, 숫자를 입력해주세요.</span>
+                <label>아이디</label>
+                <input type="text" name="userId" class="input short-text-box stbox" id="text-box1" onblur="checkId();">
+                <span class="fail-message">6~20자 이내 영문 소문자, 숫자를 입력해주세요.</span>
+                <span class="overlap-message">이미 사용중인 아이디 입니다.</span>
             </div>
 
             <div class="row">
-                <label class="lables">닉네임</label>
-                <input type="text" name="memberNick" class="input short-text-box stbox" onblur="checkNick();">
-                <span class="fail-message">이미 사용중인 닉네임입니다. 4~10자 한글/영문/숫자로 입력해주세요.</span>
+                <label>닉네임</label>
+                <input type="text" name="userNick" class="input short-text-box stbox" onblur="checkNick();">
+                <span class="fail-message">4~10자 한글/영문/숫자로 입력해주세요.</span>
+                <span class="overlap-message">이미 사용 중인 닉네임 입니다.</span>
             </div>
 
             <div class="row">
-                <label class="lables">비밀번호</label>
-                <input type="password" name="memberPw" class="input short-text-box stbox" onblur="checkPw();">
-                <span class="fail-message">8~16자 이내 영문? 숫자 입력해주세요.</span>
+                <label>비밀번호</label>
+                <input type="password" name="userPw" class="input short-text-box stbox" onblur="checkPw();">
+                <span class="fail-message">8~16자 이내 영문 소문자/대문자,숫자,특수문자(!@#$)로 입력해주세요.</span>
             </div>
 
             <div class="row">
-                <label class="lables">비밀번호 재확인</label>
+                <label>비밀번호 재확인</label>
                 <input type="password" id="password-check" class="input short-text-box stbox" onblur="checkPasswordRe();">
                 <span class="fail-message">비밀번호를 다시 입력해주세요.</span>
             </div>
 
             <div class="row">
-                <label class="lables" >본인 확인 이메일
+                <label>본인 확인 이메일
                     <p class="join-p3">아이디/비밀번호 찾기에 사용됩니다.</p>
                 </label>
                 <li class="li-1">
-                    <input type="email" name="memberEmail" class="short-text-box email-box" onblur="checkEmail();" placeholder="이메일">
+                    <input type="email" name="userEmail" class="short-text-box email-box" onblur="checkEmail();" placeholder="이메일">
                     <select class="dropdown dropdown-check email-drop-box">
                         <option selected="selected" value="1">직접 입력</option>
                         <option value="naver.com">@naver.com</option>

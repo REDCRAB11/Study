@@ -10,20 +10,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
-     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/lightpick@1.6.2/css/lightpick.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/lightpick@1.6.2/css/lightpick.css">
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightpick@1.6.2/lightpick.js"></script>
+
 
     <style>
         /* 
             라디오 버튼과 라벨 사이 간격 
+            데이트 타입에 폰트어썸 넣어야하는데 어떻게 넣어야할까요 ~ 
         */
         div{
             border: 1px dotted transparent;
             display: block;
         }
+
         input::placeholder,
         textarea::placeholder{
             font-size: 14px;
@@ -40,10 +43,12 @@
 			font-size: 16px;
 			resize: none;
         }
+
         label{
             margin: 0 10px 10px;
             padding: 0 0 5px;
         }
+
         span{
             font-size: 16px;
             color:#6c7aef;
@@ -61,6 +66,7 @@
             font-size: 12px;
             color: #3f3f3f;
         }
+
         .lab{ /* 라디오 버튼 사이 간격 */
             margin: 10px 0 10px 0;
             padding: 0 0 5px 0;
@@ -74,6 +80,13 @@
         }
         .calendar{ /* 챌린지 예상 종료일 */
             width: 600px;
+        }
+
+        #short-text-box{
+            border: 1px solid #AAAAAA;
+            border-radius: 0.25em;
+            width: 200px;
+            height: 40px;
         }
         /* 챌린지 예상 종료일 수정 삭제 x  */
         .blind{
@@ -122,8 +135,10 @@
             margin: 2px 5px 0 0;
         }
     </style>
+     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
      <script type="text/javascript">
-         $(function(){
+    
+    $(function(){
         var picker1 = new Lightpick({
             //field는 datepicker은 적용 대상을 설정하는 공간 
             field:document.querySelector(".single-date-picker"),
@@ -194,7 +209,13 @@
             <div class="row">
                 <p class="p1">4. 챌린지 시작일을 선택해주세요.</p>
                 <p class="p2">개설일로부터 5일 이내에 시작해야 해요.</p>
+
                 <div class="row">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <input type="text" class="single-date-picker" id="short-text-box">
+                </div>
+
+                <div class="row date-calendar">
                     <h2 class="blind"> 챌린지 예상 종료일</h2>
                     <span class="sp-1 calendar">
                     <i class="c-end">
@@ -203,6 +224,7 @@
                     챌린지 예상 종료일 YYYY-MM-DD(A)
                 </span>
                 </div>
+
             </div>
 
             <div class="row">

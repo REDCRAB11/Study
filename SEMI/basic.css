@@ -5,7 +5,9 @@
     - margin: 상 하 좌 우
 */
 
-
+html{
+    font-family: 'Noto Sans KR', sans-serif;
+}
 
 
 /* 컨테이너 사이즈 (container-size) */
@@ -394,6 +396,72 @@ body {margin: 10px; font-size: 13px}
   width: 12px;
   height: 12px;
 }
+
+
+/* 체크박스 스몰 12px  수정X  */
+
+     /*  체크박스 숨김 */
+     .line input{
+        display: none;
+    }
+
+    /* 체크박스 테두리  */
+    .chk-1{
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border: 2px solid #ebebed;
+        background-color: white;
+        border-radius: 5px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    /* 체크박스 가상요소  안에 체크 표시 */
+    .chk-1::before, .chk-1::after{
+        content: '';
+        display: inline-block;
+        width: 2px;
+        height: 0px;
+        background-color:  #6c7aef;
+        /* background-color: black; */
+        position: absolute;
+        transform-origin: left top;
+        
+    }
+
+    /* 가상요소 비뽀 */
+    .chk-1::before{
+        top: 4px;
+        left: -1px;
+        transform: rotate(-44deg);
+    }
+
+    /* 가상요소 에뽀또  */
+    .chk-1::after{
+        top: 9px;
+        left: 5px;
+        transform:  rotate(-135deg);
+    }
+
+    /* 체크되었을때 테두리  */
+    .line input:checked + .chk-1{
+        border-color:  #6c7aef;
+        /* background-color: #6c7aef; */
+    }
+
+    /* 체크되었을 때 가상요소 비포 */
+    .line input:checked + .chk-1::before{
+        height: 8px;
+        transition: all 0.15s ease 0.15s;
+    }
+
+    /* 체크되었을 때 가상요소 에포 */
+    .line input:checked + .chk-1::after{
+        height: 10px;
+        transition: all 0.15s ease 0.15s;
+    }
+
 
 /* select 창  */
 
