@@ -19,8 +19,11 @@
 
     <style>
         /* 
-            라디오 버튼과 라벨 사이 간격 
-            데이트 타입에 폰트어썸 넣어야하는데 어떻게 넣어야할까요 ~ 
+            10.21 
+            DB 수정해야할 것: 
+            - 미리보기 사진의 경우에는 이미지 지우는 src를 삭제하자. 
+            - src를 삭제하자 
+
         */
         div{
             border: 1px dotted transparent;
@@ -167,6 +170,18 @@
         margin-right: 26px;
         float: left;
     }
+    .basic-image{ 
+        border: 1px solid #AAAAAA;
+        border-radius: 0.4em;
+        display: inline-block; 
+        width: 243px; 
+        height: 167px; 
+        margin-right: 26px;
+        float: left;
+    }
+    .basic-image {
+        display:none;
+    }
     .imgUpBtn{ 
         width: 70px;
         height: 26px;
@@ -231,9 +246,9 @@
     // 미리보기 목록 추가 
 function fileinputAdd(){ 
     // 미리보기 리스트 추가 
-    var li = "<img class=\"preview\" alt=\"\" />"
-            + "<button class=\"imgUpBtn\">사진변경</button>"
-            + "<a class=\"ImgRemoveBtn\">삭제</a>"; 
+    var img = "<img class=\"preview\" alt=\"\" />";
+    var imgupBtn = "<button class=\"imgUpBtn\">사진변경</button>";
+    var imgRemoveBtn =  "<a class=\"ImgRemoveBtn\">삭제</a>"; 
     var ul = document.getElementById("image-list"); 
     ul.innerHTML += "<li>"+li+"</li>"; 
     // 인풋 파일 생성 
@@ -256,25 +271,25 @@ function fileinputAdd(){
 } 
 //미리보기 개별 삭제 
 // 삭제 누르면 전체 삭제가 아니라 이미지만 삭제 
-function fileinputRemove(index){ 
-    var li = document.querySelector('#image-list li')[index]; 
-    var input = document.getElementsByClassName('files')[index]; 
-    var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[index]; 
-    if(li != undefined){ 
-          input.remove(); 
-          li.remove(); 
-          removeBtn.remove(); 
-          li = document.querySelector('#image-list li'); 
-          for(var i = 0; i < li.length; i++){ 
-                var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[i]; 
-                removeBtn.setAttribute("onclick","fileinputRemove("+i+");"); 
-         } 
-  } 
-  // 삭제되면되면 파일 미리보기 다시 로드 
-  previewInputReload(); 
-  // 삭제후 이미지 업로드 버튼 기능 다시 로드 
-  fileimgUpBtnReload(); 
-} 
+// function fileinputRemove(index){ 
+//     var li = document.querySelectorAll('#image-list li')[index]; 
+//     var input = document.getElementsByClassName('files')[index]; 
+//     var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[index]; 
+//     if(li != undefined){ 
+//           input.remove(); 
+//           //li.remove(); 
+//           //removeBtn.remove(); 
+//           li = document.querySelectorAll('#image-list li'); 
+//           for(var i = 0; i < li.length; i++){ 
+//                 var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[i]; 
+//                 removeBtn.setAttribute("onclick","fileinputRemove("+i+");"); 
+//          } 
+//   } 
+//   // 삭제되면되면 파일 미리보기 다시 로드 
+//   previewInputReload(); 
+//   // 삭제후 이미지 업로드 버튼 기능 다시 로드 
+//   fileimgUpBtnReload(); 
+// } 
 
 // //미리보기 개별 삭제 
 
@@ -326,6 +341,9 @@ window.onload = function(){
     AddBtn.addEventListener("click", function(){ 
           fileinputAdd(); 
    },false); 
+   $(".ImgRemoveBtn").onclick(function(){
+        $(".preview").remove();
+    });
 } 
 
 
@@ -416,7 +434,10 @@ window.onload = function(){
             <div class="row">
                 <p class="p1">6. 챌린지 대표 이미지를 등록하세요.(선택)</p>
                 <p class="p2">노출 위치에 따라 섬네일이 축소/확대되어 적용합니다. 등록하지 않는 경우, 랜점으로 기본 이미지가 적용됩니다.</p>
-                <button id="ImgAddBtn">파일추가</button> 
+                <!-- <img src="" width="200" height="200"> -->
+                <img class="basic-image">
+                <!-- <button id="ImgAddBtn">사진변경</button>  -->
+                <!-- <button id="delete-img">삭제</button> -->
                 <ul id="image-list"></ul> 
             </div>
 

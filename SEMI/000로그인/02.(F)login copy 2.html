@@ -54,14 +54,77 @@
             color:#707070;
             text-decoration-line: none;
         }
-        .fail-message{
-            color: #eb6f7f;
-            display: none;
-        }
+        .fail-message,
+    .NNNNN-message{
+        
+        color: #eb6f7f
+    }
+
+    .input.success {
+        border-color: #6c7aef;
+    }
+    .input.success ~ .success-message{
+        display: block;
+    }
+    .input.fail ~ .fail-message{
+        display: block;
+    }
+    .input.NNNNN ~ .NNNNN-message {
+        display: block;
+    }
+ 
     </style>
      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
      <script type="text/javascript">
-        
+   
+        // $(function(){
+        //     $(".ajax-btn").click(function(){
+        //         var inputStatus = {
+        //             userIdVaild:false,
+        //             userPwVaild:false,
+        //         };
+        //         $("input[name=userId]").blur(function(){
+        //             var useId = $(this).val();
+        //             if(!userId) return;
+
+        //             $.ajax({
+
+        //             })
+        //         });
+        //     });
+        // });
+
+
+        $(function(){
+            $("#login-btn").mouseenter(function(){
+                $(this).css('cursor', 'pointer');
+            }).mouseout(function(){
+                $(this).css('curosr','normal');
+            }).click(function(){
+                submitCheck();
+            });
+            
+            
+
+
+        });
+
+        function loginCheck(){
+            var userId = $("#userId").val();
+            var userPw = $("#userPw").val();
+            $.ajax({
+                type:"post",
+                url:'login.jsp',
+                data:{userId:userId, userPw:userPw},
+                success: function(result){
+                    if(result == "false"){
+                        $("input[name=userPw]").next(span).text("ㄴㄴ")
+                    }else{
+                        location.href="http://localhost:8888/"
+                    }
+                }
+            });
+        }
      </script>
      </head>
      <body>
@@ -79,17 +142,17 @@
             
             </div>
             <div class="row">
-                <input type="text" name="memberId" class="input short-text-box" id="text-box1" placeholder="아이디">
+                <input type="text" name="userId" class="input short-text-box" id="text-box1 userId" placeholder="아이디">
             </div>
             <div class="row">
-                <input type="password" name="memberPw" class="input short-text-box" id="text-box1" placeholder="비밀번호">
+                <input type="password" name="userPw" class="input short-text-box" id="text-box1 userPw" placeholder="비밀번호">
             </div>
             <div class="row">
                 <span class="fail-message">아이디 또는 비밀번호를 잘못 입력했습니다.</span>
                 <span class="fail-message">입력하신 내용을 다시 확인해주세요.</span>
             </div>
             <div class="row">
-                <button type="submit" class="largebtn w-100" id="largebutton1">로그인</button>
+                <button type="submit" class="largebtn w-100 login-btn" id="largebutton1">로그인</button>
             </div>
             <section class="row center">
                 <a class="find" href="#비밀번호찾기 ">비밀번호 찾기</a>
