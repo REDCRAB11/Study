@@ -16,13 +16,21 @@
             디자인 해야할 것: 
             - 이미지 삭제 버튼 구현 
             - 이미지 사진변경 버튼 구현 
+            - 이미지 위치 구현 
 
+            DB 해야할 것:
+            - 기본 이미지에서 사진변경하면 새로운 파일을 넣기 
+            - 삭제하면 기본이미지로 되돌아감
         */
         div{
             border: 1px dotted gray;
         }
         input{
             display: none;
+        }
+        img{
+            /* border: 100px dotted gray; */
+            float: left;
         }
 
            /* 업로드 버튼 */
@@ -37,6 +45,7 @@
             display: none;
         }
         
+     
         
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -58,15 +67,14 @@
                     };
 
                     reader.readAsDataURL(this.files[0]);//읽어라
-                }
-                else {
+                   
                 }
                 
             });
             
             $("button[name=thumbnail-delete]").click(function(){
                 
-                $(".preview").attr("src", "");0
+                $(".preview").attr("src", "");
             });
           
         });
@@ -79,9 +87,7 @@
             <label class="input-file-upload" for="input-file">사진변경</label>        
             <input id="input-file" type="file" name="thumbnail-input">
             <button class="delete-file-upload" name="thumbnail-delete">삭제</button>
-            <!-- <label class="delete-file-upload" for="delete-file" >삭제</label> 
-            <input id="delete-file"  name="thumbnail-delete"> -->
-            <img class="preview" src="" width="300">
+            <img class="preview2" src="" width="300">
         </div>
        
      </body>

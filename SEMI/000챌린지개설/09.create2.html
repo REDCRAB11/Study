@@ -19,11 +19,8 @@
 
     <style>
         /* 
-            10.21 
-            DB 수정해야할 것: 
-            - 미리보기 사진의 경우에는 이미지 지우는 src를 삭제하자. 
-            - src를 삭제하자 
-
+            라디오 버튼과 라벨 사이 간격 
+            데이트 타입에 폰트어썸 넣어야하는데 어떻게 넣어야할까요 ~ 
         */
         div{
             border: 1px dotted transparent;
@@ -47,19 +44,40 @@
 			resize: none;
         }
 
-        label{
+        /* .chk-1{
             margin: 0 10px 10px;
             padding: 0 0 5px;
+        } */
+
+        span{
+            font-size: 16px;
+            color:#6c7aef;
+            border: 2px solid transparent;
+            background-color: #e5e6e9;
+            border-radius: 0.25em;
         }
         .p1{
             font-size: 20px;
             color: #3f3f3f;
             font-weight: bold;
-            margin-top: 46px;
+            margin-top: 50px;
         }
         .p2{
             font-size: 12px;
             color: #3f3f3f;
+            margin-top: -10px;
+        }
+        .p3{
+            font-size: 12px;
+            color: #3f3f3f;
+            margin-top: -5px;
+            margin-bottom: 25px;
+        }
+        .p4{
+            font-size: 12px;
+            color: #3f3f3f;
+            margin: -19px;
+            padding: 0 45px;
         }
 
         .lab{ /* 라디오 버튼 사이 간격 */
@@ -108,11 +126,11 @@
             display: block;
             padding: 15px 0;
             margin-top: 11px;
-            background-color: #e5e6f9;
-            border: 1px solid #e5e6f9;
+            background-color: yellowgreen;
+            border: 1px solid yellow;
             border-radius: 1em;
             font-size: 14px;
-            color: #6c7aef;
+            color: #FFF;
             font-weight: 700;
             text-align: center;
             text-decoration: none;
@@ -129,91 +147,6 @@
             vertical-align: top;
             margin: 2px 5px 0 0;
         }
-        /* 체크박스 */
-        .chk-1{
-            margin-bottom: -3px;
-        }
-        .chk-2{
-           color: #6c7aef;
-           padding: 0 0 0 5px;
-        }
-        .chk-line{
-            margin: 0 0 0 -12px;
-        }
-        /* btn */
-        .cancel-btn{
-            width: 150px;
-            margin-right: 20px;
-            margin-top: 75px; /* 취소,개설하기 버튼과 위에 7번 사이 간격*/
-        }
-        .create-btn{
-            width: 320px;
-        }
-
-        /* 
-       이미지 업로드 및 미리보기 및 삭제 
-    */
-    ul,li{ 
-        margin: 0; 
-        padding: 0;}
-    li{ 
-        list-style: none; 
-        display: inline-block; 
-        margin: 0.3em 0;
-    }
-    .preview{ 
-        border: 1px solid #AAAAAA;
-        border-radius: 0.4em;
-        display: inline-block; 
-        width: 243px; 
-        height: 167px; 
-        margin-right: 26px;
-        float: left;
-    }
-    .basic-image{ 
-        border: 1px solid #AAAAAA;
-        border-radius: 0.4em;
-        display: inline-block; 
-        width: 243px; 
-        height: 167px; 
-        margin-right: 26px;
-        float: left;
-    }
-    .basic-image {
-        display:none;
-    }
-    .imgUpBtn{ 
-        width: 70px;
-        height: 26px;
-        margin-top: 145px;
-        margin-right: 17px;
-        padding-top: 2px;
-        display: inline-block; 
-        /* padding: 1.9em 2em;  */
-        border: 2px solid transparent;
-        border-radius: 0.25em;
-        background-color:#e5e6f9; 
-        color: #6c7aef; 
-        font-size: 12px;  
-        /* font-weight: 700;  */
-
-    }
-    .ImgRemoveBtn{ /* 삭제 버튼이 가운데 오게 만들어야 함. */
-        width: 40px;
-        height: 20px;
-        padding: 4px 0 0 12px;
-        display: inline-block;
-        /* padding: 1.9em 2em; */
-        border: 2px solid #AAAAAA;
-        border-radius: 0.25em;
-        color: #AAAAAA; 
-        background-color: #FFFFFF;
-        font-size: 12px;
-    }
-    /* 이건 보여주지 않을 것..  */
-    #ImgAddBtn{ padding: 1.9em 2em; color: #fff; background-color:coral; font-weight: 700; display: none;}
-
-
     </style>
      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
      <script type="text/javascript">
@@ -240,113 +173,6 @@
         });
     });
 
-
-    // 이미지 업로드 
-
-    // 미리보기 목록 추가 
-function fileinputAdd(){ 
-    // 미리보기 리스트 추가 
-    var img = "<img class=\"preview\" alt=\"\" />";
-    var imgupBtn = "<button class=\"imgUpBtn\">사진변경</button>";
-    var imgRemoveBtn =  "<a class=\"ImgRemoveBtn\">삭제</a>"; 
-    var ul = document.getElementById("image-list"); 
-    ul.innerHTML += "<li>"+li+"</li>"; 
-    // 인풋 파일 생성 
-    var fileinput = document.createElement("INPUT"); 
-    fileinput.setAttribute("type", "file"); 
-    fileinput.setAttribute("class", "files"); 
-    fileinput.setAttribute("name", "files[]"); 
-    fileinput.setAttribute("accept", "image/jpeg, image/png"); 
-    fileinput.setAttribute("style", "display:none;"); 
-    document.body.appendChild(fileinput); 
-    // 삭제도 있어야될것 같아서 넣어봄 
-    var removeBtn = document.getElementsByClassName("ImgRemoveBtn"); 
-    for(var i = 0; i < removeBtn.length; i++){ 
-          removeBtn[i].setAttribute("onclick","fileinputRemove("+i+");"); 
-   } 
-   // 새로 생성되면서 파일 미리보기 다시 로드 
-   previewInputReload(); 
-   // 이미지 업로드 버튼 기능 다시 로드 
-   fileimgUpBtnReload(); 
-} 
-//미리보기 개별 삭제 
-// 삭제 누르면 전체 삭제가 아니라 이미지만 삭제 
-// function fileinputRemove(index){ 
-//     var li = document.querySelectorAll('#image-list li')[index]; 
-//     var input = document.getElementsByClassName('files')[index]; 
-//     var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[index]; 
-//     if(li != undefined){ 
-//           input.remove(); 
-//           //li.remove(); 
-//           //removeBtn.remove(); 
-//           li = document.querySelectorAll('#image-list li'); 
-//           for(var i = 0; i < li.length; i++){ 
-//                 var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[i]; 
-//                 removeBtn.setAttribute("onclick","fileinputRemove("+i+");"); 
-//          } 
-//   } 
-//   // 삭제되면되면 파일 미리보기 다시 로드 
-//   previewInputReload(); 
-//   // 삭제후 이미지 업로드 버튼 기능 다시 로드 
-//   fileimgUpBtnReload(); 
-// } 
-
-// //미리보기 개별 삭제 
-
-// function fileinputRemove(index){ 
-//     var li = document.querySelector('#image-list li')[index]; 
-//     var input = document.getElementsByClassName('files')[index]; 
-//     var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[index]; 
-//     if(li != undefined){ 
-//           input.remove(); 
-//           li.remove(); 
-//           removeBtn.remove(); 
-//           li = document.querySelector('#image-list li'); 
-//           for(var i = 0; i < li.length; i++){ 
-//                 var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[i]; 
-//                 removeBtn.setAttribute("onclick","fileinputRemove("+i+");"); 
-//          } 
-//   } 
-//   // 삭제되면되면 파일 미리보기 다시 로드 
-//   previewInputReload(); 
-//   // 삭제후 이미지 업로드 버튼 기능 다시 로드 
-//   fileimgUpBtnReload(); 
-// } 
-
-
-// 파일 업로드기능 function 연결하는 부분 
-function fileimgUpBtnReload(){ 
-    var uploadBtn = document.getElementsByClassName('imgUpBtn'); 
-    for(var i = 0; i <uploadBtn.length; i++){ 
-          uploadBtn[i].setAttribute("onclick","uploadFile("+i+");"); 
-   } 
-} 
-// 이미지 업로드 버튼 눌를때 해당 파일인풋 대신 클릭 
-function uploadFile(index){ 
-    document.getElementsByClassName("files")[index].click(); 
-} 
-// 이미지 미리보기 관련 다시 로드 
-function previewInputReload(){ 
-    var input = document.getElementsByClassName('files'); 
-    for(var i=0; i< input.length;i++){ 
-          input[i].setAttribute("onchange","document.getElementsByClassName('preview')["+i+"].src=window.URL.createObjectURL(this.files[0])"); 
-   } 
-} 
-// window 로드시 
-window.onload = function(){ 
-    // image-list 에 기본적으로 파일 업로드 하나는 넣어줌.. 
-    fileinputAdd(); 
-    var AddBtn = document.getElementById("ImgAddBtn"); 
-    // 파일 추가 클릭 이벤트 생성 
-    AddBtn.addEventListener("click", function(){ 
-          fileinputAdd(); 
-   },false); 
-   $(".ImgRemoveBtn").onclick(function(){
-        $(".preview").remove();
-    });
-} 
-
-
      </script>
      </head>
      <body>
@@ -363,14 +189,10 @@ window.onload = function(){
                 <p class="p1"> 1. 어떤 주제와 관련이 있나요?</p>
 
                 <!-- 아마도 라디오 클릭시 운동만 선택되어지는 이유는.. name이 다 같아서 나중에 DB나오면 다ㅣㅅ 바꾸세요 -->
-                <div>
                 <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
                 <label class="lab" for="ex_rd2" >운동</label><br/>
-                </div>
-                <div>
                 <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
                 <label class="lab" for="ex_rd2">식습관</label><br/>
-                </div>
                 <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
                 <label class="lab" for="ex_rd2">생활</label><br/>
                 <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
@@ -421,24 +243,24 @@ window.onload = function(){
             <div class="row">
                 <p class="p1">5. 모집 방식을 확인해주세요.</p>
                 <p class="p2">[모집 방식] 선착순 자동 마감</p>
-                <p class="p2">[참가 인원] 최대 10명까지 참가할 수 있어요. 챌린지 시작 전에 10명이 다 모이면 자동으로 모집이 마갑됩니다. </p>
-                <div class="row chk-line">
+                <p class="p3">[참가 인원] 최대 10명까지 참가할 수 있어요. 챌린지 시작 전에 10명이 다 모이면 자동으로 모집이 마갑됩니다. </p>
                 <label class="line">
                     <input type="checkbox">
-                    <span class="chk-1"></span>
-                    <span class="chk-2">확인했어요!</span>
-                </label>    
-            </div>
+                    <span class="chk-1">
+                    </span>
+                    <p class="p4">확인헀어요!</p>
+                </label>  
+               
             </div>
 
             <div class="row">
                 <p class="p1">6. 챌린지 대표 이미지를 등록하세요.(선택)</p>
                 <p class="p2">노출 위치에 따라 섬네일이 축소/확대되어 적용합니다. 등록하지 않는 경우, 랜점으로 기본 이미지가 적용됩니다.</p>
-                <!-- <img src="" width="200" height="200"> -->
-                <img class="basic-image">
-                <!-- <button id="ImgAddBtn">사진변경</button>  -->
-                <!-- <button id="delete-img">삭제</button> -->
-                <ul id="image-list"></ul> 
+                <input>
+
+                </input>
+                <button>사진변경</button>
+                <button>삭제</button>
             </div>
 
             <div class="row">
@@ -447,8 +269,8 @@ window.onload = function(){
                 <textarea placeholder="예)어려워서 하기 싫은 알고리즘 문제풀이 매일매일 같이 인증해요~!"></textarea>
             </div>
             <div class="row center"> <!--센터? 아니면 노센터?-->
-                <button class="smallbtn cancel-btn" type="submit" id="smallbutton3">취소</button>
-                <button class="smallbtn create-btn" type="submit" id="smallbutton1">개설하고 참가하기</button>
+                <button>취소</button>
+                <button>개설하고 참가하기</button>
             </div>
         </div>
      </body>
