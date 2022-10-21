@@ -34,6 +34,56 @@
         .input-file-blind{
             display: none;
         }
+
+          /* 
+        문제점 삭제 버튼을 누르면 해당되는 모든게 지워짐  고로 파일 추가가 있어야함;;;???
+    */
+    ul,li{ margin: 0; padding: 0;}
+    li{ 
+        list-style: none; 
+        display: inline-block; 
+        margin: 0.3em 0;
+    }
+    .preview{ 
+        border: 1px solid #AAAAAA;
+        border-radius: 0.75em;
+        display: inline-block; 
+        width: 243px; 
+        height: 167px; 
+        margin-right: 26px;
+        float: left;
+    }
+    .imgUpBtn{ 
+        width: 70px;
+        height: 26px;
+        margin-top: 145px;
+        margin-right: 17px;
+        padding-top: 2px;
+        display: inline-block; 
+        /* padding: 1.9em 2em;  */
+        border: 2px solid #6c7aef;
+        border-radius: 0.25em;
+        background-color:#e5e6f9; 
+        color: #6c7aef; 
+        font-size: 12px;  
+        /* font-weight: 700;  */
+
+    }
+    .ImgRemoveBtn{ /* 삭제 버튼이 가운데 오게 만들어야 함. */
+        width: 40px;
+        height: 20px;
+        padding: 4px 0 0 12px;
+        display: inline-block;
+        /* padding: 1.9em 2em; */
+        border: 2px solid #AAAAAA;
+        border-radius: 0.25em;
+        color: #AAAAAA; 
+        background-color: #FFFFFF;
+        font-size: 12px;
+    }
+    /* 이건 보여주지 않을 것..  */
+    #ImgAddBtn{ padding: 1.9em 2em; color: #fff; background-color:coral; font-weight: 700; display: none;}
+
         
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>

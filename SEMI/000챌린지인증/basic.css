@@ -5,9 +5,7 @@
     - margin: 상 하 좌 우
 */
 
-html{
-    font-family: 'Noto Sans KR', sans-serif;
-}
+
 
 
 /* 컨테이너 사이즈 (container-size) */
@@ -228,6 +226,78 @@ html{
     color: #6c7aef;
 }
 
+.smallbtn{
+    border: none;
+    font-size: 16px;
+    padding: 0.75em;/*글자 크기의 0.75배*/
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.5em;
+    width: 225px;
+    height: 50px;
+}
+#smallbutton1{
+    background-color: #6c7aef;
+    color: white;
+}
+#smallbutton2{
+    background-color: e5e6f9;
+    color: #6c7aef;
+}
+#smallbutton3{
+    border:solid;
+    border-color: #6c7aef;
+    border-width: 2px 2px 2px 2px;
+    background-color: white;
+    color: #6c7aef;
+}
+#smallbutton4{
+    border: none;
+    border-color: transparent;
+    background-color: white;
+    color: #6c7aef;
+}
+#smallbutton1-1{
+    background-color: #ebebed;
+    color: #cfc9d5;
+}
+#smallbutton2-1{
+    background-color: #ebebed;
+    color: #cfc9d5;
+}
+#smallbutton3-1{
+    border:solid;
+    border-color: #ebebed;
+    border-width: 2px 2px 2px 2px;
+    background-color: white;
+    color: #ebebed;
+}
+#smallbutton4-1{
+    border: none;
+    border-color: transparent;
+    background-color: white;
+    color: #ebebed;
+}
+
+/* select */
+
+.dropdown{
+    border:2px solid #AAAAAA;
+    border-radius: 0.5em;
+    width: 150px;
+    height: 60px;
+    font-size: 14px;
+    color: #AAAAAA
+}
+.dropdown-hover:focus{
+    border:2px solid #6c7aef;
+    font-weight: bold;
+    color:#6c7aef
+}
+
+
 
 /* 언더라인  수정해야함 
      수정해야할 부분은... 
@@ -246,27 +316,13 @@ html{
     outline: none;
     color: #3d3d3d;
 }
-#text-underlinebox1:focus,
+
 #text-underlinebox1:hover{
     border-bottom: 2px solid #6c7aef;
     color: #3f3f3f;
 }
-
-
-
-/* select */
-
-.dropdown{
-    border:2px solid #6c7aef;
-    border-radius: 0.5em;
-    width: 200px;
-    height: 60px;
-    font-size: 16px;
-}
-/*  t선택시 색상과 굵기 선택이 되어야하는데 무엇으로 해야하나    */
-.dropdown.dropdown-check:checked{
-    font-weight: bold;
-    color: #6c7aef;
+#text-underlinebox1:focus{
+    border-bottom: 2px solid #6c7aef;
 }
 
 
@@ -411,12 +467,12 @@ body {margin: 10px; font-size: 13px}
 
 /* radio size */
 .checks.small input[type="radio"] + label {
-  font-size: 12px; /* 라디오에 라벨 폰트 사이즈 */ 
+  font-size: 16px;
   padding-left: 20px;
 }
 .checks.small input[type="radio"] + label:before {
 	top: -2px;
-  width: 16px;
+  width: 16px; 
   height: 16px;
 }
 .checks.small input[type="radio"]:checked + label:after {
@@ -424,7 +480,6 @@ body {margin: 10px; font-size: 13px}
   width: 12px;
   height: 12px;
 }
-
 
 /* 체크박스 스몰 12px  수정X  */
 

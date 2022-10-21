@@ -4,47 +4,385 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOIN</title>
+    <title>CREATE</title>
 
     <link rel="stylesheet" type="text/css" href="basic.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/lightpick@1.6.2/css/lightpick.css">
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightpick@1.6.2/lightpick.js"></script>
+
 
     <style>
+        /* 
+            라디오 버튼과 라벨 사이 간격 
+            데이트 타입에 폰트어썸 넣어야하는데 어떻게 넣어야할까요 ~ 
+        */
+        div{
+            border: 1px dotted transparent;
+            display: block;
+        }
+
+        input::placeholder,
+        textarea::placeholder{
+            font-size: 14px;
+            color: #AAAAAA;
+        }
+        
+        textarea{
+            width: 600px;
+            height: 200px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: solid 2px #DDDDDD;
+			border-radius: 0.5em;
+			font-size: 16px;
+			resize: none;
+        }
+
+        label{
+            margin: 0 10px 10px;
+            padding: 0 0 5px;
+        }
+        .p1{
+            font-size: 20px;
+            color: #3f3f3f;
+            font-weight: bold;
+            margin-top: 46px;
+        }
+        .p2{
+            font-size: 12px;
+            color: #3f3f3f;
+        }
+
+        .lab{ /* 라디오 버튼 사이 간격 */
+            margin: 10px 0 10px 0;
+            padding: 0 0 5px 0;
+        }
+        .rad{
+            vertical-align: -11px;
+
+        }
+        .short-text-underlinebox{
+            width: 600px;
+        }
+        .calendar{ /* 챌린지 예상 종료일 */
+            width: 600px;
+        }
+
+        #short-text-box{
+            border: 1px solid #AAAAAA;
+            border-radius: 0.25em;
+            width: 200px;
+            height: 40px;
+        }
+        /* 챌린지 예상 종료일 수정 삭제 x  */
+        .blind{
+            position:absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+        h2{
+            font-size: inherit;
+            line-height: inherit;
+            padding: 0;
+
+            display: block;
+            margin-block-start: 0.73em;
+            margin-block-end: 0.73em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+        }
+        .sp-1{
+            display: block;
+            padding: 15px 0;
+            margin-top: 11px;
+            background-color: #e5e6f9;
+            border: 1px solid #e5e6f9;
+            border-radius: 1em;
+            font-size: 14px;
+            color: #6c7aef;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+        }
+        i{
+            font-size:normal;
+        }
+        .c-end{
+            display: inline-block;
+            width: 60px;
+            height: 12px;
+            background-position: -139px -300px;
+            background-repeat: no-repeat;
+            vertical-align: top;
+            margin: 2px 5px 0 0;
+        }
+        /* 체크박스 */
+        .chk-1{
+            margin-bottom: -3px;
+        }
+        .chk-2{
+           color: #6c7aef;
+           padding: 0 0 0 5px;
+        }
+        .chk-line{
+            margin: 0 0 0 -12px;
+        }
+        /* btn */
+        .cancel-btn{
+            width: 150px;
+            margin-right: 20px;
+            margin-top: 75px; /* 취소,개설하기 버튼과 위에 7번 사이 간격*/
+        }
+        .create-btn{
+            width: 320px;
+        }
+        .confirm-check{
+            /* 셀렉창  */
+            width: 600px;
+        }
+
+    /* 
+        문제점 삭제 버튼을 누르면 해당되는 모든게 지워짐  고로 파일 추가가 있어야함;;;???
+    */
+    ul,li{ 
+        margin: 0; 
+        padding: 0;}
+    li{ 
+        list-style: none; 
+        display: inline-block; 
+        margin: 0.3em 0;
+    }
+    .preview{ 
+        border: 1px solid #AAAAAA;
+        border-radius: 0.4em;
+        display: inline-block; 
+        width: 243px; 
+        height: 167px; 
+        margin-right: 26px;
+        float: left;
+    }
+    .imgUpBtn{ 
+        width: 70px;
+        height: 26px;
+        margin-top: 145px;
+        margin-right: 17px;
+        padding-top: 2px;
+        display: inline-block; 
+        /* padding: 1.9em 2em;  */
+        border: 2px solid transparent;
+        border-radius: 0.25em;
+        background-color:#e5e6f9; 
+        color: #6c7aef; 
+        font-size: 12px;  
+        /* font-weight: 700;  */
+
+    }
+    .ImgRemoveBtn{ /* 삭제 버튼이 가운데 오게 만들어야 함. */
+        width: 40px;
+        height: 20px;
+        padding: 4px 0 0 12px;
+        display: inline-block;
+        /* padding: 1.9em 2em; */
+        border: 2px solid #AAAAAA;
+        border-radius: 0.25em;
+        color: #AAAAAA; 
+        background-color: #FFFFFF;
+        font-size: 12px;
+    }
+    /* 이건 보여주지 않을 것..  */
+    #ImgAddBtn{ padding: 1.9em 2em; color: #fff; background-color:coral; font-weight: 700; display: none;}
+
 
     </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
      <script type="text/javascript">
+    
+    $(function(){
+        var picker1 = new Lightpick({
+            //field는 datepicker은 적용 대상을 설정하는 공간 
+            field:document.querySelector(".single-date-picker"),
 
+            //format은 선택한 날짜의 적용 형식을 변경 
+            format:"YYYY-MM-DD",
+            
+            // (+옵션) 미래/과거를 선택하지 못하도록 설정 
+            maxDate:moment(), //미래 선택 못함 
+            // minDate:moment(), // 과거 선택 못함  괄호안에 특정 날짜 넣어줘도 됨~ 
+
+            // (+옵션) 표시되는 달의 개수를 지정 
+            numberOfMonths:2, //2개의 달씩 보여줘라 
+        });
+
+        var Picker2 = new Lightpick({
+            field:document.querySelector("[name=begin]"),
+            secondField:document.querySelector("[name=end"),
+        });
+    });
+
+    // 이미지 업로드 
+
+    // 미리보기 목록 추가 
+function fileinputAdd(){ 
+    // 미리보기 리스트 추가 
+    var li = "<img class=\"preview\" alt=\"\" />"
+            + "<button class=\"imgUpBtn\">사진변경</button>"
+            + "<a class=\"ImgRemoveBtn\">삭제</a>"; 
+    var ul = document.getElementById("image-list"); 
+    ul.innerHTML += "<li>"+li+"</li>"; 
+    // 인풋 파일 생성 
+    var fileinput = document.createElement("INPUT"); 
+    fileinput.setAttribute("type", "file"); 
+    fileinput.setAttribute("class", "files"); 
+    fileinput.setAttribute("name", "files[]"); 
+    fileinput.setAttribute("accept", "image/jpeg, image/png"); 
+    fileinput.setAttribute("style", "display:none;"); 
+    document.body.appendChild(fileinput); 
+    // 삭제도 있어야될것 같아서 넣어봄 
+    var removeBtn = document.getElementsByClassName("ImgRemoveBtn"); 
+    for(var i = 0; i < removeBtn.length; i++){ 
+          removeBtn[i].setAttribute("onclick","fileinputRemove("+i+");"); 
+   } 
+   // 새로 생성되면서 파일 미리보기 다시 로드 
+   previewInputReload(); 
+   // 이미지 업로드 버튼 기능 다시 로드 
+   fileimgUpBtnReload(); 
+} 
+//미리보기 개별 삭제 
+// 삭제 누르면 전체 삭제가 아니라 이미지만 삭제 
+function fileinputRemove(index){ 
+    var li = document.querySelector('#image-list li')[index]; 
+    var input = document.getElementsByClassName('files')[index]; 
+    var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[index]; 
+    if(li != undefined){ 
+          input.remove(); 
+          li.remove(); 
+          removeBtn.remove(); 
+          li = document.querySelector('#image-list li'); 
+          for(var i = 0; i < li.length; i++){ 
+                var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[i]; 
+                removeBtn.setAttribute("onclick","fileinputRemove("+i+");"); 
+         } 
+  } 
+  // 삭제되면되면 파일 미리보기 다시 로드 
+  previewInputReload(); 
+  // 삭제후 이미지 업로드 버튼 기능 다시 로드 
+  fileimgUpBtnReload(); 
+} 
+
+// //미리보기 개별 삭제 
+
+// function fileinputRemove(index){ 
+//     var li = document.querySelector('#image-list li')[index]; 
+//     var input = document.getElementsByClassName('files')[index]; 
+//     var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[index]; 
+//     if(li != undefined){ 
+//           input.remove(); 
+//           li.remove(); 
+//           removeBtn.remove(); 
+//           li = document.querySelector('#image-list li'); 
+//           for(var i = 0; i < li.length; i++){ 
+//                 var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[i]; 
+//                 removeBtn.setAttribute("onclick","fileinputRemove("+i+");"); 
+//          } 
+//   } 
+//   // 삭제되면되면 파일 미리보기 다시 로드 
+//   previewInputReload(); 
+//   // 삭제후 이미지 업로드 버튼 기능 다시 로드 
+//   fileimgUpBtnReload(); 
+// } 
+
+
+// 파일 업로드기능 function 연결하는 부분 
+function fileimgUpBtnReload(){ 
+    var uploadBtn = document.getElementsByClassName('imgUpBtn'); 
+    for(var i = 0; i <uploadBtn.length; i++){ 
+          uploadBtn[i].setAttribute("onclick","uploadFile("+i+");"); 
+   } 
+} 
+// 이미지 업로드 버튼 눌를때 해당 파일인풋 대신 클릭 
+function uploadFile(index){ 
+    document.getElementsByClassName("files")[index].click(); 
+} 
+// 이미지 미리보기 관련 다시 로드 
+function previewInputReload(){ 
+    var input = document.getElementsByClassName('files'); 
+    for(var i=0; i< input.length;i++){ 
+          input[i].setAttribute("onchange","document.getElementsByClassName('preview')["+i+"].src=window.URL.createObjectURL(this.files[0])"); 
+   } 
+} 
+// window 로드시 
+window.onload = function(){ 
+    // image-list 에 기본적으로 파일 업로드 하나는 넣어줌.. 
+    fileinputAdd(); 
+    var AddBtn = document.getElementById("ImgAddBtn"); 
+    // 파일 추가 클릭 이벤트 생성 
+    AddBtn.addEventListener("click", function(){ 
+          fileinputAdd(); 
+   },false); 
+} 
+
+// 셀렉트 선택시 값 색상 다르게 적용 
+$(document).ready(function() {
+   $('#select').css('color','gray');
+   $('#select').change(function() {
+      var current = $('#select').val();
+      if (current != 'null') {
+          $('#select').css('color','black');
+      } else {
+          $('#select').css('color','gray');
+      }
+   }); 
+});
      </script>
      </head>
      <body>
         <div class="container-1200">
+
             <div class="row">
-                <p>1. 인증할 챌린지를 선택해주세요.</p>
-                <select>
-                    <option></option>
-                    <option></option>
-                    <option></option>
+                <p class="p1"> 1. 인증할 챌린지를 선택해주세요.</p>
+                <select class="dropdown dropdown-check confirm-check">
+                    <option id="select" selected="selected" value="1">전체</option>
+                    <option>모집중</option>
+                    <option>모집중</option>
+                    <option>모집중</option>
                 </select>
             </div>
             <div class="row">
-                <textarea disabled></textarea>
+                <p>인증 방법</p>
             </div>
 
             <div class="row">
-                <p>2. 인증글 제목을 입력해주세요.</p>
-                <p>타인에게 불쾌감을 주는 단어를 사용할 경우 게시글은 삭제됩니다.</p>
+                <p class="p1">2. 인증글 제목을 입력해주세요.</p>
+                <p class="p2"> 타인에게 불쾌감을 주는 단어를 사용할 경우 계정이 영구정지 될 수 있습니다.</p>
+                <input class="short-text-underlinebox uderline-hover" type="text" placeholder="예) 아침 6시에 일어나기 " id="text-underlinebox1">
             </div>
 
             <div class="row">
-                <p>3. 실천한 내용을 입력해주세요.</p>
-                <textarea placeholder="예) 매일 깃 커밋하기"></textarea>
+                <p class="p1">3. 실천한 내용을 입력해 주세요.</p>
+                <p> 실천 여부를 알 수 있도록 구체적으로 적어주세요.</p>
+                <textarea placeholder="예) 매일 깃 커밋하기0 오늘 날짜와 커밋 내역이 보이도록 깃 허브 히스토리를 캡쳐해서 인증샷으로 첨부하기"></textarea>
             </div>
 
             <div class="row">
-                <p>5. 챌린지 대표 이미지를 등록하세요. (선택)</p>
+                <p class="p1">6. 챌린지 인증샷을 등록하세요.(선택)</p>
+                <p class="p2">jpg, png 파일만 업로드할 수 있어요.</p>
+                <button id="ImgAddBtn">파일추가</button> 
+                <ul id="image-list"></ul> 
+            </div>
+
+            <div class="row center"> <!--센터? 아니면 노센터?-->
+                <button class="smallbtn cancel-btn" type="submit" id="smallbutton3">취소</button>
+                <button class="smallbtn create-btn" type="submit" id="smallbutton1">개설하고 참가하기</button>
             </div>
         </div>
      </body>

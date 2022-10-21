@@ -11,8 +11,9 @@
         /* 
             들어가기 앞서 백그라운드 컬뤄 투명? 화이트? 
 
-            hover: 마우스 올렸을 때 
+            hover: 마우스 올렸을 때  -> 후작업으로 추가해야함 
             active: 마우스 클릭 했을 때 
+            focus: 클릭한 동안 
         */
         .short-text-box{
             border: solid;
@@ -27,7 +28,7 @@
             border-color: #cfc9d5;
             color: #3d3d3d;
         }
-        .short-hover:active{
+        .short-hover:hover{
             border-color: #6c7aef;
             color: #cfc9d5;
         }
@@ -45,8 +46,10 @@
             outline: none;
             color: #3d3d3d;
         }
-        .underlinebox-hover:hover{
+        #text-underlinebox1:focus,
+        #text-underlinebox1:hover{
             border-bottom: 2px solid #6c7aef;
+            color: #3f3f3f;
         }
   
 
@@ -58,13 +61,13 @@
             height: 123px;
             text-align: left;
             font-size: 16px;
-            /* 상자안ㅇ ㅔ글 위쪽 부터 쓰는 방법 좀..  */
+           
         }
         #long-box1{
             border-color: #ebebed;
             color: #3d3d3d;
         }
-        .long-hover:active{
+        .long-hover:hover{
             border-color: #cfc9d5;
             color: #cfc9d5;
         }
@@ -78,17 +81,16 @@
             color: #3d3d3d;
         }
         .dropdown{
-            border:2px solid #6c7aef;
+            border:2px solid #AAAAAA;
             border-radius: 0.5em;
             width: 150px;
             height: 60px;
-            font-size: 16px;
+            font-size: 14px;
         }
-        /*  t선택시 색상과 굵기 선택이 되어야하는데 무엇으로 해야하나    */
-        .dropdown.dropdown-check:checked{
-            font-weight: bold;
-            color: #6c7aef;
+        .dropdown-hover:focus{
+            border:2px solid #6c7aef;
         }
+    
         .search-bar{
             display: flex;
             flex-direction: row;
@@ -104,7 +106,7 @@
             font-size: 16px;
         }
         
-        /*  둘이 높이가 안맞음 ... ㅠㅠ  */
+        
         .search-box > select > input{
             display: flex;
             flex-direction: row;
@@ -124,7 +126,7 @@
     <input class="short-text-box short-hover" type="text" placeholder="now..." id="text-box1">
 
     <h1>underline-box</h1>
-    <input class="short-text-underlinebox uderline-hover" type="text" placeholder="now..." id="text-underlinebox1">
+    <input class="short-text-underlinebox uderline-hover underline-focus" type="text" placeholder="now..." id="text-underlinebox1">
 
     <!-- 이거 입력창이 맨위 왼쪽에서부터 쓰여야함  -->
     <h1>Long-text-box</h1>
@@ -142,7 +144,7 @@
         </div>
         <div class="row search-bar">
             <select class="dropdown dropdown-check">
-                <option selected="selected" value="1">전체</option>
+                <option class="option-check" selected="selected" value="1">전체</option>
                 <option>모집중</option>
                 <option>모집중</option>
                 <option>모집중</option>
@@ -154,7 +156,7 @@
 
         <h1>Dropdown</h1>
     
-        <select class="dropdown dropdown-check">
+        <select class="dropdown dropdown-check dropdown-hover">
             <option selected="selected" value="1">전체</option>
             <option>모집중</option>
             <option>모집중</option>

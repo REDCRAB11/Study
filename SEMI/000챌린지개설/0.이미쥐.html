@@ -1,0 +1,163 @@
+<!DOCTYPE html> 
+<html lang="ko"> 
+<head> 
+<meta charset="utf-8"/>
+<title>업로드 미리보기(추가버전)</title>
+<style>
+    /* 
+        문제점 삭제 버튼을 누르면 해당되는 모든게 지워짐  고로 파일 추가가 있어야함;;;???
+    */
+    ul,li{ margin: 0; padding: 0;}
+    li{ 
+        list-style: none; 
+        display: inline-block; 
+        margin: 0.3em 0;
+    }
+    .preview{ 
+        border: 1px solid #AAAAAA;
+        border-radius: 0.75em;
+        display: inline-block; 
+        width: 243px; 
+        height: 167px; 
+        margin-right: 26px;
+        float: left;
+    }
+    .imgUpBtn{ 
+        width: 70px;
+        height: 26px;
+        margin-top: 145px;
+        margin-right: 17px;
+        padding-top: 2px;
+        display: inline-block; 
+        /* padding: 1.9em 2em;  */
+        border: 2px solid #6c7aef;
+        border-radius: 0.25em;
+        background-color:#e5e6f9; 
+        color: #6c7aef; 
+        font-size: 12px;  
+        /* font-weight: 700;  */
+
+    }
+    .ImgRemoveBtn{ /* 삭제 버튼이 가운데 오게 만들어야 함. */
+        width: 40px;
+        height: 20px;
+        padding: 4px 0 0 12px;
+        display: inline-block;
+        /* padding: 1.9em 2em; */
+        border: 2px solid #AAAAAA;
+        border-radius: 0.25em;
+        color: #AAAAAA; 
+        background-color: #FFFFFF;
+        font-size: 12px;
+    }
+    /* 이건 보여주지 않을 것..  */
+    #ImgAddBtn{ padding: 1.9em 2em; color: #fff; background-color:coral; font-weight: 700; display: none;}
+
+</style>
+<script>
+// 미리보기 목록 추가 
+function fileinputAdd(){ 
+    // 미리보기 리스트 추가 
+    var li = "<img class=\"preview\" alt=\"\" />"
+            + "<button class=\"imgUpBtn\">사진변경</button>"
+            + "<a class=\"ImgRemoveBtn\">삭제</a>"; 
+    var ul = document.getElementById("image-list"); 
+    ul.innerHTML += "<li>"+li+"</li>"; 
+    // 인풋 파일 생성 
+    var fileinput = document.createElement("INPUT"); 
+    fileinput.setAttribute("type", "file"); 
+    fileinput.setAttribute("class", "files"); 
+    fileinput.setAttribute("name", "files[]"); 
+    fileinput.setAttribute("accept", "image/jpeg, image/png"); 
+    fileinput.setAttribute("style", "display:none;"); 
+    document.body.appendChild(fileinput); 
+    // 삭제도 있어야될것 같아서 넣어봄 
+    var removeBtn = document.getElementsByClassName("ImgRemoveBtn"); 
+    for(var i = 0; i < removeBtn.length; i++){ 
+          removeBtn[i].setAttribute("onclick","fileinputRemove("+i+");"); 
+   } 
+   // 새로 생성되면서 파일 미리보기 다시 로드 
+   previewInputReload(); 
+   // 이미지 업로드 버튼 기능 다시 로드 
+   fileimgUpBtnReload(); 
+} 
+//미리보기 개별 삭제 
+// 삭제 누르면 전체 삭제가 아니라 이미지만 삭제 
+function fileinputRemove(index){ 
+    var li = document.querySelector('#image-list li')[index]; 
+    var input = document.getElementsByClassName('files')[index]; 
+    var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[index]; 
+    if(li != undefined){ 
+          input.remove(); 
+          li.remove(); 
+          removeBtn.remove(); 
+          li = document.querySelector('#image-list li'); 
+          for(var i = 0; i < li.length; i++){ 
+                var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[i]; 
+                removeBtn.setAttribute("onclick","fileinputRemove("+i+");"); 
+         } 
+  } 
+  // 삭제되면되면 파일 미리보기 다시 로드 
+  previewInputReload(); 
+  // 삭제후 이미지 업로드 버튼 기능 다시 로드 
+  fileimgUpBtnReload(); 
+} 
+
+// //미리보기 개별 삭제 
+
+// function fileinputRemove(index){ 
+//     var li = document.querySelector('#image-list li')[index]; 
+//     var input = document.getElementsByClassName('files')[index]; 
+//     var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[index]; 
+//     if(li != undefined){ 
+//           input.remove(); 
+//           li.remove(); 
+//           removeBtn.remove(); 
+//           li = document.querySelector('#image-list li'); 
+//           for(var i = 0; i < li.length; i++){ 
+//                 var removeBtn = document.getElementsByClassName("ImgRemoveBtn")[i]; 
+//                 removeBtn.setAttribute("onclick","fileinputRemove("+i+");"); 
+//          } 
+//   } 
+//   // 삭제되면되면 파일 미리보기 다시 로드 
+//   previewInputReload(); 
+//   // 삭제후 이미지 업로드 버튼 기능 다시 로드 
+//   fileimgUpBtnReload(); 
+// } 
+
+
+// 파일 업로드기능 function 연결하는 부분 
+function fileimgUpBtnReload(){ 
+    var uploadBtn = document.getElementsByClassName('imgUpBtn'); 
+    for(var i = 0; i <uploadBtn.length; i++){ 
+          uploadBtn[i].setAttribute("onclick","uploadFile("+i+");"); 
+   } 
+} 
+// 이미지 업로드 버튼 눌를때 해당 파일인풋 대신 클릭 
+function uploadFile(index){ 
+    document.getElementsByClassName("files")[index].click(); 
+} 
+// 이미지 미리보기 관련 다시 로드 
+function previewInputReload(){ 
+    var input = document.getElementsByClassName('files'); 
+    for(var i=0; i< input.length;i++){ 
+          input[i].setAttribute("onchange","document.getElementsByClassName('preview')["+i+"].src=window.URL.createObjectURL(this.files[0])"); 
+   } 
+} 
+// window 로드시 
+window.onload = function(){ 
+    // image-list 에 기본적으로 파일 업로드 하나는 넣어줌.. 
+    fileinputAdd(); 
+    var AddBtn = document.getElementById("ImgAddBtn"); 
+    // 파일 추가 클릭 이벤트 생성 
+    AddBtn.addEventListener("click", function(){ 
+          fileinputAdd(); 
+   },false); 
+} 
+</script>
+</head> 
+<body> 
+    <button id="ImgAddBtn">파일추가</button> 
+    <ul id="image-list"></ul> 
+</body> 
+</html> 
