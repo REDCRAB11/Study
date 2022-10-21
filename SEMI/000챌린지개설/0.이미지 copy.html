@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIN</title>
+
+    <link rel="stylesheet" type="text/css" href="basic.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <style>
+        div{
+            border: 1px dotted gray;
+        }
+
+        img{
+            border-radius: 5px;
+        }
+        /* 업로드 버튼 */
+        .input-file-upload{
+            padding: 6px 25px; 
+            background-color: yellowgreen;
+            border-radius: 0.25em;
+            color: white;
+            cursor: pointer;
+        }
+        .input-file-blind{
+            display: none;
+        }
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+     <script type="text/javascript">
+
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+            document.getElementById('preview').src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            document.getElementById('preview').src = "";
+        }
+        }
+
+        
+
+     </script>
+     </head>
+     <body>
+        <div class="row">
+            <label class="input-file-upload" for="input-file">UPLOAD</label>        
+            <input  type="file" onchange="readURL(this);"> 
+            <img style="width: 233px; height: 166px;" id="preview" />
+        </div>
+
+       
+     </body>
+     </html>

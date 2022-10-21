@@ -54,35 +54,14 @@
             color:#707070;
             text-decoration-line: none;
         }
-        .input ~ .fail-message{
+        .fail-message{
             color: #eb6f7f;
             display: none;
         }
     </style>
      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
      <script type="text/javascript">
-        $("#largebutton1").click(function(){
-            var id = $("input[name=memberId").val();
-            var pw = $("input[name=memberPw").val();
-
-            $.ajax({
-                url:"http://localhost:8888/login",
-                method:"post",
-                data: "id" + id + "$pw" + pw,
-                dataType: "text",
-                success: function(data, textStatus, xhr){
-                    if(data == "loginFail"){
-
-                    }else if(data == "loginSuccess"){
-                        window.location.href="메으로 이동 "
-                    }
-                },
-                error: function(request, status, error){
-                    window.location.href=("에러페ㅣ지로 이동0");
-                }
-            });
-        });
-//https://unordinarydays.tistory.com/m/98 >참고해서 컨트롤러 ㄱ 
+        
      </script>
      </head>
      <body>
@@ -90,6 +69,7 @@
             로그인/비밀번호 일치? 썼는데 
             아마도 틀린거 같다. 
             그러니 백 나오면 다시 수정 ~>.. .. ㅠ 
+            member - > login 에서 맨 밑ㅇ거 가져오셔 
         -->
         <div class="row container-400">
             <div class="row center">
@@ -99,12 +79,14 @@
             
             </div>
             <div class="row">
-                <input type="text" name="memberId" class="input short-text-box" id="text-box1" placeholder="&nbsp; 아이디">
-                <span class="fail-message">아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.</span>
+                <input type="text" name="memberId" class="input short-text-box" id="text-box1" placeholder="아이디">
             </div>
             <div class="row">
-                <input type="password" name="memberPw" class="input short-text-box" id="text-box1" placeholder="&nbsp; 비밀번호">
-                <span class="fail-message">아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.</span>
+                <input type="password" name="memberPw" class="input short-text-box" id="text-box1" placeholder="비밀번호">
+            </div>
+            <div class="row">
+                <span class="fail-message">아이디 또는 비밀번호를 잘못 입력했습니다.</span>
+                <span class="fail-message">입력하신 내용을 다시 확인해주세요.</span>
             </div>
             <div class="row">
                 <button type="submit" class="largebtn w-100" id="largebutton1">로그인</button>

@@ -48,10 +48,6 @@
             margin: 0 10px 10px;
             padding: 0 0 5px;
         }
-
-        span{
-         
-        }
         .p1{
             font-size: 20px;
             color: #3f3f3f;
@@ -109,11 +105,11 @@
             display: block;
             padding: 15px 0;
             margin-top: 11px;
-            background-color: yellowgreen;
-            border: 1px solid yellow;
+            background-color: #e5e6f9;
+            border: 1px solid #e5e6f9;
             border-radius: 1em;
             font-size: 14px;
-            color: #FFF;
+            color: #6c7aef;
             font-weight: 700;
             text-align: center;
             text-decoration: none;
@@ -140,6 +136,15 @@
         }
         .chk-line{
             margin: 0 0 0 -12px;
+        }
+        /* btn */
+        .cancel-btn{
+            width: 150px;
+            margin-right: 20px;
+            margin-top: 75px; /* 취소,개설하기 버튼과 위에 7번 사이 간격*/
+        }
+        .create-btn{
+            width: 320px;
         }
     </style>
      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -263,8 +268,8 @@
                 <textarea placeholder="예)어려워서 하기 싫은 알고리즘 문제풀이 매일매일 같이 인증해요~!"></textarea>
             </div>
             <div class="row center"> <!--센터? 아니면 노센터?-->
-                <button>취소</button>
-                <button>개설하고 참가하기</button>
+                <button class="smallbtn cancel-btn" type="submit" id="smallbutton3">취소</button>
+                <button class="smallbtn create-btn" type="submit" id="smallbutton1">개설하고 참가하기</button>
             </div>
         </div>
      </body>

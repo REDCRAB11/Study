@@ -202,6 +202,84 @@
     color: #ebebed;
 }
 
+.navbtn{
+    border: none;
+    font-size: 16px;
+    padding: 0.75em;/*글자 크기의 0.75배*/
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.5em;
+    width: 130px;
+    height: 40px;
+}
+#navbutton1{
+    background-color: #6c7aef;
+    color: white;
+}
+#navbutton2{
+    border:solid;
+    border-color: #6c7aef;
+    border-width: 2px 2px 2px 2px;
+    background-color: white;
+    color: #6c7aef;
+}
+
+.smallbtn{
+    border: none;
+    font-size: 16px;
+    padding: 0.75em;/*글자 크기의 0.75배*/
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.5em;
+    width: 225px;
+    height: 50px;
+}
+#smallbutton1{
+    background-color: #6c7aef;
+    color: white;
+}
+#smallbutton2{
+    background-color: e5e6f9;
+    color: #6c7aef;
+}
+#smallbutton3{
+    border:solid;
+    border-color: #6c7aef;
+    border-width: 2px 2px 2px 2px;
+    background-color: white;
+    color: #6c7aef;
+}
+#smallbutton4{
+    border: none;
+    border-color: transparent;
+    background-color: white;
+    color: #6c7aef;
+}
+#smallbutton1-1{
+    background-color: #ebebed;
+    color: #cfc9d5;
+}
+#smallbutton2-1{
+    background-color: #ebebed;
+    color: #cfc9d5;
+}
+#smallbutton3-1{
+    border:solid;
+    border-color: #ebebed;
+    border-width: 2px 2px 2px 2px;
+    background-color: white;
+    color: #ebebed;
+}
+#smallbutton4-1{
+    border: none;
+    border-color: transparent;
+    background-color: white;
+    color: #ebebed;
+}
 
 /* select */
 

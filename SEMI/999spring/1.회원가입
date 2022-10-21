@@ -1,19 +1,30 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOIN</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
     <link rel="stylesheet" type="text/css" href="basic.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
+<jsp:include page="/WEB-INF/views/template/header.jsp">
+	<jsp:param value="회원가입" name="title"/>
+</jsp:include>
+
     <style>
 
 /* 
+    10.20 
+    디자인 수정해야할 것: 
+    - 각 input간의 사이 간격 더 띄우기 
+    - 회원가입 위 글자와 사이 간격 띄우기 
+    - 회원가입 밑 글자 사이 간격 띄우기 
+    - 헤더 맞추기 
+
+    연동 해야할 것:
+    - 회원가입시 -> 회원가입 성공으로 이동 
+    - 로그인 -> 로그인 페이지로 이동 
+
+    10.19 
 		디자인 수정해야할 것 : 
 		- 맨 마지막 계정이 있으신가요? 로그인 버튼 누르면 굵은 글씨체 ㅇ
 		- 맨 마지막 문장과 글자 사이 간격 띄우기 ㅇ
@@ -22,15 +33,15 @@
 		- 각 input간 사이 간격 넓히기 ㅇ
 		- 나머지 디자인 수정하지 말 것 ㅇㅇㅇㅇ
 
-        email-drop-box에서 높이가 내가 보는 것과 실제로 홈페이지에 나온게 달라서 윈도우에서 확인 해야
+        email-drop-box에서 높이가 내가 보는 것과 실제로 홈페이지에 나온게 달라서 윈도우에서 확인 해야 
 		
 		연동?? 수정해야할 것: 
 		- 각 name 만들어 논 것과 수정할 것 
-		- 이메일 셀렉창 선택시 @가 포함된 상태로 인식이 되어야함    
-		- 회원가입 누르면 회원가입 축하페이지로  이동 시키기 
-		- 맨 밑 로그인 누르면 로그인페이지로 이동 
-        - 이메일 정규식... 근데 넘 어려움 ㅠㅠㅠㅠ... 사용자가 치는 이메일 정규식 셀렉 외에 메일도 있어야 함 !  --> 틀렸을 시 문구가 뜨지 않음..! 
-        - ajax 아이디랑 닉네임 이미 등록된 아이디와 닉네임 
+		- 이메일 셀렉창 선택시 @가 포함된 상태로 인식이 되어야함    ㅇ
+		- 회원가입 누르면 회원가입 축하페이지로  이동 시키기 ㅇ
+		- 맨 밑 로그인 누르면 로그인페이지로 이동 ㅇ
+        - 이메일 정규식... 근데 넘 어려움 ㅠㅠㅠㅠ... 사용자가 치는 이메일 정규식 셀렉 외에 메일도 있어야 함 !  --> 틀렸을 시 문구가 뜨지 않음..! ㅇ
+        - ajax 아이디랑 닉네임 이미 등록된 아이디와 닉네임 ㅇ
 */
 
     
@@ -295,7 +306,6 @@
             });
         });
     </script>
-</head>
 <body>
     <div class="container-650">
         <div class="row center">
@@ -349,4 +359,3 @@
         </form>
     </div>
 </body>
-</html>
