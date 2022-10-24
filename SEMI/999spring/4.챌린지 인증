@@ -156,7 +156,6 @@
             display: none;
         }
         .preview{
-            border: 1px solid gray;
             border-radius: 0.25em;
         }
               /* 이미지 업로드 버튼들 */
@@ -258,7 +257,7 @@
                 });
             });
             $("button[name=thumbnail-delete]").click(function(){
-                $(".preview").attr("src", "");
+                $(".preview").attr("src", "/images/bg_default.png");
             });
         });
     
@@ -292,7 +291,7 @@
      </head>
      <body>
         <div class="container-1200">
-
+<form action="write" method="post" enctype="multipart/form-data">
             <div class="row">
                 <p class="p1"> 1. 인증할 챌린지를 선택해주세요.</p>
                 <select class="dropdown dropdown-check confirm-check"  name="chalTitle">
@@ -335,7 +334,7 @@
                 <p class="p2">jpg, png 파일만 업로드할 수 있어요.</p>
                 <div class="row">
                     <input id="input-file" type="file" class="thumbnail"  name="attachment" accept="jpg, png" class="thumbnail">
-                    <img class="preview" src="" width="250" height="200">
+                    <img class="preview" src="/images/bg_default.png" width="250" height="200">
                     <div class="row img-btns">
                         <label class="input-file-upload img-lab" for="input-file">사진변경</label>        
                         <button class="delete-file-upload img-btn" name="thumbnail-delete">삭제</button>
@@ -347,57 +346,6 @@
                 <button class="smallbtn cancel-btn" type="button" id="smallbutton3">취소</button>
                 <button class="smallbtn create-btn" type="submit" id="smallbutton1">인증글 저장하기</button>
             </div>
+            </form>
         </div>
      </body>
-
-
-
-
-
-
-<!--  -->
-<%-- <style>
-	textarea {
-		resize:none;
-	}
-</style>
-<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-<script>
-	$(function() {
-		$("select[name=chalTitle]").on("change", function(){
-			//선택된 챌린지 번호를 input type=hidden에 추가
-			var chalNo = parseInt($(this).find("option:selected").attr("value"));
-			$("input[name=chalNo]").val(chalNo);
-			
-			//선택된 챌린지 인증방법을 .how-confirm에 추가
-			var howConfirm = $("select[name=chalTitle]").find("option:selected").attr("data-howConfirm");
-			$(".how-confirm").val(howConfirm);
-		});
-		//파라미터에 chalNo가 있을 때만 해당 챌린지를 자동으로 선택
-		var urlParams = new URL(location.href).searchParams;
-		var chalNo = urlParams.get('chalNo');
-		if(chalNo){			
-			$("select[name=chalTitle]").val(chalNo).attr("selected", "selected").trigger("change");
-		}
-	});
-</script>    
-
-	<form action="confirm" method="post" enctype="multipart/form-data">
-		1. 인증할 챌린지를 선택해주세요.
-		<br>
-		<select name="chalTitle">
-		  	<option value="">선택하기</option>
-			<c:forEach var="list" items="${chalList}">
-				<option value="${list.chalNo}" data-chalTitle="${list.chalTitle}" data-howConfirm="${list.howConfirm}">${list.chalTitle}</option>
-		  	</c:forEach>
-		</select>
-		<input type="hidden" name="chalNo">
-		<br><br>
-		
-		✅ 인증 방법
-		<br>
-		<textarea class="how-confirm" rows="5" readonly></textarea>
-		
-		<br><br>
-
-	 --%>

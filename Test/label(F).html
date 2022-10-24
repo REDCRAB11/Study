@@ -21,6 +21,21 @@
             color: #F2A574;
         }
 
+        .label-success{
+            border: none;
+            border-radius: 3px;
+            width: 60px;
+            height: 30px;
+            background-color:  #F8e4e7;
+            /* color: #F2A574; */
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .label-success::placeholder{
+            color: #ec6e7d;
+        }
+
         .label-close{
             border: none;
             border-radius: 3px;
@@ -97,6 +112,7 @@
     </head>
     <body>
         <input class="label-wait" placeholder="WATING">
+        <input class="label-success" placeholder="SUCCESS">
         <input class="label-close" placeholder="CLOSED">
         <input class="label-progress" placeholder="IN PROGRESS">
         <input class="label-category" placeholder="CATEGORY">

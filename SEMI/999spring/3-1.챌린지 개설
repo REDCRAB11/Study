@@ -96,7 +96,7 @@
             font-size: 20px;
             color: #3f3f3f;
             font-weight: bold;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
             padding-top:114px; /* 큰 제목간의 사이 간격 */
         }
          .p1-1{
@@ -218,6 +218,7 @@
             display: none;
         }
         img{
+            /* border: 100px dotted gray; */
             float: left;
         }
 
@@ -233,6 +234,7 @@
             display: none;
         }
         .preview{
+            border: 1px solid gray;
             border-radius: 0.25em;
         }
         /* 이미지 업로드 버튼들 */
@@ -249,7 +251,7 @@
 			color: #AAAAAA;
 		}
 		.img-btns{
-			padding-top: 161px; /* 미리보기와 사진변경/삭제 간의 높이 맞춤 */
+			padding-top: 176px;
 		}
         .row-7{ /* 이미지 미리보기와 7번이 겹치기 때문에 조절 */
             padding-top: 80px;
@@ -282,7 +284,7 @@
 
     // 이미지 
     $(function(){
-            $("[name=attachment]").change(function(e){
+            $("[name=thumbnail-input]").change(function(e){
                 //input[type=file] 태그에는 files라는 속성이 존재
                 console.log(this.files);
                 if(this.files.length > 0){
@@ -300,15 +302,15 @@
                 // 사진 변경하기 
                 var inputImage = document.getElementById("input-image")
                 inputImage.addEventListener(function(e){
-                    $("[name=attachment]")(e.target)
+                    $("[name=thumbnail-input]")(e.target)
                 });
             });
             $("button[name=thumbnail-delete]").click(function(){
-                $(".preview").attr("src", "/images/bg_default.png");
+                $(".preview").attr("src", "");
             });
         });
     
-    //help-text
+    //2번 help-text
      $(function(){
             $(".helper-text1").on("input", function(){
                 var text = $(this).val();
@@ -432,8 +434,8 @@
                 <p class="p1">6. 챌린지 대표 이미지를 등록하세요.(선택)</p>
                 <p class="p2">노출 위치에 따라 섬네일이 축소/확대되어 적용합니다. 등록하지 않는 경우, 랜점으로 기본 이미지가 적용됩니다.</p>
                 <div class="row">
-                    <input id="input-file" type="file" name="attachment" class="thumbnail">
-                    <img class="preview" src="/images/bg_default.png" width="250" height="200">
+                    <input id="input-file" type="file" name="thumbnail-input" class="thumbnail">
+                    <img class="preview" src="" width="250" height="200">
                     <div class="row img-btns">
                         <label class="input-file-upload img-lab" for="input-file">사진변경</label>        
                         <button class="delete-file-upload img-btn" name="thumbnail-delete">삭제</button>

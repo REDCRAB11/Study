@@ -17,15 +17,33 @@
     <script src="https://cdn.jsdelivr.net/npm/lightpick@1.6.2/lightpick.js"></script>
 
 
+
     <style>
         /* 
-            라디오 버튼과 라벨 사이 간격 
-            데이트 타입에 폰트어썸 넣어야하는데 어떻게 넣어야할까요 ~ 
+            10.21 
+
+            디자인 수정해야할 것:
+            - 각 hover 재설정 하기 
+            - radio 버튼 맛감 ㅇ
+            - 이미지 이제까지 만든 거 적용 시키기 
+            - text제한 수 두기 
+            - 경고문 빨간거 뜨기
+            - 챌린지 시작인 인풋 박스에 그림 넣기  
+
+            DB 수정해야할 것: 
+            - 미리보기 사진의 경우에는 이미지 지우는 src를 삭제하자. 
+            - src를 삭제하자 
+            - 39번 //시나리오 부분 참고하세요 
+            - 필수값이 입력안되었을때 날라가지 말 것. 
+
+
+
         */
         div{
-            border: 1px dotted transparent;
+            border: 1px dotted gray;
             display: block;
         }
+        body {margin: 10px; font-size: 13px}
 
         input::placeholder,
         textarea::placeholder{
@@ -44,40 +62,24 @@
 			resize: none;
         }
 
-        /* .chk-1{
-            margin: 0 10px 10px;
-            padding: 0 0 5px;
-        } */
-
-        span{
-            font-size: 16px;
-            color:#6c7aef;
-            border: 2px solid transparent;
-            background-color: #e5e6e9;
-            border-radius: 0.25em;
+        /* 
+            라디오 버튼 관련 1번 
+            라디오와 라벨 간격 띄우려면 basic.css 가시오 
+         */
+        label{
+            margin: 17px 0 10px;
+            padding-left: 30px;
         }
+       
         .p1{
             font-size: 20px;
             color: #3f3f3f;
             font-weight: bold;
-            margin-top: 50px;
+            margin-top: 46px;
         }
         .p2{
             font-size: 12px;
             color: #3f3f3f;
-            margin-top: -10px;
-        }
-        .p3{
-            font-size: 12px;
-            color: #3f3f3f;
-            margin-top: -5px;
-            margin-bottom: 25px;
-        }
-        .p4{
-            font-size: 12px;
-            color: #3f3f3f;
-            margin: -19px;
-            padding: 0 45px;
         }
 
         .lab{ /* 라디오 버튼 사이 간격 */
@@ -126,11 +128,11 @@
             display: block;
             padding: 15px 0;
             margin-top: 11px;
-            background-color: yellowgreen;
-            border: 1px solid yellow;
+            background-color: #e5e6f9;
+            border: 1px solid #e5e6f9;
             border-radius: 1em;
             font-size: 14px;
-            color: #FFF;
+            color: #6c7aef;
             font-weight: 700;
             text-align: center;
             text-decoration: none;
@@ -147,6 +149,72 @@
             vertical-align: top;
             margin: 2px 5px 0 0;
         }
+        /* 체크박스 */
+        .chk-1{
+            margin-bottom: -3px;
+        }
+        .chk-2{
+           color: #6c7aef;
+           padding: 0 0 0 5px;
+        }
+        .chk-line{
+            margin: 0 0 0 -12px;
+        }
+        /* btn */
+        .cancel-btn{
+            width: 150px;
+            margin-right: 20px;
+            margin-top: 75px; /* 취소,개설하기 버튼과 위에 7번 사이 간격*/
+        }
+        .create-btn{
+            width: 320px;
+        }
+
+        /* 이미지 보기  */
+        input{
+            display: none;
+        }
+        img{
+            /* border: 100px dotted gray; */
+            float: left;
+        }
+
+           /* 업로드 버튼 */
+        .input-file-upload{
+            padding: 6px 25px; 
+            background-color: yellowgreen;
+            border-radius: 0.25em;
+            color: white;
+            cursor: pointer;
+        }
+        .input-file-blind{
+            display: none;
+        }
+        .preview{
+            border: 1px solid gray;
+            border-radius: 0.25em;
+        }
+
+        .row-7{ /* 이미지 미리보기와 7번이 겹치기 때문에 조절 */
+            padding-top: 100px;
+        }
+        
+
+        /* 
+         */
+
+         .validation-note {
+	        display: none;
+        }
+
+        .invalid-form input:invalid {
+            border: 1px solid red;
+        }
+
+        .invalid-form input:invalid + .validation-note {
+            visibility: viaible;
+        }
+
     </style>
      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
      <script type="text/javascript">
@@ -160,58 +228,85 @@
             format:"YYYY-MM-DD",
             
             // (+옵션) 미래/과거를 선택하지 못하도록 설정 
-            maxDate:moment(), //미래 선택 못함 
-            // minDate:moment(), // 과거 선택 못함  괄호안에 특정 날짜 넣어줘도 됨~ 
+            // maxDate:moment(), //미래 선택 못함 
+            minDate:moment(), // 과거 선택 못함  괄호안에 특정 날짜 넣어줘도 됨~ 
 
             // (+옵션) 표시되는 달의 개수를 지정 
-            numberOfMonths:2, //2개의 달씩 보여줘라 
+            numberOfMonths:1, //2개의 달씩 보여줘라 
+        });
+        
+        var today = new Date();
+        today.setDate(today.getDate() + 28);
+        $("#endDate").datepicker('setDate', today);
+
+    });
+
+    // 이미지 
+    $(function(){
+            $("[name=thumbnail-input]").change(function(e){
+                //input[type=file] 태그에는 files라는 속성이 존재
+                console.log(this.files);
+                if(this.files.length > 0){
+                    //읽는 도구
+                    var reader = new FileReader();
+
+                    //읽을 때 해야할 작업
+                    reader.onload = function(e){
+                        //읽은 내용 정보가 e에 들어 있음
+                        var preview = document.getElementById("preview")
+                        $(".preview").attr("src", e.target.result);
+                    };
+
+                    reader.readAsDataURL(this.files[0]);//읽어라
+                   
+                }
+
+                // 사진 변경하기 
+                var inputImage = document.getElementById("input-image")
+                inputImage.addEventListener(function(e){
+                    $("[name=thumbnail-input]")(e.target)
+                });
+                
+            });
+            
+            $("button[name=thumbnail-delete]").click(function(){
+                
+                $(".preview").attr("src", "./image/jong.png");
+            });
+          
         });
 
-        var Picker2 = new Lightpick({
-            field:document.querySelector("[name=begin]"),
-            secondField:document.querySelector("[name=end"),
-        });
-    });
+     
 
      </script>
      </head>
      <body>
+         <form action="create" method="post" enctype="multipart/form-data">
         <div class="container-1200">
-
             <div class="row">
                 <p class="p1">원하는 챌린지를 직접 개설해보세요.</p>
                 <p class="p2">내가 개설한 챌린지에 자동으로 참가하게 됩니다.</p>
             </div>
 
-            <div class="row">
-            <div class="checks small">
-
+           <div class="row">
                 <p class="p1"> 1. 어떤 주제와 관련이 있나요?</p>
 
-                <!-- 아마도 라디오 클릭시 운동만 선택되어지는 이유는.. name이 다 같아서 나중에 DB나오면 다ㅣㅅ 바꾸세요 -->
-                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
-                <label class="lab" for="ex_rd2" >운동</label><br/>
-                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
-                <label class="lab" for="ex_rd2">식습관</label><br/>
-                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
-                <label class="lab" for="ex_rd2">생활</label><br/>
-                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
-                <label class="lab" for="ex_rd2">정서</label><br/>
-                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
-                <label class="lab" for="ex_rd2">취미</label><br/>
-                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
-                <label class="lab" for="ex_rd2">학습</label><br/>
-                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
-                <label class="lab" for="ex_rd2">환경</label><br/>
-                <input type="radio" id="ex_rd2" name="ex_rds" class="rad"> 
-                <label class="lab" for="ex_rd2">그 외</label><br/>
-            </div>
+                <div class="row checks small">
+                <input id="ex_rd1" name="ex_rds" type="radio" value="운동" checked><label for="ex_rd1">운동</label><br>
+                <input id="ex_rd2" name="ex_rds" type="radio" value="생활"><label for="ex_rd2">생활</label><br>
+                <input id="ex_rd3" name="ex_rds" type="radio" value="정서"><label for="ex_rd3">정서</label><br>
+                <input id="ex_rd4" name="ex_rds" type="radio" value="취미"><label for="ex_rd4">취미</label><br>
+                <input id="ex_rd5" name="ex_rds" type="radio" value="학습"><label for="ex_rd5">학습</label><br>
+                <input id="ex_rd6" name="ex_rds" type="radio" value="환경"><label for="ex_rd6">환경</label><br>
+                <input id="ex_rd7" name="ex_rds" type="radio" value="그 외"><label for="ex_rd7">그 외</label><br>
+                </div>
+             
             </div>
 
             <div class="row">
                 <p class="p1">2. 챌린지 제목을 입력해주세요.</p>
                 <p class="p2"> 타인에게 불쾌감을 주는 단어를 사용할 경우 계정이 영구정지 될 수 있습니다.</p>
-                <input class="short-text-underlinebox uderline-hover" type="text" placeholder="예) 아침 6시에 일어나기 " id="text-underlinebox1">
+                <input class="short-text-underlinebox uderline-hover" type="text" placeholder="예) 아침 6시에 일어나기 " id="text-underlinebox1 ">
             </div>
 
             <div class="row">
@@ -225,7 +320,7 @@
 
                 <div class="row">
                     <i class="fa-solid fa-calendar-days"></i>
-                    <input type="text" class="single-date-picker" id="short-text-box">
+                    <input type="text" class="single-date-picker" id="short-text-box" required>
                 </div>
 
                 <div class="row date-calendar">
@@ -240,38 +335,43 @@
 
             </div>
 
+            <!--  체크해야 넘어간다  -->
             <div class="row">
                 <p class="p1">5. 모집 방식을 확인해주세요.</p>
                 <p class="p2">[모집 방식] 선착순 자동 마감</p>
-                <p class="p3">[참가 인원] 최대 10명까지 참가할 수 있어요. 챌린지 시작 전에 10명이 다 모이면 자동으로 모집이 마갑됩니다. </p>
-                <label class="line">
+                <p class="p2">[참가 인원] 최대 10명까지 참가할 수 있어요. 챌린지 시작 전에 10명이 다 모이면 자동으로 모집이 마갑됩니다. </p>
+                <div class="row chk-line">
+                <label class="line" id="create5" required>
                     <input type="checkbox">
-                    <span class="chk-1">
-                    </span>
-                    <p class="p4">확인헀어요!</p>
-                </label>  
-               
+                    <span class="chk-1"></span>
+                    <span class="chk-2">확인했어요!</span>
+                </label>    
+            </div>
             </div>
 
             <div class="row">
                 <p class="p1">6. 챌린지 대표 이미지를 등록하세요.(선택)</p>
                 <p class="p2">노출 위치에 따라 섬네일이 축소/확대되어 적용합니다. 등록하지 않는 경우, 랜점으로 기본 이미지가 적용됩니다.</p>
-                <input>
-
-                </input>
-                <button>사진변경</button>
-                <button>삭제</button>
+                <div class="row">
+                    <input id="input-file" type="file" name="thumbnail-input">
+                    <img class="preview" src="" width="250" height="200">
+                    <div class="row">
+                        <label class="input-file-upload" for="input-file">사진변경</label>        
+                        <button class="delete-file-upload" name="thumbnail-delete">삭제</button>
+                    </div>
+                </div>
             </div>
 
-            <div class="row">
+            <div class="row row-7">
                 <p class="p1">7. 챌린지를 소개해주세요.(선택)</p>
                 <p class="p2">다른 사람들이 챌린지 참가를 결정할 때 참고할 수 있어요.</p>
                 <textarea placeholder="예)어려워서 하기 싫은 알고리즘 문제풀이 매일매일 같이 인증해요~!"></textarea>
             </div>
             <div class="row center"> <!--센터? 아니면 노센터?-->
-                <button>취소</button>
-                <button>개설하고 참가하기</button>
+                <button class="smallbtn cancel-btn" type="submit" id="smallbutton3">취소</button>
+                <button class="smallbtn create-btn" type="submit" id="smallbutton1 create-btn">개설하고 참가하기</button>
             </div>
         </div>
+    </form>
      </body>
      </html>

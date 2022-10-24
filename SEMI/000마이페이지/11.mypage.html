@@ -12,33 +12,91 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
     <style>
+        /* 
+        
+        10.24 
+        디자인 해야할 것 
+        - input박스 라벨이 글자수에 따라 자동으로 크기가 조절 되야함 
+        */
         div{
             border: 1px dotted gray;
         }
-        td{
-            vertical-align: middle;
-
+        .p1{
+            font-size: 20px;
+            font-weight: bold;
+            color:#3f3f3f;
         }
-        ul{
-            display: block;
-            margin-block-start: 1em;
-            margin-block-end: 1em;
-            margin-inline-start: 0px;
-            margin-inline-end: 0px;
-            padding-inline-start: 40px;
-
+        .p2{
+            font-size:12px;
+            font-weight: bold;
+            color:#3f3f3f;
         }
-        li{
-            display: list-item;
-            text-align: -webkit-match-parent;
+        .user-img{
+            width: 60px;
+            border-radius: 50%;
         }
+        .p3{
+            font-size: 12px;
+            color:#3f3f3f;
+        }
+        .p4{
+            font-size: 16px;
+            font-weight: bold;
+            color: #3f3f3f;
+        }
+  
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
      <script type="text/javascript">
-
+       
      </script>
      </head>
      <body>
-      
+        <div class="row container-1200">
+            <div class="row container-794">
+                <div class="row">
+                    <p class="p1">마이페이지</p>
+                </div>
+
+                <div class="row">
+                    <img class="user-img" src="./image/con.png">
+                    <p class="p2">유저 닉네임</p>
+                    <p class="p3">유저 이메일</p>
+                    <button><a href="계정 관리">계정관리</a></button>
+                </div>
+
+                <div class="row">
+                    <p class="p4">챌린지 현황</p>
+                </div>
+
+                <div class="row">
+                    <li>참가중인 숫자 </li>
+                    <li>참가중</li>
+                    <li>완료된 숫자</li>
+                    <li>완료</li>
+                    <li>개설중인 숫자</li>
+                    <li>개설</li>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <button><a href="/chal/create">챌린지 인증</a></button>
+                    <button><a href="/chal/create">챌린지 인증</a></button>
+                </div>
+
+                <div class="row">
+                    <img src="./image/con.png" width="200">
+                    <input class="label-close" placeholder="ㅇ일 뒤 시작">
+                    <p class="p5">챌린지 제목</p>
+                    <p class="p6">챌린지 기간</p>
+                    <input class="label-category" placeholder="챌린지분류">
+                    <input class="label-success" placeholder="현재 달성률 90%">
+                </div>
+                <div class="row">
+                    <button><a href="내 인증글">내 인증글</a></button>
+                </div>
+            </div>
+        </div>
      </body>
      </html>
