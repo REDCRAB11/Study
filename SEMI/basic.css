@@ -109,6 +109,7 @@ html{
     border-color: #cfc9d5;
     color: #3d3d3d;
 }
+.short-hover:focus,
 .short-hover:hover{
     border-color: #6c7aef;
     color: #cfc9d5;
@@ -127,6 +128,7 @@ html{
     border-color: #ebebed;
     color: #3d3d3d;
 }
+.long-hover:focus,
 .long-hover:hover{
     border-color: #cfc9d5;
     color: #3f3f3f3f;
@@ -676,3 +678,54 @@ select{
 .label-success::placeholder{
     color: #ec6e7d;
 }
+
+/* hr */
+.divider1{
+    border: 0px;
+    border-bottom: 4px solid #f0ecf2;
+    width: 200px;
+}
+
+/* 페이지 네이션 */
+
+    /*  마지막은 홈페이지와 같이 연동 시키는 DB구현만.. */
+        /*  번호를 눌러야 번호가 나오고 네모안에는 번호가 안나옴 !!!  */
+        ul.page{
+            list-style: none;  /*li 점 없애기*/
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            color: #6c7aef;
+            text-align: center;
+            
+        }
+        ul.page > li{
+            display: inline-block; /*일렬로 정렬*/
+            border: 1px solid transparent; /*투명한 네모 상자 */
+            border-radius: 30%;
+            padding: 0.5em; /*사이 간격*/
+            line-height: 1.7em; /*글자 표시 높이*/
+            margin: 0.5em; /*글자 사이 간격 이거는 사이사이 간격*/
+            min-width: 1em; /*글자 사이 간격 더 크게 + border도 크게 */
+            text-align: center; /*상자안에 글자 중앙에 */
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+        }
+        /* 번호에 커서대면 나타내는 표시  */
+        ul.page > li:hover,
+        ul.page > li > a:hover{
+            border-color: #6c7aef; /*커서 대면 상자표시*/
+            background-color: #6c7aef;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+       
+        ul.page > li > a {
+            display:block;
+            width: 100%;
+            color: #6c7aef;
+            text-decoration: none;
+            font-weight: bold;
+        }
