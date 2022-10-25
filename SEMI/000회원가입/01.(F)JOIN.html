@@ -191,9 +191,8 @@
             }
         }
 
-        
         function checkPasswordRe(){
-            var origin = document.querySelector("input[name=userPw]");
+             var origin = document.querySelector("input[name=userPw]");
             var repeat = document.querySelector("#password-check");
             
             var judge = origin.value == repeat.value;
@@ -203,7 +202,8 @@
             }else{
                 repeat.classList.add("fail");
             }
-        }
+        }   
+    
 
         function checkEmail(){
             var input = document.querySelector("input[name=userEmail]");
