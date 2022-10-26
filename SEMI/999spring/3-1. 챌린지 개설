@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CREATE</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-  
-    <link rel="stylesheet" type="text/css" href="basic.css">
+ <jsp:include page="/WEB-INF/views/template/header.jsp">
+	<jsp:param value="챌린지 개설" name="title"/>
+</jsp:include>
+
+ 
+ 
+ 	<link rel="stylesheet" type="text/css" href="/css/basic.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -259,17 +261,6 @@
         .row-7{ /* 이미지 미리보기와 7번이 겹치기 때문에 조절 */
             padding-top: 80px;
         }
-        /* 4번 */
-        input[name="startDate"]{
-            font-family: FontAwesome;
-        }
-        /* 필수값 에러  */
-        .fail-message{
-            display: none;
-        }
-        .fail-message{  
-            color: #eb6f7f;
-        }
     </style>
      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
      <script type="text/javascript">
@@ -290,12 +281,11 @@
         
              // 날짜 출력하기 
              onSelect: function(date){
-             document.getElementById("result-1").innerHTML = date.format("YYYY-MM-DD");
+             document.getElementById("result-1").innerHTML = date.format("YYYY.MM.DD");
              }
          });
         /*  // 오늘 날짜 기본값으로 자동 선택
          picker1.setDate(moment()); */
-         picker1.getDate(moment()+28);
      });
 
     // 이미지 
@@ -364,31 +354,9 @@
          });
      });
 
-    //  $(function(){
-    //     $("button[type=submit]").click(function(){
-    //         var result = $("input[type=text]").val();
-    //         var result2 = $("textarea[type=text]").val();
-    //         var result3 = $("input[name=startDate]").val();
-    //         var result4 = $("input[type=checkbox]:cheked").val();
-    //         if(!result1){
-    //             input.focus().next("span[class=fail-message]");
-    //         }
-    //     });
-    //  });
-
-    $(function(){
-        $("button[name=submit]").click(function(){
-            var result = document.querySelector("input[name=chalTitle]");
-            if(result == ""){
-                $(result).focus();
-                alert("필수값이애용");
-
-            }
-        });
-    });
 
 
-    </script>
+     </script>
      </head>
      <body>
      <!-- 확인용 -->
@@ -424,15 +392,14 @@
                 <div class="row">
                 <input name="chalTitle"  class="short-text-underlinebox uderline-hover underline-focus  helper-text1" type="text" placeholder="예) 아침 6시에 일어나기 " id="text-underlinebox1">
                <!-- <input name="chalTitle"  class="short-text-underlinebox underline-hover helper-text1" type="text" placeholder="예) 아침 6시에 일어나기 " id="text-underlinebox1" style="border:none;   border-bottom: 2px solid #cfc9d5; outline: none; color: #3d3d3d;" maxlength="40"> -->
-                <span class="helper-text-40 helper-css">0</span> /40
-                <span class="fail-message">필수 항목 값 입니다.</span>
+                <span  class="helper-text-40 helper-css">0</span> /40
                 </div>
             </div>
 
             <div class="row">
                 <p class="p1">3. 인증 방법을 입력해 주세요.</p>
-                <textarea type="text" class="helper-text2 short-hover" name="howConfirm" placeholder="예) 매일 깃 커밋하기0 오늘 날짜와 커밋 내역이 보이도록 깃 허브 히스토리를 캡쳐해서 인증샷으로 첨부하기"maxlength="300"></textarea>
-                <span class="helper-text-300 helper-css">0</span> /300
+                <textarea class="helper-text2 short-hover" name="howConfirm" placeholder="예) 매일 깃 커밋하기0 오늘 날짜와 커밋 내역이 보이도록 깃 허브 히스토리를 캡쳐해서 인증샷으로 첨부하기"maxlength="300"></textarea>
+                <span  class="helper-text-300 helper-css">0</span> /300
             </div>
 
         <div class="row">
@@ -441,7 +408,7 @@
 
                 <div class="row">
                     <i class="fa-solid fa-calendar-days"></i>
-                    <input type="text" class="single-date-picker date-icon" id="short-text-box chal-4"  name="startDate" required>
+                    <input type="text" class="single-date-picker" id="short-text-box chal-4"  name="startDate" required>
                 </div>
 
                 <div class="row date-calendar">
@@ -492,7 +459,7 @@
                 <span  class="helper-text-500 helper-css">0</span> /500
             </div>
             <div class="row center"> <!--센터? 아니면 노센터?-->
-                <p class="smallbtn cancel-btn" id="smallbutton3"><a>취소</a></p>
+                <a  class="smallbtn cancel-btn" type="submit" id="smallbutton3">취소</a>
                 <button class="smallbtn create-btn" type="submit" id="smallbutton1" >개설하고 참가하기</button>
             </div>
         </div>    
@@ -504,4 +471,7 @@
         	name 맞늕니 확인 
         	-->
      </body>
-     </html>
+     
+ <jsp:include page="/WEB-INF/views/template/footer.jsp">
+	<jsp:param value="챌린지 개설" name="title"/>
+</jsp:include>     

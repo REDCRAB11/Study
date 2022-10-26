@@ -22,6 +22,18 @@
 
     <style>
         /* 
+        	10.26
+        	디자인 수정해야할 것: 
+        	- 6번 챌린지 대표 이미지 삭제 사진변경 안에 글자 위치 맞춰야함 -> 여러번 했었는데 안되면 그냥 border높이를 올리는 걸로 ... 
+        	- 챌린지 예상 종료일 + 28일 해셔 나와야함 
+        	- 챌린지 필 수 값 입력 안할시 에러 떠야함 
+        
+        	10.25
+        	DB 수정해야할 것: 해결 완료  
+        	- form 위치 확인  
+        	- submit 버튼은 한개여야 함 
+        	- name 확인 
+        	
        		10.24
        		DB 수정해야할 것: 
        		-  2번 hover 재설정하기 ㅇ 
@@ -224,8 +236,10 @@
 
            /* 업로드 버튼 */
         .input-file-upload{
-            padding: 6px 17px; 
+            padding: 5px 20px; 
+            padding-bottom: 12px;/* 버튼 아래로 위치 조정 */
             background-color: #e5e6f9;
+            border: 1px solid #e5e6f9;
             border-radius: 0.25em;
             color: #6c7aef;
             cursor: pointer;
@@ -243,9 +257,10 @@
 		.img-btn{ /* 삭제 버튼 */
 			margin-left:6px;
 			border: 2px solid #AAAAAA;
-			border-radius: 0.25em;
+			border-radius: 0.5em;
 			background-color: transparent;
-			padding: 4px 16px; /* 삭제 버튼 크기 조절 */
+			padding: 4px 30px; /* 삭제 버튼 크기 조절  위, 옆 */ 
+			padding-bottom: 12px; /* 버튼 아래로 위치 조정 */
 			text-align: center;
 			color: #AAAAAA;
 		}
@@ -266,20 +281,19 @@
              
              minDate:moment(), // 오늘자 선택 가능
              minDate:moment().add(4,'day'), // 오늘 + 5일
-
+			format:"YYYY-MM-DD",
              firstDay:0, // 시작일 일요일부터 
              singleDate:true, // 날짜 한개만 선택
 
              // (+옵션) 표시되는 달의 개수를 지정 
-             numberOfMonths:1, //2개의 달씩 보여줘라 
+             numberOfMonths:1, 
         
              // 날짜 출력하기 
              onSelect: function(date){
-             document.getElementById("result-1").innerHTML = date.format("YYYY.MM.DD(dd)");
+             document.getElementById("result-1").innerHTML = date.format("YYYY-MM-DD");
              }
          });
-        /*  // 오늘 날짜 기본값으로 자동 선택
-         picker1.setDate(moment()); */
+         picker1.setDate(moment());
      });
 
     // 이미지 
@@ -357,7 +371,8 @@
 		${loginId}
 
         <div class="container-1200">
-        <!-- 폼 추가 ! --><form action="create" method="post" enctype="multipart/form-data">
+        <!-- 폼 추가 ! -->
+        <form action="create" method="post" enctype="multipart/form-data">
 		<div class="row" style="margin: 30px 50px 40px 50px;">
             <div class="row">
                 <p class="p0">원하는 챌린지를 직접 개설해보세요.</p>
@@ -440,7 +455,7 @@
                     <img class="preview" src="/images/bg_default.png" width="250" height="200">
                     <div class="row img-btns">
                         <label class="input-file-upload img-lab" for="input-file">사진변경</label>        
-                        <button class="delete-file-upload img-btn" name="thumbnail-delete">삭제</button>
+                        <a class="delete-file-upload img-btn"  name="thumbnail-delete">삭제</a>
                     </div>
                 </div>
             </div>
@@ -452,13 +467,17 @@
                 <span  class="helper-text-500 helper-css">0</span> /500
             </div>
             <div class="row center"> <!--센터? 아니면 노센터?-->
-                <button class="smallbtn cancel-btn" type="submit" id="smallbutton3">취소</button>
-                <button class="smallbtn create-btn" type="submit" id="smallbutton1">개설하고 참가하기</button>
+                <a  class="smallbtn cancel-btn" type="submit" id="smallbutton3">취소</a>
+                <button class="smallbtn create-btn" type="submit" id="smallbutton1" >개설하고 참가하기</button>
             </div>
         </div>    
         </form>    
         	</div>
-        	
+        	<!--  
+        	sumit 버튼 한개 
+        	form 위치 
+        	name 맞늕니 확인 
+        	-->
      </body>
      
  <jsp:include page="/WEB-INF/views/template/footer.jsp">

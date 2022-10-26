@@ -145,6 +145,7 @@
     </style>
    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
    <script type="text/javascript">
+
         function checkId(){
             var input = document.querySelector("input[name=userId]");
             var userId = input.value;
@@ -343,9 +344,9 @@
 
             <div class="row">
                 <p class="join-p4">위 내용의 개인정보를 제공함에 동의합니다.</p>
-                <button type="submit" class="largebtn join-btn" id="largebutton1">회원가입</button>
+                <button type="submit" class="largebtn join-btn" id="largebutton1" onclick="joinBtn();">회원가입</button>
             </div>
-                <p class="join-p5">이미 4weeks 계정이 있으신가요? <a href="#" class="a-hover">로그인</a>  </p> 
+                <p class="join-p5">이미 4weeks 계정이 있으신가요? <a href="/login" class="a-hover">로그인</a>  </p> 
         </form>
     </div>
 </body>
