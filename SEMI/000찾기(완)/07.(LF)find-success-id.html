@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUCCESS FIND ID</title>
+
+    <link rel="stylesheet" type="text/css" href="basic.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <style>
+        /* 
+            고객님으 ㅣ정보오ㅏ 일치하는 어쩌구 위아래 사이 간격이 너무 큼 근데 안맞춰짐 ;
+            라디오 버튼이 젤 작은 건데 너무 커보임 ;
+        */
+        /* font-size:12px */
+        div{
+            border: 1px dotted transparent;
+            display: block;
+        }
+        p{
+            color:#3f3f3f;
+            font-size: 12px;
+            /* 컨테이너에 따라 달라질 수 있으니 알아서 수동 조절하쇼 */
+            margin: 0;
+            padding: 2px 0 41px;
+            margin-left: 200px; 
+            margin-top: -10px;
+        }
+        h2{
+            padding-top: 30px;
+        }
+        .p1{
+            padding-right:220px;
+            padding-bottom: 30px;
+            white-space: nowrap;
+        }
+        input, label, span {
+            font-size:14px;
+            color: #3f3f3f;
+        }
+        label{
+            cursor: pointer;
+            vertical-align: 1px;
+        }
+
+        /* vertical-align은 줄 맞추기 */
+        .label-find-id{
+            vertical-align: -11px;
+            margin: 0px 10px; /* 찾은 아이디와 라디오 버튼 사이 간격 */
+        }
+        span{
+            vertical-align: -13px;
+        }
+
+        .box{
+            position: relative;
+            z-index: 100;
+            padding: 40px 60px 20px;
+            border: 1px solid #e5e5e5;
+            border-radius: 0.5em;
+        }
+        .list-id strong{ /* 아이디와 가입일 사이의 간격( 가입일 기준으로 움직임) */
+            display: inline-block;
+            min-width: 300px;
+            padding-right: 40px;
+        }
+        strong{
+            font-weight: bold;
+        }
+        .list-id li{ /* 찾은 아이디 input박스와 로그인 button 사이의 간격의 간격*/
+            padding-bottom: 40px;
+        }
+      
+        .divi{  
+            margin: 3px 4px 0 4px;
+            width: 1px;
+            height: 12px;
+            text-indent: -999em;
+            border-right: solid 1px #ccc;
+
+            display: inline-block;
+            zoom: 1;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+    </style>
+     <script type="text/javascript">
+
+     </script>
+     </head>
+     <body>
+        <div class="row container-590">
+            <div class="row center">
+                <h2>아이디 찾기</h2>                
+                <p class="p1">고객님의 정보와 일치하는 아이디 목록 입니다.</p>
+            </div>
+
+
+            <div class="row box">
+                <div class="checks small">
+                    
+                    <ul class="list-id">
+                        <li>
+                            <strong>
+                                <input type="radio" id="ex_rd2" name="ex_rds">
+                                    <label for="ex_rd2"></label>
+                                    <label class="label-find-id">찾은아이디</label>
+                                    <!-- 라벨이 두개 들어간 이유... 하나로만 하려니깐 라디오와 라벨이 같이 쫙 붙어버려서(라디오 수정 불가능..) 
+                                         이런 방법 저런 방법을 다 써봤지만 자석마냥 쫙 달라 붙어서 뗄 수없는 사이가 되어버려 
+                                         어차피 아이디 표시만 하면 되는거라 그냥 두개 만듬 .. 
+                                     -->
+                                </strong>
+                                <span>가입일 2xxx.0x.1x</span>
+                            <input type="hidden" value="찾은아이디">
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="row">
+               <button type="submit" class="largebtn" id="largebutton1">로그인</button>
+            </div>
+            <section class="row center">
+                <a class="find" href="#비밀번호찾기 ">비밀번호 찾기</a>
+                <em class="divi">|</em>
+                <a class="find" href="/join">회원가입</a>
+            </section>
+
+
+        </div>
+     </body>
+     </html>

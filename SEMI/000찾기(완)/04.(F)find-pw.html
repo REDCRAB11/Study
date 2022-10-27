@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIND-PW</title>
+
+    <link rel="stylesheet" type="text/css" href="basic.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <style>
+        /* 
+            이메일 부분만 사이즈 맞추면 됨 
+        */
+         p{
+            color:#3f3f3f;
+            font-size: 12px;
+            /* 컨테이너에 따라 달라질 수 있으니 알아서 수동 조절하쇼 */
+            /* margin: 상 하 좌 우  */
+            margin: 20px 0px 20px 0px;
+            line-height: 2%;
+        }
+        .p2{
+            padding-bottom: 50px;
+        }
+        .divi{  
+            margin: 3px 4px 0 4px;
+            width: 1px;
+            height: 12px;
+            text-indent: -999em;
+            border-right: solid 1px #ccc;
+
+            display: inline-block;
+            zoom: 1;
+            text-align: left;
+            vertical-align: middle;
+        }
+    </style>
+     <script type="text/javascript">
+
+     </script>
+     </head>
+     <body>
+        <div class="container-590">
+
+            <div class="row center">
+              <h2>비밀번호 찾기 </h2>
+              <p class="p1"> 등록된 이메일을 입력해주세요.<p>
+              <p class="p2"> 본인 확인 후 비밀번호를 다시 설정할 수 있습니다.</p>
+            </div>
+
+            
+            <div class="row">
+                <input type="text" name="memberId" class="input short-text-box" id="text-box1" placeholder="아이디">
+            </div>
+
+            <div class="row">
+                <input type="email" name="memberEmail" class="input short-text-box email-box" onblur="checkEmail();" placeholder="이메일">
+            </div>
+            <div class="row center">
+                <button type="submit" class="largebtn" id="largebutton1">확인</button>
+            </div>
+            <section class="row center">
+                <a class="find" href="#비밀번호찾기 ">아이디 찾기</a>
+                <em class="divi">|</em>
+                <a class="find" href="/join">회원가입</a>
+            </section>
+        </div>
+     </body>
+     </html>

@@ -57,6 +57,32 @@
             width: 175px;
             height: 64px;
         }
+        .short-text-box{
+            width: 100%;
+        }
+        input::placeholder{
+            color:#AAAAAA;
+        }
+        div{
+            border: 1px dotted gray;
+        }
+        .divi{  
+            margin: 3px 4px 0 4px;
+            width: 1px;
+            height: 12px;
+            text-indent: -999em;
+            border-right: solid 1px #ccc;
+
+            display: inline-block;
+            zoom: 1;
+            text-align: left;
+            vertical-align: middle;
+        }
+        /* 에러 */
+        .fail-message{
+            display: none;
+            color:#eb6f7f;
+        }
     </style>
      <script type="text/javascript">
         $("input[name=memberEmail]").blur(function(){
@@ -78,14 +104,9 @@
      </head>
      <body>
         <div class="row container-590">
-
             <div class="row center">
-                <div id="nav">
-                    <ul>
-                        <li><a href="#">아이디 찾기</a></li>
-                        <li><a href="#">비밀번호 찾기</a></li>
-                    </ul>
-                </div>
+                <h2>아이디 찾기</h2>
+                <p class="find-id-p1"> 가입하신 이메일을 입력해주세요.</p>
             </div>
 
 <!-- 이메일 부분 화면창에 딱 맞지가 않아서 맞춰야 함  
@@ -94,14 +115,20 @@
      !@@@ 중요 모든 아이디 입력 회우너가입에 focus() ; 해주쇼 
 -->
 
+
             <div class="row center">
-                <p class="find-id-p1"> 등록된 이메일을 입력해주세요.</p>
+                <input class="short-text-box short-hover" type="text" placeholder=" 예) semi486@kh.com" id="text-box1">
+                <span class="fail-message">입력하신 회원정보가 존재하지 않습니다. 비회원일 경우 회원가입 후 이용해주세요.</span>
             </div>
 
-            
             <div class="row center">
                 <button type="submit" class="largebtn" id="largebutton1">확인</button>
             </div>
+            <section class="row center">
+                <a class="find" href="#비밀번호찾기 ">비밀번호 찾기</a>
+                <em class="divi">|</em>
+                <a class="find" href="/join">회원가입</a>
+            </section>
 
 
         </div>
