@@ -21,6 +21,9 @@
 
     <style>
         /* 
+        10.26 
+        -에러값 뜨게 하기 
+        - 텍스트 헬퍼 html 줄바꿈 사용 해야함 
        		10.24
        		DB 수정해야할 것: 
        		-  
@@ -254,8 +257,14 @@
             padding-top: 80px;
         }
         /* 필수값 */
-        input:invalid{
-            outline: 1px solid red;
+        .fail-message{
+            display: none;
+        }
+        .fail-message{
+            color:red;
+        }
+        input.fail ~ .fail-message{
+            display: block;
         }
       
         
@@ -357,32 +366,32 @@
 
 
    //  회원가입 폼 제어 + 오류 메세지 
-     $(function(){
-        $(".create-btn").click(function(){
-            var chal2 = document.getElementById("chal-2");
-            var chal3 = document.getElementById("chal-3");
-            var chal4 = document.getElementById("chal-4");
-            if(chal2){
-                // 얘는 정규식이 있는것도 아니고 성공 실패를 어캐 나놤노이ㅏㅁㄴ 
-                $(".chal-2").attr("input", "").focus();
-                return false;
-            }
-            else if(chal3){
-                $(".chal-3").attr("input", "");
-                return false;
-            }
-            else if(chal4){
-                $(".chal-4").attr("input","");
-                return false;
-            }
-            else if(chal-5){
-                $("chal-5").attr("input","");
-                return false;
-            }else{
-                return true;
-            }
-        });
-     });
+    //  $(function(){
+    //     $(".create-btn").click(function(){
+    //         var chal2 = document.getElementById("chal-2");
+    //         var chal3 = document.getElementById("chal-3");
+    //         var chal4 = document.getElementById("chal-4");
+    //         if(chal2){
+    //             // 얘는 정규식이 있는것도 아니고 성공 실패를 어캐 나놤노이ㅏㅁㄴ 
+    //             $(".chal-2").attr("input", "").focus();
+    //             return false;
+    //         }
+    //         else if(chal3){
+    //             $(".chal-3").attr("input", "");
+    //             return false;
+    //         }
+    //         else if(chal4){
+    //             $(".chal-4").attr("input","");
+    //             return false;
+    //         }
+    //         else if(chal-5){
+    //             $("chal-5").attr("input","");
+    //             return false;
+    //         }else{
+    //             return true;
+    //         }
+    //     });
+    //  });
 
 
     // $(function(){ 아닌듯 
@@ -460,7 +469,55 @@
     //     });
     // });
         
+    // $(function(){
+       
+    //         $("#create-form").submit(function(){
+    //             if($("#chal-2").val() == " "){
+    //                 alert('필수값애옹');
+    //                 return false;
+    //             }
+    //         });
+    //     });
 
+
+    // $(function(){ 이게 제일 근접한데 보류 !
+    //     $(".create-form").submit(function(){
+    //         $(".create-btn").click(function(){
+    //             if($(".chal-2").val() == ""){
+    //                 $(".chal-2").next().append("필수값 애옹");
+    //                 return false;
+    //             }
+    //             });
+    //     });
+    //  });
+
+
+    $(function(){
+        $("input[name=chalTitle]").blur(function(){
+            var text = $(this).val();
+            var regex = /^[가-힣a-zA-z0-9]{1,39}$/;
+            var judge = regex.test(text);
+            console.log(judge);
+            $(this).removeClass("success fail");
+            if(text){
+                $(this).addClass("success");
+            }else{
+                $(this).addClass("fail");
+            }
+        });
+
+        $("#create-form").submit(function(){
+            $("input[name=chalTitle]").blur();
+            console.log($("input.fail").length);
+            if($(".input.fail").length > 0){
+                return false;
+            }
+        });
+
+   
+    });
+
+  
 
      </script>
      </head>
@@ -469,7 +526,7 @@
 		${loginId}
 
         <div class="container-1200">
-        <!-- 폼 추가 ! --><form action="create" method="post" enctype="multipart/form-data">
+        <!-- 폼 추가 ! --><form name="create-form" action="create" method="post" enctype="multipart/form-data" id="create-form" autocomplete="off">
 		<div class="row" style="margin: 30px 50px 40px 50px;">
             <div class="row">
                 <p class="p0">원하는 챌린지를 직접 개설해보세요.</p>
@@ -495,8 +552,9 @@
                 <p class="p1">2. 챌린지 제목을 입력해주세요.</p>
                 <p class="p2"> 타인에게 불쾌감을 주는 단어를 사용할 경우 계정이 영구정지 될 수 있습니다.</p>
                 <div class="row">
-               <input name="chalTitle" class="short-text-underlinebox underline-hover helper-text1 chal-2 chal-r" id="chal-2" type="text" placeholder="예) 아침 6시에 일어나기 " id="text-underlinebox1 chal-num2" style="border:none;   border-bottom: 2px solid #cfc9d5; outline: none; color: #3d3d3d;" maxlength="40" required="">
+                <input name="chalTitle" class="short-text-underlinebox underline-hover helper-text1 chal-2 chal-r" id="chal-2" type="text" placeholder="예) 아침 6시에 일어나기 " id="text-underlinebox1 chal-num2" style="border:none;   border-bottom: 2px solid #cfc9d5; outline: none; color: #3d3d3d;" maxlength="40">
                 <span class="helper-text-40 helper-css">0</span> /40
+                <span class="fail-message">필수값애옹 </span>
             </div>
             </div>
 
@@ -536,7 +594,7 @@
                 <p class="p3">[참가 인원] 최대 10명까지 참가할 수 있어요. 챌린지 시작 전에 10명이 다 모이면 자동으로 모집이 마갑됩니다. </p>
                 <div class="row chk-line">
                 <label class="line" >
-                    <input type="checkbox" name="chk" id="chked" class="chal-5 chal-r" required="">
+                    <input type="checkbox" name="chk" id="chked" class="chal-5 chal-r" >
                     <span class="chk-1"></span>
                     <span class="chk-2 chal-5">확인했어요!</span>
                 </label>    
@@ -559,12 +617,12 @@
             <div class="row row-7 row-padding">
                 <p class="p1-1" >7. 챌린지를 소개해주세요.(선택)</p>
                 <p class="p2">다른 사람들이 챌린지 참가를 결정할 때 참고할 수 있어요.</p>
-                <textarea class="helper-text3 short-hover" name="chalContent" placeholder="예)어려워서 하기 싫은 알고리즘 문제풀이 매일매일 같이 인증해요~!" maxlength="500"></textarea>
+                <textarea class="helper-text3 short-hover" name="chalContent" placeholder="예)어려워서 하기 싫은 알고리즘 문제풀이 매일매일 같이 인증해요~!" maxlength="500" autocomplete="off"></textarea>
                 <span  class="helper-text-500 helper-css">0</span> /500
             </div>
             <div class="row center"> <!--센터? 아니면 노센터?-->
-                <button class="smallbtn cancel-btn" type="submit" id="smallbutton3">취소</button>
-                <button class="smallbtn create-btn" name="create-btn" type="submit" id="smallbutton1" onsubmit="creatChk();">개설하고 참가하기</button>
+                <a class="smallbtn cancel-btn" id="smallbutton3">취소</a>
+                <button class="smallbtn create-btn" name="create-btn" type="submit" id="smallbutton1" >개설하고 참가하기</button>
             </div>
         </div>    
         </form>    
