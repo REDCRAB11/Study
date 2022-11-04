@@ -1,0 +1,20 @@
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script>
+	$(function() {
+		$(".join-form").submit(function() {
+		var id = $("input[name=userId]").val();
+		var regex = /^[a-z0-9]{6,20}$/;
+		var judge = regex.test(userId);
+			if(judge.length == 0){
+				return false;
+			}
+			return true;
+		});
+	});
+</script>
+
+<form class="edit-form">
+    새 비밀번호 <input name="userPw"><br>
+    비밀번호 확인 <input id="repeatPw">
+    <button type="submit">변경</button>
+</form>
