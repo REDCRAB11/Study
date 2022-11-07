@@ -1,0 +1,32 @@
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script>
+    $(function(){
+        $(".create-form").submit(function(){
+            var title = $("input[name=chalTitle").val();
+            if(title.length == 0 ){
+                return false;
+            }
+
+            var confirm = $("input[name=howConfirm]").val();
+            if(confirm.length == 0){
+                return false;
+            }
+
+            var date = $("input[name=startDate]").val();
+            if(date.length == 0){
+                return false;
+            }
+
+            var check = $("input[type=checkbox]").val();
+            if(check == checked){
+                return false;
+            }
+        });
+    });
+</script>
+
+<form class="edit-form">
+    새 비밀번호 <input name="userPw"><br>
+    비밀번호 확인 <input id="repeatPw">
+    <button type="submit">변경</button>
+</form>

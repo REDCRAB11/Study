@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카카오맵</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <style>
+        #map{
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- 카카오 지도 맵 -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f4baf2a369f97ea129058b5359bbbe56"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            // 지도 생성
+            var container = document.querySelector('#map');
+    		var options = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			level: 3
+		};
+
+	    	// var.map = new kakao.maps.Map(container, options);
+	    	window.map = new kakao.maps.Map(container, options);
+
+        //이동 링크 이벤트 생성 
+        $(".move-link").click(function(e){
+            e.preventDefault();// 기본 이벤트 제거 
+
+            var lat = $(this).data("lat");
+            var lng = $(this).data("lng");
+
+            setCenter(lat, lng);
+        });
+
+        // 지도 이동
+        function setCenter(lat, lng) {            
+            // 이동할 위도 경도 위치를 생성합니다 
+            var moveLatLon = new kakao.maps.LatLng(lat, lng);
+    
+            // 지도 중심을 이동 시킵니다
+            map.setCenter(moveLatLon);
+        }
+        });
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-500">
+        <div class="row center">
+            <h1>카카오 지도</h1>
+        </div>
+
+        <div class="row">
+            <a class="move-link" data-lat="37.5543" data-lng="126.9705" href="#">서울역</a>
+            <a class="move-link" data-lat="37.5512" data-lng="126.9882" href="#">남산타워</a>
+            <a class="move-link" data-lat="37.5195" data-lng="126.9404" href="#">63빌딩</a>
+        </div>
+
+        <div class="row">
+            <div id="map"></div>
+        </div>
+    </div>
+</body>
+</html>

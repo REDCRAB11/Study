@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIN</title>
+
+ 
+ 
+ 	<link rel="stylesheet" type="text/css" href="basic.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/lightpick@1.6.2/css/lightpick.css">
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightpick@1.6.2/lightpick.js"></script>
+
+
+    <style>
+        /* 
+       		10.24
+       		DB 수정해야할 것: 
+       		-  
+       
+        		10.22
+        		디자인 수정해야할 것: 
+        		- hover 반응이 없음 or 늦음
+        		- 챌린지 2번 border 박스가 input에 넣지 않는 이상 .. 만들어지지 않음.
+        		- 헬퍼 텍스트 구현하기 ㅇ 
+        		- 체크박스 크기 재조정 ㅇ 
+        		- 종료일 나오는 곳 글자 가운데로  ㅇ --> 나중에 디비 나오면 다시 조정하기 
+        		
+        		
+            10.21 
+            디자인 수정해야할 것:
+            - 각 hover 재설정 하기 
+            - radio 버튼 맛감 ㅇ
+            - 이미지 이제까지 만든 거 적용 시키기 ㅇ 
+            - text제한 수 두기 
+            - 경고문 빨간거 뜨기 
+            - 챌린지 시작인 인풋 박스에 그림 넣기   
+
+            DB 수정해야할 것: 
+            - 미리보기 사진의 경우에는 이미지 지우는 src를 삭제하자. 
+            - src를 삭제하자 
+            - 39번 //시나리오 부분 참고하세요 
+            - 필수값이 입력안되었을때 날라가지 말 것. 
+
+
+
+        */
+        div{
+            /* border: 1px dotted gray; */
+            display: block;
+        }
+        body {margin: 10px; font-size: 13px}
+
+        input::placeholder,
+        textarea::placeholder{
+            font-size: 14px;
+            color: #AAAAAA;
+        }
+        
+        textarea{
+            width: 600px;
+            height: 200px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: solid 2px #DDDDDD;
+			border-radius: 0.5em;
+			font-size: 16px;
+			resize: none;
+        }
+
+        /* 
+            라디오 버튼 관련 1번 
+            라디오와 라벨 간격 띄우려면 basic.css 가시오 
+         */
+        label{
+            margin: 17px 0 10px;
+            padding-left: 30px;
+        }
+       .p0{
+           font-size: 30px;
+            color: #3f3f3f;
+            font-weight: bold;
+            /* margin-bottom: 10px; */
+            margin-top:100px;
+            padding-bottom: 10px;
+       }
+        .p1{
+            font-size: 20px;
+            color: #3f3f3f;
+            font-weight: bold;
+            margin-bottom: 16px;
+            padding-top:114px; /* 큰 제목간의 사이 간격 */
+        }
+         .p1-1{
+            font-size: 20px;
+            color: #3f3f3f;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-top:48px; /* 큰 제목간의 사이 간격 */
+        }
+        .p2{
+            font-size: 12px;
+            color: #3f3f3f;
+            margin-bottom:50px;
+        }
+         .p2-1{
+            font-size: 12px;
+            color: #3f3f3f;
+            margin-bottom:10px;
+        }
+        .p3{
+         	font-size: 12px;
+            color: #3f3f3f;
+            margin-bottom: 30px;   /* [참가인원]과 확인했어요 사이 간격 */
+        }
+
+        .lab{ /* 라디오 버튼 사이 간격 */
+          
+        }
+        .rad{
+            vertical-align: -11px;
+        }
+        .short-text-underlinebox{
+            width: 600px;
+        }
+        .calendar{ /* 챌린지 예상 종료일 */
+            width: 600px;
+        }
+
+        #short-text-box{
+            border: 1px solid #AAAAAA;
+            border-radius: 0.25em;
+            width: 200px;
+            height: 40px;
+        }
+        #text-underlinebox1{
+        border:1px solid gray;
+        }
+        
+        /* 챌린지 예상 종료일 수정 삭제 x  */
+        .blind{
+            position:absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+        h2{
+            font-size: inherit;
+            line-height: inherit;
+            padding: 0;
+
+            display: block;
+            margin-block-start: 0.73em;
+            margin-block-end: 0.73em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+        }
+        .sp-1{
+            display: block;
+            padding: 15px 0;
+            margin-top: 11px;
+            padding-left: 40px;  /* 예상 종료일 가운데 맞추는 것.. 훗날 수정 */
+            background-color: #e5e6f9;
+            border: 1px solid #e5e6f9;
+            border-radius: 1em;
+            font-size: 14px;
+            color: #6c7aef;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        i{
+            font-size:normal;
+        }
+        .c-end{
+            display: inline-block;
+            width: 60px;
+            height: 12px;
+            background-position: -139px -300px;
+            background-repeat: no-repeat;
+            vertical-align: top;
+            margin: 2px 5px 0 0;
+        }
+        /* 체크박스 */
+        .chk-1{
+            margin-bottom: -3px;
+        }
+        .chk-2{
+           color: #6c7aef;
+           padding: 0 0 0 5px;
+           font-size:14px;
+        }
+        .chk-line{
+            margin: 0 0 0 -12px;
+        }
+        /* btn */
+        .cancel-btn{
+            width: 150px;
+            margin-right: 20px;
+            margin-top: 100px; /* 취소,개설하기 버튼과 위에 7번 사이 간격*/
+        }
+        .create-btn{
+            width: 320px;
+        }
+
+        /* 이미지 보기  */
+        .thumbnail{
+            display: none;
+        }
+        img{
+            float: left;
+        }
+
+           /* 업로드 버튼 */
+        .input-file-upload{
+            padding: 6px 17px; 
+            background-color: #e5e6f9;
+            border-radius: 0.25em;
+            color: #6c7aef;
+            cursor: pointer;
+        }
+        .input-file-blind{
+            display: none;
+        }
+        .preview{
+            border-radius: 0.25em;
+        }
+        /* 이미지 업로드 버튼들 */
+        	.img-lab{
+        		margin-left:30px;
+        	}
+		.img-btn{ /* 삭제 버튼 */
+			margin-left:6px;
+			border: 2px solid #AAAAAA;
+			border-radius: 0.25em;
+			background-color: transparent;
+			padding: 4px 16px; /* 삭제 버튼 크기 조절 */
+			text-align: center;
+			color: #AAAAAA;
+		}
+		.img-btns{
+			padding-top: 161px; /* 미리보기와 사진변경/삭제 간의 높이 맞춤 */
+		}
+        .row-7{ /* 이미지 미리보기와 7번이 겹치기 때문에 조절 */
+            padding-top: 80px;
+        }
+        /* 필수값 */
+     
+            /* border-color:#eb6f7f; */
+        
+    </style>
+     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+     <script type="text/javascript">
+    
+    $(function(){
+        var picker1 = new Lightpick({
+            //field는 datepicker은 적용 대상을 설정하는 공간 
+            field:document.querySelector(".single-date-picker"),
+
+            //format은 선택한 날짜의 적용 형식을 변경 
+            format:"YYYY-MM-DD",
+            
+            // (+옵션) 미래/과거를 선택하지 못하도록 설정 
+            // maxDate:moment(), //미래 선택 못함 
+            minDate:moment(), // 과거 선택 못함  괄호안에 특정 날짜 넣어줘도 됨~ 
+
+            // (+옵션) 표시되는 달의 개수를 지정 
+            numberOfMonths:1, //2개의 달씩 보여줘라 
+        });
+
+    });
+
+    // 이미지 
+    $(function(){
+            $("[name=attachment]").change(function(e){
+                //input[type=file] 태그에는 files라는 속성이 존재
+                console.log(this.files);
+                if(this.files.length > 0){
+                    //읽는 도구
+                    var reader = new FileReader();
+
+                    //읽을 때 해야할 작업
+                    reader.onload = function(e){
+                        //읽은 내용 정보가 e에 들어 있음
+                        var preview = document.getElementById("preview")
+                        $(".preview").attr("src", e.target.result);
+                    };
+                    reader.readAsDataURL(this.files[0]);//읽어라
+                }
+                // 사진 변경하기 
+                var inputImage = document.getElementById("input-image")
+                inputImage.addEventListener(function(e){
+                    $("[name=attachment]")(e.target)
+                });
+            });
+            $("button[name=thumbnail-delete]").click(function(){
+                $(".preview").attr("src", "/images/bg_default.png");
+            });
+        });
+    
+    //help-text
+     $(function(){
+            $(".helper-text1").on("input", function(){
+                var text = $(this).val();
+                $(this).next().text(text.length);
+                if(text.length > 40){
+                    $(this).next();
+                }
+                else {
+                    $(this).next().css("color", "#3f3f3f");
+                }
+            });
+        });
+     $(function(){
+         $(".helper-text2").on("input", function(){
+             var text = $(this).val();
+             $(this).next().text(text.length);
+             if(text.length > 300){
+                 $(this).next();
+             }
+             else {
+                 $(this).next().css("color", "#3f3f3f");
+             }
+         });
+     });
+     $(function(){
+         $(".helper-text3").on("input", function(){
+             var text = $(this).val();
+             $(this).next().text(text.length);
+             if(text.length > 500){
+                 $(this).next();
+             }
+             else {
+                 $(this).next().css("color", "#3f3f3f");
+             }
+         });
+     });
+
+
+     // 오류 메세지 
+     $(function(){
+        $(".create-btn").click(function(){
+            var chal2 = document.getElementById("chal-2");
+            var chal3 = document.getElementById("chal-3");
+            var chal4 = document.getElementById("chal-4");
+            if(chal2){
+                $(".chal-2").attr("input", "").focus().css(style="color:#eb6f7f;");
+                return false;
+            }
+            if(chal3){
+                $(".chal-3").attr("input", "").focus().css(style="color:#eb6f7f;");
+                return false;
+            }
+        });
+     });
+
+
+        $(".p-end-date").datepicker({
+            onselect: function() {
+                var date = $.datepicker.formatDate("yyyymmdd", $(".single-date-picker").datepicker("getDate"));
+                date = $(".single-date-picker").val();
+              
+            }
+        });
+
+
+        $('.datepicker').datepicker({
+    onSelect: function(dateString) {
+        console.log(dateString);
+    }
+});
+출처: https://solbel.tistory.com/2625 [개발자의 끄적끄적:티스토리]
+
+     </script>
+     </head>
+     <body>
+        <div class="datepicker"></div>
+        출처: https://solbel.tistory.com/2625 [개발자의 끄적끄적:티스토리]
+      
+     </body>
+     
+

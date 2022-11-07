@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCORE(평점)</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/hiphop5782/score@latest/score.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(function(){
+            $(".star-score").score({
+                starColor:"red", // 별 색상(기본 금색)
+                integerOnly:false, // 정수만 가능한지? 
+                display:{
+                    showNumber:true, // 숫자 표시 
+                    placeLimit:2, // 소수점 자리수 
+                    textColor:"red",
+                }
+            });
+
+            $(".star-score-edit").score({
+                editable:true, // 수정 가능하도록 설정 
+                integerOnly:true,
+                display:{
+                    showNumber:true,
+                },
+                send:{
+                    sendable:true, // 별점도 전송 하려면.. 
+                    name:"reviewScore" // 전송 파라미터 명 설정 
+                }
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-400">
+        <div class="row center">
+            <h1>평점 라이브러리</h1>
+        </div>
+
+        <div class="row">
+            <div class="star-score" data-max="5" data-rate="3"></div>
+        </div>
+
+        <form>
+            <div class="row">
+                <label>영화 어때?</label>
+                <br>
+                <div class="star-score-edit" data-max="5" data-rate="3"></div>
+                <textarea name="reviewContent" class="input w-100" rows="5"></textarea>
+            </div>
+            <div class="row">
+                <button class="btn">리뷰작성</button>
+            </div>
+
+            <div class="row center">
+                <p> 등록된 이메일을 입력해주세요.</p>
+                <p> 본인 확인 후 비밀번호를 다시 설정할 수 있습니다.</p>
+            </div>
+
+        </form>
+        
+    </div>
+</body>
+</html>

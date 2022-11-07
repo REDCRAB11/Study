@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEACHBAR</title>
+
+    <link rel="stylesheet" type="text/css" href="basic.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <style>
+        body, div, dl, dt, dd, ul, ol, li, form, fieldset, button{
+            margin: 0;
+            padding: 0;
+        }
+        fieldset{
+            border: 0 none;
+
+            display: block;
+            margin-inline-start: 2px;
+            margin-inline-end: 2px;
+            padding-block-start: 0.35em;
+            padding-inline-start: 0.75em;
+            padding-inline-end: 0.75em;
+            padding-block-end: 0.625em;
+            min-inline-size: min-content;
+        }
+        legend{
+            display: block;
+            position: absolute;
+            top: -1000em;
+            left: 0;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+
+            padding-inline-start: 2px;
+            padding-inline-end: 2px;
+            border-width: initial;
+            border-style: none;
+            border-color: aquamarine;
+            border-image: initial;
+        }
+
+        input{
+            vertical-align: middle;
+
+            writing-mode: horizontal-tb! important;
+            text-rendering: auto;
+            letter-spacing: normal;
+            word-spacing: normal;
+            line-height: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: no;
+            
+        }
+        dt{
+            display: block;
+        }
+        dd{
+            display: block;
+            margin-inline-start: 40px;
+        }
+        ul{
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+        }
+
+        li{
+            list-style: none;
+            display: list-item;
+            text-align: -webkit-math-parent;
+        }
+
+        input[type="button" i]{
+            appearance: auto;
+            user-select: none;
+            white-space: pre;
+            align-items: flex-start;
+            box-sizing: border-box;
+
+        }
+
+    </style>
+     <script type="text/javascript">
+
+     </script>
+     </head>
+     <body>
+        <div class="container-600">
+            <h1>SEARCH BAR</h1>
+        </div>
+
+        <fieldset>
+            <legend>검색</legend>
+            <div class="sch-type" title="챌린지 검색">
+                <input type="button" value="모집중">
+                <dl style="display: block;">
+                    <dt>
+                        <strong>모집중</strong>
+                    </dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a title="모집중" href="모집중 ...예스24 참고">모집중</a>
+                            </li>
+                            <li>
+                                <a title="모집중" href="모집중 ...예스24 참고">모집중</a>
+                            </li>
+                            <li>
+                                <a title="모집중" href="모집중 ...예스24 참고">모집중</a>
+                            </li>
+                            <li>
+                                <a title="모집중" href="모집중 ...예스24 참고">모집중</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <span>
+                <label>
+                    <input type="text" title="챌린져스 챌린지 검색" maxlength="30" value style="ime-mode: active;" autocomplete="off">
+                </label>
+            </span>
+            <div style="position: absolute; top:-1000em; left:0; width: 1px; height: 1px; overflow: hidden;">
+            </div>
+            <span>
+                <button>검색</button>
+            </span>
+        </fieldset>
+     </body>
+     </html>

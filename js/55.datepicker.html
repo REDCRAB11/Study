@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Picker</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <!-- https://wakirin.github.io/Lightpick/   사이트 참조 -->
+    <!-- lightpick 사용을 위한 CDn 추가 -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/lightpick@1.6.2/css/lightpick.css">
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightpick@1.6.2/lightpick.js"></script>
+
+    <!-- jquery를 사용하기 위하여 라이브러리 js파일을 불러온다. -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        var picker1 = new Lightpick({
+            //field는 datepicker은 적용 대상을 설정하는 공간 
+            field:document.querySelector(".single-date-picker"),
+
+            //format은 선택한 날짜의 적용 형식을 변경 
+            format:"YYYY-MM-DD",
+            
+            // (+옵션) 미래/과거를 선택하지 못하도록 설정 
+            maxDate:moment(), //미래 선택 못함 
+            // minDate:moment(), // 과거 선택 못함  괄호안에 특정 날짜 넣어줘도 됨~ 
+
+            // (+옵션) 표시되는 달의 개수를 지정 
+            numberOfMonths:2, //2개의 달씩 보여줘라 
+        });
+
+        var Picker2 = new Lightpick({
+            field:document.querySelector("[name=begin]"),
+            secondField:document.querySelector("[name=end"),
+        });
+    });
+
+    </script>
+    
+</head>
+<body>
+    <!-- HTML 화면 -->
+    <div class="container-500">
+        <div class="row center">
+            <h1> Date Picker</h1>
+        </div>
+
+        <div class="row">
+            <h2>날짜 하나 선택</h2>
+        </div>
+        <div class="row">
+            <input type="date" class="input w-100">
+        </div>
+
+        <div class="row">
+            <input type="text" class="input w-100 single-date-picker">
+        </div>
+
+        <div class="row">
+            <h2> 날짜 범위 선택</h2>
+        </div>
+
+        <div class="row float-container">
+            <div class="float-left w-50">
+                <input class="input w-100" name="begin" type="text">
+            </div>
+            <div class="float-left w-50">
+                <input class="input w-100" name="end" type="text">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

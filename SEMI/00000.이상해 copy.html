@@ -1,0 +1,28 @@
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script>
+    $(function(){
+        //form에 submit 이벤트 설정
+        $(".edit-form").submit(function(){
+        // 정규식 검사하기 
+        var newPw = $("input[name=userPw]").val();
+        var regex = /^[a-zA-Z0-9]{8,16}$/;
+        var judge = regex.test(newPw);
+        console.log("jud" + judge);
+        if(judge == true){
+            return true;
+        }else{
+            return false;
+        }
+        var conPw = $("#repaetPw").val();
+        if(newPw != conPw){
+            return false;
+        }
+    });
+});
+</script>
+
+<form class="edit-form">
+    새 비밀번호 <input name="userPw"><br>
+    비밀번호 확인 <input id="repeatPw">
+    <button type="submit">변경</button>
+</form>

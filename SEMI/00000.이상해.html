@@ -1,0 +1,25 @@
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script>
+    $(function(){
+        //form에 submit 이벤트 설정
+        $(".edit-form").submit(function(){
+            //if(새 비밀번호랑 비밀번호 확인이 서로 다르면){
+            var pw1 = $("input[name=userPw]").val();
+            var pw2 = $("#repeatPw").val();
+            if(pw1 != pw2){
+                //메세지를 보여주기 위한 노력
+                return false;
+            }
+
+            if(맘에안들면){
+                return false;
+            }
+        });
+    });
+</script>
+
+<form class="edit-form">
+    새 비밀번호 <input name="userPw"><br>
+    비밀번호 확인 <input id="repeatPw">
+    <button type="submit">변경</button>
+</form>

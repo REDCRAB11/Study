@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+
+    <link rel="stylesheet" type="text/css" href="basic.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <style>
+        /* 
+            10.20 
+            디자인 수정해야할 것
+            - 아이디창과 비밀번호 창을 중심으로 위아래로 간격 더 넓히기 
+            - 로그인 밑에 비번찾기 아이디 찾기 간격 좀 더 띄우기 
+            - 아이디와 비번 맞지 않을 경우 안내문 뜨고 
+            - memeber - login 참고 
+            
+        */
+        div{
+            border: 1px dotted gray;
+        }
+        .divi{  
+            margin: 3px 4px 0 4px;
+            width: 1px;
+            height: 12px;
+            text-indent: -999em;
+            border-right: solid 1px #ccc;
+
+            display: inline-block;
+            zoom: 1;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .login-p1,
+        .login-p2{
+            font-size: 12px;
+            color:#3f3f3f;
+        }
+        .login-p2{
+            margin: 10px 7px 9px 10px;
+        }
+
+        body{
+            line-height: 70%;
+        }
+        .find{
+            font-size: 13px;
+            color:#707070;
+            text-decoration-line: none;
+        }
+        .input ~ .fail-message{
+            color: #eb6f7f;
+            display: none;
+        }
+        .login-id,
+        .login-pw{
+            width: 99%;
+        }
+    </style>
+     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+     <script type="text/javascript">
+      
+     </script>
+     </head>
+     <body>
+      
+        <div class="row container-400">
+            <div class="row center">
+                <h1>로그인</h1>
+                <p class="login-p1">가입하신 아이디와 비밀번호를 입력해주세요</p>
+                   <p class="login-p2"> 비밀번호는 대소문자를 구분합니다.</p>
+            
+            </div>
+            <div class="row">
+                <input type="text" name="memberId" class="input short-text-box login-id" id="text-box1" placeholder="&nbsp; 아이디">
+            </div>
+            <div class="row">
+                <input type="password" name="memberPw" class="input short-text-box login-pw" id="text-box1" placeholder="&nbsp; 비밀번호">
+            </div>
+            <div class="row">
+                <button type="submit" class="largebtn w-100" id="largebutton1">로그인</button>
+            </div>
+            <section class="row center">
+                <a class="find" href="#비밀번호찾기 ">비밀번호 찾기</a>
+                <em class="divi">|</em>
+                <a class="find" href="#아이디찾기 ">아이디 찾기</a>
+                <em class="divi">|</em>
+                <a class="find" href="#회원가입 ">회원가입</a>
+            </section>
+        </div>
+     </body>
+     </html>

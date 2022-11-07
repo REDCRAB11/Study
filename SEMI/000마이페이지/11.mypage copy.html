@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지</title>
+
+    <link rel="stylesheet" type="text/css" href="basic.css">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <style>
+        /* 
+        
+        10.24 
+        디자인 해야할 것 
+        - input박스 라벨이 글자수에 따라 자동으로 크기가 조절 되야함 
+        - 한페이지당 최대 5개까지만 보여줄 수 있음 
+
+        */
+        div, section{
+            border: 1px dotted gray;
+        }
+        .p1{
+            font-size: 20px;
+            font-weight: bold;
+            color:#3f3f3f;
+        }
+        .p2{
+            font-size:14px;
+            font-weight: bold;
+            color:#3f3f3f;
+            line-height: 18px;
+        }
+        .p3{
+            font-size: 12px;
+            color:#3f3f3f;
+        }
+        .p4{
+            font-size: 20px;
+            font-weight: bold;
+            color: #3f3f3f;
+        }
+        .p5{
+            font-size: 20px;
+            color: #3f3f3f;
+        }
+        .all-hover:focus > li,
+        .all-hover:hover > li{
+            color:#6c7aef;
+            font-weight: bold;
+        }
+        .p6:focus,
+        .p6:hover{
+            color:#6c7aef;
+            font-weight: bold;
+        }
+        .p6{
+            font-size: 14px;
+            color:#3f3f3f;
+        }
+        .p7{
+            font-size: 15px;
+            font-weight: bold;
+            color: #3f3f3f;
+        }
+        .p8{
+            font-size: 12px;
+            color: #3f3f3f;
+        }
+        .nav-a{
+            color:#6c7aef
+        }
+        /* | 이거 */
+        .find{
+            font-size: 13px;
+            color:#707070;
+            text-decoration-line: none;
+        }
+        
+        /* 챌린지 현황 세개 분류   */
+        #chal-section{
+            display: flex;
+        }
+        .chal-num{
+            justify-content : center;
+        }
+        .chal-line{
+            border: 1px solid #707070;
+            width: 0.1px;
+            height: 20px;
+            vertical-align: middle;
+            
+        }
+        /* 버튼 */
+        .confirm-btn{
+            width: 364px;
+            margin-right: 26px;
+        }
+        .create-btn{
+            width: 364px;
+            margin-left: 26px;
+        }
+        .my-confrim-btn{
+            border: 1px solid #6c7aef;
+            border-radius: 0.25em;
+            background-color: #6c7aef;
+            color:white;
+            width: 100px;
+            height: 48px;
+        }
+        /* 사진 */
+        .user-img{
+            width: 60px;
+            border-radius: 50%;
+        }
+        .chal-img{
+            display: inline;
+            width: 250px;
+            height: 180px;
+            border-radius: 0.5em;
+        }
+      
+        /* 중심 close(absolute) */
+        .chal-close{
+            position: absolute;
+            top:30;
+            left: 267px;
+        }
+        .chal-title{
+            position: relative;
+            bottom: 130px;
+            left: 267px;
+
+            white-space: normal;
+            word-wrap:break-word;
+            word-break: break-all;
+        }
+        .chal-period{
+            position: relative;
+            bottom: 80px;
+            left: 275px;
+        }
+        .chal-success{
+            position: relative;
+            bottom: 66px;
+            left: 275px;
+        }
+        .chal-category{
+            position: relative;
+            bottom: 66px;
+            left: 265px;
+        }
+        .my-confrim-btn{
+            position: relative;
+            bottom: 110px;
+            left: 480px;
+        }
+
+        
+        </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+     <script type="text/javascript">
+       
+     </script>
+     </head>
+     <body>
+        <div class="row container-1200">
+            <div class="row container-794">
+                <div class="row">
+                    <p class="p1">마이페이지</p>
+                </div>
+
+                <div class="row center chal-profile">
+                    <img class="user-img" src="./image/jong.jpg">
+                    <br>
+                    <span class="p2">유저 아이디</span>
+                    <br>
+                    <span class="p3">유저 이메일</span>
+                </div>
+                
+                <div class="row center">
+                <a  id="navbutton3" class=" navbtn nav-a" href="계정 관리">계정관리</a>
+                </div>
+
+                <div class="row">
+                    <p class="p4">챌린지 현황</p>
+                </div>
+
+                <section class="row center chal-num" id="chal-section">
+               
+                <div class="row all-hover">
+                    <li class="p5">2</li>
+                    <a class="chal-ing p6" href="#비밀번호찾기 ">참가중</a>
+                </div>
+                <hr class="chal-line">
+                <div class="row all-hover">
+                    <li class="p5">2</li>
+                    <a class="chal-fin p6" href="#비밀번호찾기 ">참가중</a>
+                </div>
+                <hr class="chal-line">
+                <div class="row all-hover">
+                <li class="p5">2</li>
+                    <a class="chal-create p6" href="#비밀번호찾기 ">참가중</a>
+                </div>
+                
+            </section>
+            
+            <!-- <em class="divi">|</em> -->
+                <hr>
+
+                <div class="row center">
+                    <button class="smallbtn confirm-btn" type="submit" id="smallbutton3">챌린지 인증</button>
+                    <button class="smallbtn create-btn" type="submit" id="smallbutton3">챌린지 개설</button>
+                </div>
+
+                <div class="row row-last">
+                    <img class="chal-img" src="./image/jong.jpg" width="200">
+                    <input class="label-close chal-close" disabled placeholder="ㅇ일 뒤 시작">
+                    <p class="p7 chal-title">너를 습격하러가 어서 손 머리 위로 우린 불을 질러 거침없이 태워 세상이</p>
+                    <p class="p8 chal-period">2022.09.10(목)~2022.11.05(수)</p>
+                    <input class="label-category chal-category" disabled placeholder="챌린지분류">
+                    <input class="label-success chal-success" disabled placeholder="현재 달성률 90%">
+                    <button class="my-confrim-btn" type="submit"><a href="내 인증글">내 인증글</a></button>
+                </div>
+            </div>
+            <div class="row">
+                <img class="chal-img" src="./image/jong.jpg" width="200">
+                <input class="label-close chal-close" disabled placeholder="ㅇ일 뒤 시작">
+                <p class="p7 chal-title">너를 습격하러가 어서 손 머리 위로 우린 불을 질러 거침없이 태워 세상이</p>
+                <p class="p8 chal-period">2022.09.10(목)~2022.11.05(수)</p>
+                <input class="label-category chal-category" disabled placeholder="챌린지분류">
+                <input class="label-success chal-success" disabled placeholder="현재 달성률 90%">
+                <button class="my-confrim-btn" type="submit"><a href="내 인증글">내 인증글</a></button>
+            </div>
+        </div>
+
+            <div class="row container-794">
+                <ul class="page">
+                    <li><a href="#">&lt;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li class="on"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">&gt;</a></li>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+     </body>
+     </html>
