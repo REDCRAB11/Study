@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="music">
+<!--  등록  -->
+<!--  musicplay는 넣어도 안넣어도 ㄱㅊ 값은 0으로 넣는다.  -->
+<insert id="insert" parameterType="MusicDto"> 
+	insert into music(music_no, music_title, music_artist, music_album, release_time)
+	values(music_seq.nextval, #{musicTitle}, #{musicArtist}, #{musicAlbum}, #{releaseTime})
+</insert>
+
+<!-- 조회 -->
+<select id="list" resultType="MusicDto">
+	select * from music
+</select>
+
+<!-- 조회2 -->
+<select id="one" parameterType="int" resultType="MusicDto">
+	select*from music where music_no = #{musicNo}
+</select>
+
+<!-- 수정 -->
+<update id="edit" parameterType="MusicDto">
+	update music set music_title=#{musicTitle}, music_artist=#{musicArtist}, music_album=#{musicAlbum}, release_time=#{releaseTime} where music_no=#{musicNo} 
+</update>
+
+<!--  삭제 -->
+<delete id="delete" parameterType="int">
+	delete music where music_no = #{musicNo}
+</delete>
+
+</mapper>
