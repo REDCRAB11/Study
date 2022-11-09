@@ -30,4 +30,16 @@
 	delete music where music_no = #{musicNo}
 </delete>
 
+<!-- 
+	type, keyword검색 
+	- mybatis는 이름에 기반한 구문 생성을 하므로 클래스 or Map 사용을 권장 
+	- Map은 클래스에 비해 자유롭지만 오타의 위험이 있어 복잡할수록 권장하지 않음 
+	- ${type}은 type의 값을 있는 그대로 설정하는 정적 할당 문법 
+	- #{keyword}는 keyword의 값을 자료형에 맞게 처리하여 설정하는 동적 할당 
+ -->
+<select id="search" parameterType="map" resultType="MusicDto">
+		select * from music where instr(${type}, #{keyword}) > 0
+		order by ${type} asc
+	</select>
+
 </mapper>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="product">
+
+	<!-- Q.목록과 검색을 동시에 처리하도록 구문을 구성 
+		select * from product 
+		select * from product where instr($[type}, #{keyword}) > 0
+		조건 태그 <if>를 사용 , 조건은 test에 작성하며 && = and,  || = or을  
+	-->
+	<select id="complex1" parameterType="map" resultType="ProductDto">
+		select * from product 
+		<if test="type != null and keyword != null">
+		where instr(${type}, #{keyword}) > 0	
+		</if>
+	</select>
+	
+	<!-- 
+		Q. 모든 항목에 대한 입력창이 각각 존재할 경우에 대한 검색 구문(복합 검색) 
+	 -->
+	<select id="complex2" parameterType="map"  resultType="ProductDto">
+		select * from product
+		<!-- 번호는 일치하는 대상만 검색 -->
+		<if test="no != null">
+			where no = #{no}
+		</if>
+
+	<!-- 이름은 유사한 대상을 검색 -->
+	<if test="name != null">
+		and instr(name, #{name}) > 0 
+	</if>
+	</select>
+	
+	<select id="complex3" parameterType="map"  resultType="ProductDto">
+		select * from product 1=1 
+		<!-- 번호는 일치하는 대상만 검색 -->
+		<if test="no != null">
+			and no = #{no}
+		</if>
+
+	<!-- 이름은 유사한 대상을 검색 -->
+	<if test="name != null">
+		and instr(name, #{name}) > 0 
+	</if>
+	</select>
+	
+	<!-- where 태그는 조건이 있을 경우 where 1=1을 생성해주는 태그  -->
+	<select id="complex4" parameterType="map"  resultType="ProductDto">
+		select * from product 
+	<where>
+		<!-- 번호는 일치하는 대상만 검색 -->
+		<if test="no != null">
+			and no = #{no}
+		</if>
+
+		<!-- 이름은 유사한 대상을 검색 -->
+		<if test="name != null">
+			and instr(name, #{name}) > 0 
+		</if>
+		
+		<!-- 가격에 대한 구간 검색
+			minPrice: 최소 금액(있을지 없을지)
+			maxPrice: 최대 금액(있을지 없을지)
+		 -->
+		 <choose>
+		 	<when test="minPrice != null and maxPrice != null">
+		 		and price between #{minPrice} and #{maxPrice}
+		 	</when>
+		 	<when test="minPrice != null">
+		 	<!-- XML에서 사용할 수 없는 기호를 써야할 경우 CDATA 구문 사용  -->
+		 	<![CDATA[
+		 		and price >= #{minPrice} 
+		 		]]>
+		 	</when>
+		 	<when test="maxPrice != null">
+		 		<![CDATA[
+		 		and price <= #{maxPrice} 
+		 		]]>
+		 	</when>
+		 </choose>
+		 
+		 <!-- 날짜도 가격처럼 구간으로 검색
+			시작일은 beginMade, 종료일은 endMade로 처리(문자열)
+		 	날짜 형식은 YYYY-MM-DD로 입력
+		 	만약, 2022-01-01 부터 2022-12-31까지로 검색하면 
+		 	시작일의 시각은 00:00:00.0, 종료일 시각은 23:59:59.9
+		  -->
+		  <choose>
+		  	<when test="beginMade != null and endMade != null">
+		  		and made between 
+		  		to_date(#{beginMade} || '' || '00:00:00.0', 'YYYY-MM-DD HH24:MI:SS.F')
+		  		and
+		  		to_date(#{endMade} || '' || '23:59:59.9', 'YYYY-MM-DD HH24:MI:SS.F')
+		  	</when>
+		  	<when test="beginMade != null">
+		  	<![CDATA[
+		 		and  made >=	to_date(#{beginMade} || ' ' || '00:00:00', 'YYYY-MM-DD HH24:MI:SS')
+		 		]]>
+		  	</when>
+		  	<when test="endMade != null">
+		  	<![CDATA[
+		 		and made <= to_date(#{endMade} || ' ' || '23:59:59', 'YYYY-MM-DD HH24:MI:SS')
+		 		]]>
+		  	</when>
+		  </choose>
+		  
+		  <!-- 폐기일(expire)도 제조일(made)와 동일하게 처리  == 위에 구문과 똑같으니 패스 ! -->
+		  
+		  <!--  타입(type) 관련 조건 설정
+		  		type의 경우 체크박스로 구현한다고 가정 
+		  		없을 수도, 있ㅇ르 수도, 많을 수도 있다. 
+		  		List<String>의 형태로 전달될 것이라고 예상 가능 
+		  		[과자, 사탕, 아이스크림]과 같은 형태
+		  		foreach : 반복 구문
+		  		 collection은 데이터가 들어있는 항목
+		  		 seperator은 데이터 출력 사이마다의 구분기호 
+		  		 item은 추출할 데이터를 부를 별칭 
+		  		 open은 반복문 시작 전 출력할 기호
+		  		 close는 반복문 종류 후 출력할 기호 
+		   -->
+	<if test="type != null">
+	 			and type in 
+				<foreach collection="type" separator="," 
+										item="t" open="(" close=")">
+					#{t}
+				</foreach>
+	 		</if>
+	</where>
+	</select>
+	
+	<select id="complex5" parameterType="ProductSearchVO"  resultType="ProductDto">
+		select * from product 
+	<where>
+		<!-- 번호는 일치하는 대상만 검색 -->
+		<if test="no != null">
+			and no = #{no}
+		</if>
+
+		<!-- 이름은 유사한 대상을 검색 -->
+		<if test="name != null">
+			and instr(name, #{name}) > 0 
+		</if>
+		
+		<!-- 가격에 대한 구간 검색
+			minPrice: 최소 금액(있을지 없을지)
+			maxPrice: 최대 금액(있을지 없을지)
+		 -->
+		 <choose>
+		 	<when test="minPrice != null and maxPrice != null">
+		 		and price between #{minPrice} and #{maxPrice}
+		 	</when>
+		 	<when test="minPrice != null">
+		 	<!-- XML에서 사용할 수 없는 기호를 써야할 경우 CDATA 구문 사용  -->
+		 	<![CDATA[
+		 		and price >= #{minPrice} 
+		 		]]>
+		 	</when>
+		 	<when test="maxPrice != null">
+		 		<![CDATA[
+		 		and price <= #{maxPrice} 
+		 		]]>
+		 	</when>
+		 </choose>
+		 
+		  <choose>
+		  	<when test="beginMade != null and endMade != null">
+		  		and made between 
+		  		to_date(#{beginMade} || '' || '00:00:00.0', 'YYYY-MM-DD HH24:MI:SS.F')
+		  		and
+		  		to_date(#{endMade} || '' || '23:59:59.9', 'YYYY-MM-DD HH24:MI:SS.F')
+		  	</when>
+		  	<when test="beginMade != null">
+		  	<![CDATA[
+		 		and  made >=	to_date(#{beginMade} || ' ' || '00:00:00', 'YYYY-MM-DD HH24:MI:SS')
+		 		]]>
+		  	</when>
+		  	<when test="endMade != null">
+		  	<![CDATA[
+		 		and made <= to_date(#{endMade} || ' ' || '23:59:59', 'YYYY-MM-DD HH24:MI:SS')
+		 		]]>
+		  	</when>
+		  </choose>
+	<if test="type != null">
+	 			and type in 
+				<foreach collection="type" separator="," 
+										item="t" open="(" close=")">
+					#{t}
+				</foreach>
+	 		</if>
+	</where>
+	</select>
+	
+	<!--  정렬
+		데이터를 여러개 조회하면 반드시 정렬이 필요
+		정렬은 한 가지일 수도, 여러가지일 수도, 없을 수도 있다. 
+		조건에서의 체크박스와 동일하게 foreach 사용 
+		구문형태: select * from product order by 항목1 asc/desc, 항목2 asc/desc, ....  
+	 -->
+	 <select id="complex6" parameterType="map" resultType="ProductDto">
+	 select * from product 
+	 <!-- 정렬할 내용이 있다면 -->
+	 <if test="sort != null">
+	 order by
+	 	<foreach collection="sort" item="s" separator=" , ">${s}</foreach>
+	 </if>
+	 </select>
+	 
+	 <!--  최종 복합 검색 구문 -->
+	 <select id="complex7"  parameterType="ProductSearchVO" resultType="ProductDto" >
+	 	select * from product 
+	<where>
+		<!-- 번호는 일치하는 대상만 검색 -->
+		<if test="no != null">
+			and no = #{no}
+		</if>
+
+		<!-- 이름은 유사한 대상을 검색 -->
+		<if test="name != null">
+			and instr(name, #{name}) > 0 
+		</if>
+		
+		<!-- 가격에 대한 구간 검색
+			minPrice: 최소 금액(있을지 없을지)
+			maxPrice: 최대 금액(있을지 없을지)
+		 -->
+		 <choose>
+		 	<when test="minPrice != null and maxPrice != null">
+		 		and price between #{minPrice} and #{maxPrice}
+		 	</when>
+		 	<when test="minPrice != null">
+		 	<!-- XML에서 사용할 수 없는 기호를 써야할 경우 CDATA 구문 사용  -->
+		 	<![CDATA[
+		 		and price >= #{minPrice} 
+		 		]]>
+		 	</when>
+		 	<when test="maxPrice != null">
+		 		<![CDATA[
+		 		and price <= #{maxPrice} 
+		 		]]>
+		 	</when>
+		 </choose>
+		 
+		  <choose>
+		  	<when test="beginMade != null and endMade != null">
+		  		and made between 
+		  		to_date(#{beginMade} || '' || '00:00:00.0', 'YYYY-MM-DD HH24:MI:SS.F')
+		  		and
+		  		to_date(#{endMade} || '' || '23:59:59.9', 'YYYY-MM-DD HH24:MI:SS.F')
+		  	</when>
+		  	<when test="beginMade != null">
+		  	<![CDATA[
+		 		and  made >=	to_date(#{beginMade} || ' ' || '00:00:00', 'YYYY-MM-DD HH24:MI:SS')
+		 		]]>
+		  	</when>
+		  	<when test="endMade != null">
+		  	<![CDATA[
+		 		and made <= to_date(#{endMade} || ' ' || '23:59:59', 'YYYY-MM-DD HH24:MI:SS')
+		 		]]>
+		  	</when>
+		  </choose>
+	<if test="type != null">
+	 			and type in 
+				<foreach collection="type" separator="," 
+										item="t" open="(" close=")">
+					#{t}
+				</foreach>
+	 		</if>
+	</where>
+	
+	 <!-- 정렬할 내용이 있다면 -->
+	 <if test="sort != null">
+	 order by
+	 	<foreach collection="sort" item="s" separator=" , ">${s}</foreach>
+	 </if>
+	
+	 </select>
+</mapper>
