@@ -1,0 +1,8 @@
+2022-14-10  12:14:55.927 [INFO ] [com.kh.spring19.LoggingTest1] Starting LoggingTest1 using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 90684 (started by jiin_park in /Users/jiin_park/study22/spring19logging) 
+2022-14-10  12:14:55.929 [DEBUG] [com.kh.spring19.LoggingTest1] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-14-10  12:14:55.930 [INFO ] [com.kh.spring19.LoggingTest1] No active profile set, falling back to 1 default profile: "default" 
+2022-15-10  12:15:00.602 [INFO ] [com.kh.spring19.LoggingTest1] Started LoggingTest1 in 5.36 seconds (JVM running for 7.236) 
+2022-15-10  12:15:01.397 [DEBUG] [com.kh.spring19.LoggingTest1] debug 메세지 
+2022-15-10  12:15:01.398 [INFO ] [com.kh.spring19.LoggingTest1] info 메세지 
+2022-15-10  12:15:01.400 [WARN ] [com.kh.spring19.LoggingTest1] warn메세지 
+2022-15-10  12:15:01.401 [ERROR] [com.kh.spring19.LoggingTest1] error 메세지 
