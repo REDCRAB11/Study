@@ -1,13 +1,11 @@
-package com.kh.spring20;
+package Spring20cookieApplicationTests;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Spring20cookieApplicationTests {
-
+public class Spring20cookieApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
