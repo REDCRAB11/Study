@@ -21,4 +21,12 @@
 		and 
 		when >= sysdate - 5/24/60 
 	</select>
+	
+	<!--  시간이 5분 이상 지난 인증정보를 삭제  -->
+	<delete id="clear">
+	<![CDATA[
+		delete cert where <= sysdate -5/24/60
+	]]>
+	</delete>
+	
 </mapper>

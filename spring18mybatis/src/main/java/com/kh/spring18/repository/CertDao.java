@@ -6,4 +6,5 @@ public interface CertDao {
 	void insert(CertDto certDto);
 	boolean check(CertDto certDto);
 	boolean delete(String who);
+	void clear();
 }
