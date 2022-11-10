@@ -1,0 +1,508 @@
+2022-13-10  14:13:12.122 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-13-10  14:13:12.125 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-13-10  14:13:12.128 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-13-10  14:13:15.514 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 5.404 seconds (JVM running for 7.291) 
+2022-48-10  14:48:34.326 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-48-10  14:48:34.328 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-48-10  14:48:34.328 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-48-10  14:48:35.140 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.895 seconds (JVM running for 1060.491) 
+2022-48-10  14:48:48.752 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-48-10  14:48:48.753 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-48-10  14:48:48.753 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-48-10  14:48:49.453 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.753 seconds (JVM running for 1074.804) 
+2022-48-10  14:48:57.25 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-48-10  14:48:57.25 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-48-10  14:48:57.26 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-48-10  14:48:57.700 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.73 seconds (JVM running for 1083.051) 
+2022-49-10  14:49:31.485 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-49-10  14:49:31.487 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-49-10  14:49:31.488 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-49-10  14:49:32.154 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.743 seconds (JVM running for 1117.503) 
+2022-49-10  14:49:36.696 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-49-10  14:49:36.696 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-49-10  14:49:36.697 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-49-10  14:49:37.424 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.771 seconds (JVM running for 1122.773) 
+2022-49-10  14:49:50.80 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-49-10  14:49:50.81 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-49-10  14:49:50.81 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-49-10  14:49:50.778 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.782 seconds (JVM running for 1136.128) 
+2022-50-10  14:50:03.427 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-50-10  14:50:03.428 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-50-10  14:50:03.428 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-50-10  14:50:04.104 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.736 seconds (JVM running for 1149.453) 
+2022-51-10  14:51:21.143 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-51-10  14:51:21.145 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-51-10  14:51:21.146 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-51-10  14:51:21.914 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.817 seconds (JVM running for 1227.261) 
+2022-51-10  14:51:30.508 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-51-10  14:51:30.508 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-51-10  14:51:30.508 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-51-10  14:51:31.179 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.726 seconds (JVM running for 1236.526) 
+2022-56-10  14:56:54.197 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-56-10  14:56:54.199 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-56-10  14:56:54.200 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-56-10  14:56:55.268 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 1.135 seconds (JVM running for 1560.608) 
+2022-58-10  14:58:10.171 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-58-10  14:58:10.172 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-58-10  14:58:10.172 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-58-10  14:58:10.878 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.731 seconds (JVM running for 1636.216) 
+2022-58-10  14:58:15.578 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-58-10  14:58:15.579 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-58-10  14:58:15.581 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-58-10  14:58:16.417 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.867 seconds (JVM running for 1641.755) 
+2022-58-10  14:58:51.659 [ERROR] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: An invalid character [32] was present in the Cookie value] with root cause 
+java.lang.IllegalArgumentException: An invalid character [32] was present in the Cookie value
+	at org.apache.tomcat.util.http.Rfc6265CookieProcessor.validateCookieValue(Rfc6265CookieProcessor.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.http.Rfc6265CookieProcessor.generateHeader(Rfc6265CookieProcessor.java:123) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.Response.generateCookieString(Response.java:1001) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.Response.addCookie(Response.java:953) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.ResponseFacade.addCookie(ResponseFacade.java:385) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at com.kh.spring20.controller.CookieTestController.create(CookieTestController.java:24) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+2022-58-10  14:58:53.883 [ERROR] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: An invalid character [32] was present in the Cookie value] with root cause 
+java.lang.IllegalArgumentException: An invalid character [32] was present in the Cookie value
+	at org.apache.tomcat.util.http.Rfc6265CookieProcessor.validateCookieValue(Rfc6265CookieProcessor.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.http.Rfc6265CookieProcessor.generateHeader(Rfc6265CookieProcessor.java:123) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.Response.generateCookieString(Response.java:1001) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.Response.addCookie(Response.java:953) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.ResponseFacade.addCookie(ResponseFacade.java:385) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at com.kh.spring20.controller.CookieTestController.create2(CookieTestController.java:32) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+2022-59-10  14:59:16.816 [ERROR] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: An invalid character [32] was present in the Cookie value] with root cause 
+java.lang.IllegalArgumentException: An invalid character [32] was present in the Cookie value
+	at org.apache.tomcat.util.http.Rfc6265CookieProcessor.validateCookieValue(Rfc6265CookieProcessor.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.http.Rfc6265CookieProcessor.generateHeader(Rfc6265CookieProcessor.java:123) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.Response.generateCookieString(Response.java:1001) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.Response.addCookie(Response.java:953) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.ResponseFacade.addCookie(ResponseFacade.java:385) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at com.kh.spring20.controller.CookieTestController.create(CookieTestController.java:24) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+2022-00-10  15:00:04.751 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-00-10  15:00:04.752 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-00-10  15:00:04.752 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-00-10  15:00:05.494 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.822 seconds (JVM running for 1750.829) 
+2022-01-10  15:01:54.777 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-01-10  15:01:54.778 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-01-10  15:01:54.778 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-01-10  15:01:55.567 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.865 seconds (JVM running for 1860.9) 
+2022-03-10  15:03:09.753 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-03-10  15:03:09.754 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-03-10  15:03:09.755 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-03-10  15:03:10.613 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.908 seconds (JVM running for 1935.848) 
+2022-03-10  15:03:39.378 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-03-10  15:03:39.380 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-03-10  15:03:39.380 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-03-10  15:03:40.224 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.901 seconds (JVM running for 1965.458) 
+2022-04-10  15:04:07.352 [ERROR] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: An invalid character [32] was present in the Cookie value] with root cause 
+java.lang.IllegalArgumentException: An invalid character [32] was present in the Cookie value
+	at org.apache.tomcat.util.http.Rfc6265CookieProcessor.validateCookieValue(Rfc6265CookieProcessor.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.http.Rfc6265CookieProcessor.generateHeader(Rfc6265CookieProcessor.java:123) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.Response.generateCookieString(Response.java:1001) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.Response.addCookie(Response.java:953) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.ResponseFacade.addCookie(ResponseFacade.java:385) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at com.kh.spring20.controller.CookieTestController.create(CookieTestController.java:24) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+2022-05-10  15:05:29.586 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-05-10  15:05:29.587 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-05-10  15:05:29.588 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-05-10  15:05:30.500 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.961 seconds (JVM running for 2075.731) 
+2022-05-10  15:05:35.217 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-05-10  15:05:35.218 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-05-10  15:05:35.218 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-05-10  15:05:35.945 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.802 seconds (JVM running for 2081.176) 
+2022-05-10  15:05:39.726 [ERROR] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: An invalid character [32] was present in the Cookie value] with root cause 
+java.lang.IllegalArgumentException: An invalid character [32] was present in the Cookie value
+	at org.apache.tomcat.util.http.Rfc6265CookieProcessor.validateCookieValue(Rfc6265CookieProcessor.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.http.Rfc6265CookieProcessor.generateHeader(Rfc6265CookieProcessor.java:123) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.Response.generateCookieString(Response.java:1001) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.Response.addCookie(Response.java:953) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.ResponseFacade.addCookie(ResponseFacade.java:385) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at com.kh.spring20.controller.CookieTestController.create(CookieTestController.java:24) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+2022-05-10  15:05:40.549 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-05-10  15:05:40.550 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-05-10  15:05:40.550 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-05-10  15:05:41.269 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.765 seconds (JVM running for 2086.499) 
+2022-09-10  15:09:25.620 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-09-10  15:09:25.622 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-09-10  15:09:25.625 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-09-10  15:09:26.507 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.954 seconds (JVM running for 2311.731) 
+2022-10-10  15:10:17.432 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-10-10  15:10:17.434 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-10-10  15:10:17.435 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-10-10  15:10:18.169 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.788 seconds (JVM running for 2363.391) 
+2022-11-10  15:11:51.402 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-11-10  15:11:51.404 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-11-10  15:11:51.404 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-11-10  15:11:52.68 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.731 seconds (JVM running for 2457.287) 
+2022-11-10  15:11:58.790 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-11-10  15:11:58.791 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-11-10  15:11:58.791 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-11-10  15:11:59.786 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 1.048 seconds (JVM running for 2465.006) 
+2022-12-10  15:12:31.2 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-12-10  15:12:31.4 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-12-10  15:12:31.4 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-12-10  15:12:31.631 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.73 seconds (JVM running for 2496.849) 
+2022-13-10  15:13:36.699 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-13-10  15:13:36.701 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-13-10  15:13:36.703 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-13-10  15:13:37.393 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.739 seconds (JVM running for 2562.609) 
+2022-13-10  15:13:54.96 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-13-10  15:13:54.98 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-13-10  15:13:54.98 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-13-10  15:13:54.779 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.726 seconds (JVM running for 2579.995) 
+2022-14-10  15:14:11.505 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-14-10  15:14:11.505 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-14-10  15:14:11.506 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-14-10  15:14:12.153 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.735 seconds (JVM running for 2597.368) 
+2022-14-10  15:14:27.849 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-14-10  15:14:27.850 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-14-10  15:14:27.851 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-14-10  15:14:28.602 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.826 seconds (JVM running for 2613.817) 
+2022-14-10  15:14:40.353 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-14-10  15:14:40.353 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-14-10  15:14:40.354 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-14-10  15:14:41.21 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.727 seconds (JVM running for 2626.235) 
+2022-14-10  15:14:54.815 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-14-10  15:14:54.816 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-14-10  15:14:54.816 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-14-10  15:14:55.680 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.936 seconds (JVM running for 2640.894) 
+2022-14-10  15:14:57.279 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-14-10  15:14:57.280 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-14-10  15:14:57.280 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-14-10  15:14:57.898 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.638 seconds (JVM running for 2643.112) 
+2022-17-10  15:17:00.442 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-17-10  15:17:00.442 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-17-10  15:17:00.443 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-17-10  15:17:01.147 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.737 seconds (JVM running for 2766.357) 
+2022-17-10  15:17:03.912 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-17-10  15:17:03.912 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-17-10  15:17:03.912 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-17-10  15:17:04.642 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.753 seconds (JVM running for 2769.852) 
+2022-18-10  15:18:25.855 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-18-10  15:18:25.857 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-18-10  15:18:25.857 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-18-10  15:18:26.474 [ERROR] [org.springframework.boot.SpringApplication] Application run failed 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cookieTestController' defined in file [/Users/jiin_park/study22/spring20cookie/target/classes/com/kh/spring20/controller/CookieTestController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.kh.spring20.controller.CookieTestController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "enum Identifier" to complete EnumHeader
+	Syntax error, insert "EnumBody" to complete EnumDeclaration
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.5.jar:2.7.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.5.jar:2.7.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.5.jar:2.7.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.5.jar:2.7.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.5.jar:2.7.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.5.jar:2.7.5]
+	at com.kh.spring20.Spring20cookieApplication.main(Spring20cookieApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.5.jar:2.7.5]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.kh.spring20.controller.CookieTestController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "enum Identifier" to complete EnumHeader
+	Syntax error, insert "EnumBody" to complete EnumDeclaration
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:224) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1326) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 22 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "enum Identifier" to complete EnumHeader
+	Syntax error, insert "EnumBody" to complete EnumDeclaration
+
+	at com.kh.spring20.controller.CookieTestController.<init>(CookieTestController.java:58) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:211) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 24 common frames omitted
+2022-18-10  15:18:56.128 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-18-10  15:18:56.128 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-18-10  15:18:56.128 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-18-10  15:18:56.815 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.732 seconds (JVM running for 2882.022) 
+2022-19-10  15:19:25.649 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-19-10  15:19:25.651 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-19-10  15:19:25.651 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-19-10  15:19:26.602 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 1.002 seconds (JVM running for 2911.808) 
+2022-19-10  15:19:29.172 [INFO ] [com.kh.spring20.Spring20cookieApplication] Starting Spring20cookieApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 93591 (/Users/jiin_park/study22/spring20cookie/target/classes started by jiin_park in /Users/jiin_park/study22/spring20cookie) 
+2022-19-10  15:19:29.172 [DEBUG] [com.kh.spring20.Spring20cookieApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-19-10  15:19:29.172 [INFO ] [com.kh.spring20.Spring20cookieApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-19-10  15:19:29.989 [INFO ] [com.kh.spring20.Spring20cookieApplication] Started Spring20cookieApplication in 0.836 seconds (JVM running for 2915.195) 
