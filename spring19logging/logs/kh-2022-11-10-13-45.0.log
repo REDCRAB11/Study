@@ -1,0 +1,5 @@
+2022-45-10  13:45:43.808 [INFO ] [com.kh.spring19.LoggingTest3] Starting LoggingTest3 using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 91967 (started by jiin_park in /Users/jiin_park/git/kh10/spring19logging) 
+2022-45-10  13:45:43.828 [DEBUG] [com.kh.spring19.LoggingTest3] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-45-10  13:45:43.840 [INFO ] [com.kh.spring19.LoggingTest3] No active profile set, falling back to 1 default profile: "default" 
+2022-45-10  13:45:49.153 [INFO ] [com.kh.spring19.LoggingTest3] Started LoggingTest3 in 6.078 seconds (JVM running for 8.937) 
+2022-45-10  13:45:50.282 [DEBUG] [com.kh.spring19.LoggingTest3] hel logging 
