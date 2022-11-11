@@ -1,0 +1,29 @@
+2022-53-10  17:53:43.442 [INFO ] [com.kh.spring21.SecurityTest5] Starting SecurityTest5 using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 4283 (started by jiin_park in /Users/jiin_park/study22/spring21security) 
+2022-53-10  17:53:43.444 [DEBUG] [com.kh.spring21.SecurityTest5] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-53-10  17:53:43.446 [INFO ] [com.kh.spring21.SecurityTest5] No active profile set, falling back to 1 default profile: "default" 
+2022-53-10  17:53:48.714 [INFO ] [com.kh.spring21.SecurityTest5] Started SecurityTest5 in 5.903 seconds (JVM running for 8.106) 
+2022-56-10  17:56:44.809 [INFO ] [com.kh.spring21.SecurityTest5] Starting SecurityTest5 using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 4473 (started by jiin_park in /Users/jiin_park/study22/spring21security) 
+2022-56-10  17:56:44.811 [DEBUG] [com.kh.spring21.SecurityTest5] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-56-10  17:56:44.813 [INFO ] [com.kh.spring21.SecurityTest5] No active profile set, falling back to 1 default profile: "default" 
+2022-56-10  17:56:49.569 [INFO ] [com.kh.spring21.SecurityTest5] Started SecurityTest5 in 5.323 seconds (JVM running for 7.199) 
+2022-56-10  17:56:50.576 [DEBUG] [com.kh.spring21.SecurityTest5] login = false 
+2022-57-10  17:57:22.620 [INFO ] [com.kh.spring21.SecurityTest5] Starting SecurityTest5 using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 4511 (started by jiin_park in /Users/jiin_park/study22/spring21security) 
+2022-57-10  17:57:22.621 [DEBUG] [com.kh.spring21.SecurityTest5] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-57-10  17:57:22.623 [INFO ] [com.kh.spring21.SecurityTest5] No active profile set, falling back to 1 default profile: "default" 
+2022-57-10  17:57:27.387 [INFO ] [com.kh.spring21.SecurityTest5] Started SecurityTest5 in 5.333 seconds (JVM running for 6.984) 
+2022-57-10  17:57:28.471 [DEBUG] [com.kh.spring21.SecurityTest5] login = false 
+2022-59-10  17:59:44.365 [INFO ] [com.kh.spring21.SecurityTest5] Starting SecurityTest5 using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 4654 (started by jiin_park in /Users/jiin_park/study22/spring21security) 
+2022-59-10  17:59:44.367 [DEBUG] [com.kh.spring21.SecurityTest5] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-59-10  17:59:44.369 [INFO ] [com.kh.spring21.SecurityTest5] No active profile set, falling back to 1 default profile: "default" 
+2022-59-10  17:59:49.164 [INFO ] [com.kh.spring21.SecurityTest5] Started SecurityTest5 in 5.449 seconds (JVM running for 7.686) 
+2022-59-10  17:59:50.273 [DEBUG] [com.kh.spring21.SecurityTest5] login = false 
+2022-00-10  18:00:15.227 [INFO ] [com.kh.spring21.SecurityTest5] Starting SecurityTest5 using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 4716 (started by jiin_park in /Users/jiin_park/study22/spring21security) 
+2022-00-10  18:00:15.230 [DEBUG] [com.kh.spring21.SecurityTest5] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-00-10  18:00:15.232 [INFO ] [com.kh.spring21.SecurityTest5] No active profile set, falling back to 1 default profile: "default" 
+2022-00-10  18:00:20.659 [INFO ] [com.kh.spring21.SecurityTest5] Started SecurityTest5 in 6.099 seconds (JVM running for 8.146) 
+2022-00-10  18:00:21.831 [DEBUG] [com.kh.spring21.SecurityTest5] login = false 
+2022-02-10  18:02:39.720 [INFO ] [com.kh.spring21.SecurityTest5] Starting SecurityTest5 using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 4867 (started by jiin_park in /Users/jiin_park/study22/spring21security) 
+2022-02-10  18:02:39.723 [DEBUG] [com.kh.spring21.SecurityTest5] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-02-10  18:02:39.724 [INFO ] [com.kh.spring21.SecurityTest5] No active profile set, falling back to 1 default profile: "default" 
+2022-02-10  18:02:44.589 [INFO ] [com.kh.spring21.SecurityTest5] Started SecurityTest5 in 5.448 seconds (JVM running for 7.126) 
+2022-02-10  18:02:45.719 [DEBUG] [com.kh.spring21.SecurityTest5] login = true 
