@@ -1,0 +1,36 @@
+2022-11-11 10:36:29.795 [INFO ] [com.kh.spring22.Spring22restApplication] Starting Spring22restApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 9779 (/Users/jiin_park/study22/spring22rest/target/classes started by jiin_park in /Users/jiin_park/study22/spring22rest) 
+2022-11-11 10:36:29.797 [DEBUG] [com.kh.spring22.Spring22restApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-11-11 10:36:29.799 [INFO ] [com.kh.spring22.Spring22restApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-11-11 10:36:32.932 [INFO ] [com.kh.spring22.Spring22restApplication] Started Spring22restApplication in 3.697 seconds (JVM running for 4.884) 
+2022-11-11 10:44:44.857 [INFO ] [com.kh.spring22.Spring22restApplication] Starting Spring22restApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 9779 (/Users/jiin_park/study22/spring22rest/target/classes started by jiin_park in /Users/jiin_park/study22/spring22rest) 
+2022-11-11 10:44:44.860 [DEBUG] [com.kh.spring22.Spring22restApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-11-11 10:44:44.861 [INFO ] [com.kh.spring22.Spring22restApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-11-11 10:44:46.406 [INFO ] [com.kh.spring22.Spring22restApplication] Started Spring22restApplication in 1.678 seconds (JVM running for 498.342) 
+2022-11-11 10:44:59.494 [INFO ] [com.kh.spring22.Spring22restApplication] Starting Spring22restApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 9779 (/Users/jiin_park/study22/spring22rest/target/classes started by jiin_park in /Users/jiin_park/study22/spring22rest) 
+2022-11-11 10:44:59.495 [DEBUG] [com.kh.spring22.Spring22restApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-11-11 10:44:59.495 [INFO ] [com.kh.spring22.Spring22restApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-11-11 10:45:00.253 [INFO ] [com.kh.spring22.Spring22restApplication] Started Spring22restApplication in 0.81 seconds (JVM running for 512.189) 
+2022-11-11 10:45:53.167 [INFO ] [com.kh.spring22.Spring22restApplication] Starting Spring22restApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 9779 (/Users/jiin_park/study22/spring22rest/target/classes started by jiin_park in /Users/jiin_park/study22/spring22rest) 
+2022-11-11 10:45:53.170 [DEBUG] [com.kh.spring22.Spring22restApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-11-11 10:45:53.171 [INFO ] [com.kh.spring22.Spring22restApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-11-11 10:45:54.86 [INFO ] [com.kh.spring22.Spring22restApplication] Started Spring22restApplication in 0.987 seconds (JVM running for 565.985) 
+2022-11-11 10:47:16.582 [INFO ] [com.kh.spring22.Spring22restApplication] Starting Spring22restApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 9779 (/Users/jiin_park/study22/spring22rest/target/classes started by jiin_park in /Users/jiin_park/study22/spring22rest) 
+2022-11-11 10:47:16.585 [DEBUG] [com.kh.spring22.Spring22restApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-11-11 10:47:16.585 [INFO ] [com.kh.spring22.Spring22restApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-11-11 10:47:17.426 [INFO ] [com.kh.spring22.Spring22restApplication] Started Spring22restApplication in 0.891 seconds (JVM running for 649.317) 
+2022-11-11 10:48:31.444 [INFO ] [com.kh.spring22.Spring22restApplication] Starting Spring22restApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 9779 (/Users/jiin_park/study22/spring22rest/target/classes started by jiin_park in /Users/jiin_park/study22/spring22rest) 
+2022-11-11 10:48:31.446 [DEBUG] [com.kh.spring22.Spring22restApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-11-11 10:48:31.446 [INFO ] [com.kh.spring22.Spring22restApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-11-11 10:48:32.9 [INFO ] [com.kh.spring22.Spring22restApplication] Started Spring22restApplication in 0.588 seconds (JVM running for 723.897) 
+2022-11-11 10:48:56.711 [INFO ] [com.kh.spring22.Spring22restApplication] Starting Spring22restApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 9779 (/Users/jiin_park/study22/spring22rest/target/classes started by jiin_park in /Users/jiin_park/study22/spring22rest) 
+2022-11-11 10:48:56.712 [DEBUG] [com.kh.spring22.Spring22restApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-11-11 10:48:56.712 [INFO ] [com.kh.spring22.Spring22restApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-11-11 10:48:57.257 [INFO ] [com.kh.spring22.Spring22restApplication] Started Spring22restApplication in 0.601 seconds (JVM running for 749.145) 
+2022-11-11 10:50:53.487 [INFO ] [com.kh.spring22.Spring22restApplication] Starting Spring22restApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 10712 (/Users/jiin_park/study22/spring22rest/target/classes started by jiin_park in /Users/jiin_park/study22/spring22rest) 
+2022-11-11 10:50:53.489 [DEBUG] [com.kh.spring22.Spring22restApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-11-11 10:50:53.490 [INFO ] [com.kh.spring22.Spring22restApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-11-11 10:51:01.399 [INFO ] [com.kh.spring22.Spring22restApplication] Started Spring22restApplication in 8.477 seconds (JVM running for 9.693) 
+2022-11-11 10:59:13.429 [INFO ] [com.kh.spring22.Spring22restApplication] Starting Spring22restApplication using Java 11.0.16 on bagjiin-ui-MacBook-Air.local with PID 10712 (/Users/jiin_park/study22/spring22rest/target/classes started by jiin_park in /Users/jiin_park/study22/spring22rest) 
+2022-11-11 10:59:13.431 [DEBUG] [com.kh.spring22.Spring22restApplication] Running with Spring Boot v2.7.5, Spring v5.3.23 
+2022-11-11 10:59:13.432 [INFO ] [com.kh.spring22.Spring22restApplication] No active profile set, falling back to 1 default profile: "default" 
+2022-11-11 10:59:15.102 [INFO ] [com.kh.spring22.Spring22restApplication] Started Spring22restApplication in 1.756 seconds (JVM running for 503.381) 

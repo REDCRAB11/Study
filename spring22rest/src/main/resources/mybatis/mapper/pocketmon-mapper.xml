@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pocketmon">
+
+	<select id="list" resultType="PocketMonsterDto">
+		select * from pocket_monster
+	</select>
+	
+	<insert id="insert" parameterType="PocketMonsterDto">
+		insert into pocket_monster(no,name,type) values(#{no}, #{name}, #{type})
+	</insert>
+	
+	<update id="edit" parameterType="PocketMonsterDto">
+		update pocket_monster set name = #{name}, type=#{type} where no = #{no}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete pocket_monster where no = #{no}
+	</delete>
+	
+	<select id="get" parameterType="int" resultType="PocketMonsterDto">
+		select * from pocket_monster where no = #{no}
+	</select>
+</mapper>
