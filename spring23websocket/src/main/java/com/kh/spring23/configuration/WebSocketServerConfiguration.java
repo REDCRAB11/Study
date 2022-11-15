@@ -5,10 +5,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
+import org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor;
 import org.springframework.web.socket.sockjs.client.SockJsClient;
 
 import com.kh.spring23.websocket.BasicWebsocketServer;
 import com.kh.spring23.websocket.JsonWebsocketServer;
+import com.kh.spring23.websocket.MemberWebsocketServer;
 import com.kh.spring23.websocket.MessageWebsocketServer;
 import com.kh.spring23.websocket.MultipleUserWebsocketServer;
 import com.kh.spring23.websocket.SockJSWebsocketServer;
@@ -31,6 +33,9 @@ public class WebSocketServerConfiguration implements WebSocketConfigurer{
 	
 	@Autowired
 	private SockJSWebsocketServer sockJSWebsocketServer;
+	
+	@Autowired
+	private MemberWebsocketServer memberWebsocketServer;
 	@Override
 	public void registerWebSocketHandlers(
 							WebSocketHandlerRegistry registry) {
@@ -40,8 +45,12 @@ public class WebSocketServerConfiguration implements WebSocketConfigurer{
 		registry.addHandler(basicWebsocketServer, "/ws/basic")
 					.addHandler(multipleUserWebsocketServer, "/ws/multiple")
 					.addHandler(messageWebsocketServer, "/ws/message")
-					.addHandler(jsonWebsocketServer, "/ws/json")
-					.addHandler(sockJSWebsocketServer, "/ws/sockjs").withSockJS();
+					.addHandler(jsonWebsocketServer, "/ws/json");
+					
+					registry.addHandler(sockJSWebsocketServer, "/ws/sockjs").withSockJS();
+					
+					//HttpSessionHandshakeInterceptor는 HttpSession을 WebSocketSession으로 넘겨준다.  
+					registry.addHandler(basicWebsocketServer, "/ws/member").addInterceptors(new HttpSessionHandshakeInterceptor()).withSockJS();
 	}
 }
 
