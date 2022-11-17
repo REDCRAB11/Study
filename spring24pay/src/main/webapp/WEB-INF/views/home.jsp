@@ -21,3 +21,9 @@
 <h2>아이디 : ${loginId}</h2>
 <h2>닉네임 : ${loginNick}</h2>
 <h2>권한 : ${loginAuth}</h2>
+
+<hr>
+
+<h2><a href="pay1">1번 방식 결제</a></h2>
+<h2><a href="pay2">2번 방식 결제</a></h2>
+

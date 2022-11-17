@@ -19,24 +19,21 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SpringBootTest
-public class PayTest04 {
+public class PayTest06 {
 	
 	@Autowired
 	private KakaoPayProperties kakaoPayProperties;
 	
 	private RestTemplate template = new RestTemplate();
-
+	
 	@Test
 	public void test() throws URISyntaxException {
-		//결제 승인에 필요한 데이터를 준비
-		String tid = "T3746db2204d1c5783ef";//준비 요청 완료 시 받는 정보에서 확인
-		String partner_order_id = "22b1a733-5945-44e3-a64a-3d1e3b043928";//준비 요청시와 동일한 정보
-		String partner_user_id = "48b4768f-dbbf-4195-a9f0-1c8abfca8181";//준비 요청시와 동일한 정보
-		String pg_token = "4a2dd40c558f10cb3d00";//결제 성공 페이지의 파라미터 조회
+		//목표 : 결제 주문 조회
 		
+		String tid = "T375bd34204d1c578e17";
 		
 		//주소 설정
-		URI uri = new URI("https://kapi.kakao.com/v1/payment/approve");
+		URI uri = new URI("https://kapi.kakao.com/v1/payment/order");
 		
 		//헤더 설정
 		HttpHeaders headers = new HttpHeaders();
@@ -47,9 +44,6 @@ public class PayTest04 {
 		MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
 		body.add("cid", kakaoPayProperties.getCid());//가맹점번호(테스트용)
 		body.add("tid", tid);
-		body.add("partner_order_id", partner_order_id);//주문번호
-		body.add("partner_user_id", partner_user_id);//고객번호
-		body.add("pg_token", pg_token);
 		
 		//보낼 내용 합체
 		HttpEntity<MultiValueMap<String, String>> entity = 

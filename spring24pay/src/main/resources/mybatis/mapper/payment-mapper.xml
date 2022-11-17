@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="payment">
+	
+	<!-- payment 번호 생성 -->
+	<select id="paymentSequence" resultType="int">
+		select payment_seq.nextval from dual
+	</select>
+	
+	<!-- payment-detail 번호 생성 -->
+	<select id="paymentDetailSequence" resultType="int">
+		select payment_detail_seq.nextval from dual
+	</select>
+	
+	<!-- payment 등록 -->
+	<insert id="paymentInsert" parameterType="PaymentDto">
+		insert into payment(
+			payment_no, member_id, item_name,
+			total_amount, approve_at, payment_status, tid
+		) 
+		values(
+			#{paymentNo}, #{memberId}, #{itemName},
+			#{totalAmount}, #{approveAt}, '승인', #{tid}
+		)
+	</insert>
+	
+	<!-- payment-detail 등록 -->
+	<insert id="paymentDetailInsert" parameterType="PaymentDetailDto">
+		insert into payment_detail(
+			payment_detail_no, payment_no, product_no,
+			product_name, qty, product_price, payment_detail_status
+		) 
+		values(
+			#{paymentDetailNo}, #{paymentNo}, #{productNo},
+			#{productName}, #{qty}, #{productPrice}, '승인'
+		)
+	</insert>
+	
+</mapper>
