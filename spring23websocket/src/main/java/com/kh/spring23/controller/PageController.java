@@ -76,8 +76,9 @@ public class PageController {
 	public String sockjs() {
 		return"sockjs";
 	}
+	
+	@GetMapping("/member")
+	public String member() {
+		return"member";
+	}
 }
-
-
-
-
