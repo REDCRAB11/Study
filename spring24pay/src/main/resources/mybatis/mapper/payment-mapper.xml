@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- 
+	테이블 설계
+	
+	<결제 정보 테이블> - payment
+	<결제 상세 정보 테이블> - payment_detail
+	
+	create table payment(
+	payment_no number primary key,
+	member_id varchar2(20) not null,
+	item_name varchar2(300) not null,
+	total_amount number not null check(total_amount >= 0),
+	approve_at date not null,
+	payment_status varchar2(12) 
+		not null check(payment_status in('승인', '취소', '부분취소')),
+	tid varchar2(20) not null
+	);
+	create sequence payment_seq;
+	
+	create table payment_detail(
+	payment_detail_no number primary key,
+	payment_no references payment(payment_no) on delete cascade,
+	product_no number not null,
+	product_name varchar2(30) not null,
+	qty number not null check(qty > 0),
+	product_price number not null check(product_price >= 0),
+	payment_detail_status varchar2(6) 
+		not null check(payment_detail_status in ('승인', '취소'))
+	);
+	create sequence payment_detail_seq;
+ -->
+
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">

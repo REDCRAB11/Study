@@ -14,4 +14,5 @@ public class PaymentActionDetailsVO {
 	private int discount_amount;//할인 금액
 	private String payment_action_type;//결제 타입(PAYMEYT-결제, CANCEL-결제취소, ISSUED_SID-SID발급)
 	private String payload;//요청에 추가로 전달한 값
+	private String green_deposit;//컵 보증금
 }
