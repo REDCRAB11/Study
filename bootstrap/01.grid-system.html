@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        div{
+            border: 1px dotted gray;
+        }
+    </style>
+    
+    <title>Grid System 살펴보기</title>
+  </head>
+  <body>
+    <!--
+        컨테이너(Container)
+        - 페이지의 가장 바깥쪽에 배치되는 테두리 영역
+        - .container: 폭이 단계별로 변화하는 컨테이너
+        - .container-fluid 폭이 100%로 설정된 컨테이너 
+
+        행(row)
+        - 컨테이너 내부에 배치하는 줄 단위의 디자인 컴포넌트 
+
+        열(col)
+        - 행 안에 배치하는 열 단위의 디자인 컴포넌트 
+        - 칸에 크기를 지정할 수 있다.(비율로 설정하여 총 12칸이 존재)
+
+        row와 col은 반드시 같이 써야 한다. !! 하나만 쓰면 디자인 틀어짐 
+    -->
+    <div class="container-fluid">
+
+        <!--1행 1열-->
+        <div class="row">
+            <div class="col">
+                <h1>GO TO HEL</h1>
+            </div>
+        </div>
+
+        <!--1행 2열-->
+        <div class="row">
+            <div class="col">
+                <h1>GO TO HEL</h1>
+            </div>
+
+            <div class="col">
+                <h1>GO TO HEL</h1>
+            </div>
+        </div>
+
+          <!--1행 3열-->
+          <div class="row">
+            <div class="col">
+                <h1>GO TO HEL</h1>
+            </div>
+
+            <div class="col">
+                <h1>GO TO HEL</h1>
+            </div>
+
+            <div class="col">
+                <h1>GO TO HEL</h1>
+            </div>
+        </div>
+
+        <!-- 다른 크키긔 칸 배치-->
+        <div class="row">
+            <div class="col-3">
+                사이드메뉴
+            </div>
+            <div class="col-9">
+                메인컨텐츠
+            </div>
+        </div>
+
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

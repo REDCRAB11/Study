@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Image 예제</title>
+  </head>
+  <body>
+    <!-- 
+        원한다면 클래스로 여백 부여 가능 
+        - m(margin), p(padding)
+        - t(top), bo(bottom), s(start), e(end)
+        - 1부터 5까지 설정 가능 
+    -->
+    <div class="container-fluid">
+        <div class="row mt-4">
+            <div class="col p-4 bg-dark text-light">
+                <h1 class="text-center">이미지배치</h1>
+            </div>
+        </div>
+
+        <!--
+            화면의 폭에 맞게 다양한 형태의 배치가 가능
+            - 계획: 화면이 클 떄는 6칸, 점점 줄어들면 4칸, 3칸, 2칸으로.. 
+            - xl일때 6칸, lg일떄 4칸, md일때 3칸, sm일때 2칸 
+            - .col-xl-2 .col-lg-3 .col-md-4
+
+        -->
+
+        <div class="row mt-4">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6  mt-2">
+                <img class="img-thumbnail" src="https://placeimg.com/200/200/animals">
+            </div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6  mt-2">
+                <img class="img-thumbnail" src="https://placeimg.com/200/200/animals">
+            </div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6  mt-2">
+                <img class="img-thumbnail" src="https://placeimg.com/200/200/animals">
+            </div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6  mt-2">
+                <img class="img-thumbnail" src="https://placeimg.com/200/200/animals">
+            </div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6  mt-2">
+                <img class="img-thumbnail" src="https://placeimg.com/200/200/animals">
+            </div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6  mt-2">
+                <img class="img-thumbnail" src="https://placeimg.com/200/200/animals">
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
