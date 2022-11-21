@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+     <!-- 부트 스ㅌ위치 cdn-->
+     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.0.2/minty/bootstrap.min.css">
+    <title>table 예제</title>
+  </head>
+  <body>
+    <!-- 
+        column offset
+        - 컬럼을 일정 간격만큼 띄어서 배치할 때 사용 
+    -->
+    <div class="container-fluid">
+        <div class="row mt-4">
+            <div class="col-10 offset-1 p-4 text-light bg-dark rounded">
+                <h1 class="text-center">제목</h1>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-10 offset-md-1">
+                <table class="table">
+                    <thead class="text-center">
+                        <tr>
+                            <th>등수</th>
+                            <th>이름</th>
+                            <th>금</th>
+                            <th>은</th>
+                            <th>동</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr>
+                            <td>1</td>
+                            <td>찌성이</td>
+                            <td>5</td>
+                            <td>5</td>
+                            <td>1</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>나나</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>2</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>인쭈니</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-10 offset-md-1">
+                <table class="table table-striped">
+                    <thead class="text-center">
+                        <tr>
+                            <th>등수</th>
+                            <th>이름</th>
+                            <th>금</th>
+                            <th>은</th>
+                            <th>동</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr>
+                            <td>1</td>
+                            <td>찌성이</td>
+                            <td>5</td>
+                            <td>5</td>
+                            <td>1</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>나나</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>2</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>인쭈니</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-10 offset-md-1">
+                <table class="table table-hover">
+                    <thead class="text-center">
+                        <tr class="bg-dark text-light">
+                            <th>등수</th>
+                            <th>이름</th>
+                            <th>금</th>
+                            <th>은</th>
+                            <th>동</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr>
+                            <td>1</td>
+                            <td>찌성이</td>
+                            <td>5</td>
+                            <td>5</td>
+                            <td>1</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>나나</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>2</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>인쭈니</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-10 offset-md-1">
+                <table class="table table-bordered">
+                    <thead class="text-center">
+                        <tr>
+                            <th>등수</th>
+                            <th>이름</th>
+                            <th>금</th>
+                            <th>은</th>
+                            <th>동</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr>
+                            <td>1</td>
+                            <td>찌성이</td>
+                            <td>5</td>
+                            <td>5</td>
+                            <td>1</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>나나</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>2</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>인쭈니</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
