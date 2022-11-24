@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS의 변화</title>
+    <script>
+        // 변수의 변화 
+        // - 기존: 모든 변수는 var로 선언(자동으로 변수가 실행 시 함수 범위에서 hoisting 처리딤)
+        // - 해결책: 앞으로는 var 대신 const, let을 사용한다.(const 불변, let은 가변)
+
+        //var number = 5;
+        //if(number % 2 == 0 ){
+        //     var result = "짝수";
+        // }else{
+        //     var result = "홀수";
+        // }
+        // console.log(result);
+
+        const number = 5;
+        //number = 10;
+        let result;
+        if(number % 2 == 0){
+            result="짝";
+        }else{
+            result="홀"
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

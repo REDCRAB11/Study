@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열의 객체의 활용</title>
+    <script>
+        // 배열 - ES5
+        const a = [10, 20, 30];
+        const b1 = a[0];
+        const b2 = a[1];
+        const b3 = a[2];
+
+        // 배열 - ES6
+        const c = [10, 20, 30];
+        const[d1, d2, d3] = c;
+        console.log(d1, d2, d3);
+
+        // 객체 - ES5
+        const e = {
+            no: 25,
+            name: "피카츄",
+            type:"전기"
+        };
+
+        // 객체 - ES6
+        const{name, type} = e;
+        console.log(name, type);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

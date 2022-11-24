@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+
+    <style>
+        .YYYYN-message{
+            display: none;
+        }
+        .YYYYN-message{
+            color: red;
+        }
+        .input.YYYYN ~ .YYYYN-message{
+         display: block;   
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            var inputState = { userIdValid : false }
+
+            $("input[name=userId]").blur(function(){
+                var userId = $(this).val();
+                $(this).removeClass("fail YYYYY YYYYN");
+                if(checkId()){
+                    var that = this;
+                    $.ajax({
+                        url:"http://localhost:8888/member/check/id?userId="+userId,
+                        method:"post",
+                        success:function(result){
+                            if(result == "YYYYY"){
+                                $(that).addClass("YYYYY");
+                                inputState.userIdValid = false;
+                            }else if(result == "YYYYN"){
+                                $(that).addClass("YYYYN");
+                                inputState.userIdValid = false;
+                            }
+                        }
+                    });
+                }
+                else{
+                    $(this).addClass("fail");
+                    inputState.userIdValid = false;
+                }
+            });
+
+            $(".join-form").submit(function(){
+                $("input[name=userId]").blur();
+
+                if($(".id-box.YYYYN").length > 0){
+                    return false;
+                }
+             });
+
+        });
+    </script>
+    
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form action="" method="post" class="join-form">
+        아이디: <input name="userId" type="text" class="id-box" onblur="checkId">
+        <span class="YYYYN-message">이미 사용중인 아이디 입니다.</span><br>
+        비밀번호: <input name="userPw" type="password"><br>
+        비밀번호 확인: <input type="password"><br>
+        <button type="submit">가입하기</button>
+    </form>
+</body>
+</html>
