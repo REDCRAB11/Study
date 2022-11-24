@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 연산</title>
+    <script>
+        const a = [10, 20, 30, 40, 50];
+
+        //Q. 30보다 작은 것들만 추려서 새로운 배열을 만드세요. 
+        // const b = [];
+        // for(let i=0; i<a.length; i++){
+        //     if(a[i] < 30){
+        //         b.push(a[i]);
+        //     }
+        // }
+
+        // ES6
+        // const b = a.filter(function(n){
+        //     return n < 30;
+        // });
+
+        // const b = a.filter((n) =>{ //arrow function 을 사용하면 this 사용할 수 없다.
+        //     return n < 30;
+        // });
+
+        // 위에걸 줄이면...
+        const b = a.filter(n => n<30);
+        console.log(b);
+        //Q. 배열의 모든 값을 10 증가시켜서 새로운 배열을 만드세요.
+
+        // ES5
+        // const c = [];
+        
+        //ES6
+        // const c = a.map(function(){
+        //     return n+10;
+        // });
+
+        const c = a.map(n=> n+10);
+        console.log(c);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
