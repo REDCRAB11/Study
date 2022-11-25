@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+</head>
+<body>
+    <!--제어 영역 설정-->
+    <div id="app"></div>
+    <!-- 개발용 CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 배포용 CDN -->
+    <!--
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    -->
+
+    <!-- Babel()-->
+    <!-- 바벨 CDN(using JSX) -->
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const MainComponent = ()=>{
+            //초기값 
+            const [money, setMoney] = React.useState(0);
+
+            //이벤트 
+            const plus = amount => setMoney(money+amount);
+            const clear = () => setMoney(0);
+            return(
+                <>
+                    <h1>송금 예제</h1>
+
+                    <input type="text" value={money}/>
+
+                    <br/>
+
+                    <button onClick={e=>plus(100)}>백원</button>
+                    <button onClick={e=>plus(1000)}>천원</button>
+                    <button onClick={e=>plus(10000)}>만원</button>
+                    <button onClick={e=>plus(100000)}>십만원</button>
+                    <button onClick={e=>plus(1000000)}>백만원</button>
+                    <button onClick={e=>plus(10000000)}>천만원</button>
+                    <button onClick={e=>clear()}>초기화</button>
+                </>
+            // e=>clear 혹은 clear 둘다 써도 된다. 
+            );
+        }
+        const app = ReactDOM.createRoot(document.querySelector("#app"));
+        app.render(<MainComponent/>);
+    </script>
+
+</body>
+</html>
