@@ -37,19 +37,28 @@
             //     const c = e.target.textContent; // $(e.target).text(); 제이쿼리 일때 
             //     setColor(c);
             // } 
+
+            //event
             const changeColor = e=>setColor(e.target.textContent);
 
-            const increase = e=>{
-                if(size<30){
-                    setSize(size+1)
-                }
-            };
-            const decrease = e=>{
-                if(size>8){
-                    setSize(size-1)
-                }
-            };
+            // const changeSize = function(s){
+            //     if( s>8 && s <=30){
+            //         setSize(s);
+            //     }
+            // }
 
+            const changeSize = e=>{
+                if(size <=8 || size >=30) return;
+                const op = e.target.textContent;
+                switch(op){
+                    case"+":
+                    setSize(size+1);
+                    break;
+                    case"-":
+                    setSize(size-1);
+                    break;
+                }
+            }
             return(
             <>
                 <h1>색상, 글자크기 변경 예제</h1>
@@ -61,9 +70,9 @@
                 
                 <br/>
 
-                <button onClick={decrease} disabled={size <= 8}>-</button>
+                <button onClick={(()=> setSize(size-1))} disabled={size <= 8}>-</button>
                 <span>{size}</span>
-                <button onClick={increase} disabled={size >= 30}>+</button>
+                <button onClick={()=> (setSize(size+1))} disabled={size >= 30}>+</button>
 
                 <hr/>
 
