@@ -38,10 +38,13 @@
                 <h1>입력 이번트 예제</h1>
                 {/*
                     입력창이 입력용인지 출력용인지 입출력용인지에 따라서 설정이 다르다. 
+                    - 입출력창인 경우 value와 onChange를 동시에 설정
+                    - 입력창인 경우 onChange만 설정(초기값을 표시하고 싶다면 defaultValue를 사용)
+                    - 출력창인 경우 value만 설정 
                 */}
                 <input type="text"onChange={userInput}/>
-                <p>입력된 글자</p>
-                <p>입력된 글자수</p>
+                <p>{content}</p>
+                <p>{content.length}</p>
                 </>
             );
         };
