@@ -25,8 +25,9 @@
     <script type="text/babel">
       // 함수 형태로 컴포넌트를 구현한다(functional component)
         const MainComponent = ()=>{
-            //state
+            //state 초기값 설정 
             const [color, setColor] = React.useState("black");
+            const [size, setSize] = React.useState(16);
 
             // const changeColor = function(e){
             //     //jQuery였으면 주인공이라고 하면서 this를 사용했을 것 
@@ -37,6 +38,17 @@
             //     setColor(c);
             // } 
             const changeColor = e=>setColor(e.target.textContent);
+
+            const increase = e=>{
+                if(size<30){
+                    setSize(size+1)
+                }
+            };
+            const decrease = e=>{
+                if(size>8){
+                    setSize(size-1)
+                }
+            };
 
             return(
             <>
@@ -49,16 +61,18 @@
                 
                 <br/>
 
-                <button>-</button>
-                <span>16</span>
-                <button>+</button>
+                <button onClick={decrease}>-</button>
+                <span>{size}</span>
+                <button onClick={increase}>+</button>
 
                 <hr/>
 
-                <p style={{color:color}}>HELL REACT</p>
+
+                <p style={{color:color, fontSize:size}}>HELL REACT</p>
 
             </>
             );
+            // fontSize 혹은 'font-size' 이렇게 사용하여야 한다. 
         };
 
         const app = ReactDOM.createRoot(document.querySelector("#app"));
