@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+</head>
+<body>
+    <!-- 제어 영역 설정 -->
+    <div id="app"></div>
+
+    <!-- react 라이브러리 -->
+    <!-- 개발용 CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 배포용 CDN -->
+    <!--
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    -->
+
+    <!-- 바벨 CDN(using JSX) -->
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //함수 형태로 컴포넌트를 구현한다(functional component)
+        const MainComponent = ()=> {
+            //state는 아니지만 데이터라고 볼 수 있다(React의 도움을 못받음)
+            //const number = 10;
+
+            //useState를 사용하여 state를 생성하는 방법
+            //- 데이터는 당연히 변할 수 있어야 한다.
+            //- 변한 뒤에는 반드시 화면이 바뀌어야 한다.
+            //- useState를 사용해서 [변수명, setter함수명] 을 알려주면 자동으로 설정을 해준다
+            //- 이렇게 선언된 데이터는 { } 내부에 변수명을 작성하여 화면에 렌더링할 수 있다.
+            const [number, setNumber] = React.useState(10);
+            const [name, setName] = React.useState("피카츄");
+
+            return (
+                <>
+                    {/* 주석이 말을 안들어요 */}
+                    <h1>number is {number}</h1>
+                    <h1>name is {name}</h1>
+                </>
+            );
+        };
+
+        const app = ReactDOM.createRoot(document.querySelector("#app"));
+        app.render(<MainComponent/>);
+    </script>
+
+</body>
+</html>

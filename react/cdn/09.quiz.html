@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+</head>
+<body>
+    <!--제어 영역 설정-->
+    <div id="app"></div>
+    <!-- 개발용 CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 배포용 CDN -->
+    <!--
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    -->
+
+    <!-- Babel()-->
+    <!-- 바벨 CDN(using JSX) -->
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // 함수 형태로 컴포넌트를 구현한다(functional component)
+        const MainComponent = ()=>{
+            //state
+            const [color, setColor] = React.useState("black");
+
+            const red = e=>setColor("red");
+            const blue = e=>setColor("blue");
+            const black = e=>setColor("black");
+            return(
+            <>
+                <h1>색상, 글자크기 변경 예제</h1>
+
+                <button onClick={red}>red</button>
+                <button onClick={blue}>blue</button>
+                <button onClick={black}>black</button>
+                
+                <br/>
+
+                <button>-</button>
+                <span>16</span>
+                <button>+</button>
+
+                <hr/>
+
+                <p style={{color:color}}>HELL REACT</p>
+
+            </>
+            );
+        };
+
+        const app = ReactDOM.createRoot(document.querySelector("#app"));
+        app.render(<MainComponent/>);
+    </script>
+
+</body>
+</html>
