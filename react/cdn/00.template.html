@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReactJS</title>
+    <title>Input</title>
 </head>
 <body>
     <!--제어 영역 설정-->
@@ -23,18 +23,15 @@
     <!-- 바벨 CDN(using JSX) -->
     <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
-        const app = ReactDOM.createRoot(document.querySelector("#app"));
-        // JSX 작성 규칙 
-        // - JSX는 HTML 처럼 생겼지만 HTML이 아니다.
-        // - 반드시 하나의 태그로 묶여야 한다.
-        // - 모든 태그는 종료 태그가 있어햐 한다.(input, img, br, hr도 ) => 근데 우리 정서에 안맞으니 / 마지막에 꼭 써준다.
-        app.render(
-            <>
-            <h1>HEll REACT</h1>
-            <p>헬 리액트</p>
-            <input type="text"/>
-            </>
+        const MainComponent = ()=>{
+            return(
+                <>
+                <h1>HEll REACT</h1>
+                <p>헬 리액트</p>
+                <input type="text"/>
+                </>
             );
+        };
     </script>
 
 </body>

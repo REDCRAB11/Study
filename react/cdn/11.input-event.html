@@ -23,18 +23,30 @@
     <!-- 바벨 CDN(using JSX) -->
     <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
-        const app = ReactDOM.createRoot(document.querySelector("#app"));
-        // JSX 작성 규칙 
-        // - JSX는 HTML 처럼 생겼지만 HTML이 아니다.
-        // - 반드시 하나의 태그로 묶여야 한다.
-        // - 모든 태그는 종료 태그가 있어햐 한다.(input, img, br, hr도 ) => 근데 우리 정서에 안맞으니 / 마지막에 꼭 써준다.
-        app.render(
-            <>
-            <h1>HEll REACT</h1>
-            <p>헬 리액트</p>
-            <input type="text"/>
-            </>
+        const MainComponent = ()=>{
+            //state 
+            const[content, setContent] = React.useState("");
+
+            //event 
+            const userInput = e=>{
+                //setContent(이벤트 발생 태그에 입력된 글자);
+                setContent(e.target.value);
+            }
+            return(
+                // value는 출력 onChange는 입력용 속성이므로 동시에 작성을 금지한다. 
+                <>
+                <h1>입력 이번트 예제</h1>
+                {/*
+                    입력창이 입력용인지 출력용인지 입출력용인지에 따라서 설정이 다르다. 
+                */}
+                <input type="text"onChange={userInput}/>
+                <p>입력된 글자</p>
+                <p>입력된 글자수</p>
+                </>
             );
+        };
+        const app = ReactDOM.createRoot(document.querySelector("#app"));
+        app.render(<MainComponent/>);
     </script>
 
 </body>
