@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+</head>
+<body>
+    <!-- 제어 영역 설정 -->
+    <div id="app"></div>
+
+    <!-- react 라이브러리 -->
+    <!-- 개발용 CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 배포용 CDN -->
+    <!--
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    -->
+
+    <!-- 바벨 CDN(using JSX) -->
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //서브 컴포넌트의 활용 
+        // - 컴포넌트에게 값을 전달하는 방법을 알아야 한다. 
+        // - 컴포넌트에 전달된 초기값을 props라는 이름으로 접근할 수 있다. 
+        const SubComponent = (props) =>{
+            if(props.number % 2 == 0){
+                return(
+                    <p>{props.number}는 짝수입니다.</p>
+                );
+            }
+            else{
+                return(
+                    <p>{props.number}는 홀수입니다.</p>
+                )
+            }
+        };
+
+        const MainComponent = ()=> {
+            const[number, setNumber] = React.useState(5);
+
+            return (
+                <>
+                    <h1>조건부 렌더링</h1>
+                    <SubComponent number={number}/>
+                </>
+            );
+        };
+
+        const app = ReactDOM.createRoot(document.querySelector("#app"));
+        app.render(<MainComponent/>);
+    </script>
+
+</body>
+</html>
