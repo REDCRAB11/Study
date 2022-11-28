@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,18 +25,21 @@
     <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         //조건부 렌더링
-        //- JSX는 조건문이 삼항연산자 또는 and, or 연산밖에 없다(if가 없다)
-        // - 외부에서 프로그래밍 코드를 통해 렌더링될 태그를 설정해야 한다.  
+        //- JSX는 조건문이 삼항연산자 또는 AND, OR 연산밖에 없다(if가 없다)
+        //- 외부에서 프로그래밍 코드를 통해 렌더링될 태그를 설정해야 한다.
+        //- 문제점은 태그와 코드의 경계가 모호해지고, 가독성이 떨어진다
         const MainComponent = ()=> {
-            const[number, setNumber] = React.useState(5);
+            const [number, setNumber] = React.useState(5);
+            //const number = 5;
 
             let html;
-            if(number % 2 ==0){
-                html = <p>{number}는 짝수입니다.</p>
+            if(number % 2 == 0) {
+                html = <p>{number}는 짝수입니다</p>
             }
-            else{
-                html= <p>{number}는 홀수이니다.</p>
+            else {
+                html = <p>{number}는 홀수입니다</p>
             }
+
             return (
                 <>
                     <h1>조건부 렌더링</h1>
