@@ -1,10 +1,16 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReactJS</title>
+    <style>
+        div {
+            margin:20px 0px;
+        }
+    </style>
 </head>
 <body>
     <!-- 제어 영역 설정 -->
@@ -25,47 +31,56 @@
     <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         //함수 형태로 컴포넌트를 구현한다(functional component)
-        const NextButton = (props)=> {
-            if(props.chkAll){
-                return <button>다음단계로 이동</button>
-            }else{
-                return<button disabled>모두 동의해야 어쩌고</button>
+        const NextButton = (props)=>{
+            if(props.ckAll) {
+                return <button>다음 단계로 이동</button>
             }
+            else {
+                return <button disabled>모두 동의해야 다음으로 이동할 수 있습니다</button>
+            }
+        };
+        const MainComponent = ()=> {
             //state
-            const [chk1, setChk1] = React.useState(false);
-            const [chk2, setChk2] = React.useState(false);
-            const [chk3, setChk3] = React.useState(false);
-            const [chk4, setChk4] = React.useState(false);
+            const [ck1, setCk1] = React.useState(false);
+            const [ck2, setCk2] = React.useState(false);
+            const [ck3, setCk3] = React.useState(false);
+            const [ck4, setCk4] = React.useState(false);
 
+            //잘못된 배열 생성 형태
+            //const [ck, setCk] = React.useState([false, false, false, false]);
+
+            //권장하는 배열 생성 형태
+            //const [ck, setCk] = React.useState([
+            //  {no:1, check:false},
+            //  {no:2, check:false},
+            //  {no:3, check:false},
+            //  {no:4, check:false}
+            //]);
 
             //계산
-            const chkAll = chk1 && chk2 && chk3 && chk4; 
-
-           
+            const ckAll = ck1 && ck2 && ck3 && ck4;
 
             return (
                 <>
+                    <h1>이용약관 동의 화면</h1>
                     <div>
-                    <h1>이용약관 동의</h1>
-                    <br/>
-                    <label>
-                    <input type="checkbox" className="chk1" checked={chk1} onChange={e=>setChk1(e.target.checked)}/>  동의합니다.
-                    </label> 
-                    <br/>
-                    <label>
-                    <input type="checkbox" className="chk2" checked={chk2} onChange={e=>setChk2(e.target.checked)}/> 동의합니다. 
-                    </label>
-                    <br/>
-                    <label>
-                    <input type="checkbox" className="chk3" checked={chk3} onChange={e=>setChk3(e.target.checked)}/> 동의합니다. 
-                    </label>
-                    <br/>
-                    <label>
-                    <input type="checkbox" className="chk4" checked={chk4} onChange={e=>setChk4(e.target.checked)}/> 동의합니다. 
-                    </label>
-                    <hr/> 
-                    <NextButton chkAll={chkAll}/>
+                        <input type="checkbox" checked={ck1} onChange={e=>setCk1(e.target.checked)}/>
+                        동의합니다
                     </div>
+                    <div>
+                        <input type="checkbox" checked={ck2} onChange={e=>setCk2(e.target.checked)}/>
+                        동의합니다
+                    </div>
+                    <div>
+                        <input type="checkbox" checked={ck3} onChange={e=>setCk3(e.target.checked)}/>
+                        동의합니다
+                    </div>
+                    <div>
+                        <input type="checkbox" checked={ck4} onChange={e=>setCk4(e.target.checked)}/>
+                        동의합니다
+                    </div>
+                    <hr/>
+                    <NextButton ckAll={ckAll}/>
                 </>
             );
         };
