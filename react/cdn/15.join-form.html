@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootswatch CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.0.2/cosmo/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+
+</head>
+<body>
+    <!-- 제어 영역 설정 -->
+    <div id="app"></div>
+
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- react 라이브러리 -->
+    <!-- 개발용 CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 배포용 CDN -->
+    <!--
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    -->
+
+    <!-- 바벨 CDN(using JSX) -->
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //함수 형태로 컴포넌트를 구현한다(functional component)
+        const MainComponent = ()=> {
+            return (
+                <>
+                    <form className="join-form" method="post" autocomplete="off">
+
+                        <div className="container-fluid">
+
+                            <div className="row mt-4">
+                                <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+                                    <div className="p-4 text-light bg-dark rounded">
+                                        <h1 className="text-center">회원 정보 입력</h1>
+                                        <p className="text-center mb-0">
+                                            <i className="fa-solid fa-asterisk text-danger"></i> 표시된 항목은 필수 입력 항목입니다
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="row mt-4">
+                                <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+                                    <div className="form-floating">
+                                        <input type="text" name="id" className="form-control rounded" placeholder="?"/>
+                                        <label>
+                                            아이디
+                                            <i className="fa-solid fa-asterisk text-danger"></i>
+                                        </label>
+                                        <div className="valid-feedback">올바른 아이디 형식입니다</div>
+                                        <div className="invalid-feedback">영문 소문자로 시작하고 숫자가 포함된 8~20자로 작성하세요</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="row mt-4">
+                                <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+                                    <div className="form-floating">
+                                        <input type="text" name="password" className="form-control rounded" placeholder="?"/>
+                                        <label>
+                                            비밀번호
+                                            <i className="fa-solid fa-asterisk text-danger"></i>
+                                        </label>
+                                        <div className="valid-feedback">올바른 비밀번호 형식입니다</div>
+                                        <div className="invalid-feedback">비밀번호는 특수문자, 숫자, 영문 대소문자가 반드시 1개 이상 포함된 8~16자로 작성하세요</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="row mt-4">
+                                <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+                                    <div className="form-floating">
+                                        <input type="text" id="password-re" className="form-control rounded" placeholder="?"/>
+                                        <label>
+                                            비밀번호 확인
+                                            <i className="fa-solid fa-asterisk text-danger"></i>
+                                        </label>
+                                        <div className="valid-feedback">비밀번호가 일치합니다</div>
+                                        <div className="invalid-feedback">비밀번호가 일치하지 않습니다</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="row mt-4">
+                                <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+                                    <div className="form-floating">
+                                        <input type="text" name="nickname" className="form-control rounded" placeholder="?"/>
+                                        <label>
+                                            닉네임
+                                            <i className="fa-solid fa-asterisk text-danger"></i>
+                                        </label>
+                                        <div className="valid-feedback">멋진 닉네임입니다!</div>
+                                        <div className="invalid-feedback">닉네임은 한글 또는 숫자 2~10글자로 작성하세요</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="row mt-4">
+                                <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+                                    <button type="submit" className="btn btn-primary w-100 btn-lg rounded">가입하기</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        </form>
+                </>
+            );
+        };
+
+        const app = ReactDOM.createRoot(document.querySelector("#app"));
+        app.render(<MainComponent/>);
+    </script>
+
+</body>
+</html>

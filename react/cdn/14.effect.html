@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+</head>
+<body>
+    <!-- 제어 영역 설정 -->
+    <div id="app"></div>
+
+    <!-- react 라이브러리 -->
+    <!-- 개발용 CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 배포용 CDN -->
+    <!--
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    -->
+
+    <!-- 바벨 CDN(using JSX) -->
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //함수 형태로 컴포넌트를 구현한다(functional component)
+        const MainComponent = ()=> {
+            //state
+            const [korean, setKorean] = React.useState(0);
+            const [english, setEnglish] = React.useState(0);
+            const [math, setMath] = React.useState(0);
+
+            const [total, setTotal] = React.useState(0);
+            const [average, setAverage] = React.useState(0);
+
+            //function
+            //(문제점) state만으로 데이터를 갱신하려면 직전데이터와 현재데이터를 구분해서 써야 한다
+            //(해결책) useEffect를 써라!
+            const changeKorean = e=> {
+                const kor = parseInt(e.target.value);
+                const tot = kor + english + math;
+                const avg = tot / 3;
+                setKorean(kor);
+                setTotal(tot);
+                setAverage(avg);
+            };
+            const changeEnglish = e=> {
+                const eng = parseInt(e.target.value);
+                const tot = korean + eng + math;
+                const avg = tot / 3;
+                setEnglish(eng);
+                setTotal(tot);
+                setAverage(avg);
+            };
+            const changeMath = e=> {
+                const mat = parseInt(e.target.value);
+                const tot = korean + english + mat;
+                const avg = tot / 3;
+                setMath(mat);
+                setTotal(tot);
+                setAverage(avg);
+            };
+
+            return (
+                <>
+                    <h1>성적 계산기</h1>
+
+                    <div>
+                        국어점수 <input type="text" onChange={changeKorean}/>
+                    </div>
+                    <div>
+                        영어점수 <input type="text" onChange={changeEnglish}/>
+                    </div>
+                    <div>
+                        수학점수 <input type="text" onChange={changeMath}/>
+                    </div>
+
+                    <hr/>
+
+                    <div>총점 : {total} 점</div>
+                    <div>평균 : {average} 점</div>
+                </>
+            );
+        };
+
+        const app = ReactDOM.createRoot(document.querySelector("#app"));
+        app.render(<MainComponent/>);
+    </script>
+
+</body>
+</html>
