@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+</head>
+<body>
+    <!-- 제어 영역 설정 -->
+    <div id="app"></div>
+
+    <!-- react 라이브러리 -->
+    <!-- 개발용 CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 배포용 CDN -->
+    <!--
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    -->
+
+    <!-- 바벨 CDN(using JSX) -->
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //함수 형태로 컴포넌트를 구현한다(functional component)
+        const MainComponent = ()=> {
+            //state
+            const [chk1, setChk1] = React.useState(false);
+            const [chk2, setChk2] = React.useState(false);
+            const [chk3, setChk3] = React.useState(false);
+            const [chk4, setChk4] = React.useState(false);
+
+
+            //계산
+            const chkAll = chk1 && chk2 && chk3 && chk4; 
+
+            const html = chkAll ?
+                    <button type="submit" >다음 단계</button>
+                    :<button disabled>모두 동의해야 다음 단계로 넘어감다 </button>
+
+            return (
+                <>
+                    <div>
+                    <h1>이용약관 동의</h1>
+                    <br/>
+                    <label>
+                    <input type="checkbox" className="chk1" checked={chk1} onChange={e=>setChk1(e.target.checked)}/>  동의합니다.
+                    </label> 
+                    <br/>
+                    <label>
+                    <input type="checkbox" className="chk2" checked={chk2} onChange={e=>setChk2(e.target.checked)}/> 동의합니다. 
+                    </label>
+                    <br/>
+                    <label>
+                    <input type="checkbox" className="chk3" checked={chk3} onChange={e=>setChk3(e.target.checked)}/> 동의합니다. 
+                    </label>
+                    <br/>
+                    <label>
+                    <input type="checkbox" className="chk4" checked={chk4} onChange={e=>setChk4(e.target.checked)}/> 동의합니다. 
+                    </label>
+                    <hr/> 
+                    {html}
+                    </div>
+                </>
+            );
+        };
+
+        const app = ReactDOM.createRoot(document.querySelector("#app"));
+        app.render(<MainComponent/>);
+    </script>
+
+</body>
+</html>
