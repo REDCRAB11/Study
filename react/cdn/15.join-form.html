@@ -38,9 +38,51 @@
     <script type="text/babel">
         //함수 형태로 컴포넌트를 구현한다(functional component)
         const MainComponent = ()=> {
+            //state
+            const [memberId, setMemberId] = React.useState('');
+            const [memberPw, setMemberPw] = React.useState('');
+            const [memberPwRe, setMemberPwRe] = React.useState('');
+            const [memberNick, setMemberNick] = React.useState('');
+
+            //정규표현식(state가 아님)
+            const memberIdRegex = /^[a-z][a-z0-9]{7,19}$/;
+            const memberPwRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$])[A-Za-z0-9!@#$]{8,16}$/;
+            const memberNickRegex = /^[가-힣0-9]{2,10}$/;
+
+            //판정결과(state로 해도, 안해도 됨)
+            
+            //state로 하는 경우(권장하지 않음)
+            //const [memberIdValid, setMemberIdValid] = React.useState(false);
+            //React.useEffect(()=>setMemberIdValid(memberIdRegex.test(memberId)), [memberId]);
+
+            //state로 하지 않는 경우(권장)
+            let memberIdValidClass = '';
+            if(memberId.length > 0) {
+                const memberIdValid = memberIdRegex.test(memberId);
+                memberIdValidClass = memberIdValid ? 'is-valid' : 'is-invalid';
+            }
+
+            let memberPwValidClass = '';
+            if(memberPw.length > 0) {
+                const memberPwValid = memberPwRegex.test(memberPw);
+                memberPwValidClass = memberPwValid ? 'is-valid' : 'is-invalid';
+            }
+
+            let memberPwReValidClass = '';
+            if(memberPwRe.length > 0) {
+                const memberPwReValid = memberPw == memberPwRe;
+                memberPwReValidClass = memberPwReValid ? 'is-valid' : 'is-invalid';
+            }
+
+            let memberNickValidClass = '';
+            if(memberNick.length > 0) {
+                const memberNickValid = memberNickRegex.test(memberNick);
+                memberNickValidClass = memberNickValid ? 'is-valid' : 'is-invalid';
+            }
+            
             return (
                 <>
-                    <form className="join-form" method="post" autocomplete="off">
+                    <form className="join-form" method="post" autoComplete="off">
 
                         <div className="container-fluid">
 
@@ -58,7 +100,7 @@
                             <div className="row mt-4">
                                 <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
                                     <div className="form-floating">
-                                        <input type="text" name="id" className="form-control rounded" placeholder="?"/>
+                                        <input type="text" name="memberId" onChange={e=>setMemberId(e.target.value)} className={'form-control rounded '+memberIdValidClass} placeholder="?"/>
                                         <label>
                                             아이디
                                             <i className="fa-solid fa-asterisk text-danger"></i>
@@ -72,7 +114,7 @@
                             <div className="row mt-4">
                                 <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
                                     <div className="form-floating">
-                                        <input type="text" name="password" className="form-control rounded" placeholder="?"/>
+                                        <input type="text" name="memberPw" onChange={e=>setMemberPw(e.target.value)} className={'form-control rounded '+memberPwValidClass} placeholder="?"/>
                                         <label>
                                             비밀번호
                                             <i className="fa-solid fa-asterisk text-danger"></i>
@@ -86,7 +128,7 @@
                             <div className="row mt-4">
                                 <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
                                     <div className="form-floating">
-                                        <input type="text" id="password-re" className="form-control rounded" placeholder="?"/>
+                                        <input type="text" id="password-re" onChange={e=>setMemberPwRe(e.target.value)} className={'form-control rounded '+memberPwReValidClass} placeholder="?"/>
                                         <label>
                                             비밀번호 확인
                                             <i className="fa-solid fa-asterisk text-danger"></i>
@@ -100,7 +142,7 @@
                             <div className="row mt-4">
                                 <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
                                     <div className="form-floating">
-                                        <input type="text" name="nickname" className="form-control rounded" placeholder="?"/>
+                                        <input type="text" name="memberNick" onChange={e=>setMemberNick(e.target.value)} className={'form-control rounded '+memberNickValidClass} placeholder="?"/>
                                         <label>
                                             닉네임
                                             <i className="fa-solid fa-asterisk text-danger"></i>
