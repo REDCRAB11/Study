@@ -37,7 +37,12 @@
     <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         //함수 형태로 컴포넌트를 구현한다(functional component)
+        // - 렌더링(rendering)이란 언제 발생하는가?
+        // - 화명이 최초에 생성될 때 1회 발생(mount상태) 
+
         const MainComponent = ()=> {
+            console.log("MainComponent 실행");
+
             //state
             const [memberId, setMemberId] = React.useState('');
             const [memberPw, setMemberPw] = React.useState('');
@@ -50,35 +55,62 @@
             const memberNickRegex = /^[가-힣0-9]{2,10}$/;
 
             //판정결과(state로 해도, 안해도 됨)
+            // - 아이디가 변경된 경우에는 아이디 판정만 갱신하도록 처리 (최적화)
+            // - 비밀번호가 변경된 경우에는 비밀번호 판정만 갱신하도록 처리(최적화)
+            // React.useMemo(함수,항목); ---> 해당 항목이 변경되었을 때만 값이 반환 
+
+            const{memberIdValid, memberIdValidClass} = React.useMemo(() =>{
+                let memberIdValidClass = '';
+                const memberIdValid = memberIdRegex.test(memberId);
+                if(memberId.length > 0) {
+                    memberIdValidClass = memberIdValid ? 'is-valid' : 'is-invalid';
+            }
+            return{
+                memberIdValid : memberIdValid,
+                memberIdValidClass : memberIdValidClass
+            };
+            }, [memberId]);
             
-            //state로 하는 경우(권장하지 않음)
-            //const [memberIdValid, setMemberIdValid] = React.useState(false);
-            //React.useEffect(()=>setMemberIdValid(memberIdRegex.test(memberId)), [memberId]);
+            const {memberPwValid, memberPwValidClass} = React.useMemo(()=>{
+                let memberPwValidClass = '';
+                const memberPwValid = memberPwRegex.test(memberPw);
+                if(memberPw.length > 0) {
+                    memberPwValidClass = memberPwValid ? 'is-valid' : 'is-invalid';
+                }
+                return{
+                    memberPwValid : memberPwValid,
+                    memberPwValidClass : memberPwValidClass
+                }
+            },[memberPw]);
+            
 
-            //state로 하지 않는 경우(권장)
-            let memberIdValidClass = '';
-            const memberIdValid = memberIdRegex.test(memberId);
-            if(memberId.length > 0) {
-                memberIdValidClass = memberIdValid ? 'is-valid' : 'is-invalid';
+            const{memberPwReValid, memberPwReValidClass} = React.useMemo(()=>{
+                let memberPwReValidClass = '';
+                const memberPwReValid = memberPw == memberPwRe;
+                if(memberPwRe.length > 0) {
+                    memberPwReValidClass = memberPwReValid ? 'is-valid' : 'is-invalid';
             }
+            return{
+                memberPwReValid: memberPwReValid,
+                memberPwReValidClass: memberPwReValidClass
+            };
+            }, [memberPwRe]);
 
-            let memberPwValidClass = '';
-            const memberPwValid = memberPwRegex.test(memberPw);
-            if(memberPw.length > 0) {
-                memberPwValidClass = memberPwValid ? 'is-valid' : 'is-invalid';
-            }
 
-            let memberPwReValidClass = '';
-            const memberPwReValid = memberPw == memberPwRe;
-            if(memberPwRe.length > 0) {
-                memberPwReValidClass = memberPwReValid ? 'is-valid' : 'is-invalid';
-            }
+            const{memberNickValid, memberNickValidClass} = React.useMemo(()=>{
+                let memberNickValidClass = '';
+                const memberNickValid = memberNickRegex.test(memberNick);
+                if(memberNick.length > 0) {
+                    memberNickValidClass = memberNickValid ? 'is-valid' : 'is-invalid';
+                }
+                return{
+                    memberNickValid: memberNickValid,
+                    memberNickValidClass: memberNickValidClass
+                };
+            },[memberNick]);
 
-            let memberNickValidClass = '';
-            const memberNickValid = memberNickRegex.test(memberNick);
-            if(memberNick.length > 0) {
-                memberNickValidClass = memberNickValid ? 'is-valid' : 'is-invalid';
-            }
+            
+
 
             //+추가 가입버튼 비활성화 처리, 폼 전송 방지 처리 
             const allValid = memberIdValid && memberPwValid && memberPwReValid && memberNickValid;
