@@ -70,6 +70,16 @@
                 no:0, name:'', type:''
             });
 
+            //입력 이벤트 처리 함수
+            const monsterInputProcessor = e=>{
+                const name = e.target.name;
+                const value = e.target.value;
+                setMonster({
+                    ...monster,
+                    [name]:value//name 변수에 들어있는 값을 이름으로 설정하여 초기화
+                });
+            };
+
             //effect
             const loadList = ()=>{
                 setLoading(true);
@@ -92,11 +102,11 @@
                 <>
                     <h1>포켓몬 도감</h1>
                     
-                    번호 : <input name="no" onChange={e=>setMonster({...monster, no:e.target.value})}/>
+                    번호 : <input name="no" onChange={monsterInputProcessor}/>
                     &nbsp;&nbsp;
-                    이름 : <input name="name" onChange={e=>setMonster({...monster, name:e.target.value})}/>
+                    이름 : <input name="name" onChange={monsterInputProcessor}/>
                     &nbsp;&nbsp;
-                    속성 : <input name="type" onChange={e=>setMonster({...monster, type:e.target.value})}/>
+                    속성 : <input name="type" onChange={monsterInputProcessor}/>
                     &nbsp;&nbsp;
                     <button>등록</button>
 

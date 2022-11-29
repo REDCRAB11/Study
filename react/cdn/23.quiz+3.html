@@ -88,17 +88,44 @@
             React.useEffect(loadList, [ ]);
             //React.useEffect(()=>loadList(), [ ]);
 
+            //입력 이벤트 처리 함수
+            const monsterInputProcessor = e=>{
+                const name = e.target.name;
+                const value = e.target.value;
+                setMonster({
+                    ...monster,
+                    [name]:value//name 변수에 들어있는 값을 이름으로 설정하여 초기화
+                });
+            };
+            //등록 버튼 처리 함수
+            const insertData = e=>{
+                //monster를 서버로 전송(+검사)
+
+                axios({
+                    url:"http://localhost:8888/rest/pocketmon",
+                    method:"post",
+                    data:monster,
+                })
+                .then(respObject=>{
+                    setMonster({no:0, name:'', type:''});//입력 데이터 초기화
+                    loadList();//목록 불러오기
+                })
+                .catch(e=>{})
+                .finally(()=>{});
+            };
+            
+
             return (
                 <>
                     <h1>포켓몬 도감</h1>
                     
-                    번호 : <input name="no" onChange={e=>setMonster({...monster, no:e.target.value})}/>
+                    번호 : <input name="no" onChange={monsterInputProcessor} value={monster.no}/>
                     &nbsp;&nbsp;
-                    이름 : <input name="name" onChange={e=>setMonster({...monster, name:e.target.value})}/>
+                    이름 : <input name="name" onChange={monsterInputProcessor} value={monster.name}/>
                     &nbsp;&nbsp;
-                    속성 : <input name="type" onChange={e=>setMonster({...monster, type:e.target.value})}/>
+                    속성 : <input name="type" onChange={monsterInputProcessor} value={monster.type}/>
                     &nbsp;&nbsp;
-                    <button>등록</button>
+                    <button onClick={insertData}>등록</button>
 
                     <hr/>
 
