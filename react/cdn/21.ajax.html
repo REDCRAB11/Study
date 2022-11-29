@@ -10,8 +10,8 @@
     <!-- 제어 영역 설정 -->
     <div id="app"></div>
 
-    <!-- axios cdn -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
     <!-- react 라이브러리 -->
     <!-- 개발용 CDN -->
@@ -58,18 +58,14 @@
             //useEffect를 사용하여 최초 1회만 데이터를 로드
             React.useEffect(()=>{
                 //console.log("effect 실행");
-
-                axios({
+                $.ajax({
                     url:"http://192.168.30.52:8888/rest/product",
                     method:"get",
-                    responseType:"json"
-                })
-                .then(resp=>{
-                    //console.log(resp.data);
-                    setProductList(resp.data);
-                })
-                .catch(e=>{});
-
+                    dataType:"json",
+                    success:function(resp) {
+                        setProductList(resp);
+                    }
+                });
             }, []);
 
             return (

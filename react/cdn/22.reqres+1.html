@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+</head>
+<body>
+    <!-- 제어 영역 설정 -->
+    <div id="app"></div>
+
+     <!-- jquery cdn -->
+     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <!-- axious cdn-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- react 라이브러리 -->
+    <!-- 개발용 CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 배포용 CDN -->
+    <!--
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    -->
+
+    <!-- 바벨 CDN(using JSX) -->
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //함수 형태로 컴포넌트를 구현한다(functional component)
+        const ListInfo = (props) =>{};
+        const ListView = (props) =>{
+            //props.list라는 이름으로 데이터가 전달된다.
+            if(props.list == undefined || props.list.length == 0){//데이터가 없는경우
+                return(
+                    <div>
+                        <h2>데이터가 존재하지 않습니다.</h2>
+                    </div> 
+                );
+            }
+            else{//데이터가 있는 경우   
+                const html = props.list.map(user => (
+                    <div key={user.id}>
+                        <img src={user.avatar}/>
+                        <h2>{user.first_name} {user.last_name}</h2>
+                        <p>{user.email}</p>
+                    </div>
+                ));
+                return(
+                    <div>
+                        {html}
+                    </div>
+                );
+            }
+        };
+        const MainComponent = () => {
+            //state
+            const[userList, setUserList] = React.useState([]);
+            const[info, setInfo] = React.useState({
+                page:1, per_page:6, total:0, total_pages:0
+            });
+
+            //effect(최초 1회)
+            const loadList = () => {
+                axios({
+                    url:"https://reqres.in/api/users",
+                    method:"get",
+                    //resultType:"json", 제이슨이 기본값 
+                })
+                .then(resp1=>{
+                    const resp = resp1.data;
+                    setUserList(resp.data);
+                        setInfo({
+                            page:resp.page, 
+                            per_page:resp.per_page,
+                            total:resp.total,
+                            total_pages:resp.total_pages
+                        });
+                })
+                .catch(e=>{});
+               
+            }                       
+      
+            React.useEffect(()=> loadList(),[]);
+
+            return (
+                <>
+                    <h1>REQRES 데이터 예제</h1>
+                    <hr/>
+                    {}
+                    <ListView list = {userList}/>
+                </>
+            );
+        };
+
+        const app = ReactDOM.createRoot(document.querySelector("#app"));
+        app.render(<MainComponent/>);
+    </script>
+
+</body>
+</html>
