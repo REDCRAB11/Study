@@ -31,9 +31,23 @@
     <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         //함수 형태로 컴포넌트를 구현한다(functional component)
-        const ListInfo = (props) =>{};
+        const ListInfo = (props) =>{
+            //props.info라는 이름으로 정보가 전달된다. 
+            return(
+                <div>
+                    ({props.info.page} / {props.info.total_pages}) 총 {props.info.total}개의 데이터 
+                </div>                    
+            );
+        };
         const ListView = (props) =>{
-            //props.list라는 이름으로 데이터가 전달된다.
+            //props.list, props.loading라는 이름으로 데이터가 전달된다.
+            if(props.loading){
+                return(
+                    <div>
+                        <h2>데이터를 불러오는 중.....</h2>
+                    </div> 
+                );
+            }
             if(props.list == undefined || props.list.length == 0){//데이터가 없는경우
                 return(
                     <div>
@@ -63,8 +77,12 @@
                 page:1, per_page:6, total:0, total_pages:0
             });
 
+            const [loading, setLoading] = React.useState(false);
+
             //effect(최초 1회)
             const loadList = () => {
+                setLoading(true);
+
                 axios({
                     url:"https://reqres.in/api/users",
                     method:"get",
@@ -79,8 +97,12 @@
                             total:resp.total,
                             total_pages:resp.total_pages
                         });
+                        setLoading(false);
                 })
-                .catch(e=>{});
+                .catch(e=>{
+                    window.alert("에러발생");
+                    setLoading(fasle);
+                });
                
             }                       
       
@@ -91,7 +113,9 @@
                     <h1>REQRES 데이터 예제</h1>
                     <hr/>
                     {}
-                    <ListView list = {userList}/>
+                    <ListInfo info={info}/>
+                    <ListView list = {userList} loading={loading}/>
+                    <ListInfo info={info}/>
                 </>
             );
         };

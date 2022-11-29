@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+</head>
+<body>
+    <!-- 제어 영역 설정 -->
+    <div id="app"></div>
+
+    <!-- axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- react 라이브러리 -->
+    <!-- 개발용 CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 배포용 CDN -->
+    <!--
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    -->
+
+    <!-- 바벨 CDN(using JSX) -->
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //함수 형태로 컴포넌트를 구현한다(functional component)
+        const PocketMonsterList = props=>{
+            if(props.loading) {//로딩중
+                return (
+                    <>
+                        <h2>Loading...</h2>
+                    </>
+                )
+            }
+            else if(props.list == undefined || props.list.length == 0){//데이터없음
+                return (
+                    <>
+                        <h2>No result</h2>
+                    </>
+                )
+            }
+            else {//데이터 있음 -> .map()
+                const html = props.list.map(monster=>(
+                    <div key={monster.no}>
+                        번호 : {monster.no},
+                        이름 : {monster.name},
+                        속성 : {monster.type}
+                    </div>
+                ));
+                return html;
+            }
+            
+        };
+        const MainComponent = ()=> {
+            //state
+            const [monsterList, setMonsterList] = React.useState([]);
+            const [loading, setLoading] = React.useState(false);
+
+            //effect
+            const loadList = ()=>{
+                setLoading(true);
+                axios({
+                    url:"http://localhost:8888/rest/pocketmon",
+                    method:"get",
+                    //responseType:"json"
+                }).then(respObject=>{
+                    setMonsterList(respObject.data);
+                })
+                .catch(e=>{})
+                .finally(()=>{
+                    setLoading(false);
+                });
+            };
+            React.useEffect(loadList, [ ]);
+            //React.useEffect(()=>loadList(), [ ]);
+
+            return (
+                <>
+                    <h1>포켓몬 도감</h1>
+                    <hr/>
+                    <PocketMonsterList list={monsterList} loading={loading}/>
+                </>
+            );
+        };
+
+        const app = ReactDOM.createRoot(document.querySelector("#app"));
+        app.render(<MainComponent/>);
+    </script>
+
+</body>
+</html>
