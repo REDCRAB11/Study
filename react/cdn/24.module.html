@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모듈 시스템</title>
+    <!-- 본격적으로 자바스크립트 모듈을 사용하려면 type선언해야한다.-->
+    <script type="module">
+        // import{c} from './24.module.js';
+        // console.log(c);
+
+        // import{hell} from'./24.module.js';
+        // hell();
+
+        import{c, hell as goodbye} from'./24.module.js';
+        goodbye();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -128,7 +128,7 @@
                 const choice = window.confirm("정말 삭제할거야..?");
                 if(choice == false)return;
                 axios({
-                    url:"http://localhost:8888/rest/pocketmon/"+props.monster.no,
+                    url:"http://localhost:8888/rest/pocketmo삭n/"+props.monster.no,
                     method:"delete",
                     resposeType:"text",
                 }).then(respObject=>{
