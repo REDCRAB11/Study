@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+</head>
+<body>
+    <!-- 제어 영역 설정 -->
+    <div id="app"></div>
+
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <!-- react 라이브러리 -->
+    <!-- 개발용 CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 배포용 CDN -->
+    <!--
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    -->
+
+    <!-- 바벨 CDN(using JSX) -->
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //비동기 데이터 로드
+        //- vanillaJS, jquery, fetch api, axios 등 다양한 방식의 비동기 요청이 가능
+        //- 데이터는 언제 불러와야 하는지에 대한 시점 설정이 중요!
+        //- React.useEffect를 사용하여 마운트 시점에 1회만 데이터를 설정하도록 구현
+        //- React.useEffect(함수, 항목)에서 항목을 비워두면 1회만 실행됨
+
+        const ProductList = (props)=>{
+            if(props.data == undefined || props.data.length == 0) {
+                return <h2>데이터가 존재하지 않습니다</h2>
+            }
+            else {
+                const html = props.data.map(product=>(
+                    <div key={product.no}>
+                        <h2>{product.name}</h2>
+                        <p>
+                            분류 : {product.type}, 
+                            가격 : {product.price} 원
+                        </p>
+                    </div>
+                ));
+                return html;
+                // return <div className="outer">{html}</div>
+            }
+        };
+        const MainComponent = ()=> {
+            //문제 : product 데이터들을 state에 선언하고 이를 이용한 목록 출력
+            const [productList, setProductList] = React.useState([]);
+
+            //useEffect를 사용하여 최초 1회만 데이터를 로드
+            React.useEffect(()=>{
+                //console.log("effect 실행");
+                $.ajax({
+                    url:"http://192.168.30.52:8888/rest/product",
+                    method:"get",
+                    dataType:"json",
+                    success:function(resp) {
+                        setProductList(resp);
+                    }
+                });
+            }, []);
+
+            return (
+                <>
+                    <h1>상품 목록</h1>
+                    <ProductList data={productList}/>
+                </>
+            );
+        };
+
+        const app = ReactDOM.createRoot(document.querySelector("#app"));
+        app.render(<MainComponent/>);
+    </script>
+
+</body>
+</html>

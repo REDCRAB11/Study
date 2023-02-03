@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+</head>
+<body>
+    <!-- 제어 영역 설정 -->
+    <div id="app"></div>
+
+    <!-- react 라이브러리 -->
+    <!-- 개발용 CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 배포용 CDN -->
+    <!--
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    -->
+
+    <!-- 바벨 CDN(using JSX) -->
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //함수 형태로 컴포넌트를 구현한다(functional component)
+        const OperationList = (props)=>{
+            if(props.data == undefined || props.data.length == 0) {
+                return <h2>데이터가 존재하지 않습니다</h2>
+            }
+            else {
+                const html = props.data.map(product=>(
+                    <div key={patient_no}>
+                        <h2>{patient_name}</h2>
+                        <p>
+                            진단명 : {diagnosis_title}
+                        </p>
+                    </div>
+                ));
+                return html;
+                // return <div className="outer">{html}</div>
+            }
+        };
+        const MainComponent = ()=> {
+            //문제 : product 데이터들을 state에 선언하고 이를 이용한 목록 출력
+            const [productList, setProductList] = React.useState([
+                {no:1, name:'스크류바', type:'아이스크림', price:1200},
+                {no:2, name:'마이쮸', type:'사탕', price:900},
+                {no:3, name:'초코파이', type:'과자', price:3000},
+                {no:4, name:'맛동산', type:'과자', price:2200}
+            ]);
+
+            return (
+                <>
+                    <h1>상품 목록</h1>
+                    <ProductList data={productList}/>
+                </>
+            );
+        };
+
+        const app = ReactDOM.createRoot(document.querySelector("#app"));
+        app.render(<MainComponent/>);
+    </script>
+
+</body>
+</html>

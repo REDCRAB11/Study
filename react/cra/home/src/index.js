@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import{BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import ContextStore from 'react/cra/home/ContextStore.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <App />
+    {/*context api의 사용범위를 지정*/}
+    <ContextStore.Provider value={{number:100}}>
+      <App />
+    </ContextStore.Provider>
     </BrowserRouter>
   </React.StrictMode>
 );
